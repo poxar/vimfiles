@@ -37,8 +37,12 @@ let &g:backupdir=g:vimdir.'tmp/backup'
 let &g:undodir=g:vimdir.'tmp/undo'
 let &g:viminfo="'100,<1000,s100,h,n".g:vimdir."viminfo"
 
-set backup               " make backups (to backupdir)
-set nowritebackup        " write files directly to disc
+set backup               " keep backups
+if has("win32")
+    " don't overwrite my hardlinks, please
+    " still overwrites symlinks for some reason
+    set backupcopy=yes
+endif
 set undofile             " use a (persistent) undo file
 set history=100          " save 100 entries for each history
 
