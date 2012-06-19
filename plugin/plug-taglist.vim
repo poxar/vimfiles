@@ -9,7 +9,7 @@ if exists("g:did_vundle_setup")
     let Tlist_File_Fold_Auto_Close = 0
 
     if has("win32")
-        let Tlist_Ctags_Cmd = 'ctags'
+        let Tlist_Ctags_Cmd = 'C:\Program Files (x86)\ctags58\ctags.exe'
     else
         let Tlist_Ctags_Cmd = '/usr/bin/ctags'
     endif
