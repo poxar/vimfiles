@@ -22,6 +22,8 @@ nnoremap ` '
 " use H L to go to the start/end of a line
 nnoremap H g0
 nnoremap L g$
+" use return for foldings
+nnoremap <cr> za
 
 " simplify window-management
 noremap <C-h> <C-w>h
