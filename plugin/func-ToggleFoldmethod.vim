@@ -1,13 +1,13 @@
 " change foldmethod
 
 function! ToggleFoldmethod()
-	if(&fdm == "marker")
-		set fdm=syntax
+        if(&fdm == "marker")
+                set fdm=syntax
                 set fdm?
-	else
-		set fdm=marker
+        else
+                set fdm=marker
                 set fdm?
-	endif
+        endif
 endfunc
 
 nnoremap <F2> :call ToggleFoldmethod()<cr>
