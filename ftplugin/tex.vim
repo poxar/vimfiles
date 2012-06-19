@@ -10,7 +10,7 @@ else
 endif
 
 " open a preview with <F11>
-map <F11> :!zathura %<.pdf &>/dev/null &<CR>
+nnoremap <F12> :!zathura %<.pdf &>/dev/null &<CR>
 
 " build the document when saving
 au BufWritePost *.tex make
