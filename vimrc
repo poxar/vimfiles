@@ -26,6 +26,21 @@ else
     call vundle#rc('$HOME/vimfiles/bundle/')
 endif
 Bundle 'gmarik/vundle'
+
+Bundle 'Shougo/neocomplcache'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
+Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'rygwdn/ultisnips'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-pandoc/vim-pandoc'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'xolox/vim-notes'
+
 let g:did_vundle_setup=1
 " ==============================================================================
 " }}}

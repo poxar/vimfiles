@@ -2,8 +2,6 @@
 
 if exists("g:did_vundle_setup")
 
-    Bundle 'altercation/vim-colors-solarized'
-
     let g:solarized_underline=0
     let g:solarized_termcolors=256
     let g:solarized_contrast="high"

@@ -2,8 +2,6 @@
 " have a look at my zsh functions to interact with the notes from within zsh
 
 if exists("g:did_vundle_setup")
-    Bundle 'xolox/vim-notes'
-
     if has("win32")
         let g:notes_directory='D:\data\Dropbox\notes'
     else
