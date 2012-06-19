@@ -83,6 +83,7 @@ endif
 
 set langmenu=en_US.UTF-8
 let $LANG = 'en_US.UTF-8'
+set encoding=utf-8
 "}}}
 " ui {{{
 filetype plugin indent on
