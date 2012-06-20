@@ -1,13 +1,14 @@
+" vim:set sw=4 foldmethod=marker ft=vim expandtab:
 
-"###
-"#
-"# vimrc
-"# global settings for vim
-"# Maintainer: Philipp Millar <philipp.millar@gmx.de>
-"#
-"# Note: mappings and abbreviations live under plugin
-"#
-"###
+"==
+"
+" vimrc
+" global settings for vim
+" Maintainer: Philipp Millar <philipp.millar@gmx.de>
+"
+" Note: mappings and abbreviations live under plugin
+"
+"==
 
 
 "========================================================================="
@@ -111,7 +112,6 @@ else
     set fileformats=unix,dos,mac
     set background=dark
 endif
-colorscheme solarized
 
 " gui settings
 if has("gui_running")
@@ -163,6 +163,7 @@ let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 let g:solarized_diffmode="high"
 let g:solarized_hitrail=1
+colorscheme solarized
 
 " NERDTree
 let g:NERDTreeHijackNetrw=0
@@ -275,5 +276,3 @@ let @j='yiwy0opVr J'
 " ==============================================================================
 "}}}
 
-
-" vim:set sw=4 foldmethod=marker ft=vim expandtab:

@@ -1,11 +1,12 @@
+" vim:set sw=4 foldmethod=marker ft=vim expandtab:
 
-"###
-"#
-"# mappings.vim
-"# mappings for vim
-"# Maintainer: Philipp Millar <philipp.millar@gmx.de>
-"#
-"###
+"==
+"
+" mappings.vim
+" mappings for vim
+" Maintainer: Philipp Millar <philipp.millar@gmx.de>
+"
+"==
 
 " basic {{{
 " ==============================================================================
@@ -90,9 +91,4 @@ nnoremap <localleader>" ysiw"
 nnoremap <localleader>' ysiw'
 nnoremap <localleader>) ysiw)
 " }}}
-" new {{{
 
-" }}}
-
-
-" vim:set sw=4 foldmethod=marker ft=vim expandtab:
