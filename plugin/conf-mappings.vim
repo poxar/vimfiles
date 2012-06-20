@@ -80,10 +80,15 @@ execute "nnoremap <leader>sm :source ".g:vimdir."plugin/conf-mappings.vim<cr>"
 " abbrev.vim
 execute "nnoremap <leader>ea :vsplit ".g:vimdir."plugin/conf-abbrev.vim<cr>"
 execute "nnoremap <leader>sa :source ".g:vimdir."plugin/conf-abbrev.vim<cr>"
-" edit other files in the plugin directory
-execute "nnoremap <leader>ef :vsplit ".g:vimdir."plugin/"
-execute "nnoremap <leader>sf :source ".g:vimdir."plugin/"
 " ==============================================================================
+" }}}
+" plugins {{{
+" Note
+nmap <localleader>n :Note<Space>
+" Surround
+nnoremap <localleader>" ysiw"
+nnoremap <localleader>' ysiw'
+nnoremap <localleader>) ysiw)
 " }}}
 " new {{{
 
