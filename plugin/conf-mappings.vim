@@ -90,8 +90,6 @@ execute "nnoremap <leader>sa :source ".g:vimdir."plugin/conf-abbrev.vim<cr>"
 " ==============================================================================
 " }}}
 " plugins {{{
-" Note
-nmap <localleader>n :Note<Space>
 " Surround
 nnoremap <localleader>" ysiw"
 nnoremap <localleader>' ysiw'
