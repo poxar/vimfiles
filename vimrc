@@ -1,15 +1,10 @@
 " vim:set sw=4 foldmethod=marker ft=vim expandtab:
 
-"==
 "
 " vimrc
 " global settings for vim
 " Maintainer: Philipp Millar <philipp.millar@gmx.de>
 "
-" Note: mappings and abbreviations live under plugin
-"
-"==
-
 
 "========================================================================="
 "                                Settings                                 "
@@ -148,15 +143,6 @@ let Tlist_Compact_Format = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_File_Fold_Auto_Close = 0
 
-" Notes
-if has("win32")
-    let g:notes_directory='D:\data\Dropbox\notes'
-else
-    let g:notes_directory = '~/.pim/notes'
-endif
-let g:pad_dir=g:notes_directory
-let g:pad_use_default_mappings=0
-
 " Solarized
 let g:solarized_underline=0
 let g:solarized_termcolors=256
@@ -255,6 +241,101 @@ nnoremap <F3> :call ToggleNumberMode()<cr>
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+" }}}
+
+"========================================================================="
+"                                Mappings                                 "
+"========================================================================="
+" basic {{{
+" ==============================================================================
+" leave insert mode quickly
+inoremap jk <esc>
+" Don't use Ex mode, use Q for formatting
+vnoremap Q gq
+nnoremap Q gqap
+" make Y consistent with D and C
+nnoremap Y y$
+" swap ' and ` so 'a goes to line and column marked with ma
+nnoremap ' `
+nnoremap ` '
+" use H L to go to the start/end of a line
+nnoremap H g0
+nnoremap L g$
+" use return for foldings
+nnoremap <cr> za
+
+" simplify window-management
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+" split windows quickly
+nnoremap <leader>vs :vsplit<cr>
+nnoremap <leader>ss :split<cr>
+
+" cope
+nnoremap <leader>co :botright cope<cr>
+nnoremap <leader>cn :cn<cr>
+nnoremap <leader>cp :cp<cr>
+" location list
+nnoremap <leader>lo :lopen<cr>
+nnoremap <leader>ln :lnext<cr>
+nnoremap <leader>lp :lprevious<cr>
+" ==============================================================================
+" }}}
+" function keys {{{
+" ==============================================================================
+nnoremap  <F1> :set<space>spell!<space>\|<space>set<space>spell?<cr>
+"         <F2> toggles foldmethod between marker and sytax
+"         <F3> toggles number style
+nnoremap  <F4> :set<space>paste!<space>\|<space>set<space>paste?<cr>
+nnoremap  <F5> :nohlsearch<cr>
+nnoremap  <F6> :set<space>list!<space>\|<space>set<space>list?<cr>
+"         <F7> unbound
+"         <F8> unbound
+nnoremap  <F9> :GundoToggle<cr>
+nnoremap <F10> :TlistToggle<cr>
+nnoremap <F11> :NERDTreeToggle<cr>
+"        <F12> opens previews (LaTeX)
+" ==============================================================================
+" }}}
+" open, write and source special files {{{
+" ==============================================================================
+" write file as root
+if has("unix")
+    cnoremap w!! w !sudo tee % >/dev/null
+endif
+
+" open todo file
+if has("unix")
+    nnoremap <leader>t :e ~/data/Dropbox/todo/todo.txt<cr>
+else
+    nnoremap <leader>t :e ~/todo.txt<cr>
+endif
+" open notes directory
+if has("unix")
+    nnoremap <leader>n :e ~/.pim/notes<cr>
+else
+    nnoremap <leader>n :e D:\data\Dropbox\notes<cr>
+endif
+
+" vimrc
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>esv :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+" ==============================================================================
+" }}}
+" plugins {{{
+" Surround
+nnoremap <localleader>" ysiw"
+nnoremap <localleader>' ysiw'
+nnoremap <localleader>) ysiw)
+" }}}
+" abbreviations {{{
+" the look of disapproval (and friends)
+iabbrev ldis ಠ_ಠ
+iabbrev lsad ಥ_ಥ
+iabbrev lhap ಥ‿ಥ
 " }}}
 
 "========================================================================="
