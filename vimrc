@@ -124,7 +124,7 @@ if has("gui_running")
     set guioptions-=b
 
     if has("unix")
-        set guifont=Anonymous\ Pro\ 13
+        set guifont=DejaVu\ Sans\ Mono\ 11
     else
         set guifont=Consolas:h11:cANSI
     endif
