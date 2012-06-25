@@ -31,6 +31,9 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+" split windows quickly
+nnoremap <leader>vs :vsplit<cr>
+nnoremap <leader>ss :split<cr>
 
 " cope
 nnoremap <leader>co :botright cope<cr>
@@ -73,13 +76,16 @@ else
 endif
 
 " vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>esv :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " mappings.vim
-execute "nnoremap <leader>em :vsplit ".g:vimdir."plugin/conf-mappings.vim<cr>"
+execute "nnoremap <leader>em :edit ".g:vimdir."plugin/conf-mappings.vim<cr>"
+execute "nnoremap <leader>evm :vsplit ".g:vimdir."plugin/conf-mappings.vim<cr>"
 execute "nnoremap <leader>sm :source ".g:vimdir."plugin/conf-mappings.vim<cr>"
 " abbrev.vim
-execute "nnoremap <leader>ea :vsplit ".g:vimdir."plugin/conf-abbrev.vim<cr>"
+execute "nnoremap <leader>ea :edit ".g:vimdir."plugin/conf-abbrev.vim<cr>"
+execute "nnoremap <leader>eva :vsplit ".g:vimdir."plugin/conf-abbrev.vim<cr>"
 execute "nnoremap <leader>sa :source ".g:vimdir."plugin/conf-abbrev.vim<cr>"
 " ==============================================================================
 " }}}
