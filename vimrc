@@ -44,7 +44,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'rygwdn/ultisnips'
 Bundle 'vim-scripts/taglist.vim'
-Bundle 'xolox/vim-notes'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 "}}}
@@ -155,6 +154,8 @@ if has("win32")
 else
     let g:notes_directory = '~/.pim/notes'
 endif
+let g:pad_dir=g:notes_directory
+let g:pad_use_default_mappings=0
 
 " Solarized
 let g:solarized_underline=0
