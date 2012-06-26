@@ -37,7 +37,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-pandoc/vim-pandoc'
-Bundle 'rygwdn/ultisnips'
+Bundle 'UltiSnips'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
@@ -119,7 +119,7 @@ if has("gui_running")
     set guioptions-=b
 
     if has("unix")
-        set guifont=DejaVu\ Sans\ Mono\ 11
+        set guifont=DejaVu\ Sans\ Mono\ 10
     else
         set guifont=Consolas:h11:cANSI
     endif
