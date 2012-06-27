@@ -355,6 +355,9 @@ augroup END
 
 " indent next line to match current word
 let @j='yiwy0opVr J'
+" underline the current line
+let @h='yyp0v$r='
+let @u='yyp0v$r-'
 " ==============================================================================
 "}}}
 
