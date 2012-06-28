@@ -222,8 +222,6 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 "========================================================================="
 " basic {{{
 " ==============================================================================
-" leave insert mode quickly
-inoremap jk <esc>
 " Don't use Ex mode, use Q for formatting
 vnoremap Q gq
 nnoremap Q gqap
@@ -237,12 +235,26 @@ nnoremap H g0
 nnoremap L g$
 " use return for foldings
 nnoremap <cr> za
+" ==============================================================================
+" }}}
+" insert mode {{{
+" ==============================================================================
+" leave insert mode quickly
+inoremap jk <esc>
 
+" some readline stuff
+inoremap <C-a> <C-o>g0
+inoremap <C-e> <C-o>g$
+" ==============================================================================
+" }}}
+" window management {{{
+" ==============================================================================
 " simplify window-management
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+
 " split windows quickly
 nnoremap <leader>vs :vsplit<cr>
 nnoremap <leader>ss :split<cr>
