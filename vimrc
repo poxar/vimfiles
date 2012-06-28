@@ -280,7 +280,7 @@ nnoremap  <F4> :set<space>paste!<space>\|<space>set<space>paste?<cr>
 nnoremap  <F5> :nohlsearch<cr>
 nnoremap  <F6> :set<space>list!<space>\|<space>set<space>list?<cr>
 "         <F7> unbound
-"         <F8> unbound
+nnoremap  <F8> :NeoComplCacheToggle<cr>
 nnoremap  <F9> :GundoToggle<cr>
 nnoremap <F10> :TlistToggle<cr>
 nnoremap <F11> :NERDTreeToggle<cr>
