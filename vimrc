@@ -161,32 +161,6 @@ let g:NERDTreeMinimalUI=1
 "========================================================================="
 "                                Functions                                "
 "========================================================================="
-" BufClose {{{
-" Don't close view, when deleting a buffer
-" http://amix.dk/vim/vimrc.html
-
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
-
-nnoremap <localleader>bd :Bclose<cr>
-"}}}
 " SelectLanguage {{{
 " function to change the spell-language
 set spelllang=en
@@ -272,6 +246,8 @@ noremap <C-l> <C-w>l
 " split windows quickly
 nnoremap <leader>vs :vsplit<cr>
 nnoremap <leader>ss :split<cr>
+" kill buffer without closing the window/view
+nnoremap <leader>bd :bp\|bd #<cr>
 
 " cope
 nnoremap <leader>co :botright cope<cr>
