@@ -135,7 +135,7 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 
 " TagList
 if has("win32")
-    let Tlist_Ctags_Cmd = 'C:\Program Files (x86)\ctags58\ctags.exe'
+    let Tlist_Ctags_Cmd = 'C:/ctags58/ctags.exe'
 else
     let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 endif
