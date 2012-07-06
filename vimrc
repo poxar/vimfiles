@@ -41,6 +41,7 @@ Bundle 'UltiSnips'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
+Bundle 'xolox/vim-easytags'
 Bundle 'javacomplete'
 "}}}
 " vim {{{
@@ -147,6 +148,14 @@ endif
 let Tlist_Compact_Format = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_File_Fold_Auto_Close = 0
+
+" EasyTags
+let g:easytags_by_filetype = g:vimdir."tags"
+let g:easytags_cmd = g:Tlist_Ctags_Cmd
+let g:easytags_dynamic_files = 1
+if has("unix")
+    let g:easytags_resolve_links = 1
+endif
 
 " Solarized
 let g:solarized_underline=0
