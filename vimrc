@@ -171,6 +171,7 @@ colorscheme solarized
 let g:NERDTreeHijackNetrw=0
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMinimalUI=1
+let g:NERDTreeWinPos="right"
 
 " CtrlP
 let g:ctrlp_clear_cache_on_exit=0
