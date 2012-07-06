@@ -43,6 +43,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'xolox/vim-easytags'
 Bundle 'javacomplete'
+Bundle 'kien/ctrlp.vim'
 "}}}
 " vim {{{
 filetype plugin indent on
@@ -170,6 +171,10 @@ colorscheme solarized
 let g:NERDTreeHijackNetrw=0
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMinimalUI=1
+
+" CtrlP
+let g:ctrlp_clear_cache_on_exit=0
+let g:ctrlp_max_depth=10
 
 " NeoComplCache
 let g:neocomplcache_enable_auto_delimiter=1
@@ -346,9 +351,14 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " }}}
 " plugins {{{
 " Surround
-nnoremap <localleader>" ysiw"
-nnoremap <localleader>' ysiw'
-nnoremap <localleader>) ysiw)
+nnoremap <leader>" ysiw"
+nnoremap <leader>' ysiw'
+nnoremap <leader>) ysiw)
+" CtrlP
+nnoremap <leader>p :CtrlP<cr>
+nnoremap <leader>pb :CtrlPBuffer<cr>
+nnoremap <leader>pm :CtrlPMRUFiles<cr>
+nnoremap <leader>pt :CtrlPTag<cr>
 " }}}
 " abbreviations {{{
 " the look of disapproval (and friends)
