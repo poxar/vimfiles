@@ -41,6 +41,7 @@ Bundle 'UltiSnips'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
+Bundle 'javacomplete'
 "}}}
 " vim {{{
 filetype plugin indent on
@@ -73,7 +74,10 @@ set lazyredraw             " do not redraw while running macros
 
 set wildmenu               " completion-menu
 set wildmode=full          " Tab cycles between all matching choices
+set wildignorecase         " ignore case in filenames
 set backup                 " keep backups
+set completeopt=menuone,preview
+set ofu=syntaxcomplete#Complete
 
 set shiftwidth=4           " use 4 blanks as indent
 set autoindent             " automatic indenting
@@ -127,6 +131,7 @@ if has("gui_running")
     " I hate popups, use console messages instead
     set guioptions+=c
 endif
+
 " }}}
 " plugins {{{
 
@@ -156,6 +161,20 @@ colorscheme solarized
 let g:NERDTreeHijackNetrw=0
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMinimalUI=1
+
+" NeoComplCache
+let g:neocomplcache_enable_auto_delimiter=1
+
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+let g:neocomplcache_enable_at_startup=1
 "}}}
 
 "========================================================================="
@@ -245,6 +264,9 @@ inoremap jk <esc>
 " some readline stuff
 inoremap <C-a> <C-o>g0
 inoremap <C-e> <C-o>g$
+
+" omni-completion
+inoremap <C-L> <C-X><C-O>
 " ==============================================================================
 " }}}
 " window management {{{
