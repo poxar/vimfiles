@@ -366,6 +366,8 @@ nnoremap <leader>pt :CtrlPTag<cr>
 iabbrev ldis ಠ_ಠ
 iabbrev lsad ಥ_ಥ
 iabbrev lhap ಥ‿ಥ
+
+cabbr <expr> %% expand('%:p:h')
 " }}}
 
 "========================================================================="
