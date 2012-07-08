@@ -350,6 +350,9 @@ endif
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>esv :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+" ftplugin
+execute "nnoremap <leader>ef :edit ".g:vimdir."ftplugin"
+execute "nnoremap <leader>esf :vsplit ".g:vimdir."ftplugin"
 " ==============================================================================
 " }}}
 " plugins {{{
