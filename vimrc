@@ -45,7 +45,6 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'xolox/vim-easytags'
 Bundle 'javacomplete'
-Bundle 'kien/ctrlp.vim'
 "}}}
 " vim {{{
 filetype plugin indent on
@@ -353,11 +352,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>" ysiw"
 nnoremap <leader>' ysiw'
 nnoremap <leader>) ysiw)
-" CtrlP
-nnoremap <leader>p :CtrlP<cr>
-nnoremap <leader>pb :CtrlPBuffer<cr>
-nnoremap <leader>pm :CtrlPMRUFiles<cr>
-nnoremap <leader>pt :CtrlPTag<cr>
 " }}}
 " abbreviations {{{
 " the look of disapproval (and friends)
