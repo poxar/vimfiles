@@ -36,6 +36,9 @@ Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-repeat'
 Bundle 'UltiSnips'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'altercation/vim-colors-solarized'
@@ -299,12 +302,8 @@ nnoremap <leader>bd :bp\|bd #<cr>
 
 " cope
 nnoremap <leader>co :botright cope<cr>
-nnoremap <leader>cn :cn<cr>
-nnoremap <leader>cp :cp<cr>
 " location list
 nnoremap <leader>lo :lopen<cr>
-nnoremap <leader>ln :lnext<cr>
-nnoremap <leader>lp :lprevious<cr>
 " ==============================================================================
 " }}}
 " function keys {{{
