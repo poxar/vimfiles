@@ -45,6 +45,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'xolox/vim-easytags'
 Bundle 'javacomplete'
+Bundle 'godlygeek/tabular'
 "}}}
 " vim {{{
 filetype plugin indent on
