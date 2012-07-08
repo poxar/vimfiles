@@ -271,6 +271,10 @@ nnoremap H g0
 nnoremap L g$
 " use space for foldings
 nnoremap <space> za
+" quick make
+nnoremap <leader>m  :make
+nnoremap <leader>mm :make<cr><cr>
+nnoremap <leader>mc :make clean<cr><cr>
 " ==============================================================================
 " }}}
 " insert mode {{{
