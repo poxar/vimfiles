@@ -69,7 +69,6 @@ set undofile               " use a (persistent) undo file
 set history=100            " save 100 entries for each history
 
 set cryptmethod=blowfish   " use blowfish to encrypt files
-set autochdir              " change pwd automatically
 set hidden                 " allow hidden buffers
 set modelines=2            " search for modelines
 set clipboard=unnamed      " synchronize unnamed buffer and system clipboard
