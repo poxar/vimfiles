@@ -46,6 +46,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'xolox/vim-easytags'
 Bundle 'javacomplete'
 Bundle 'godlygeek/tabular'
+Bundle 'sjbach/lusty'
 "}}}
 " vim {{{
 filetype plugin indent on
