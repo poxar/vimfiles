@@ -82,6 +82,7 @@ set wildignorecase         " ignore case in filenames
 set backup                 " keep backups
 set completeopt=menuone,preview
 set ofu=syntaxcomplete#Complete
+set complete=.,b,u,]
 
 set shiftwidth=4           " use 4 blanks as indent
 set autoindent             " automatic indenting
