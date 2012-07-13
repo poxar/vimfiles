@@ -275,6 +275,8 @@ nnoremap <space> za
 nnoremap <leader>m  :make
 nnoremap <leader>mm :make<cr><cr>
 nnoremap <leader>mc :make clean<cr><cr>
+" jump to tag in new split
+nnoremap <leader>t :vsp<cr>:ene<cr>:tag<space>
 " ==============================================================================
 " }}}
 " insert mode {{{
@@ -333,12 +335,6 @@ if has("unix")
     cnoremap w!! w !sudo tee % >/dev/null
 endif
 
-" open todo file
-if has("unix")
-    nnoremap <leader>t :e ~/data/Dropbox/todo/todo.txt<cr>
-else
-    nnoremap <leader>t :e ~/todo.txt<cr>
-endif
 " open notes directory
 if has("unix")
     nnoremap <leader>n :e ~/.pim/notes<cr>
