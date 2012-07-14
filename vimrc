@@ -46,6 +46,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'xolox/vim-easytags'
 Bundle 'javacomplete'
 Bundle 'godlygeek/tabular'
+Bundle 'sjbach/lusty'
 "}}}
 " vim {{{
 filetype plugin indent on
@@ -69,7 +70,6 @@ set undofile               " use a (persistent) undo file
 set history=100            " save 100 entries for each history
 
 set cryptmethod=blowfish   " use blowfish to encrypt files
-set autochdir              " change pwd automatically
 set hidden                 " allow hidden buffers
 set modelines=2            " search for modelines
 set clipboard=unnamed      " synchronize unnamed buffer and system clipboard
@@ -85,6 +85,7 @@ endif
 set backup                 " keep backups
 set completeopt=menuone,preview
 set ofu=syntaxcomplete#Complete
+set complete=.,b,u,]
 
 set shiftwidth=4           " use 4 blanks as indent
 set autoindent             " automatic indenting
@@ -278,6 +279,11 @@ nnoremap <space> za
 nnoremap <leader>m  :make
 nnoremap <leader>mm :make<cr><cr>
 nnoremap <leader>mc :make clean<cr><cr>
+" jump to tag in new split
+nnoremap <leader>t :vsp<cr>:ene<cr>:tag<space>
+" make p in visual mode keep the content after pasting
+" http://www.reddit.com/r/vim/comments/wii9v/try_that_xnoremap_expr_p_vregisterpgvyp/
+xnoremap <expr> p v:register=='"':'pgvy':'p'
 " ==============================================================================
 " }}}
 " insert mode {{{
@@ -336,12 +342,6 @@ if has("unix")
     cnoremap w!! w !sudo tee % >/dev/null
 endif
 
-" open todo file
-if has("unix")
-    nnoremap <leader>t :e ~/data/Dropbox/todo/todo.txt<cr>
-else
-    nnoremap <leader>t :e ~/todo.txt<cr>
-endif
 " open notes directory
 if has("unix")
     nnoremap <leader>n :e ~/.pim/notes<cr>
