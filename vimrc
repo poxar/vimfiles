@@ -78,7 +78,10 @@ set lazyredraw             " do not redraw while running macros
 
 set wildmenu               " completion-menu
 set wildmode=full          " Tab cycles between all matching choices
-set wildignorecase         " ignore case in filenames
+if has("unix")
+    " ignore case in filenames
+    set wildignorecase
+endif
 set backup                 " keep backups
 set completeopt=menuone,preview
 set ofu=syntaxcomplete#Complete
