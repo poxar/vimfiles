@@ -49,6 +49,7 @@ Bundle 'godlygeek/tabular'
 if has("unix")
     Bundle 'sjbach/lusty'
 endif
+Bundle 'coderifous/textobj-word-column.vim'
 "}}}
 " vim {{{
 filetype plugin indent on
