@@ -285,9 +285,6 @@ nnoremap <leader>mm :make<cr><cr>
 nnoremap <leader>mc :make clean<cr><cr>
 " jump to tag in new split
 nnoremap <leader>t :vsp<cr>:ene<cr>:tag<space>
-" make p in visual mode keep the content after pasting
-" http://www.reddit.com/r/vim/comments/wii9v/try_that_xnoremap_expr_p_vregisterpgvyp/
-xnoremap <expr> p v:register=='"':'pgvy':'p'
 " clear search highlight
 nnoremap <leader><space> :nohlsearch<cr>
 " ==============================================================================
