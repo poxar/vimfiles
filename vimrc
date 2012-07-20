@@ -109,7 +109,8 @@ set encoding=utf-8
 " ignore certain files when tab-completing
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 " show tabs and trailing spaces
-set listchars=tab:>-,trail:-
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set showbreak=↪
 
 if has("win32")
     set fileformats=dos,unix,mac
