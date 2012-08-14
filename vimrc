@@ -101,6 +101,7 @@ set ignorecase             " search is case insensitive,
 set smartcase              " except when upper-case letters are used
 set incsearch              " show search results immediately
 set hlsearch               " highlight results
+set gdefault               " reverse the meaning of /g in patterns
 
 set langmenu=en_US.UTF-8
 let $LANG = 'en_US.UTF-8'
