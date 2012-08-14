@@ -95,7 +95,7 @@ set smarttab               " use tab for indent levels at a blank line
 set expandtab              " expand tabs with spaces
 set nojoinspaces           " J(oin) doesn't add useless blanks
 set whichwrap=""           " don't jump over linebounds
-set backspace=indent,start " don't allow backspacing over eol in insert mode
+set backspace=indent,eol   " define behaviour of the backspace key
 
 set ignorecase             " search is case insensitive,
 set smartcase              " except when upper-case letters are used
