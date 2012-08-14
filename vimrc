@@ -29,7 +29,6 @@ endif
 Bundle 'gmarik/vundle'
 
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Shougo/neocomplcache'
 Bundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'sjl/gundo.vim'
@@ -182,24 +181,6 @@ let g:NERDTreeHijackNetrw=0
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinPos="right"
-
-" CtrlP
-let g:ctrlp_clear_cache_on_exit=0
-let g:ctrlp_max_depth=10
-
-" NeoComplCache
-let g:neocomplcache_enable_auto_delimiter=1
-
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-
-let g:neocomplcache_enable_at_startup=1
 "}}}
 
 "========================================================================="
