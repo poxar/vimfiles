@@ -225,7 +225,7 @@ function! StripWhitespace()
         exec ':%s/ \+$//gc'
 endfunction
 
-nnoremap <localleader>s :call StripWhitespace()<cr>
+nnoremap <localleader>s<space> :call StripWhitespace()<cr>
 "}}}
 " ToggleFoldmethod {{{
 function! ToggleFoldmethod()
