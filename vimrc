@@ -287,6 +287,9 @@ nnoremap <leader>mc :make clean<cr><cr>
 nnoremap <leader>t :vsp<cr>:ene<cr>:tag<space>
 " clear search highlight
 nnoremap <leader><space> :nohlsearch<cr>
+" center screen after certain motions
+nnoremap n nzz
+nnoremap } }zz
 " ==============================================================================
 " }}}
 " insert mode {{{
