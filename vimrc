@@ -39,16 +39,20 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-repeat'
 Bundle 'UltiSnips'
-Bundle 'vim-scripts/taglist.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
+Bundle 'thawk/OmniCppComplete'
+
+Bundle 'xolox/vim-shell'
 Bundle 'xolox/vim-easytags'
-Bundle 'javacomplete'
 Bundle 'godlygeek/tabular'
+Bundle 'mileszs/ack.vim'
 if has("unix")
     Bundle 'sjbach/lusty'
+    Bundle 'javacomplete'
 endif
-Bundle 'coderifous/textobj-word-column.vim'
+if has("win32")
+endif
 "}}}
 " vim {{{
 filetype plugin indent on
@@ -109,16 +113,18 @@ set encoding=utf-8
 
 " ignore certain files when tab-completing
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
-" show tabs and trailing spaces
-set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-set showbreak=↪
 
 if has("win32")
+    " show tabs and trailing spaces
+    set listchars=tab:▸\ ,eol:¬
     set fileformats=dos,unix,mac
     set backupcopy=yes     " don't overwrite my hardlinks, please
     set autoread           " read changes automatically
     set background=light
 else
+    " show tabs and trailing spaces
+    set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+    set showbreak=↪
     set fileformats=unix,dos,mac
     set background=dark
 endif
@@ -150,19 +156,13 @@ endif
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 
-" TagList
-if has("win32")
-    let Tlist_Ctags_Cmd = 'C:/ctags58/ctags.exe'
-else
-    let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-endif
-let Tlist_Compact_Format = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_File_Fold_Auto_Close = 0
-
 " EasyTags
 let g:easytags_by_filetype = g:vimdir."tags"
-let g:easytags_cmd = g:Tlist_Ctags_Cmd
+if has("win32")
+    let easytags_cmd = 'C:/Program Files/bin/ctags.exe'
+else
+    let easytags_cmd = '/usr/bin/ctags'
+endif
 let g:easytags_dynamic_files = 1
 if has("unix")
     let g:easytags_resolve_links = 1
@@ -316,11 +316,11 @@ nnoremap  <F4> :set<space>paste!<space>\|<space>set<space>paste?<cr>
 nnoremap  <F5> :nohlsearch<cr>
 nnoremap  <F6> :set<space>list!<space>\|<space>set<space>list?<cr>
 "         <F7> unbound
-nnoremap  <F8> :NeoComplCacheToggle<cr>
+"         <F8> unbound
 nnoremap  <F9> :GundoToggle<cr>
-nnoremap <F10> :TlistToggle<cr>
-nnoremap <F11> :NERDTreeToggle<cr>
-"        <F12> opens previews (LaTeX)
+nnoremap <F10> :NERDTreeToggle<cr>
+"        <F11> :Fullscreen<cr>
+"        <F12> opens previews (LaTeX), Generates tags
 " ==============================================================================
 " }}}
 " open, write and source special files {{{
@@ -334,7 +334,7 @@ endif
 if has("unix")
     nnoremap <leader>n :e ~/.pim/notes<cr>
 else
-    nnoremap <leader>n :e D:\data\Dropbox\notes<cr>
+    nnoremap <leader>n :e ~\Dropbox\notes\<cr>
 endif
 
 " vimrc
