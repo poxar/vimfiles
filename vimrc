@@ -378,7 +378,11 @@ endif
 " load skeleton files
 augroup skeleton
     au!
-    au BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
+    if has("unix")
+        au BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
+    elseif has("win32")
+        au BufNewFile * silent! 0r ~/vimfiles/skel/tmpl.%:e
+    endif
 augroup END
 
 " indent next line to match current word
