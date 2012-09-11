@@ -20,7 +20,7 @@ if has("unix")
     call vundle#rc()
 else
     " running on windows
-    let g:vimdir=$HOME."/vimfiles/"
+    let g:vimdir=$HOME."\\vimfiles\\"
     set rtp+=~/vimfiles/bundle/vundle
     call vundle#rc('$HOME/vimfiles/bundle/')
 endif
@@ -43,14 +43,11 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'thawk/OmniCppComplete'
 
-Bundle 'xolox/vim-shell'
-Bundle 'xolox/vim-easytags'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 if has("unix")
     Bundle 'sjbach/lusty'
     Bundle 'javacomplete'
-    Bundle 'clang_complete'
 endif
 if has("win32")
 endif
@@ -160,18 +157,6 @@ endif
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
-
-" EasyTags
-let g:easytags_by_filetype = g:vimdir."tags"
-if has("win32")
-    let easytags_cmd = 'C:/Program Files/bin/ctags.exe'
-else
-    let easytags_cmd = '/usr/bin/ctags'
-endif
-let g:easytags_dynamic_files = 1
-if has("unix")
-    let g:easytags_resolve_links = 1
-endif
 
 " Solarized
 let g:solarized_underline=0
