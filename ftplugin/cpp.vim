@@ -1,8 +1,10 @@
-set noexpandtab
-set tabstop=4
+setlocal noexpandtab
+setlocal tabstop=4
 
 " OmniCppComplete
-set tags+=C:\Users\philipp\vimfiles\tags\stdcpp
+if has("win32")
+    setlocal tags+=C:\Users\philipp\vimfiles\tags\stdcpp
+endif
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
 let OmniCpp_ShowAccess = 1
@@ -13,4 +15,6 @@ let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
+setlocal completeopt=menuone,menu,longest,preview
+
+inoremap <C-Space> <C-X><C-O>
