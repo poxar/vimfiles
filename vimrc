@@ -50,6 +50,7 @@ Bundle 'mileszs/ack.vim'
 if has("unix")
     Bundle 'sjbach/lusty'
     Bundle 'javacomplete'
+    Bundle 'clang_complete'
 endif
 if has("win32")
 endif
