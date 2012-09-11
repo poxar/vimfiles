@@ -127,7 +127,11 @@ else
     set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
     set showbreak=↪
     set fileformats=unix,dos,mac
-    set background=dark
+    if has("gui_running")
+        set background=light
+    else
+        set background=dark
+    endif
 endif
 
 " gui settings
