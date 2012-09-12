@@ -11,45 +11,13 @@
 "========================================================================="
 " init {{{
 set nocompatible " vim settings
-filetype off     " needed for vundle
+call pathogen#infect()
 
 " setup os-dependant variables and initialize vundle
 if has("unix")
     let g:vimdir=$HOME."/.vim/"
-    set rtp+=~/.vim/bundle/vundle
-    call vundle#rc()
-else
-    " running on windows
+else " running on windows
     let g:vimdir=$HOME."\\vimfiles\\"
-    set rtp+=~/vimfiles/bundle/vundle
-    call vundle#rc('$HOME/vimfiles/bundle/')
-endif
-"}}}
-" bundles {{{
-Bundle 'gmarik/vundle'
-
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
-Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-repeat'
-Bundle 'UltiSnips'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdtree'
-Bundle 'thawk/OmniCppComplete'
-
-Bundle 'godlygeek/tabular'
-Bundle 'mileszs/ack.vim'
-if has("unix")
-    Bundle 'sjbach/lusty'
-    Bundle 'javacomplete'
-endif
-if has("win32")
 endif
 "}}}
 " vim {{{
