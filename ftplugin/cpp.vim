@@ -3,8 +3,8 @@ setlocal tabstop=4
 
 " OmniCppComplete
 if has("win32")
-    setlocal tags+=C:\Users\philipp\vimfiles\tags\stdcpp
-    setlocal tags+=C:\Users\philipp\vimfiles\tags\stdqt
+    setlocal tags+=~\vimfiles\tags\stdcpp
+    setlocal tags+=~\vimfiles\tags\stdqt
 endif
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
