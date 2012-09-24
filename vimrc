@@ -113,7 +113,8 @@ if has("gui_running")
     if has("unix")
         set guifont=DejaVu\ Sans\ Mono\ 10
     else
-        set guifont=Consolas:h11:cANSI
+        set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
+        let g:Powerline_symbols='fancy'
     endif
 
     " I hate popups, use console messages instead
