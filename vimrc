@@ -83,8 +83,7 @@ if has("gui_running")
     set background=light
 
     " make the gui clean
-    set guioptions-=TRrLlb
-    set guioptions+=c
+    set guioptions=acegi
 
     if has("unix")
         set guifont=DejaVu\ Sans\ Mono\ 10
