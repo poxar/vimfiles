@@ -9,62 +9,38 @@
 "========================================================================="
 "                                Settings                                 "
 "========================================================================="
-" init {{{
-set nocompatible " vim settings
+" vim {{{
+set nocompatible
+
 call pathogen#infect()
 
-" setup os-dependant variables and initialize vundle
-if has("unix")
-    let g:vimdir=$HOME."/.vim/"
-else " running on windows
-    let g:vimdir=$HOME."\\vimfiles\\"
-endif
-"}}}
-" vim {{{
+set langmenu=en_US.UTF-8
+let $LANG = 'en_US.UTF-8'
+set encoding=utf-8
+
 filetype plugin indent on
 syntax on
 
-let &g:directory=g:vimdir.'tmp/swap'
-let &g:backupdir=g:vimdir.'tmp/backup'
-let &g:undodir=g:vimdir.'tmp/undo'
-let &g:viminfo="'100,<1000,s100,h,n".g:vimdir."viminfo"
+set directory=~/tmp
+set viminfo="'100,<1000,s100,h"
+set history=100
 
 set cursorline             " highlight the current line
-set title                  " set console title
 set laststatus=2           " always show the status line
 set ruler                  " show the cursor position all the time
-set relativenumber         " show relative line numbers
-set showmode               " show the mode we're in
 set showmatch              " show matching parentheses
-set showcmd                " display incomplete commands
-
-set undofile               " use a (persistent) undo file
-set history=100            " save 100 entries for each history
-
-set cryptmethod=blowfish   " use blowfish to encrypt files
+set lazyredraw             " do not redraw while running macros
 set hidden                 " allow hidden buffers
-set modelines=2            " search for modelines
 set clipboard=unnamed      " synchronize unnamed buffer and system clipboard
 set pastetoggle=<F4>       " F4 toggles between paste and normal mode
-set lazyredraw             " do not redraw while running macros
+set nobackup               " don't use backups, use git instead
+set nowritebackup          " seriously
 
-set wildmenu               " completion-menu
-set wildmode=full          " Tab cycles between all matching choices
-if has("unix")
-    " ignore case in filenames
-    set wildignorecase
-endif
-set backup                 " keep backups
-set completeopt=menuone,preview
-set ofu=syntaxcomplete#Complete
-set complete=.,b,u,]
-
-set shiftwidth=4           " use 4 blanks as indent
+set shiftwidth=4           " use 4 spaces as indent
 set autoindent             " automatic indenting
 set smarttab               " use tab for indent levels at a blank line
 set expandtab              " expand tabs with spaces
 set nojoinspaces           " J(oin) doesn't add useless blanks
-set whichwrap=""           " don't jump over linebounds
 set backspace=indent,eol   " define behaviour of the backspace key
 
 set ignorecase             " search is case insensitive,
@@ -73,42 +49,42 @@ set incsearch              " show search results immediately
 set hlsearch               " highlight results
 set gdefault               " reverse the meaning of /g in patterns
 
-set langmenu=en_US.UTF-8
-let $LANG = 'en_US.UTF-8'
-set encoding=utf-8
-
-" ignore certain files when tab-completing
+" tab completion with menu
+set wildmenu
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+" use omnicompletion
+set ofu=syntaxcomplete#Complete
+" characters for list
+set listchars=tab:▸\ ,eol:¬,trail:·
 
-if has("win32")
-    " show tabs and trailing spaces
-    set listchars=tab:▸\ ,eol:¬
-    set fileformats=dos,unix,mac
-    set backupcopy=yes     " don't overwrite my hardlinks, please
-    set autoread           " read changes automatically
-    set background=light
-else
-    " show tabs and trailing spaces
-    set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-    set showbreak=↪
-    set fileformats=unix,dos,mac
-    if has("gui_running")
-        set background=light
-    else
-        set background=dark
-    endif
+" version dependent settings
+if version >= 703
+    set relativenumber         " show relative line numbers
+    set cryptmethod=blowfish   " use blowfish to encrypt files
 endif
 
-" gui settings
+" use persistent undo if possible
+if has("persistent_undo")
+    set undodir=~/.vimundo
+    set undofile
+endif
+" }}}
+" OS specific settings {{{
+if has("unix")
+    set fileformats=unix,dos,mac
+    set wildignorecase " ignore case for tab completion
+    set background=dark
+elseif has("win32")
+    set fileformats=dos,unix,mac
+    set autoread " read changes automatically
+endif "}}}
+" gui settings {{{
 if has("gui_running")
+    set background=light
 
     " make the gui clean
-    set guioptions-=T
-    set guioptions-=R
-    set guioptions-=r
-    set guioptions-=L
-    set guioptions-=l
-    set guioptions-=b
+    set guioptions-=TRrLlb
+    set guioptions+=c
 
     if has("unix")
         set guifont=DejaVu\ Sans\ Mono\ 10
@@ -116,12 +92,7 @@ if has("gui_running")
         set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
         let g:Powerline_symbols='fancy'
     endif
-
-    " I hate popups, use console messages instead
-    set guioptions+=c
-endif
-
-" }}}
+endif "}}}
 " plugins {{{
 
 " UltiSnips
@@ -130,7 +101,7 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 " Solarized
 let g:solarized_underline=0
 let g:solarized_termcolors=256
-let g:solarized_contrast="normal"
+let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 let g:solarized_diffmode="high"
 let g:solarized_hitrail=1
@@ -228,9 +199,6 @@ nnoremap <leader>mc :make clean<cr><cr>
 nnoremap <leader>t :vsp<cr>:ene<cr>:tag<space>
 " clear search highlight
 nnoremap <leader><space> :nohlsearch<cr>
-" center screen after certain motions
-nnoremap n nzz
-nnoremap } }zz
 " ==============================================================================
 " }}}
 " insert mode {{{
@@ -278,7 +246,7 @@ nnoremap  <F6> :set<space>list!<space>\|<space>set<space>list?<cr>
 "         <F8> unbound
 nnoremap  <F9> :GundoToggle<cr>
 nnoremap <F10> :NERDTreeToggle<cr>
-"        <F11> :Fullscreen<cr>
+"        <F11> unbound
 "        <F12> opens previews (LaTeX), Generates tags
 " ==============================================================================
 " }}}
@@ -292,7 +260,7 @@ endif
 " open notes directory
 if has("unix")
     nnoremap <leader>n :e ~/.pim/notes<cr>
-else
+elseif has("win32")
     nnoremap <leader>n :e ~\Dropbox\notes\<cr>
 endif
 
@@ -300,16 +268,7 @@ endif
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>esv :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-" ftplugin
-execute "nnoremap <leader>ef :edit ".g:vimdir."ftplugin"
-execute "nnoremap <leader>esf :vsplit ".g:vimdir."ftplugin"
 " ==============================================================================
-" }}}
-" plugins {{{
-" Surround
-nnoremap <leader>" ysiw"
-nnoremap <leader>' ysiw'
-nnoremap <leader>) ysiw)
 " }}}
 " abbreviations {{{
 " the look of disapproval (and friends)
