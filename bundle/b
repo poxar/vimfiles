@@ -1,0 +1,52 @@
+#!/bin/zsh
+
+me_name=$0
+cd $HOME/.vim/bundle
+
+bundles=(
+git://github.com/Lokaltog/vim-powerline.git
+git://github.com/UltiSnips
+git://github.com/altercation/vim-colors-solarized
+git://github.com/epmatsw/ag.vim.git
+git://github.com/godlygeek/tabular.git
+git://github.com/michaeljsmith/vim-indent-object
+git://github.com/scrooloose/nerdtree
+git://github.com/sjl/gundo.vim
+git://github.com/thawk/OmniCppComplete
+git://github.com/tpope/vim-commentary
+git://github.com/tpope/vim-fugitive
+git://github.com/tpope/vim-ragtag
+git://github.com/tpope/vim-repeat
+git://github.com/tpope/vim-surround
+git://github.com/tpope/vim-unimpaired
+git://gitorious.org/vim-gnupg/vim-gnupg.git
+)
+
+usage() {
+    print "$me_name update - git pull for all bundles"
+    print "$me_name get    - git clone for all specified bundles"
+    print "$me_name help   - this text"
+    print "\n standard is update"
+}
+
+get() {
+    for i in $bundles[@]; do
+        git clone $i
+    done
+}
+
+update() {
+    for i in *(/); do
+        cd $i
+        print $i
+        git pull
+        print
+        cd -
+    done
+}
+
+if [[ $1 == "u" || $1 == "update" ]]; then; update
+elif [[ $1 == "g" || $1 == "get" ]]; then; get
+elif [[ $1 == "h" || $1 == "help" ]]; then; usage
+else; update
+fi
