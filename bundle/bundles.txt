@@ -1,6 +1,7 @@
 git://github.com/Lokaltog/vim-powerline.git
 git://github.com/UltiSnips
 git://github.com/altercation/vim-colors-solarized
+git://github.com/eugeneching/consolasPowerlineVim.git
 git://github.com/godlygeek/tabular.git
 git://github.com/michaeljsmith/vim-indent-object
 git://github.com/mileszs/ack.vim.git
@@ -13,4 +14,5 @@ git://github.com/tpope/vim-ragtag
 git://github.com/tpope/vim-repeat
 git://github.com/tpope/vim-surround
 git://github.com/tpope/vim-unimpaired
+git://github.com/tpope/vim-vividchalk.git
 git://gitorious.org/vim-gnupg/vim-gnupg.git
