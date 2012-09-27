@@ -5,7 +5,7 @@ cd $HOME/.vim/bundle
 
 bundles=(
 git://github.com/Lokaltog/vim-powerline.git
-git://github.com/UltiSnips
+git://github.com/guns/ultisnips
 git://github.com/altercation/vim-colors-solarized
 git://github.com/epmatsw/ag.vim.git
 git://github.com/godlygeek/tabular.git
