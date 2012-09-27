@@ -20,8 +20,8 @@ filetype plugin indent on
 syntax on
 
 set directory=~/tmp
-set viminfo="'100,<1000,s100,h"
-set history=100
+set viminfo='100,<1000,s200,h,%
+set history=1000
 
 set laststatus=2           " always show the status line
 set ruler                  " show the cursor position all the time

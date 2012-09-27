@@ -22,8 +22,8 @@ filetype plugin indent on
 syntax on
 
 set directory=~/tmp
-set viminfo="'100,<1000,s100,h"
-set history=100
+set viminfo='100,<1000,s200,h,%
+set history=1000
 
 set cursorline             " highlight the current line
 set laststatus=2           " always show the status line
