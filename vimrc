@@ -86,7 +86,7 @@ if has("gui_running")
     set guioptions=acegi
 
     if has("unix")
-        set guifont=DejaVu\ Sans\ Mono\ 10
+        set guifont=DejaVu\ Sans\ Mono\ 11
     else
         set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
         let g:Powerline_symbols='fancy'
