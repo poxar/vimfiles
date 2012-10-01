@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 [[ ! -d ~/tmp ]] && mkdir ~/tmp
 [[ ! -d ~/.vimundo ]] && mkdir ~/.vimundo
@@ -6,9 +6,9 @@
 # backup old vimrc
 [[ -e ~/.vimrc ]] && mv ~/.vimrc ~/.vimrc_backup_$(date +%s)
 
-print "(s)mall or (b)ig vimrc?"
-read -q ANSWER
-print # newline
+echo "(s)mall or (b)ig vimrc?"
+echo "big version requires at least zsh and git"
+read ANSWER
 
 case "$ANSWER" in 
     "s")
