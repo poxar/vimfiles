@@ -104,7 +104,8 @@ let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 let g:solarized_diffmode="high"
 let g:solarized_hitrail=1
-colorscheme solarized
+" colorscheme solarized
+colorscheme badwolf
 
 " NERDTree
 let g:NERDTreeHijackNetrw=0
