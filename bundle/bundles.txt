@@ -16,3 +16,4 @@ git://github.com/tpope/vim-surround
 git://github.com/tpope/vim-unimpaired
 git://github.com/tpope/vim-vividchalk.git
 git://gitorious.org/vim-gnupg/vim-gnupg.git
+git://github.com/sjl/badwolf.git
