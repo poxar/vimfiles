@@ -13,6 +13,8 @@ git://github.com/tpope/vim-ragtag
 git://github.com/tpope/vim-repeat
 git://github.com/tpope/vim-surround
 git://github.com/tpope/vim-unimpaired
-git://github.com/tpope/vim-vividchalk.git
 git://gitorious.org/vim-gnupg/vim-gnupg.git
+git://github.com/sjl/badwolf.git
 git://github.com/eugeneching/consolasPowerlineVim.git
+git://github.com/derekwyatt/vim-fswitch.git
+git://github.com/derekwyatt/vim-protodef.git

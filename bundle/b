@@ -20,8 +20,9 @@ git://github.com/tpope/vim-repeat
 git://github.com/tpope/vim-surround
 git://github.com/tpope/vim-unimpaired
 git://gitorious.org/vim-gnupg/vim-gnupg.git
-git://github.com/tpope/vim-vividchalk.git
 git://github.com/sjl/badwolf.git
+git://github.com/derekwyatt/vim-protodef.git
+git://github.com/derekwyatt/vim-fswitch.git
 )
 
 usage() {
