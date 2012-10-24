@@ -15,7 +15,7 @@ set nocompatible
 call pathogen#infect()
 
 set langmenu=en_US.UTF-8
-let $LANG = 'en_US.UTF-8'
+language en_US.UTF-8
 set encoding=utf-8
 
 filetype plugin indent on
