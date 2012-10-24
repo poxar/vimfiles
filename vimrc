@@ -259,9 +259,9 @@ endif
 
 " open notes directory
 if has("unix")
-    nnoremap <leader>n :e ~/.pim/notes<cr>
+    nnoremap <leader>n :e ~/data/Dropbox/notes/
 elseif has("win32")
-    nnoremap <leader>n :e ~\Dropbox\notes\<cr>
+    nnoremap <leader>n :e ~\Dropbox\notes\
 endif
 
 " vimrc
