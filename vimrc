@@ -112,6 +112,10 @@ let g:NERDTreeHijackNetrw=0
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinPos="right"
+
+" LaTeX-BoX
+let g:LatexBox_viewer="zathura"
+let g:LatexBox_autojump=1
 "}}}
 
 "========================================================================="

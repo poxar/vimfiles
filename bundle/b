@@ -23,6 +23,7 @@ git://gitorious.org/vim-gnupg/vim-gnupg.git
 git://github.com/sjl/badwolf.git
 git://github.com/derekwyatt/vim-protodef.git
 git://github.com/derekwyatt/vim-fswitch.git
+git://github.com/LaTeX-Box-Team/LaTeX-Box.git
 )
 
 usage() {
