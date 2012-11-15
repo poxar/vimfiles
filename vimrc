@@ -22,7 +22,7 @@ filetype plugin indent on
 syntax on
 
 set directory=~/tmp
-set viminfo='100,<1000,s200,h,%
+set viminfo='100,<1000,s200,h
 set history=1000
 
 set cursorline             " highlight the current line
