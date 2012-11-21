@@ -6,9 +6,6 @@ inoremap <buffer> Ä &Auml;
 inoremap <buffer> Ü &Uuml;
 inoremap <buffer> Ö &Ouml;
 
-iabbrev <buffer> & &amp;
-iabbrev <buffer> " &quot;
-
 iabbrev <buffer> <- &larr;
 iabbrev <buffer> -> &rarr;
 
