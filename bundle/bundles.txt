@@ -16,5 +16,6 @@ git://gitorious.org/vim-gnupg/vim-gnupg.git
 git://github.com/sjl/badwolf.git
 git://github.com/derekwyatt/vim-protodef.git
 git://github.com/derekwyatt/vim-fswitch.git
+git://github.com/vim-scripts/javacomplete.git
 git://github.com/mileszs/ack.vim.git
 git://github.com/eugeneching/consolasPowerlineVim.git
