@@ -7,7 +7,6 @@ bundles=(
 git://github.com/Lokaltog/vim-powerline.git
 git://github.com/guns/ultisnips
 git://github.com/altercation/vim-colors-solarized
-git://github.com/epmatsw/ag.vim.git
 git://github.com/godlygeek/tabular.git
 git://github.com/michaeljsmith/vim-indent-object
 git://github.com/scrooloose/nerdtree
@@ -23,6 +22,7 @@ git://gitorious.org/vim-gnupg/vim-gnupg.git
 git://github.com/sjl/badwolf.git
 git://github.com/derekwyatt/vim-protodef.git
 git://github.com/derekwyatt/vim-fswitch.git
+git://github.com/epmatsw/ag.vim.git
 git://github.com/LaTeX-Box-Team/LaTeX-Box.git
 )
 
