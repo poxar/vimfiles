@@ -38,6 +38,7 @@ set nowritebackup          " seriously
 
 set shiftwidth=4           " use 4 spaces as indent
 set autoindent             " automatic indenting
+set smartindent            " smart indenting
 set smarttab               " use tab for indent levels at a blank line
 set expandtab              " expand tabs with spaces
 set nojoinspaces           " J(oin) doesn't add useless blanks
