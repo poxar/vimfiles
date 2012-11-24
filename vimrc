@@ -227,12 +227,6 @@ inoremap <C-L> <C-X><C-O>
 " }}}
 " window management {{{
 " ==============================================================================
-" simplify window-management
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-
 " split windows quickly
 nnoremap <leader>vs :vsplit<cr>
 nnoremap <leader>ss :split<cr>
