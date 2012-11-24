@@ -95,8 +95,8 @@ if has("gui_running")
 endif "}}}
 " plugins {{{
 
-" UltiSnips
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+" Snipmate
+let g:snips_author="Philipp Millar"
 
 " Solarized
 let g:solarized_underline=0

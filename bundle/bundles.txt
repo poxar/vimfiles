@@ -1,5 +1,5 @@
 git://github.com/Lokaltog/vim-powerline.git
-git://github.com/guns/ultisnips
+git://github.com/msanders/snipmate.vim.git
 git://github.com/altercation/vim-colors-solarized
 git://github.com/godlygeek/tabular.git
 git://github.com/michaeljsmith/vim-indent-object
