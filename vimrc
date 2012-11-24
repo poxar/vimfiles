@@ -75,6 +75,12 @@ if has("unix")
     set fileformats=unix,dos,mac
     set wildignorecase " ignore case for tab completion
     set background=dark
+    if has('cscope')
+        set cscopeverbose
+        if has('quickfix')
+            set cscopequickfix=s-,c-,d-,i-,t-,e-
+        endif
+    endif
 elseif has("win32")
     set fileformats=dos,unix,mac
     set autoread " read changes automatically
