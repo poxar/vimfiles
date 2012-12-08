@@ -1,10 +1,11 @@
 " easy environments
 inoremap (( \eqref{
 inoremap [[ \begin{
-inoremap ]] <Plug>LatexCloseCurEnv
+inoremap ]] \end{<esc>a<C-X><C-O><esc>O
 
 nnoremap g% <Plug>LatexBox_JumpToMatch
 
 " folding
-let g:tex_fold_enabled=1
-set foldmethod=syntax
+let g:tex_fold_enabled=0
+source ~/.vim/plugin/tex-fold.vim
+set foldmethod=expr
