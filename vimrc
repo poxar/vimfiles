@@ -235,9 +235,6 @@ vnoremap > >gv
 " }}}
 " window management {{{
 " ==============================================================================
-" split windows quickly
-nnoremap <leader>vs :vsplit<cr>
-nnoremap <leader>ss :split<cr>
 " kill buffer without closing the window/view
 nnoremap <leader>bd :bp\|bd #<cr>
 
