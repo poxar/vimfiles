@@ -51,8 +51,18 @@ update() {
     done
 }
 
+check_for_old() {
+    for i in *(/); do
+        cd $i
+        local j=$(git config --get remote.origin.url)
+        [[ ${bundles[(r)$j]} == $j ]] || echo "$i ($j) not found"
+        cd -
+    done
+}
+
 if [[ $1 == "u" || $1 == "update" ]]; then; update
 elif [[ $1 == "g" || $1 == "get" ]]; then; get
 elif [[ $1 == "h" || $1 == "help" ]]; then; usage
+elif [[ $1 == "c" || $1 == "check" ]]; then; check_for_old
 else; update
 fi
