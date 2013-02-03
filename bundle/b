@@ -9,7 +9,6 @@ git://github.com/msanders/snipmate.vim.git
 git://github.com/altercation/vim-colors-solarized
 git://github.com/godlygeek/tabular.git
 git://github.com/michaeljsmith/vim-indent-object
-git://github.com/scrooloose/nerdtree
 git://github.com/sjl/gundo.vim
 git://github.com/tpope/vim-commentary
 git://github.com/tpope/vim-fugitive
