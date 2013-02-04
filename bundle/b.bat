@@ -22,4 +22,5 @@ exit
 
 :get
 for /f "tokens=1" %%i in (bundles.txt) do git clone %%i
+for /f "tokens=1" %%i in (bundles-windows.txt) do git clone %%i
 exit

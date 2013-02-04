@@ -3,35 +3,20 @@
 me_name=$0
 cd $HOME/.vim/bundle
 
-bundles=(
-git://github.com/Lokaltog/vim-powerline.git
-git://github.com/altercation/vim-colors-solarized
-git://github.com/derekwyatt/vim-fswitch.git
-git://github.com/derekwyatt/vim-protodef.git
-git://github.com/godlygeek/tabular.git
-git://github.com/kien/ctrlp.vim.git
-git://github.com/michaeljsmith/vim-indent-object
-git://github.com/msanders/snipmate.vim.git
-git://github.com/sjl/badwolf.git
-git://github.com/sjl/gundo.vim
-git://github.com/thawk/OmniCppComplete
-git://github.com/tpope/vim-commentary
-git://github.com/tpope/vim-fugitive
-git://github.com/tpope/vim-ragtag
-git://github.com/tpope/vim-repeat
-git://github.com/tpope/vim-surround
-git://github.com/tpope/vim-unimpaired
-git://github.com/vim-scripts/javacomplete.git
-git://gitorious.org/vim-gnupg/vim-gnupg.git
-git://github.com/epmatsw/ag.vim.git
-git://github.com/tpope/vim-markdown.git
-git://github.com/LaTeX-Box-Team/LaTeX-Box.git
-)
+bfile="bundles.txt"
+ufile="bundles-unix.txt"
+
+# read file contents into array
+bundles=( ${(f)"$(<$bfile)"} )
+bundles+=( ${(f)"$(<$ufile)"} )
+
 
 usage() {
     print "$me_name update - git pull for all bundles"
     print "$me_name get    - git clone for all specified bundles"
     print "$me_name help   - this text"
+    print "$me_name check  - check for files not in *bundles.txt"
+    print "$me_name echo   - print the bundles in *bundles.txt"
     print "\n standard is update"
 }
 
@@ -51,7 +36,7 @@ update() {
     done
 }
 
-check_for_old() {
+check() {
     for i in *(/); do
         cd $i
         local j=$(git config --get remote.origin.url)
@@ -60,9 +45,11 @@ check_for_old() {
     done
 }
 
-if [[ $1 == "u" || $1 == "update" ]]; then; update
-elif [[ $1 == "g" || $1 == "get" ]]; then; get
-elif [[ $1 == "h" || $1 == "help" ]]; then; usage
-elif [[ $1 == "c" || $1 == "check" ]]; then; check_for_old
-else; update
-fi
+case $1 in
+    "u" | "update" ) update ;;
+    "g" | "get"    ) get    ;;
+    "h" | "help"   ) usage  ;;
+    "c" | "check"  ) check  ;;
+    "e" | "echo"   ) print ${(F)bundles} ;;
+     *             ) update ;;
+esac
