@@ -1,10 +1,10 @@
 #!/bin/sh
 
-[[ ! -d ~/tmp ]] && mkdir ~/tmp
-[[ ! -d ~/.vimundo ]] && mkdir ~/.vimundo
+[ ! -d ~/tmp ] && mkdir ~/tmp
+[ ! -d ~/.vimundo ] && mkdir ~/.vimundo
 
 # backup old vimrc
-[[ -e ~/.vimrc ]] && mv ~/.vimrc ~/.vimrc_backup_$(date +%s)
+[ -e ~/.vimrc ] && mv ~/.vimrc ~/.vimrc_backup_$(date +%s)
 
 echo "(s)mall or (b)ig vimrc?"
 echo "big version requires at least zsh and git"
