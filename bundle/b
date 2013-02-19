@@ -12,44 +12,52 @@ bundles+=( ${(f)"$(<$ufile)"} )
 
 
 usage() {
-    print "$me_name update - git pull for all bundles"
-    print "$me_name get    - git clone for all specified bundles"
     print "$me_name help   - this text"
+    print "$me_name get    - git clone for all specified bundles"
+    print "$me_name update - git pull for all bundles"
     print "$me_name check  - check for files not in *bundles.txt"
+    print "$me_name all    - all of the above (except help)"
     print "$me_name echo   - print the bundles in *bundles.txt"
-    print "\n standard is update"
+    print "\n standard is all"
 }
 
 get() {
     for i in $bundles[@]; do
-        git clone $i
+        git clone $i 2>/dev/null
     done
 }
 
 update() {
     for i in *(/); do
-        cd $i
+        pushd $i
         print $i
         git pull
         print
-        cd -
+        popd
     done
 }
 
 check() {
     for i in *(/); do
-        cd $i
+        pushd $i
         local j=$(git config --get remote.origin.url)
         [[ ${bundles[(r)$j]} == $j ]] || echo "$i ($j) not found"
-        cd -
+        popd
     done
 }
 
+all() {
+    print "Downloading missing bundles\n"  && get
+    print "\nUpdating existing bundles\n"  && update
+    print "\nCheck for obsolete bundles\n" && check
+}
+
 case $1 in
-    "u" | "update" ) update ;;
-    "g" | "get"    ) get    ;;
     "h" | "help"   ) usage  ;;
+    "g" | "get"    ) get    ;;
+    "u" | "update" ) update ;;
     "c" | "check"  ) check  ;;
+    "a" | "all"    ) all    ;;
     "e" | "echo"   ) print ${(F)bundles} ;;
-     *             ) update ;;
+     *             ) all ;;
 esac
