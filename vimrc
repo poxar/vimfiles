@@ -52,6 +52,7 @@ set gdefault               " reverse the meaning of /g in patterns
 
 " tab completion with menu
 set wildmenu
+set wildmode=longest:full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 set wildignorecase
 " use omnicompletion
