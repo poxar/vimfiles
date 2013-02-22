@@ -1,2 +1,2 @@
 git://github.com/mileszs/ack.vim.git
-git://github.com/eugeneching/consolasPowerlineVim.git
+git://github.com/eugeneching/consolas-powerline-vim.git
