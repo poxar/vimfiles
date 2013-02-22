@@ -16,5 +16,4 @@ git://github.com/tpope/vim-ragtag
 git://github.com/tpope/vim-repeat
 git://github.com/tpope/vim-surround
 git://github.com/tpope/vim-unimpaired
-git://github.com/vim-scripts/javacomplete.git
 git://gitorious.org/vim-gnupg/vim-gnupg.git
