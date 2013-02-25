@@ -329,6 +329,9 @@ augroup skeleton
     endif
 augroup END
 
+" put files or snippets on sprunge.us
+command -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://sprunge.us|xclip
+
 " indent next line to match current word
 let @j='yiwy0opVr J'
 " underline the current line
