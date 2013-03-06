@@ -1,6 +1,6 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
-me_name=$0
+basename=$0
 cd $HOME/.vim/bundle
 
 bfile="bundles.txt"
@@ -12,12 +12,14 @@ bundles+=( ${(f)"$(<$ufile)"} )
 
 
 usage() {
-    print "$me_name help   - this text"
-    print "$me_name get    - git clone for all specified bundles"
-    print "$me_name update - git pull for all bundles"
-    print "$me_name check  - check for files not in *bundles.txt"
-    print "$me_name all    - all of the above (except help)"
-    print "$me_name echo   - print the bundles in *bundles.txt"
+    print "usage: $basename [operation]\n"
+    print "operations:"
+    print "help   - this text"
+    print "get    - git clone for all specified bundles"
+    print "update - git pull for all bundles"
+    print "check  - check for files not in *bundles.txt"
+    print "all    - all of the above (except help)"
+    print "echo   - print the bundles in *bundles.txt"
     print "\n standard is all"
 }
 
