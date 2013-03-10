@@ -11,6 +11,7 @@ git://github.com/sjl/badwolf.git
 git://github.com/sjl/gundo.vim
 git://github.com/thawk/OmniCppComplete
 git://github.com/tpope/vim-commentary
+git://github.com/tpope/vim-endwise.git
 git://github.com/tpope/vim-fugitive
 git://github.com/tpope/vim-ragtag
 git://github.com/tpope/vim-repeat
