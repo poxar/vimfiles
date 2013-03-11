@@ -266,6 +266,10 @@ nnoremap <leader>tn :call ToggleNumberMode()<cr>
 " file it was loaded from, thus the changes you made.
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 " }}}
+" Sprunge {{{
+" put files or snippets on sprunge.us
+command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://sprunge.us|xclip
+"}}}
 
 "========================================================================="
 "                                Mappings                                 "
@@ -364,9 +368,6 @@ augroup skeleton
     au BufNewFile * silent! 0r ~/vimfiles/skel/tmpl.%:e
   endif
 augroup END
-
-" put files or snippets on sprunge.us
-command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://sprunge.us|xclip
 
 " indent next line to match current word
 let @j='yiwy0opVr J'
