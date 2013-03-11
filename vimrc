@@ -104,7 +104,7 @@ set cursorline             " highlight the current line
 set lazyredraw             " do not redraw while running macros
 set hidden                 " allow hidden buffers
 set clipboard=unnamed      " synchronize unnamed buffer and system clipboard
-set pastetoggle=<F4>       " F4 toggles between paste and normal mode
+set pastetoggle=<F2>       " F4 toggles between paste and normal mode
 
 set shiftwidth=2           " use 4 spaces as indent
 set smartindent            " smart indenting
@@ -165,6 +165,9 @@ endif "}}}
 " Snipmate
 let g:snips_author="Philipp Millar"
 
+" Gundo
+nnoremap <leader>tu :GundoToggle<cr>
+
 " Solarized
 let g:solarized_underline=0
 let g:solarized_termcolors=256
@@ -221,7 +224,7 @@ function!  SelectLanguage()
   exe "set spelllang=" . lang
 endfunction
 
-nnoremap <localleader>ll :call SelectLanguage()<CR>
+nnoremap <leader>tl :call SelectLanguage()<CR>
 "}}}
 " StripWhitespace {{{
 function! StripWhitespace()
@@ -241,7 +244,7 @@ function! ToggleFoldmethod()
   endif
 endfunc
 
-nnoremap <F2> :call ToggleFoldmethod()<cr>
+nnoremap <leader>tf :call ToggleFoldmethod()<cr>
 "}}}
 " ToggleNumberMode {{{
 function! ToggleNumberMode()
@@ -252,7 +255,7 @@ function! ToggleNumberMode()
   endif
 endfunc
 
-nnoremap <F3> :call ToggleNumberMode()<cr>
+nnoremap <leader>tn :call ToggleNumberMode()<cr>
 "}}}
 
 "========================================================================="
@@ -277,9 +280,6 @@ nnoremap Y y$
 " swap ' and ` so 'a goes to line and column marked with ma
 nnoremap ' `
 nnoremap ` '
-" use H L to go to the start/end of a line
-nnoremap H g0
-nnoremap L g$
 " use space for foldings
 nnoremap <space> za
 " quick make
@@ -287,22 +287,16 @@ nnoremap <leader>m  :make
 nnoremap <leader>mm :make<cr><cr>
 nnoremap <leader>mc :make clean<cr><cr>
 " jump to tag in new split
-nnoremap <leader>t :vsp<cr>:ene<cr>:tag<space>
-" clear search highlight
-nnoremap <leader><space> :nohlsearch<cr>
+nnoremap <leader>tt :vsp<cr>:ene<cr>:tag<space>
+" toggle some settings
+nnoremap  <leader>ts :set<space>spell!<space>\|<space>set<space>spell?<cr>
+nnoremap  <leader>tli :set<space>list!<space>\|<space>set<space>list?<cr>
 " ==============================================================================
 " }}}
 " insert mode {{{
 " ==============================================================================
 " leave insert mode quickly
 inoremap jk <esc>
-
-" some readline stuff
-inoremap <C-a> <C-o>g0
-inoremap <C-e> <C-o>g$
-
-" omni-completion
-inoremap <C-L> <C-X><C-O>
 " ==============================================================================
 " }}}
 " visual mode {{{
@@ -321,22 +315,6 @@ nnoremap <leader>bd :bp\|bd #<cr>
 nnoremap <leader>co :botright cope<cr>
 " location list
 nnoremap <leader>lo :lopen<cr>
-" ==============================================================================
-" }}}
-" function keys {{{
-" ==============================================================================
-nnoremap  <F1> :set<space>spell!<space>\|<space>set<space>spell?<cr>
-"         <F2> toggles foldmethod between marker and sytax
-"         <F3> toggles number style
-nnoremap  <F4> :set<space>paste!<space>\|<space>set<space>paste?<cr>
-nnoremap  <F5> :nohlsearch<cr>
-nnoremap  <F6> :set<space>list!<space>\|<space>set<space>list?<cr>
-"         <F7> unbound
-"         <F8> unbound
-nnoremap  <F9> :GundoToggle<cr>
-nnoremap <F10> :NERDTreeToggle<cr>
-"        <F11> unbound
-"        <F12> opens previews (LaTeX), Generates tags
 " ==============================================================================
 " }}}
 " open, write and source special files {{{
