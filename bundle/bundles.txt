@@ -5,7 +5,6 @@ git://github.com/altercation/vim-colors-solarized
 git://github.com/derekwyatt/vim-fswitch.git
 git://github.com/derekwyatt/vim-protodef.git
 git://github.com/godlygeek/tabular.git
-git://github.com/kien/ctrlp.vim.git
 git://github.com/michaeljsmith/vim-indent-object
 git://github.com/sjl/badwolf.git
 git://github.com/sjl/gundo.vim
