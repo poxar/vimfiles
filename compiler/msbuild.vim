@@ -11,8 +11,5 @@ if exists(":CompilerSet") != 2 " older Vim always used :setlocal
     command -nargs=* CompilerSet setlocal <args>
 endif
 
-" default errorformat
-CompilerSet errorformat=\ %#%f(%l\\\,%c):\ %m
-
-" default make
-CompilerSet makeprg=msbuild\ /nologo\ /v:q\ /property:GenerateFullPaths=true
+CompilerSet errorformat=1>%f(%l)\ :\ %m
+CompilerSet makeprg=~\vimfiles\tools\build.bat
