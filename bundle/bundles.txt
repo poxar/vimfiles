@@ -1,13 +1,16 @@
 git://github.com/Lokaltog/vim-powerline.git
+git://github.com/MarcWeber/vim-addon-mw-utils.git
 git://github.com/altercation/vim-colors-solarized
 git://github.com/derekwyatt/vim-fswitch.git
 git://github.com/derekwyatt/vim-protodef.git
+git://github.com/garbas/vim-snipmate.git
 git://github.com/godlygeek/tabular.git
+git://github.com/honza/snipmate-snippets.git
 git://github.com/michaeljsmith/vim-indent-object
-git://github.com/msanders/snipmate.vim.git
 git://github.com/sjl/badwolf.git
 git://github.com/sjl/gundo.vim
 git://github.com/thawk/OmniCppComplete
+git://github.com/tomtom/tlib_vim.git
 git://github.com/tpope/vim-commentary
 git://github.com/tpope/vim-endwise.git
 git://github.com/tpope/vim-fugitive
