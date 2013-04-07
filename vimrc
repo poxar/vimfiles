@@ -178,6 +178,14 @@ let g:solarized_hitrail=1
 " colorscheme solarized
 colorscheme badwolf
 
+" Gist
+if has('unix')
+  let g:gist_clip_command = 'xclip -selection clipboard'
+endif
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+let g:gist_show_privates = 1
+
 " LaTeX-BoX
 let g:LatexBox_viewer="zathura"
 let g:LatexBox_autojump=1
