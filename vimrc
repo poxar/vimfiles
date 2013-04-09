@@ -165,6 +165,10 @@ endif "}}}
 " Snipmate
 let g:snips_author="Philipp Millar"
 
+" YCM
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
 " Gundo
 nnoremap <leader>tu :GundoToggle<cr>
 
