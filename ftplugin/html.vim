@@ -1,11 +1,3 @@
-inoremap <buffer> ä &auml;
-inoremap <buffer> ü &uuml;
-inoremap <buffer> ö &ouml;
-
-inoremap <buffer> Ä &Auml;
-inoremap <buffer> Ü &Uuml;
-inoremap <buffer> Ö &Ouml;
-
 iabbrev <buffer> <- &larr;
 iabbrev <buffer> -> &rarr;
 
