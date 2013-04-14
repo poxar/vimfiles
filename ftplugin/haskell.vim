@@ -4,7 +4,7 @@ let g:hs_highlight_types = 1
 let g:hs_highlight_more_types = 1
 let g:hs_highlight_debug = 1
 
+setlocal omnifunc=necoghc#omnifunc
+
 setlocal expandtab
-setlocal tabstop=8
-setlocal shiftwidth=8
 setlocal textwidth=79
