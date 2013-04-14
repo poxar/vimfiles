@@ -8,10 +8,13 @@ git://github.com/godlygeek/tabular.git
 git://github.com/honza/snipmate-snippets.git
 git://github.com/mattn/gist-vim.git
 git://github.com/michaeljsmith/vim-indent-object
+git://github.com/nelstrom/vim-qargs.git
 git://github.com/sjl/badwolf.git
 git://github.com/sjl/gundo.vim
 git://github.com/thawk/OmniCppComplete
 git://github.com/tomtom/tlib_vim.git
+git://github.com/tpope/vim-abolish.git
+git://github.com/tpope/vim-characterize.git
 git://github.com/tpope/vim-commentary
 git://github.com/tpope/vim-endwise.git
 git://github.com/tpope/vim-fugitive
@@ -21,3 +24,4 @@ git://github.com/tpope/vim-surround
 git://github.com/tpope/vim-unimpaired
 git://github.com/ujihisa/neco-ghc.git
 git://gitorious.org/vim-gnupg/vim-gnupg.git
+git://github.com/mattn/webapi-vim.git
