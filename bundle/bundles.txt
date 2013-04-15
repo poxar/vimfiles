@@ -5,7 +5,7 @@ git://github.com/derekwyatt/vim-fswitch.git
 git://github.com/derekwyatt/vim-protodef.git
 git://github.com/garbas/vim-snipmate.git
 git://github.com/godlygeek/tabular.git
-git://github.com/honza/snipmate-snippets.git
+git://github.com/honza/vim-snippets.git
 git://github.com/mattn/gist-vim.git
 git://github.com/michaeljsmith/vim-indent-object
 git://github.com/nelstrom/vim-qargs.git
