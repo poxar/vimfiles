@@ -10,5 +10,10 @@ compiler ghc
 
 setlocal omnifunc=necoghc#omnifunc
 
+setlocal tabstop=8
 setlocal expandtab
-setlocal textwidth=79
+setlocal softtabstop=4
+setlocal shiftwidth=4
+setlocal smarttab
+setlocal shiftround
+setlocal nojoinspaces
