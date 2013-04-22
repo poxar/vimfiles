@@ -107,7 +107,6 @@ set clipboard=unnamed      " synchronize unnamed buffer and system clipboard
 set pastetoggle=<F2>       " F4 toggles between paste and normal mode
 
 set shiftwidth=2           " use 4 spaces as indent
-set smartindent            " smart indenting
 set expandtab              " expand tabs with spaces
 set nojoinspaces           " J(oin) doesn't add useless blanks
 
