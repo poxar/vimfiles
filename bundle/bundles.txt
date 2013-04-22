@@ -22,6 +22,5 @@ git://github.com/tpope/vim-ragtag
 git://github.com/tpope/vim-repeat
 git://github.com/tpope/vim-surround
 git://github.com/tpope/vim-unimpaired
-git://github.com/ujihisa/neco-ghc.git
 git://gitorious.org/vim-gnupg/vim-gnupg.git
 git://github.com/mattn/webapi-vim.git

@@ -1,3 +1,4 @@
 git://github.com/LaTeX-Box-Team/LaTeX-Box.git
 git://github.com/epmatsw/ag.vim.git
+git://github.com/lukerandall/haskellmode-vim.git
 git://github.com/tpope/vim-markdown.git
