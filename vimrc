@@ -352,6 +352,14 @@ augroup skeleton
   endif
 augroup END
 
+augroup numbers
+  au! FocusLost   * :set number
+  au! FocusGained * :set relativenumber
+
+  au! InsertEnter * :set number
+  au! InsertLeave * :set relativenumber
+augroup END
+
 " indent next line to match current word
 let @j='yiwy0opVr J'
 " underline the current line
