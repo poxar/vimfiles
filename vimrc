@@ -286,13 +286,6 @@ nnoremap  <leader>tli :set<space>list!<space>\|<space>set<space>list?<cr>
 inoremap jk <esc>
 " ==============================================================================
 " }}}
-" visual mode {{{
-" ==============================================================================
-" retain selection in vm when indenting blocks
-vnoremap < <gv
-vnoremap > >gv
-" ==============================================================================
-" }}}
 " window management {{{
 " ==============================================================================
 " kill buffer without closing the window/view
