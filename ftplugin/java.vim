@@ -2,10 +2,6 @@
 setlocal noexpandtab
 setlocal tabstop=4
 
-if exists(":EclimEnable")
-    setlocal omnifunc=eclim#java#complete#CodeComplete
-endif
-
 setlocal makeprg=ant\ -find\ build.xml
 setlocal efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 
