@@ -144,12 +144,6 @@ let @j='yiwy0opVr J'
 " underline the current line
 let @h='yyp0v$r='
 let @u='yyp0v$r-'
-" }}}
-" abbreviations {{{
-" the look of disapproval (and friends)
-iabbrev ldis ಠ_ಠ
-iabbrev lsad ಥ_ಥ
-iabbrev lhap ಥ‿ಥ
 
 " expand %% to the path of the current file
 cabbrev <expr> %% expand('%:p:h')
