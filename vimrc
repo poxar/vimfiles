@@ -335,16 +335,6 @@ if has("unix")
   runtime ftplugin/man.vim
 endif
 
-" load skeleton files
-augroup skeleton
-  au!
-  if has("unix")
-    au BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
-  elseif has("win32")
-    au BufNewFile * silent! 0r ~/vimfiles/skel/tmpl.%:e
-  endif
-augroup END
-
 augroup numbers
   au! FocusLost   * :set number
   au! FocusGained * :set relativenumber
