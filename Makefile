@@ -13,12 +13,6 @@ vimdirs:
 	mkdir -p ${HOME}/.local/share/vim/swap
 	mkdir -p ${HOME}/.local/share/vim/undo
 
-ycm:
-	cd $(VIMFILES)/bundle
-	git clone git://github.com/Valloric/YouCompleteMe.git
-	cd YouCompleteMe
-	./install.sh --clang-completer
-
 clean:
 	rm -f ${HOME}/.vimrc
 
