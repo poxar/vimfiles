@@ -6,7 +6,11 @@ ${HOME}/.vimrc:
 	ln -fs $(VIMFILES)/vimrc ${HOME}/.vimrc
 
 plugins:
-	$(VIMFILES)/bundle/b g
+	git submodule init
+	git submodule update
+
+update:
+	git submodule foreach git pull origin
 
 vimdirs:
 	mkdir -p ${HOME}/.local/share/vim/backup
@@ -16,7 +20,7 @@ vimdirs:
 clean:
 	rm -f ${HOME}/.vimrc
 
-distclean: clean
+cleanall: clean
 	rm -f ${HOME}/.viminfo
 	rm -rf ${HOME}/.local/share/vim
 
@@ -25,4 +29,4 @@ push:
 	git push bitbucket
 	git push origin
 
-.PHONY: all plugins vimdirs push clean distclean
+.PHONY: all plugins update vimdirs push clean cleanall
