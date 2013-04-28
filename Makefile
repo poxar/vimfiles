@@ -24,9 +24,4 @@ cleanall: clean
 	rm -f ${HOME}/.viminfo
 	rm -rf ${HOME}/.local/share/vim
 
-push:
-	git push poxar
-	git push bitbucket
-	git push origin
-
-.PHONY: all plugins update vimdirs push clean cleanall
+.PHONY: all plugins update vimdirs clean cleanall
