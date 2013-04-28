@@ -48,7 +48,7 @@
 	url = git://github.com/sjl/gundo.vim.git
 [submodule "bundle/OmniCppComplete"]
 	path = bundle/OmniCppComplete
-	url = git://github.com/thawk/OmniCppComplete.git
+	url = git://github.com/vim-scripts/OmniCppComplete.git
 [submodule "bundle/tlib_vim"]
 	path = bundle/tlib_vim
 	url = git://github.com/tomtom/tlib_vim.git
