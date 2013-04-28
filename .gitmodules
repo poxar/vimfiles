@@ -46,9 +46,6 @@
 [submodule "bundle/gundo.vim"]
 	path = bundle/gundo.vim
 	url = git://github.com/sjl/gundo.vim.git
-[submodule "bundle/OmniCppComplete"]
-	path = bundle/OmniCppComplete
-	url = git://github.com/vim-scripts/OmniCppComplete.git
 [submodule "bundle/tlib_vim"]
 	path = bundle/tlib_vim
 	url = git://github.com/tomtom/tlib_vim.git
@@ -103,3 +100,6 @@
 [submodule "bundle/consolas-powerline-vim"]
 	path = bundle/consolas-powerline-vim
 	url = git://github.com/eugeneching/consolas-powerline-vim.git
+[submodule "bundle/OmniCppComplete"]
+	path = bundle/OmniCppComplete
+	url = https://github.com/vim-scripts/OmniCppComplete.git
