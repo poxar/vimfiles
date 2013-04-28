@@ -10,7 +10,7 @@ plugins:
 	git submodule update
 
 update:
-	git submodule foreach git pull origin
+	git submodule foreach git pull origin master
 
 vimdirs:
 	mkdir -p ${HOME}/.local/share/vim/backup
