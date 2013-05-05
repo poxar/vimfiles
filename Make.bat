@@ -20,6 +20,7 @@ mkdir %APPDATA%\Vim
 mkdir %APPDATA%\Vim\backup
 mkdir %APPDATA%\Vim\swap
 mkdir %APPDATA%\Vim\undo
+mklink %HOMEPATH%\_vimrc vimfiles\vimrc
 git submodule init
 git submodule update
 exit
