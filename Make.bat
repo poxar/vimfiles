@@ -1,4 +1,5 @@
 @echo off
+cd %~dp0
 
 echo.
 echo u  - update all plugins
@@ -12,7 +13,11 @@ if "%choice%"=="i" goto initialize
 exit
 
 :update
-git submodule foreach git pull origin master
+cd bundle
+for /d %%X in ("*") do (
+        pushd %%X
+        git pull
+        popd)
 exit
 
 :initialize
@@ -21,6 +26,6 @@ mkdir %APPDATA%\Vim\backup
 mkdir %APPDATA%\Vim\swap
 mkdir %APPDATA%\Vim\undo
 mklink %HOMEPATH%\_vimrc vimfiles\vimrc
-git submodule init
-git submodule update
+cd bundles
+for /f "tokens=1" %%i in (bundles.txt) do git clone https://github.com/%%i.git
 exit
