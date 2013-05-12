@@ -27,6 +27,8 @@ set smartcase         " except when upper-case letters are used
 set hlsearch          " highlight results
 set gdefault          " reverse the meaning of /g in patterns
 
+set kp=man\ -P\ more  " less doesn't work in gvim
+
 " tab completion with menu
 set wildmode=longest:full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
