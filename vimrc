@@ -199,5 +199,10 @@ augroup numbers
   au! InsertLeave * :set relativenumber
 augroup END
 " }}}
+" local vim settings {{{
+if filereadable($HOME . "/.local.vim")
+  so ~/.local.vim
+endif
+" }}}
 
 " vim:set sw=2 foldmethod=marker ft=vim expandtab:
