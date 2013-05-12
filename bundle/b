@@ -1,0 +1,86 @@
+#!/usr/bin/env zsh
+
+basename=$0
+cd $HOME/.vim/bundle
+
+bfile="bundles.txt"
+ufile="bundles-unix.txt"
+
+# read file contents into array
+bundles=( ${(f)"$(<$bfile)"} )
+bundles+=( ${(f)"$(<$ufile)"} )
+
+
+usage() {
+    print "usage: $basename [operation]\n"
+    print "operations:"
+    print "h | help   - this text"
+    print "g | get    - git clone for all specified bundles"
+    print "u | update - git pull for all bundles"
+    print "c | check  - check for files not in *bundles.txt and ask what to do with them"
+    print "r | remove - check for unmanaged bundles and remove them"
+    print "a | add    - check for unmanaged bundles and add them to $bfile"
+    print "e | echo   - print the bundles in *bundles.txt"
+    print "    all    - runs check, update and get; this is the default"
+}
+
+get() {
+    for i in $bundles[@]; do
+        git clone $i 2>/dev/null
+    done
+    return 0
+}
+
+update() {
+    for i in *(/); do
+        pushd $i
+        print $i
+        git pull
+        print
+        popd
+    done
+}
+
+add() {
+  if read -q "?Add $1 to $bfile? " ret; then
+    print "$1" >> $bfile
+    sort $bfile -o $bfile
+  fi
+  print ""
+  [[ $ret == "y" ]] && return 0 || return 1
+}
+
+remove() {
+  if read -q "?Remove $1? " ret; then
+    rm -rf "$1"
+  fi
+  print ""
+  [[ $ret == "y" ]] && return 0 || return 1
+}
+
+check() {
+    for i in *(/); do
+        pushd $i
+        local j=$(git config --get remote.origin.url)
+        popd
+        if [[ ! ${bundles[(r)$j]} == $j ]]; then
+          print "$i ($j) not found."
+          case $1 in
+            "r" | "remove" ) remove $i           ;;
+            "a" | "add"    ) add $j              ;;
+            *              ) remove $i || add $j ;;
+          esac
+        fi
+    done
+}
+
+case $1 in
+    "h" | "help"   ) usage   ;;
+    "g" | "get"    ) get     ;;
+    "u" | "update" ) update  ;;
+    "c" | "check"  ) check   ;;
+    "r" | "remove" ) check r ;;
+    "a" | "add"    ) check a ;;
+    "e" | "echo"   ) print ${(F)bundles} ;;
+     *             ) check && update && get ;;
+esac

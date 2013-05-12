@@ -6,11 +6,10 @@ ${HOME}/.vimrc:
 	ln -fs $(VIMFILES)/vimrc ${HOME}/.vimrc
 
 plugins:
-	git submodule init
-	git submodule update
+	$(VIMFILES)/bundle/b g
 
 update:
-	git submodule foreach git pull origin master
+	$(VIMFILES)/bundle/b u
 
 vimdirs:
 	mkdir -p ${HOME}/.local/share/vim/backup
