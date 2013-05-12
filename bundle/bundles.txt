@@ -23,6 +23,7 @@ derekwyatt/vim-protodef
 nelstrom/vim-qargs
 tpope/vim-ragtag
 tpope/vim-repeat
+joonty/vim-sauce
 tpope/vim-sensible
 garbas/vim-snipmate
 honza/vim-snippets
