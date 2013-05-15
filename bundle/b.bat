@@ -18,6 +18,7 @@ for /d %%X in ("*") do (
         pushd %%X
         git pull
         popd)
+quit
 exit
 
 :initialize
@@ -25,7 +26,5 @@ mkdir %APPDATA%\Vim
 mkdir %APPDATA%\Vim\backup
 mkdir %APPDATA%\Vim\swap
 mkdir %APPDATA%\Vim\undo
-mklink %HOMEPATH%\_vimrc vimfiles\vimrc
-cd bundles
 for /f "tokens=1" %%i in (bundles.txt) do git clone https://github.com/%%i.git
 exit
