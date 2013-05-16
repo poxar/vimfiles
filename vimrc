@@ -59,11 +59,9 @@ if has("gui_running")
   set guioptions=cegi
 
   if has("unix")
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
-    let g:Powerline_symbols='fancy'
+    set guifont=DejaVu\ Sans\ Mono\ 11
   else
-    set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
-    let g:Powerline_symbols='fancy'
+    set guifont=Consolas_FixedD:h11:cANSI
   endif
 endif "}}}
 " plugin settings {{{
