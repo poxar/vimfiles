@@ -188,11 +188,8 @@ command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://spr
 "}}}
 
 " auto numbering {{{
-" change the numbering style, according to mode and focus
+" change the numbering style, according to mode
 augroup numbers
-  au! FocusLost   * :set number
-  au! FocusGained * :set relativenumber
-
   au! InsertEnter * :set number
   au! InsertLeave * :set relativenumber
 augroup END
