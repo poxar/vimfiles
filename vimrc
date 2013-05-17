@@ -177,6 +177,33 @@ endfunc
 
 nnoremap cof :call ToggleFoldmethod()<cr>
 "}}}
+" func EchoFileInfo {{{
+" this prints some basic stats about the current file
+" I like this way better than having a bloated statusline, packed with
+" information I rarely need.
+function! EchoFileInfo()
+  let finfo=""
+
+  let finfo=finfo."(".bufnr('%').")"
+  let finfo=finfo."(".argidx()."/".argc().")"
+
+  let finfo=finfo."  "
+  let finfo=finfo."[".&filetype."]"
+  let finfo=finfo."[".&fileformat."]"
+  let finfo=finfo."[".&fileencoding."]"
+
+  if exists('g:loaded_fugitive')
+    let finfo=finfo."  "
+    let finfo=finfo.fugitive#statusline()
+  endif
+
+  echo finfo
+endfunction
+
+command! Info call EchoFileInfo()
+nnoremap <leader>i :Info<cr>
+nnoremap <A-i>     :Info<cr>
+"}}}
 
 " command DiffOrig {{{
 " diff the current buffer and the file it was loaded from
