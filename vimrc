@@ -195,9 +195,20 @@ augroup numbers
 augroup END
 " }}}
 " local vim settings {{{
-if filereadable($HOME . "/.local.vim")
-  so ~/.local.vim
+"
+" I mainly use this for project specific settings like so
+"
+" augroup project
+"   au! BufRead,BufNewFile /path/to/project/* :Sauce project
+" augroup END
+"
+if filereadable($HOME . "/.local.vimrc")
+  so ~/.local.vimrc
 endif
+
+nnoremap <leader>el  :edit   ~/.local.vimrc<cr>
+nnoremap <leader>esl :vsplit ~/.local.vimrc<cr>
+nnoremap <leader>sl  :source ~/.local.vimrc<cr>
 " }}}
 
 " vim:set sw=2 foldmethod=marker ft=vim expandtab:
