@@ -6,11 +6,8 @@ setlocal cindent
 " OmniCppComplete
 if has("win32")
     setlocal tags+=~\vimfiles\tags\stdcpp
-    setlocal tags+=~\vimfiles\tags\stdqt
-    compiler msbuild
 else
     setlocal tags+=~/.vim/tags/stdcpp
-    setlocal tags+=~/.vim/tags/stdqt
 endif
 
 let OmniCpp_NamespaceSearch = 1
@@ -24,6 +21,5 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-setlocal completeopt=menuone,menu,longest,preview
 
 inoremap <C-Space> <C-X><C-O>
