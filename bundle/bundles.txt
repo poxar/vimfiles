@@ -11,7 +11,6 @@ tomtom/tlib_vim
 tpope/vim-abolish
 MarcWeber/vim-addon-mw-utils
 tpope/vim-characterize
-altercation/vim-colors-solarized
 tpope/vim-commentary
 tpope/vim-endwise
 derekwyatt/vim-fswitch

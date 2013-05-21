@@ -77,11 +77,6 @@ let g:snips_author="Philipp Millar"
 " Gundo
 nnoremap cog :GundoToggle<cr>
 
-" Solarized
-let g:solarized_underline=0
-let g:solarized_termcolors=256
-let g:solarized_diffmode="high"
-"colorscheme solarized
 colorscheme badwolf
 
 " Gist
