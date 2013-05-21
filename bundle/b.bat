@@ -13,7 +13,6 @@ if "%choice%"=="i" goto initialize
 exit
 
 :update
-cd bundle
 for /d %%X in ("*") do (
         pushd %%X
         git pull
