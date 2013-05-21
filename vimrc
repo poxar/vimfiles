@@ -57,6 +57,7 @@ endif
 if has("gui_running")
   " make the gui clean
   set guioptions=cegi
+  set mousehide
 
   if has("unix")
     set guifont=DejaVu\ Sans\ Mono\ 11
