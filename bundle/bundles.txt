@@ -1,7 +1,6 @@
 LaTeX-Box-Team/LaTeX-Box
 thawk/OmniCppComplete
 mileszs/ack.vim
-sjl/badwolf
 vim-scripts/gtk-vim-syntax
 sjl/gundo.vim
 lukerandall/haskellmode-vim

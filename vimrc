@@ -37,6 +37,9 @@ endif
 " use omnicompletion
 set ofu=syntaxcomplete#Complete
 
+" colorscheme
+colorscheme badwolf
+
 " version dependent settings
 if version >= 703
   set relativenumber         " show relative line numbers
@@ -76,8 +79,6 @@ let g:snips_author="Philipp Millar"
 
 " Gundo
 nnoremap cog :GundoToggle<cr>
-
-colorscheme badwolf
 
 " Gist
 if has('unix')
