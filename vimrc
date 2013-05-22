@@ -185,7 +185,7 @@ function! EchoFileInfo()
   let finfo=""
 
   let finfo=finfo."(".bufnr('%').")"
-  let finfo=finfo."(".argidx()."/".argc().")"
+  let finfo=finfo."(".(argidx()+1)."/".argc().")"
 
   let finfo=finfo."  "
   let finfo=finfo."[".&filetype."]"
