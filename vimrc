@@ -140,6 +140,9 @@ elseif has("win32")
   nnoremap <leader>n :e ~\Dropbox\notes\
 endif
 
+" indent whole file
+nnoremap <leader>q gg=G<C-o><C-o>
+
 " indent next line to match current word
 let @j='yiwy0opVr J'
 " underline the current line
