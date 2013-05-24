@@ -6,6 +6,7 @@ TAGS += notmuch.tags
 TAGS += cpp.tags
 TAGS += sdl.tags
 TAGS += qt4.tags
+TAGS += xlib.tags
 
 CPP := --sort=yes
 CPP += --c++-kinds=+p
@@ -31,6 +32,9 @@ ncurses.tags: $(INC)/ncurses.h
 
 notmuch.tags: $(INC)/notmuch.h
 	ctags -o notmuch.tags $(INC)/notmuch.h
+
+xlib.tags: $(INC)/X11/
+	ctags -R -o xlib.tags $(INC)/X11/
 
 cpp.tags: ./cpp_src/
 	ctags -R $(CPP) -o cpp.tags ./cpp_src/
