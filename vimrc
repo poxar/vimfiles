@@ -221,6 +221,11 @@ augroup numbers
   au! InsertLeave * :set relativenumber
 augroup END
 " }}}
+" auto-clean fugitive buffers {{{
+augroup fugitive-clean
+  au! BufReadPost fugitive://* set bufhidden=delete
+augroup END
+" }}}
 " local vim settings {{{
 "
 " I mainly use this for project specific settings like so
