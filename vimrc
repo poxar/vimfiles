@@ -44,6 +44,8 @@ colorscheme badwolf
 if version >= 703
   set relativenumber         " show relative line numbers
   set cryptmethod=blowfish   " use blowfish to encrypt files
+else
+  set number
 endif
 
 " cscope
