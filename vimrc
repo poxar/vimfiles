@@ -216,13 +216,6 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://sprunge.us|xclip
 "}}}
 
-" auto numbering {{{
-" change the numbering style, according to mode
-augroup numbers
-  au! InsertEnter * :set number
-  au! InsertLeave * :set relativenumber
-augroup END
-" }}}
 " auto-clean fugitive buffers {{{
 augroup fugitive-clean
   au! BufReadPost fugitive://* set bufhidden=delete
