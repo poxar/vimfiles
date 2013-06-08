@@ -82,18 +82,10 @@ let g:snips_author="Philipp Millar"
 " Gundo
 nnoremap cog :GundoToggle<cr>
 
-" Gist
+" LaTeX-BoX
+let g:LatexBox_autojump=1
 if has('unix')
-  let g:gist_clip_command = 'xclip -selection clipboard'
-endif
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
-let g:gist_show_privates = 1
-
-if has('unix')
-  " LaTeX-BoX
   let g:LatexBox_viewer="zathura"
-  let g:LatexBox_autojump=1
 endif
 "}}}
 

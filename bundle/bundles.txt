@@ -3,13 +3,11 @@ thawk/OmniCppComplete
 mileszs/ack.vim
 vim-scripts/gtk-vim-syntax
 sjl/gundo.vim
-lukerandall/haskellmode-vim
 vim-scripts/indenthaskell.vim
 godlygeek/tabular
 tomtom/tlib_vim
 tpope/vim-abolish
 MarcWeber/vim-addon-mw-utils
-tpope/vim-characterize
 tpope/vim-commentary
 tpope/vim-endwise
 derekwyatt/vim-fswitch
@@ -18,8 +16,6 @@ jamessan/vim-gnupg
 michaeljsmith/vim-indent-object
 tpope/vim-markdown
 derekwyatt/vim-protodef
-nelstrom/vim-qargs
-tpope/vim-ragtag
 tpope/vim-repeat
 joonty/vim-sauce
 garbas/vim-snipmate
