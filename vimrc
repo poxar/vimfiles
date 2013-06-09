@@ -87,6 +87,11 @@ let g:LatexBox_autojump=1
 if has('unix')
   let g:LatexBox_viewer="zathura"
 endif
+
+" notes with CtrlP
+nnoremap <leader>n :CtrlP ~/.notes/<cr>
+nnoremap <leader>N :e ~/.notes/
+
 "}}}
 
 " mappings {{{
@@ -121,13 +126,6 @@ nnoremap <leader>sv  :source $MYVIMRC<cr>
 " write file as root
 if has("unix")
   cnoremap w!! w !sudo tee % >/dev/null
-endif
-
-" open notes directory
-if has("unix")
-  nnoremap <leader>n :e ~/data/Dropbox/notes/
-elseif has("win32")
-  nnoremap <leader>n :e ~\Dropbox\notes\
 endif
 
 " indent whole file
