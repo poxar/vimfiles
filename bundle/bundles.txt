@@ -23,4 +23,4 @@ honza/vim-snippets
 tpope/vim-surround
 tpope/vim-unimpaired
 nelstrom/vim-visual-star-search
-kien/ctrlp.vim.git
+kien/ctrlp.vim
