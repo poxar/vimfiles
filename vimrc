@@ -67,7 +67,7 @@ if has("gui_running")
   if has("unix")
     set guifont=DejaVu\ Sans\ Mono\ 11
   else
-    set guifont=Consolas_FixedD:h11:cANSI
+    set guifont=Consolas:h11:cANSI
   endif
 endif "}}}
 " plugin settings {{{
