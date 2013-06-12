@@ -1,26 +1,28 @@
-VIMFILES := $(shell pwd)
+prefix   := ${HOME}
+vimfiles := $(prefix)/.vim
 
-all: vimdirs plugins ${HOME}/.vimrc
+vimdirs  := backup swap undo
+vimdirs  := $(addprefix $(prefix)/.local/share/vim/, $(vimdirs))
 
-${HOME}/.vimrc:
-	ln -fs $(VIMFILES)/vimrc ${HOME}/.vimrc
+all: $(vimdirs) $(prefix)/.vimrc plugins
+
+$(prefix)/.vimrc:
+	ln -fs $(vimfiles)/vimrc $(prefix)/.vimrc
 
 plugins:
-	$(VIMFILES)/bundle/b g
+	$(vimfiles)/bundle/b g
 
 update:
-	$(VIMFILES)/bundle/b u
+	$(vimfiles)/bundle/b u
 
-vimdirs:
-	mkdir -p ${HOME}/.local/share/vim/backup
-	mkdir -p ${HOME}/.local/share/vim/swap
-	mkdir -p ${HOME}/.local/share/vim/undo
+$(prefix)/.local/share/vim/%:
+	mkdir -p $@
 
 clean:
-	rm -f ${HOME}/.vimrc
+	rm -f $(prefix)/.vimrc
 
 cleanall: clean
-	rm -f ${HOME}/.viminfo
-	rm -rf ${HOME}/.local/share/vim
+	rm -f $(prefix)/.viminfo
+	rm -rf $(prefix)/.local/share/vim
 
-.PHONY: all plugins update vimdirs clean cleanall
+.PHONY: all plugins update clean cleanall
