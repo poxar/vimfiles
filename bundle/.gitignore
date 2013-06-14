@@ -1,1 +1,7 @@
-*
+tags
+Rakefile
+Makefile
+.gitignore
+.hg*
+*.png
+*.svg

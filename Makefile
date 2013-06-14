@@ -4,16 +4,10 @@ vimfiles := $(prefix)/.vim
 vimdirs  := backup swap undo
 vimdirs  := $(addprefix $(prefix)/.local/share/vim/, $(vimdirs))
 
-all: $(vimdirs) $(prefix)/.vimrc plugins
+all: $(vimdirs) $(prefix)/.vimrc
 
 $(prefix)/.vimrc:
 	ln -fs $(vimfiles)/vimrc $(prefix)/.vimrc
-
-plugins:
-	$(vimfiles)/bundle/b g
-
-update:
-	$(vimfiles)/bundle/b u
 
 $(prefix)/.local/share/vim/%:
 	mkdir -p $@
