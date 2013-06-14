@@ -108,6 +108,10 @@ nnoremap <leader>m  :make
 nnoremap <leader>mm :make<cr><cr>
 nnoremap <leader>mc :make clean<cr><cr>
 
+" start a new change when deleting lines/words in insert mode
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
+
 " leave insert mode quickly
 inoremap jk <esc>
 
