@@ -240,7 +240,7 @@ augroup END
 " I mainly use this for project specific settings like so
 "
 " augroup project
-"   au! BufRead,BufNewFile /path/to/project/* :Sauce project
+"   au! BufRead,BufNewFile /path/to/project/* :source /path/to/project/.vimrc
 " augroup END
 "
 if filereadable($HOME . "/.local.vimrc")
