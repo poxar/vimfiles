@@ -81,6 +81,7 @@ let g:snips_author="Philipp Millar"
 
 " Gundo
 nnoremap cog :GundoToggle<cr>
+let g:gundo_preview_bottom = 1
 
 " LaTeX-BoX
 let g:LatexBox_autojump=1
