@@ -5,3 +5,6 @@ Makefile
 .hg*
 *.png
 *.svg
+gundo.vim/tests
+gundo.vim/site
+gundo.vim/package.sh
