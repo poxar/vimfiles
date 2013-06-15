@@ -201,6 +201,25 @@ command! Info call EchoFileInfo()
 nnoremap <leader>i :Info<cr>
 nnoremap <A-i>     :Info<cr>
 "}}}
+" func FollowSymlink {{{
+" follow symlinks (for fugitive etc)
+if !has("win32")
+  function! s:FollowSymlink()
+    let fname = resolve(expand('%:p'))
+    bp
+    bwipeout #
+    exec "edit " . fname
+  endfunction
+  command! FollowSympling call s:FollowSymlink()
+  augroup symlinks
+    au!
+    au! BufNew,BufReadPost *
+          \ if getftype(fnameescape(expand('<afile>:p'))) == 'link' |
+          \     call s:FollowSymlink() |
+          \ endif
+  augroup END
+endif
+" }}}
 
 " command DiffOrig {{{
 " diff the current buffer and the file it was loaded from
