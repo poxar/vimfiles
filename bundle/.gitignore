@@ -8,3 +8,4 @@ Makefile
 gundo.vim/tests
 gundo.vim/site
 gundo.vim/package.sh
+vim-snippets/UltiSnips
