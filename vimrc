@@ -224,18 +224,10 @@ nnoremap <A-i>     :Info<cr>
 if !has("win32")
   function! s:FollowSymlink()
     let fname = resolve(expand('%:p'))
-    bp
-    bwipeout #
+    bwipeout
     exec "edit " . fname
   endfunction
-  command! FollowSympling call s:FollowSymlink()
-  augroup symlinks
-    au!
-    au! BufNew,BufReadPost *
-          \ if getftype(fnameescape(expand('<afile>:p'))) == 'link' |
-          \     call s:FollowSymlink() |
-          \ endif
-  augroup END
+  command! FollowSymlink call s:FollowSymlink()
 endif
 " }}}
 
