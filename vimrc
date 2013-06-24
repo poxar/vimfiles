@@ -28,7 +28,7 @@ set hlsearch          " highlight results
 set gdefault          " reverse the meaning of /g in patterns
 
 " tab completion with menu
-set wildmode=longest:full
+set wildmode=longest:full,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 if has('wildignorecase')
   set wildignorecase
