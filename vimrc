@@ -154,6 +154,10 @@ endif
 " indent whole file
 nnoremap <leader>q gg=G<C-o><C-o>
 
+" recall commands from history
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
 " indent next line to match current word
 let @j='yiwy0opVr J'
 " underline the current line
