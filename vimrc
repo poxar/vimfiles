@@ -107,10 +107,43 @@ if has('unix')
   let g:LatexBox_viewer="zathura"
 endif
 
-" notes with CtrlP
-nnoremap <leader>n :CtrlP ~/.notes/<cr>
-nnoremap <leader>N :e ~/.notes/
+" Unite
+" enable yank history tracking
+let g:unite_source_history_yank_enable = 1
 
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j> <Plug>(unite_select_next_line)
+  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+endfunction
+
+" fuzzy matching
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+" combined most important sources
+nnoremap <leader>j :<C-u>Unite -no-split -buffer-name=all
+      \ -start-insert file file_mru buffer bookmark<cr>
+" only files
+nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files
+      \ -start-insert file<cr>
+" recursive files
+nnoremap <leader>F :<C-u>Unite -no-split -buffer-name=files
+      \ -start-insert file_rec<cr>
+" mru files
+nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru
+      \ -start-insert file_mru<cr>
+" yank history
+nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank
+      \ -start-insert history/yank<cr>
+" buffers
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer
+      \ -start-insert buffer<cr>
+" notes
+nnoremap <leader>n :<C-u>Unite -no-split -buffer-name=notes
+      \ -start-insert file:~/.notes<cr>
+nnoremap <leader>N :e ~/.notes/
 "}}}
 
 " mappings {{{
