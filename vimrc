@@ -135,8 +135,8 @@ nnoremap <leader>F :<C-u>Unite -no-split -buffer-name=files
 nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru
       \ -start-insert file_mru<cr>
 " yank history
-nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank
-      \ -start-insert history/yank<cr>
+nnoremap <leader>y :<C-u>Unite -buffer-name=yank
+      \ history/yank<cr>
 " buffers
 nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer
       \ -start-insert buffer<cr>
