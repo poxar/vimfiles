@@ -26,6 +26,7 @@ set ignorecase        " search is case insensitive,
 set smartcase         " except when upper-case letters are used
 set hlsearch          " highlight results
 set gdefault          " reverse the meaning of /g in patterns
+set list              " show stray characters (have a look at sensible.vim)
 
 " tab completion with menu
 set wildmode=longest:full,full
@@ -144,6 +145,11 @@ nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer
 nnoremap <leader>n :<C-u>Unite -no-split -buffer-name=notes
       \ -start-insert file:~/.notes<cr>
 nnoremap <leader>N :e ~/.notes/
+
+" unite-outline
+" outline
+nnoremap <leader>o :<C-u>Unite -buffer-name=outline
+      \ outline<cr>
 "}}}
 
 " mappings {{{
