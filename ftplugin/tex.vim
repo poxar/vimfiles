@@ -12,6 +12,3 @@ inoremap "" "`"'<esc>hi
 
 " folding
 let g:LatexBox_Folding=1
-
-" OmniCompletion
-inoremap <C-Space> <C-X><C-O>

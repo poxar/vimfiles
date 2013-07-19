@@ -12,6 +12,3 @@ let java_highlight_debug=1
 let java_highlight_java_lang_ids=1
 let java_highlight_functions="style"
 let java_minlines = 150
-
-" mappings
-inoremap <C-Space> <C-X><C-O>
