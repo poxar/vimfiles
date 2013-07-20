@@ -1,7 +1,7 @@
 "=============================================================================
 " FILE: variables.vim
 " AUTHOR: Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 24 Jun 2013.
+" Last Modified: 17 Jul 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -231,10 +231,27 @@ function! unite#variables#default_context() "{{{
           \ 'unite__old_winwidth' : 0,
           \ 'unite__old_winheight' : 0,
           \ 'unite__disable_hooks' : 0,
+          \ 'unite__disable_max_candidates' : 0,
           \ }
   endif
 
   return s:default_context
+endfunction"}}}
+
+function! unite#variables#get_source_variable(source, variable, default) "{{{
+  if !exists('s:source_variables')
+    let s:source_variables = {}
+  endif
+
+  if !has_key(s:source_variables, a:source)
+    let s:source_variables[a:source] = {}
+  endif
+
+  if !has_key(s:source_variables[a:source], a:variable)
+    let s:source_variables[a:source][a:variable] = a:default
+  endif
+
+  return s:source_variables[a:source][a:variable]
 endfunction"}}}
 
 let &cpo = s:save_cpo

@@ -1,7 +1,7 @@
 "=============================================================================
 " FILE: rec.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 30 Jun 2013.
+" Last Modified: 18 Jul 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -41,7 +41,7 @@ call unite#util#set_default(
       \ 'g:unite_source_file_rec_max_cache_files')
 call unite#util#set_default(
       \ 'g:unite_source_rec_async_command',
-      \ (executable('ag') ? 'ag --nocolor --nogroup -g ""' :
+      \ (executable('ag') ? 'ag --nocolor --nogroup --hidden -g ""' :
       \ !unite#util#is_windows() && executable('find') ? 'find' : ''),
       \ 'g:unite_source_file_rec_async_command')
 "}}}
@@ -255,14 +255,14 @@ let s:source_file_async.description =
       \ 'asynchronous candidates from directory by recursive'
 
 function! s:source_file_async.gather_candidates(args, context) "{{{
+  let a:context.source__directory = s:get_path(a:args, a:context)
+
   if !unite#util#has_vimproc()
     call unite#print_source_message(
           \ 'vimproc plugin is not installed.', self.name)
     let a:context.is_async = 0
     return []
   endif
-
-  let a:context.source__directory = s:get_path(a:args, a:context)
 
   let directory = a:context.source__directory
   if directory == ''
@@ -655,7 +655,7 @@ function! s:write_cache(context, directory, files) "{{{
           \ map(copy(a:files), 'v:val.action__path'))
   elseif s:Cache.filereadable(cache_dir, a:directory)
     " Delete old cache files.
-    call s:Cache.delete(cache_dir, a:directory)
+    call s:Cache.deletefile(cache_dir, a:directory)
   endif
 endfunction"}}}
 
