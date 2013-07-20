@@ -28,6 +28,9 @@ set hlsearch          " highlight results
 set gdefault          " reverse the meaning of /g in patterns
 set list              " show stray characters (have a look at sensible.vim)
 
+let mapleader      = " "
+let maplocalleader = "\\"
+
 " tab completion with menu
 set wildmode=longest:full,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
@@ -160,8 +163,6 @@ nnoremap Q gqap
 " swap ' and ` so 'a goes to line and column marked with ma
 nnoremap ' `
 nnoremap ` '
-" use space for foldings
-nnoremap <space> za
 " quick make
 nnoremap <leader>m  :make
 nnoremap <leader>mm :make<cr><cr>
