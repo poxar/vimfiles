@@ -176,6 +176,10 @@ nnoremap <leader>mc :make clean<cr><cr>
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
+" sessions
+nnoremap <Leader>ms :mksession ~/.vim/sessions/
+nnoremap <Leader>ls :source ~/.vim/sessions/
+
 " leave insert mode quickly
 inoremap jk <esc>
 
