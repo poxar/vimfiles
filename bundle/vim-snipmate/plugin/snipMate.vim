@@ -1,6 +1,6 @@
 " File:          snipMate.vim
 " Author:        Michael Sanders
-" Version:       0.85
+" Version:       0.86
 " Description:   snipMate.vim implements some of TextMate's snippets features in
 "                Vim. A snippet is a piece of often-typed text that you can
 "                insert into your document using a trigger word followed by a "<tab>".
@@ -64,20 +64,6 @@ endif
 "
 " &ft honors multiple filetypes and syntax such as in set ft=html.javascript syntax=FOO
 let s:snipMate['get_scopes'] = get(s:snipMate, 'get_scopes', funcref#Function('return split(&ft,"\\.")+[&syntax, "_"]'))
-
-" Processes a single-snippet file; optionally add the name of the parent
-" directory for a snippet with multiple matches.
-fun! s:ProcessFile(file, ft, ...)
-	let keyword = fnamemodify(a:file, ':t:r')
-	if keyword  == '' | return | endif
-	try
-		let text = join(readfile(a:file), "\n")
-	catch /E484/
-		echom "Error in snipMate.vim: couldn't read file: ".a:file
-	endtry
-	return a:0 ? MakeSnip(a:ft, a:1, text, keyword)
-			\  : MakeSnip(a:ft, keyword, text)
-endf
 
 " dummy for compatibility - will be removed
 " moving to autoload to improve loading speed and debugging
