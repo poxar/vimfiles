@@ -103,8 +103,6 @@ endif
 let g:snips_author="Philipp Millar"
 imap <C-J> <Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
-imap <C-K> <Plug>snipMateBack
-smap <C-K> <Plug>snipMateBack
 
 " Gundo
 nnoremap cog :GundoToggle<cr>
