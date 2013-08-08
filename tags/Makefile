@@ -45,4 +45,7 @@ sdl.tags: $(INC)/SDL/
 qt4.tags: $(INC)/qt4/
 	ctags -R $(CPP) -o qt4.tags $(INC)/qt4/
 
+ssl.tags: $(INC)/openssl/
+	ctags -R -o ssl.tags $(INC)/openssl/
+
 .PHONY: all clean
