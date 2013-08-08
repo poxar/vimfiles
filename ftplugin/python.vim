@@ -1,1 +1,2 @@
-setlocal completefunc=python3complete#Complete
+setlocal shiftwidth=4
+setlocal expandtab
