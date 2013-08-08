@@ -165,6 +165,8 @@ nnoremap Q gqap
 " swap ' and ` so 'a goes to line and column marked with ma
 nnoremap ' `
 nnoremap ` '
+" open last/alternate buffer
+nnoremap <leader><leader> <C-^>
 " quick make
 nnoremap <leader>m  :make
 nnoremap <leader>mm :make<cr><cr>
