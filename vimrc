@@ -200,6 +200,8 @@ NeoBundle 'vim-scripts/indenthaskell.vim'
 NeoBundle 'xhr/vim-io'
 " Vim plugin for Todo.txt
 NeoBundle 'freitass/todo.txt-vim'
+" Additional Vim syntax highlighting for C++ (including C++11)
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
 " Lightweight Toolbox for LaTeX
 NeoBundleLazy 'LaTeX-Box-Team/LaTeX-Box'
