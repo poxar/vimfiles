@@ -37,6 +37,7 @@ set hlsearch          " highlight results
 set gdefault          " reverse the meaning of /g in patterns
 set list              " show stray characters (have a look at sensible.vim)
 
+set nomodeline        " disable modelines
 set exrc              " read per directory vimrcs
 set secure            " be secure when doing so
 
@@ -163,6 +164,10 @@ augroup END
 
 augroup snippets_settings
     au! Filetype snippets setlocal noexpandtab
+augroup END
+
+augroup vim_settings
+    au! Filetype vim setlocal fdm=marker
 augroup END
 " }}}
 
