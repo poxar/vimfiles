@@ -121,6 +121,47 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   endif
 endif "}}}
+" filetype settings {{{
+augroup c_settings
+  au! FileType c setlocal cindent
+augroup END
+
+augroup cpp_settings
+    au! Filetype cpp cindent
+    au! Filetype cpp setlocal textwidth=120
+augroup END
+
+augroup gitcommit_settings
+    au! Filetype gitcommit setlocal spell
+    au! Filetype gitcommit setlocal spelllang=en
+augroup END
+
+augroup haskell_settings
+    au! Filetype haskell setlocal softtabstop=4
+augroup END
+
+augroup help_settings
+    au! Filetype help setlocal statusline=%<%h\ %f%=%l\ %P
+augroup END
+
+augroup java_settings
+    au! Filetype java setlocal noexpandtab
+    au! Filetype java setlocal tabstop=4
+    au! Filetype java setlocal textwidth=120
+    au! Filetype java setlocal makeprg=ant\ -find\ build.xml
+    au! Filetype java setlocal efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+augroup END
+
+augroup mail_settings
+    au! Filetype mail setlocal textwidth=72
+    au! Filetype mail setlocal spell
+    au! Filetype mail setlocal spelllang=de
+augroup END
+
+augroup snippets_settings
+    au! Filetype snippets setlocal noexpandtab
+augroup END
+" }}}
 
 " mappings {{{
 " Don't use Ex mode, use Q for formatting
