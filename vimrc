@@ -4,6 +4,17 @@
 " Maintainer: Philipp Millar <philipp.millar@gmail.com>
 "
 
+" plugin management {{{
+if has('win32')
+  source ~\vimfiles\plugins.vimrc
+  nnoremap <leader>ep  :edit   ~\vimfiles\plugins.vimrc<cr>
+  nnoremap <leader>esp :vsplit ~\vimfiles\plugins.vimrc<cr>
+else
+  source ~/.vim/plugins.vimrc
+  nnoremap <leader>ep  :edit   ~/.vim/plugins.vimrc<cr>
+  nnoremap <leader>esp :vsplit ~/.vim/plugins.vimrc<cr>
+endif
+" }}}
 " vim settings {{{
 " most configuration is done by vim-sensible from tpope
 
@@ -15,9 +26,10 @@ set lazyredraw        " do not redraw while running macros
 set hidden            " allow hidden buffers
 set clipboard=unnamed " synchronize unnamed buffer and system clipboard
 
-set shiftwidth=2      " use 2 spaces as indent
+set shiftwidth=4      " use 4 spaces as indent
 set expandtab         " expand tabs with spaces
 set nojoinspaces      " J(oin) doesn't double space
+set textwidth=80      " all files are 80 chars wide
 
 set ignorecase        " search is case insensitive,
 set smartcase         " except when upper-case letters are used
@@ -56,6 +68,26 @@ if has('cscope')
     set cscopequickfix=s-,c-,d-,i-,t-,e-
   endif
 endif
+
+" read man files in vim with :Man
+if has("unix")
+  runtime ftplugin/man.vim
+endif
+
+" syntax highlighting
+" haskell
+let g:hs_highlight_delimiters = 1
+let g:hs_highlight_boolean = 1
+let g:hs_highlight_types = 1
+let g:hs_highlight_more_types = 1
+let g:hs_highlight_debug = 1
+" java
+let g:java_mark_braces_in_parens_as_errors=1
+let g:java_highlight_all=1
+let g:java_highlight_debug=1
+let g:java_highlight_java_lang_ids=1
+let g:java_highlight_functions="style"
+let g:java_minlines = 150
 " }}}
 " directory settings {{{
 " this used to be set by vim-sensible
@@ -123,9 +155,15 @@ nnoremap <leader>co :botright cope<cr>
 nnoremap <leader>lo :lopen<cr>
 
 " vimrc
-nnoremap <leader>ev  :edit   $MYVIMRC<cr>
-nnoremap <leader>esv :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv  :source $MYVIMRC<cr>
+if has('win32')
+  nnoremap <leader>ev  :edit   ~\vimfiles\vimrc<cr>
+  nnoremap <leader>esv :vsplit ~\vimfiles\vimrc<cr>
+  nnoremap <leader>sv  :source ~\vimfiles\vimrc<cr>
+else
+  nnoremap <leader>ev  :edit   ~/.vim/vimrc<cr>
+  nnoremap <leader>esv :vsplit ~/.vim/vimrc<cr>
+  nnoremap <leader>sv  :source ~/.vim/vimrc<cr>
+endif
 
 " write file as root
 if has("unix")
@@ -224,20 +262,12 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 " put files or snippets on sprunge.us
 command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://sprunge.us|xclip
 "}}}
-
-" auto-clean fugitive buffers {{{
-augroup fugitive-clean
-  au! BufReadPost fugitive://* set bufhidden=delete
-augroup END
+" command Todo {{{
+" find and show todos
+command! Todo vimgrep /TODO:\|FIXME:/j ** | botright cope
 " }}}
+
 " local vim settings {{{
-"
-" I mainly use this for project specific settings like so
-"
-" augroup project
-"   au! BufRead,BufNewFile /path/to/project/* :source /path/to/project/.vimrc
-" augroup END
-"
 if filereadable($HOME . "/.local.vimrc")
   so ~/.local.vimrc
 endif

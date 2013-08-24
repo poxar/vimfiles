@@ -1,0 +1,13 @@
+# vim snippets
+
+snippet aug "augroup" !b
+augroup ${1:AU_NAME}
+    au! ${2:Filetype} ${3:type} ${4:command}
+augroup END
+endsnippet
+snippet au "autocommand" !b
+au! ${1:Filetype} ${2:type} ${3:command}
+endsnippet
+snippet bun "NeoBundle" !b
+NeoBundle '${0}'
+endsnippet

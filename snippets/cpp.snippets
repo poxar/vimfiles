@@ -1,0 +1,26 @@
+# cpp snippets
+
+# classes
+snippet mfun "member function definition" !b
+${4:void} ${1:`!p snip.rv = snip.basename or "class"`}::${2:function}(${3}) {
+	${0}
+}
+endsnippet
+snippet Con "constructor definition" !b
+${1:`!p snip.rv = snip.basename or "class"`}::$1(${2}) {${3}
+}
+${0}
+endsnippet
+snippet Des "destructor definition" !b
+${1:`!p snip.rv = snip.basename or "class"`}::~$1(${2}) {${3}
+}
+${0}
+endsnippet
+
+# i/o
+snippet cout "std::cout"
+std::cout << ${1} << std::endl;${0}
+endsnippet
+snippet cin "std::cin"
+std::cin >> ${1};${0}
+endsnippet
