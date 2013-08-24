@@ -37,6 +37,9 @@ set hlsearch          " highlight results
 set gdefault          " reverse the meaning of /g in patterns
 set list              " show stray characters (have a look at sensible.vim)
 
+set exrc              " read per directory vimrcs
+set secure            " be secure when doing so
+
 let mapleader      = " "
 let maplocalleader = "\\"
 
@@ -307,15 +310,3 @@ command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://spr
 " find and show todos
 command! Todo vimgrep /TODO:\|FIXME:/j ** | botright cope
 " }}}
-
-" local vim settings {{{
-if filereadable($HOME . "/.local.vimrc")
-  so ~/.local.vimrc
-endif
-
-nnoremap <leader>el  :edit   ~/.local.vimrc<cr>
-nnoremap <leader>esl :vsplit ~/.local.vimrc<cr>
-nnoremap <leader>sl  :source ~/.local.vimrc<cr>
-" }}}
-
-" vim:set sw=2 foldmethod=marker ft=vim expandtab:
