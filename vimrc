@@ -7,9 +7,6 @@
 " vim settings {{{
 " most configuration is done by vim-sensible from tpope
 
-" load plugin management
-call pathogen#infect()
-
 " i can afford a big viminfo
 set viminfo='100,<1000,s200,h
 
@@ -92,71 +89,6 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   endif
 endif "}}}
-
-" plugin settings {{{
-" read man files in vim with :Man
-if has("unix")
-  runtime ftplugin/man.vim
-endif
-
-" Snipmate
-let g:snips_author="Philipp Millar"
-imap <C-J> <Plug>snipMateNextOrTrigger
-smap <C-J> <Plug>snipMateNextOrTrigger
-
-" Gundo
-nnoremap cog :GundoToggle<cr>
-let g:gundo_preview_bottom = 1
-
-" LaTeX-BoX
-let g:LatexBox_autojump=1
-if has('unix')
-  let g:LatexBox_viewer="zathura"
-endif
-" }}}
-" Unite {{{
-" enable yank history tracking
-let g:unite_source_history_yank_enable = 1
-
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j> <Plug>(unite_select_next_line)
-  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
-endfunction
-
-" fuzzy matching
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-
-" combined most important sources
-nnoremap <leader>j :<C-u>Unite -no-split -buffer-name=all
-      \ -start-insert file file_mru buffer bookmark<cr>
-" only files
-nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files
-      \ -start-insert file<cr>
-" recursive files
-nnoremap <leader>F :<C-u>Unite -no-split -buffer-name=files
-      \ -start-insert file_rec<cr>
-" mru files
-nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru
-      \ -start-insert file_mru<cr>
-" yank history
-nnoremap <leader>y :<C-u>Unite -buffer-name=yank
-      \ history/yank<cr>
-" buffers
-nnoremap <leader>e :<C-u>Unite -buffer-name=buffer
-      \ -start-insert buffer<cr>
-" notes
-nnoremap <leader>n :<C-u>Unite -buffer-name=notes
-      \ -start-insert file:~/.notes<cr>
-nnoremap <leader>N :e ~/.notes/
-
-" unite-outline
-" outline
-nnoremap <leader>o :<C-u>Unite -buffer-name=outline
-      \ -start-insert outline<cr>
-"}}}
 
 " mappings {{{
 " Don't use Ex mode, use Q for formatting
