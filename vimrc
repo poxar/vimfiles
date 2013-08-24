@@ -1,7 +1,7 @@
 
 "
 " vimrc
-" Maintainer: Philipp Millar <philipp.millar@gmail.com>
+" Maintainer: Philipp Millar <philipp.millar@poxar.de>
 "
 
 " plugin management {{{
@@ -48,16 +48,22 @@ NeoBundle 'jamessan/vim-gnupg'
 
 " a Git wrapper so awesome, it should be illegal
 NeoBundle 'tpope/vim-fugitive'
-" auto-clean fugitive buffers
-augroup fugitive-clean
-  au! BufReadPost fugitive://* set bufhidden=delete
-augroup END
+" auto-clean fugitive buffers {{{3
+let bundle = neobundle#get('vim-fugitive')
+function! bundle.hooks.on_source(bundle)
+    augroup fugitive-clean
+        au! BufReadPost fugitive://* set bufhidden=delete
+    augroup END
+endfunction "}}}3
 
 " Graph your Vim undo tree in style
 NeoBundle 'sjl/gundo.vim'
-" gundo settings
-nnoremap cog :GundoToggle<cr>
-let g:gundo_preview_bottom = 1
+" gundo settings {{{3
+let bundle = neobundle#get('gundo.vim')
+function! bundle.hooks.on_source(bundle)
+    nnoremap cog :GundoToggle<cr>
+    let g:gundo_preview_bottom = 1
+endfunction "}}}3
 " }}}2
 " Unite {{{2
 " Unite and create user interfaces
@@ -65,48 +71,54 @@ NeoBundle 'Shougo/unite.vim'
 " outline source for unite.vim
 NeoBundle 'Shougo/unite-outline'
 
-" settings
-" enable yank history tracking
-let g:unite_source_history_yank_enable = 1
+" unite settings {{{3
+let bundle = neobundle#get('unite.vim')
+function! bundle.hooks.on_source(bundle)
+    " enable yank history tracking
+    let g:unite_source_history_yank_enable = 1
 
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j> <Plug>(unite_select_next_line)
-  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+    " Custom mappings for the unite buffer
+    autocmd FileType unite call s:unite_settings()
+    function! s:unite_settings()
+        " Enable navigation with control-j and control-k in insert mode
+        imap <buffer> <C-j> <Plug>(unite_select_next_line)
+        imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+    endfunction
+
+    " fuzzy matching
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+    " combined most important sources
+    nnoremap <leader>j :<C-u>Unite -no-split -buffer-name=all
+                \ -start-insert file file_mru buffer bookmark<cr>
+    " only files
+    nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files
+                \ -start-insert file<cr>
+    " recursive files
+    nnoremap <leader>F :<C-u>Unite -no-split -buffer-name=files
+                \ -start-insert file_rec<cr>
+    " mru files
+    nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru
+                \ -start-insert file_mru<cr>
+    " yank history
+    nnoremap <leader>y :<C-u>Unite -buffer-name=yank
+                \ history/yank<cr>
+    " buffers
+    nnoremap <leader>b :<C-u>Unite -buffer-name=buffer
+                \ -start-insert buffer<cr>
+    " notes
+    nnoremap <leader>n :<C-u>Unite -buffer-name=notes
+                \ -start-insert file:~/.notes<cr>
+    nnoremap <leader>N :e ~/.notes/
 endfunction
 
-" fuzzy matching
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-
-" combined most important sources
-nnoremap <leader>j :<C-u>Unite -no-split -buffer-name=all
-      \ -start-insert file file_mru buffer bookmark<cr>
-" only files
-nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files
-      \ -start-insert file<cr>
-" recursive files
-nnoremap <leader>F :<C-u>Unite -no-split -buffer-name=files
-      \ -start-insert file_rec<cr>
-" mru files
-nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru
-      \ -start-insert file_mru<cr>
-" yank history
-nnoremap <leader>y :<C-u>Unite -buffer-name=yank
-      \ history/yank<cr>
-" buffers
-nnoremap <leader>b :<C-u>Unite -buffer-name=buffer
-      \ -start-insert buffer<cr>
-" notes
-nnoremap <leader>n :<C-u>Unite -buffer-name=notes
-      \ -start-insert file:~/.notes<cr>
-nnoremap <leader>N :e ~/.notes/
-
 " unite-outline
-" outline
-nnoremap <leader>o :<C-u>Unite -buffer-name=outline
-      \ -start-insert outline<cr>
+let bundle = neobundle#get('unite-outline')
+function! bundle.hooks.on_source(bundle)
+    nnoremap <leader>o :<C-u>Unite -buffer-name=outline
+                \ -start-insert outline<cr>
+endfunction
+"}}}3
 "}}}2
 " completion/snippets {{{2
 
@@ -117,8 +129,11 @@ if has('python')
   " This is an implementation of TextMates Snippets for the Vim Text Editor.
   NeoBundle 'SirVer/ultisnips'
 
-  let g:UltiSnipsEditSplit = "horizontal"
-  let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+  let bundle = neobundle#get('ultisnips')
+  function! bundle.hooks.on_source(bundle)
+      let g:UltiSnipsEditSplit = "horizontal"
+      let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+  endfunction
 endif
 
 if has('unix')
@@ -129,16 +144,19 @@ if has('unix')
     au! FileType c,cpp NeoBundleSource clang_complete
   augroup END
 
-  " don't select anything
-  let g:clang_auto_select      = 0
-  " open quickfix window on errors
-  let g:clang_complete_copen   = 1
-  " close preview window automatically
-  let g:clang_close_preview    = 1
-  " complete macros and constants
-  let g:clang_complete_macros  = 1
-  " complete patterns
-  let g:clang_complete_patters = 1
+  let bundle = neobundle#get('clang_complete')
+  function! bundle.hooks.on_source(bundle)
+      " don't select anything
+      let g:clang_auto_select      = 0
+      " open quickfix window on errors
+      let g:clang_complete_copen   = 1
+      " close preview window automatically
+      let g:clang_close_preview    = 1
+      " complete macros and constants
+      let g:clang_complete_macros  = 1
+      " complete patterns
+      let g:clang_complete_patters = 1
+  endfunction
   " }}}3
 elseif
   " provides C/C++ completion thanks to a ctags database
@@ -146,22 +164,27 @@ elseif
   " OmniCppComplete settings {{{3
   augroup omnicppcomplete
     au! FileType cpp NeoBundleSource OmniCppComplete
-    au! FileType cpp setlocal omnifunc=omni#cpp#complete#Main
   augroup END
 
-  let OmniCpp_NamespaceSearch = 1
-  let OmniCpp_GlobalScopeSearch = 1
-  let OmniCpp_ShowAccess = 1
-  let OmniCpp_LocalSearchDecl = 1 " brace may be everywhere
-  let OmniCpp_SelectFirstItem = 1 " just insert it already!
-  let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-  let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-  let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-  let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-  let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-  " automatically open and close the popup menu / preview window
-  au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-  set completeopt=menuone,menu,longest,preview
+  let bundle = neobundle#get('OmniCppComplete')
+  function! bundle.hooks.on_source(bundle)
+      let OmniCpp_NamespaceSearch = 1
+      let OmniCpp_GlobalScopeSearch = 1
+      let OmniCpp_ShowAccess = 1
+      let OmniCpp_LocalSearchDecl = 1 " brace may be everywhere
+      let OmniCpp_SelectFirstItem = 1 " just insert it already!
+      let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+      let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+      let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+      let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+      let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+      " automatically open and close the popup menu / preview window
+      augroup omnicppcomplete_options
+          au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+          au! FileType cpp setlocal omnifunc=omni#cpp#complete#Main
+      augroup END
+      set completeopt=menuone,menu,longest,preview
+  endfunction
   " }}}3
 endif
 "}}}2
@@ -184,17 +207,22 @@ NeoBundleLazy 'LaTeX-Box-Team/LaTeX-Box'
 augroup latexbox_settings
     au! FileType latex,tex NeoBundleSource LaTeX-Box
 augroup END
-let g:LatexBox_autojump=1
-let g:LatexBox_Folding=1
-if has('unix')
-  let g:LatexBox_viewer="zathura"
-endif
+
+let bundle = neobundle#get('LaTeX-Box')
+function! bundle.hooks.on_source(bundle)
+    let g:LatexBox_autojump=1
+    let g:LatexBox_Folding=1
+    if has('unix')
+        let g:LatexBox_viewer="zathura"
+    endif
+endfunction
 " }}}3
 " }}}2
 
 filetype plugin indent on
 NeoBundleCheck
 " }}}
+
 " vim settings {{{
 " most configuration is done by vim-sensible from tpope
 
