@@ -46,6 +46,19 @@ NeoBundle 'nelstrom/vim-visual-star-search'
 " This script implements transparent editing of gpg encrypted files
 NeoBundle 'jamessan/vim-gnupg'
 
+if has('unix')
+  " SLIME inspired tmux integration plugin for Vim
+  NeoBundle 'epeli/slimux'
+  " slimux settings {{{3
+  let bundle = neobundle#get('slimux')
+  function! bundle.hooks.on_source(bundle)
+    nnoremap <leader>R :SlimuxREPLSendLine<cr>
+    vnoremap <leader>R :SlimuxREPLSendSelection<cr>
+    nnoremap <leader>sp :SlimuxShellPrompt<cr>
+    nnoremap <leader>S :SlimuxShellLast<cr>
+  endfunction "}}}3
+endif
+
 " a Git wrapper so awesome, it should be illegal
 NeoBundle 'tpope/vim-fugitive'
 " auto-clean fugitive buffers {{{3
