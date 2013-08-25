@@ -69,14 +69,16 @@ function! bundle.hooks.on_source(bundle)
     augroup END
 endfunction "}}}3
 
-" Graph your Vim undo tree in style
-NeoBundle 'sjl/gundo.vim'
-" gundo settings {{{3
-let bundle = neobundle#get('gundo.vim')
-function! bundle.hooks.on_source(bundle)
-    nnoremap cog :GundoToggle<cr>
-    let g:gundo_preview_bottom = 1
-endfunction "}}}3
+if has('python')
+  " Graph your Vim undo tree in style
+  NeoBundle 'sjl/gundo.vim'
+  " gundo settings {{{3
+  let bundle = neobundle#get('gundo.vim')
+  function! bundle.hooks.on_source(bundle)
+      nnoremap cog :GundoToggle<cr>
+      let g:gundo_preview_bottom = 1
+  endfunction "}}}3
+endif
 " }}}2
 " Unite {{{2
 " Unite and create user interfaces
