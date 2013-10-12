@@ -112,9 +112,26 @@ if isdirectory(expand(s:dir))
     let &undodir = expand(s:dir) . '/undo//,' . &undodir
   endif
 endif
+
+" Make those folders automatically if they don't already exist.
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), "p")
+endif
+
 if exists('+undofile')
   set undofile
 endif
+
+" create backup files
+set backup
+" those just create more problems than they solve
+set noswapfile
 " }}}
 " gui settings {{{
 if has("gui_running")
