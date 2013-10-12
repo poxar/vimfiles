@@ -33,6 +33,8 @@ set secure            " be secure when doing so
 set number            " line numbers
 set linebreak         " wrap lines in a readable way
 
+set formatoptions=qcrnlj
+
 let mapleader      = " "
 let maplocalleader = "\\"
 
