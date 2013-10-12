@@ -235,7 +235,7 @@ if has('unix')
 endif
 "}}}2
 " Unite - Unite and create user interfaces {{{2
-" enable yank history tracking
+let g:unite_enable_start_insert = 1
 let g:unite_source_history_yank_enable = 1
 
 " Custom mappings for the unite buffer
@@ -244,37 +244,33 @@ function! s:unite_settings()
     " Enable navigation with control-j and control-k in insert mode
     imap <buffer> <C-j> <Plug>(unite_select_next_line)
     imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+    " cli style delete
+    imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 endfunction
 
 " fuzzy matching
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
-" combined most important sources
-nnoremap <leader>j :<C-u>Unite -no-split -buffer-name=all
-            \ -start-insert file file_mru buffer bookmark<cr>
-" only files
-nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files
-            \ -start-insert file<cr>
-" recursive files
-nnoremap <leader>F :<C-u>Unite -no-split -buffer-name=files
-            \ -start-insert file_rec<cr>
-" mru files
-nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru
-            \ -start-insert file_mru<cr>
-" yank history
-nnoremap <leader>y :<C-u>Unite -buffer-name=yank
-            \ history/yank<cr>
-" buffers
-nnoremap <leader>b :<C-u>Unite -buffer-name=buffer
-            \ -start-insert buffer<cr>
+nnoremap <leader>f :<C-u>Unite file_rec<cr>
+nnoremap <leader>F :<C-u>Unite file<cr>
+
+nnoremap <leader>j :<C-u>Unite buffer<cr>
+nnoremap <leader>J :<C-u>Unite jump<cr>
+
+nnoremap <leader>k :<C-u>Unite bookmark<cr>
+nnoremap <leader>K :<C-u>Unite file_mru<cr>
+
+nnoremap <leader>p :<C-u>Unite history/yank register<cr>
+
+command! Map Unite -no-start-insert mapping
+command! Messages Unite -no-start-insert output:message
+
 " notes
-nnoremap <leader>n :<C-u>Unite -buffer-name=notes
-            \ -start-insert file:~/.notes<cr>
+nnoremap <leader>n :<C-u>Unite -no-split file:~/.notes<cr>
 nnoremap <leader>N :e ~/.notes/
 
 " unite-outline
-nnoremap <leader>o :<C-u>Unite -buffer-name=outline
-            \ -start-insert outline<cr>
+nnoremap <leader>o :<C-u>Unite outline<cr>
 "}}}2
 " dragvisuals - Vim global plugin for dragging virtual blocks {{{2
 vmap <expr> <LEFT>  DVB_Drag('left')
