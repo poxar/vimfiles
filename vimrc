@@ -35,6 +35,9 @@ set linebreak         " wrap lines in a readable way
 
 set formatoptions=qcrnlj
 
+" visual block mode is always virtual
+set virtualedit+=block
+
 let mapleader      = " "
 let maplocalleader = "\\"
 
