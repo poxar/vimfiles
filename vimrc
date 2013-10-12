@@ -370,6 +370,19 @@ endfunc
 
 nnoremap cof :call ToggleFoldmethod()<cr>
 "}}}
+" func ToggleColorColumn {{{
+function! ToggleColorColumn()
+  if(&cc == 0)
+    set cc=81
+    set fdm?
+  else
+    set cc=0
+    set cc?
+  endif
+endfunc
+
+nnoremap coC :call ToggleColorColumn()<cr>
+" }}}
 " func EchoFileInfo {{{
 " this prints some basic stats about the current file
 " I like this way better than having a bloated statusline, packed with
