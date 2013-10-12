@@ -149,82 +149,73 @@ let g:java_highlight_functions="style"
 let g:java_minlines = 150
 " }}}
 " filetype settings {{{
-augroup c_settings
+augroup c_settings "{{{2
   au! FileType c setlocal cindent
-augroup END
-
-augroup cpp_settings
+augroup END "}}}2
+augroup cpp_settings "{{{2
     au! Filetype cpp cindent
     au! Filetype cpp setlocal textwidth=120
-augroup END
-
-augroup gitcommit_settings
+augroup END "}}}2
+augroup gitcommit_settings "{{{2
     au! Filetype gitcommit setlocal spell
     au! Filetype gitcommit setlocal spelllang=en
-augroup END
-
-augroup haskell_settings
+augroup END "}}}2
+augroup haskell_settings "{{{2
     au! Filetype haskell setlocal softtabstop=4
-augroup END
-
-augroup help_settings
+augroup END "}}}2
+augroup help_settings "{{{2
     au! Filetype help setlocal statusline=%<%h\ %f%=%l\ %P
-augroup END
-
-augroup java_settings
+augroup END "}}}2
+augroup java_settings "{{{2
     au! Filetype java setlocal noexpandtab
     au! Filetype java setlocal tabstop=4
     au! Filetype java setlocal textwidth=120
     au! Filetype java setlocal makeprg=ant\ -find\ build.xml
     au! Filetype java setlocal efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
-augroup END
-
-augroup mail_settings
+augroup END "}}}2
+augroup mail_settings "{{{2
     au! Filetype mail setlocal textwidth=72
     au! Filetype mail setlocal spell
     au! Filetype mail setlocal spelllang=de
-augroup END
-
-augroup snippets_settings
+augroup END "}}}2
+augroup snippets_settings "{{{2
     au! Filetype snippets setlocal noexpandtab
-augroup END
-
-augroup vim_settings
+augroup END "}}}2
+augroup vim_settings "{{{2
     au! Filetype vim setlocal fdm=marker
-augroup END
+augroup END "}}}2
 " }}}
 " plugin settings {{{
-
-" slimux - SLIME inspired tmux integration plugin for Vim
+" slimux - SLIME inspired tmux integration plugin for Vim {{{2
 nnoremap <leader>R :SlimuxREPLSendLine<cr>
 vnoremap <leader>R :SlimuxREPLSendSelection<cr>
 nnoremap <leader>sp :SlimuxShellPrompt<cr>
 nnoremap <leader>S :SlimuxShellLast<cr>
-
-" dispatch - asynchronous build and test dispatcher
+"}}}2
+" dispatch - asynchronous build and test dispatcher {{{2
 nnoremap <leader>m  :Make<space>
 nnoremap <leader>mm :Make<cr>
 nnoremap <leader>mc :Make clean<cr>
-
-" fugitive - a Git wrapper so awesome, it should be illegal
+"}}}2
+" fugitive - a Git wrapper so awesome, it should be illegal {{{2
 " auto clean fugitive buffers
 augroup fugitive-clean
     au! BufReadPost fugitive://* set bufhidden=delete
 augroup END
-
-" gundo - Graph your Vim undo tree in style
+" }}}2
+" gundo - Graph your Vim undo tree in style {{{2
 nnoremap cog :GundoToggle<cr>
 let g:gundo_preview_bottom = 1
-
-" Vim plug for switching between companion source files
+"}}}2
+" fswitch - Vim plugin for switching between companion source files {{{2
 nnoremap <A-o> :FSH<cr>
 inoremap <A-o> <esc>:FSH<cr>
-
-" UltiSnips - snippet engine
+"}}}2
+" UltiSnips - snippet engine {{{2
 let g:UltiSnipsEditSplit = "horizontal"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
-
-" clang_complete - Vim plugin that uses clang for completing C/C++ code.
+"}}}2
+" clang_complete - Vim plugin that uses clang for completing C/C++ code. {{{
 " don't auto select anything
 let g:clang_auto_select      = 0
 " open quickfix window on errors
@@ -235,14 +226,14 @@ let g:clang_close_preview    = 1
 let g:clang_complete_macros  = 1
 " complete patterns
 let g:clang_complete_patters = 1
-
-" LaTeX-BoX - Lightweight Toolbox for LaTeX
+"}}}2
+" LaTeX-BoX - Lightweight Toolbox for LaTeX {{{2
 let g:LatexBox_autojump=1
 let g:LatexBox_Folding=1
 if has('unix')
     let g:LatexBox_viewer="zathura"
 endif
-
+"}}}2
 " Unite - Unite and create user interfaces {{{2
 " enable yank history tracking
 let g:unite_source_history_yank_enable = 1
