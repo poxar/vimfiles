@@ -46,6 +46,11 @@ if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
   set showbreak=↪
 endif
 
+" enable word completion with <C-x><C-k>
+if has('unix')
+  set dictionary=/usr/share/dict/words
+endif
+
 " tab completion with menu
 set wildmode=longest:full,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
