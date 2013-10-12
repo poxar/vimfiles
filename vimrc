@@ -438,13 +438,13 @@ nnoremap coC :call ToggleColorColumn()<cr>
 function! EchoFileInfo()
   let finfo=""
 
-  let finfo=finfo."(".bufnr('%').")"
-  let finfo=finfo."(".(argidx()+1)."/".argc().")"
-
+  let finfo=finfo.bufnr('%')
   let finfo=finfo."  "
-  let finfo=finfo."[".&filetype."]"
-  let finfo=finfo."[".&fileformat."]"
-  let finfo=finfo."[".&fileencoding."]"
+  let finfo=finfo.(argidx()+1)."/".argc()
+
+  let finfo=finfo."  ".&filetype
+  let finfo=finfo."  ".&fileformat
+  let finfo=finfo."  ".&fileencoding
 
   if exists('g:loaded_fugitive')
     let finfo=finfo."  "
