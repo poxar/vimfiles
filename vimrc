@@ -26,15 +26,20 @@ set ignorecase        " search is case insensitive,
 set smartcase         " except when upper-case letters are used
 set hlsearch          " highlight results
 set gdefault          " reverse the meaning of /g in patterns
-set list              " show stray characters (have a look at sensible.vim)
 
 set nomodeline        " disable modelines
 set exrc              " read per directory vimrcs
 set secure            " be secure when doing so
 set number            " line numbers (plus current line number, when relative numbering is used)
+set linebreak         " wrap lines in a readable way
 
 let mapleader      = " "
 let maplocalleader = "\\"
+
+" show a neat linebreak symbol if possible
+if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
+  set showbreak=↪
+endif
 
 " tab completion with menu
 set wildmode=longest:full,full
