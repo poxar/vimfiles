@@ -83,20 +83,6 @@ if has("unix")
   runtime ftplugin/man.vim
 endif
 
-" syntax highlighting
-" haskell
-let g:hs_highlight_delimiters = 1
-let g:hs_highlight_boolean = 1
-let g:hs_highlight_types = 1
-let g:hs_highlight_more_types = 1
-let g:hs_highlight_debug = 1
-" java
-let g:java_mark_braces_in_parens_as_errors=1
-let g:java_highlight_all=1
-let g:java_highlight_debug=1
-let g:java_highlight_java_lang_ids=1
-let g:java_highlight_functions="style"
-let g:java_minlines = 150
 " }}}
 " directory settings {{{
 " this used to be set by vim-sensible
@@ -147,6 +133,21 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   endif
 endif "}}}
+" syntax highlighting {{{
+" haskell
+let g:hs_highlight_delimiters = 1
+let g:hs_highlight_boolean = 1
+let g:hs_highlight_types = 1
+let g:hs_highlight_more_types = 1
+let g:hs_highlight_debug = 1
+" java
+let g:java_mark_braces_in_parens_as_errors=1
+let g:java_highlight_all=1
+let g:java_highlight_debug=1
+let g:java_highlight_java_lang_ids=1
+let g:java_highlight_functions="style"
+let g:java_minlines = 150
+" }}}
 " filetype settings {{{
 augroup c_settings
   au! FileType c setlocal cindent
