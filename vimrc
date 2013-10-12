@@ -302,6 +302,27 @@ nnoremap <Leader>ls :source ~/.vim/sessions/
 " leave insert mode quickly
 inoremap jk <esc>
 
+" Don't move on *
+nnoremap * *<c-o>
+" Keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" Same when jumping around
+nnoremap g; g;zz
+nnoremap g, g,zz
+nnoremap <c-o> <c-o>zz
+
+" cli editing
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
+" strip trailing whitespace
+nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+" select what was just pasted
+nnoremap <leader>V V`]
+" select line minus indent
+nnoremap vv ^vg_
+
 " kill buffer without closing the window/view
 nnoremap <leader>bd :bp\|bd #<cr>
 " open quickfix list
@@ -319,6 +340,30 @@ else
   nnoremap <leader>esv :vsplit ~/.vim/vimrc<cr>
   nnoremap <leader>sv  :source ~/.vim/vimrc<cr>
 endif
+
+" Source
+vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
+nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
+
+" simpler filename completion
+inoremap <c-f> <c-x><c-f>
+
+" list navigation
+nnoremap <left>  :cprev<cr>zvzz
+nnoremap <right> :cnext<cr>zvzz
+nnoremap <up>    :lprev<cr>zvzz
+nnoremap <down>  :lnext<cr>zvzz
+
+" Typos
+command! -bang E e<bang>
+command! -bang Q q<bang>
+command! -bang W w<bang>
+command! -bang QA qa<bang>
+command! -bang Qa qa<bang>
+command! -bang Wa wa<bang>
+command! -bang WA wa<bang>
+command! -bang Wq wq<bang>
+command! -bang WQ wq<bang>
 
 " write file as root
 if has("unix")
@@ -340,6 +385,9 @@ let @u='yyp0v$r-'
 
 " expand %% to the path of the current file
 cabbrev <expr> %% expand('%:p:h')
+
+" close all other folds and center this line
+nnoremap z<space> zMzvzz
 " }}}
 
 " func SelectLanguage {{{
