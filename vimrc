@@ -30,7 +30,7 @@ set gdefault          " reverse the meaning of /g in patterns
 set nomodeline        " disable modelines
 set exrc              " read per directory vimrcs
 set secure            " be secure when doing so
-set number            " line numbers (plus current line number, when relative numbering is used)
+set number            " line numbers
 set linebreak         " wrap lines in a readable way
 
 let mapleader      = " "
