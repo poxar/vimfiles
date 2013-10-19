@@ -41,9 +41,13 @@ set virtualedit+=block
 let mapleader      = " "
 let maplocalleader = "\\"
 
-" show a neat linebreak symbol if possible
-if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
-  set showbreak=↪
+" list and linebreak characters
+if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
+  let &showbreak='↪'
+  let &listchars = "tab:⇥ ,trail:·,extends:⇉,precedes:⇇,nbsp:␣"
+else
+  set listchars=tab:>-,trail:_,extends:>,precedes:<,nbsp:+
+  let &showbreak='+++ '
 endif
 
 " enable word completion with <C-x><C-k>
