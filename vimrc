@@ -82,11 +82,11 @@ if has('cscope')
   endif
 endif
 
-" read man files in vim with :Man
+" read man files in vim with :Man or K
 if has("unix")
   runtime ftplugin/man.vim
+  nnoremap K :Man <C-r><C-w><cr>
 endif
-
 " }}}
 " directory settings {{{
 " this used to be set by vim-sensible
