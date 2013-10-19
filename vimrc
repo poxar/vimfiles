@@ -328,7 +328,7 @@ nnoremap <leader>V V`]
 nnoremap vv ^vg_
 
 " kill buffer without closing the window/view
-nnoremap <leader>bd :bp\|bd #<cr>
+nnoremap <leader>db :bp\|bd #<cr>
 " open quickfix list
 nnoremap <leader>co :botright cope<cr>
 " location list
