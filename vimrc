@@ -327,6 +327,8 @@ nnoremap <leader>V V`]
 " select line minus indent
 nnoremap vv ^vg_
 
+" more visual buffer switching
+nnoremap <leader>b :buffers<CR>:buffer<Space>
 " kill buffer without closing the window/view
 nnoremap <leader>db :bp\|bd #<cr>
 " open quickfix list
