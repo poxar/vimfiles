@@ -216,8 +216,8 @@ nnoremap <A-o> :FSH<cr>
 inoremap <A-o> <esc>:FSH<cr>
 "}}}2
 " UltiSnips - snippet engine {{{2
-let g:UltiSnipsEditSplit = "horizontal"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+nnoremap <leader>ess :UltiSnipsEdit<cr>
 "}}}2
 " clang_complete - Vim plugin that uses clang for completing C/C++ code. {{{
 " don't auto select anything
