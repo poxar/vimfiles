@@ -19,9 +19,6 @@
 [submodule "bundle/slimux"]
 	path = bundle/slimux
 	url = https://github.com/epeli/slimux.git
-[submodule "bundle/tabular"]
-	path = bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
 [submodule "bundle/todo.txt-vim"]
 	path = bundle/todo.txt-vim
 	url = https://github.com/freitass/todo.txt-vim.git

@@ -329,6 +329,10 @@ vmap <expr> <DOWN>  DVB_Drag('down')
 vmap <expr> <UP>    DVB_Drag('up')
 vmap <expr> D       DVB_Duplicate()
 " }}}2
+" easy-align - A simple Vim alignment plugin {{{2
+vnoremap <silent> <Enter> :EasyAlign<Enter>
+let g:easy_align_ignore_groups = ['Comment', 'String']
+" }}}2
 " }}}
 
 " mappings {{{
