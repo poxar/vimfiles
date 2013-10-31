@@ -4,92 +4,128 @@
 " Maintainer: Philipp Millar <philipp.millar@poxar.de>
 "
 
-" vim settings {{{
-" most configuration is done by vim-sensible from tpope
-" load plugins
+" init {{{
 runtime bundle/vim-unbundle/unbundle.vim
 
-" i can afford a big viminfo
+filetype plugin indent on
+syntax enable
+" }}}
+" settings {{{
+" basics {{{2
 set viminfo='100,<1000,s200,h
+set history=1000
+set tabpagemax=50
 
-set cursorline        " highlight the current line
-set lazyredraw        " do not redraw while running macros
-set hidden            " allow hidden buffers
-set clipboard=unnamed " synchronize unnamed buffer and system clipboard
+set nomodeline
+set exrc
+set secure
 
-set shiftwidth=4      " use 4 spaces as indent
-set expandtab         " expand tabs with spaces
-set nojoinspaces      " J(oin) doesn't double space
-set textwidth=80      " all files are 80 chars wide
-
-set ignorecase        " search is case insensitive,
-set smartcase         " except when upper-case letters are used
-set hlsearch          " highlight results
-set gdefault          " reverse the meaning of /g in patterns
-
-set nomodeline        " disable modelines
-set exrc              " read per directory vimrcs
-set secure            " be secure when doing so
-set number            " line numbers
-set linebreak         " wrap lines in a readable way
-
-set formatoptions=qcrnlj
-
-" visual block mode is always virtual
+set lazyredraw
+set hidden
+set smarttab
+set backspace=indent,eol,start
+set clipboard^=unnamed
 set virtualedit+=block
 
-let mapleader      = " "
-let maplocalleader = "\\"
+set nrformats-=octal
+set encoding=utf-8
 
-" list and linebreak characters
+if has("unix")
+    set path=**,.,/usr/include,,
+else
+    set path=**,.,,
+endif
+
+if version >= 703
+  set cryptmethod=blowfish
+endif
+
+runtime! macros/matchit.vim
+" }}}2
+" text formatting {{{2
+set textwidth=80
+set shiftwidth=4
+set expandtab
+set nojoinspaces
+set formatoptions=qcrnlj
+set autoindent
+set shiftround
+" }}}2
+" don't timeout on mappings {{{2
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+" }}}2
+" search and replace {{{2
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set gdefault
+" }}}2
+" display {{{2
+colorscheme badwolf
+
+set laststatus=2
+set display+=lastline
+set ruler
+set showcmd
+
+set scrolloff=1
+set sidescrolloff=5
+
+set showmatch
+set matchpairs=(:),[:],{:},<:>
+" don't search longer than 10ms for a matching character
+let g:matchparen_insert_timeout=10
+
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^linux'
+  set t_Co=16
+endif
+
+set number
+if version >= 703
+  set relativenumber
+endif
+
+set linebreak
+set cursorline
+
 if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
-  let &showbreak='↪'
-  let &listchars = "tab:⇥ ,trail:·,extends:⇉,precedes:⇇,nbsp:␣"
+  set showbreak=↪
+  set listchars=tab:⇥\ ,trail:·,extends:⇉,precedes:⇇,nbsp:␣
+  set fillchars=fold:\ ,vert:│
 else
   set listchars=tab:>-,trail:_,extends:>,precedes:<,nbsp:+
   let &showbreak='+++ '
+  set fillchars=fold:\ ,vert:\|
 endif
-
-" enable word completion with <C-x><C-k>
-if has('unix')
-  set dictionary=/usr/share/dict/words
-endif
-
-" tab completion with menu
+" }}}2
+" completion {{{2
+set omnifunc=syntaxcomplete#Complete
+set wildmenu
 set wildmode=longest:full,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+
 if has('wildignorecase')
   set wildignorecase
 endif
 
-" use omnicompletion
-set ofu=syntaxcomplete#Complete
-
-" colorscheme
-colorscheme badwolf
-
-" version dependent settings
-if version >= 703
-  set relativenumber         " show relative line numbers
-  set cryptmethod=blowfish   " use blowfish to encrypt files
+if has('unix')
+  set dictionary=/usr/share/dict/words
 endif
-
-" cscope
+" }}}2
+" cscope {{{2
 if has('cscope')
   set cscopeverbose
   if has('quickfix')
     set cscopequickfix=s-,c-,d-,i-,t-,e-
   endif
 endif
+" }}}2
+" backup/swap/undo {{{2
 
-" read man files in vim with :Man or K
-if has("unix")
-  runtime ftplugin/man.vim
-  nnoremap K :Man <C-r><C-w><cr>
-endif
-" }}}
-" directory settings {{{
-" this used to be set by vim-sensible
 let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
 if isdirectory(expand(s:dir))
   if &directory =~# '^\.,'
@@ -114,16 +150,14 @@ if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
 
+set backup
+set noswapfile
+
 if exists('+undofile')
   set undofile
 endif
-
-" create backup files
-set backup
-" those just create more problems than they solve
-set noswapfile
-" }}}
-" gui settings {{{
+" }}}2
+" gvim {{{2
 if has("gui_running")
   " make the gui clean
   set guioptions=cegi
@@ -136,8 +170,20 @@ if has("gui_running")
   else
     set guifont=Consolas:h11:cANSI
   endif
-endif "}}}
-" syntax highlighting {{{
+endif
+" }}}2
+
+let mapleader      = " "
+let maplocalleader = "\\"
+
+" read man files in vim with :Man or K
+if has("unix")
+  runtime ftplugin/man.vim
+  nnoremap K :Man <C-r><C-w><cr>
+endif
+" }}}
+" filetype {{{
+" syntax highlighting {{{2
 " haskell
 let g:hs_highlight_delimiters = 1
 let g:hs_highlight_boolean = 1
@@ -151,8 +197,8 @@ let g:java_highlight_debug=1
 let g:java_highlight_java_lang_ids=1
 let g:java_highlight_functions="style"
 let g:java_minlines = 150
-" }}}
-" filetype settings {{{
+" }}}2
+
 augroup c_settings "{{{2
   au! FileType c setlocal cindent
 augroup END "}}}2
@@ -189,7 +235,7 @@ augroup vim_settings "{{{2
     au! Filetype vim setlocal fdm=marker
 augroup END "}}}2
 " }}}
-" plugin settings {{{
+" plugin {{{
 " slimux - SLIME inspired tmux integration plugin for Vim {{{2
 nnoremap <leader>R :SlimuxREPLSendLine<cr>
 vnoremap <leader>R :SlimuxREPLSendSelection<cr>
@@ -286,12 +332,19 @@ vmap <expr> D       DVB_Duplicate()
 " }}}
 
 " mappings {{{
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
+
 " Don't use Ex mode, use Q for formatting
 vnoremap Q gq
 nnoremap Q gqap
+
 " swap ' and ` so 'a goes to line and column marked with ma
 nnoremap ' `
 nnoremap ` '
+
 " open last/alternate buffer
 nnoremap <leader><leader> <C-^>
 
@@ -385,7 +438,7 @@ cabbrev <expr> %% expand('%:p:h')
 " close all other folds and center this line
 nnoremap z<space> zMzvzz
 " }}}
-" folder/file shortcuts {{{
+" quick edit/cd {{{
 " edit
 if has('win32')
   " source
