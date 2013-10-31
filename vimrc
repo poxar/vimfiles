@@ -321,7 +321,7 @@ command! Map Unite -no-start-insert mapping
 command! Messages Unite -no-start-insert output:message
 
 " notes
-nnoremap <leader>n :<C-u>Unite -no-split file:~/.notes<cr>
+nnoremap <leader>n :<C-u>Unite file:~/.notes<cr>
 nnoremap <leader>N :e ~/.notes/
 
 " unite-outline
