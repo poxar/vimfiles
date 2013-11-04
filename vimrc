@@ -139,17 +139,6 @@ if isdirectory(expand(s:dir))
   endif
 endif
 
-" Make those folders automatically if they don't already exist.
-if !isdirectory(expand(&undodir))
-    call mkdir(expand(&undodir), "p")
-endif
-if !isdirectory(expand(&backupdir))
-    call mkdir(expand(&backupdir), "p")
-endif
-if !isdirectory(expand(&directory))
-    call mkdir(expand(&directory), "p")
-endif
-
 set backup
 set noswapfile
 
@@ -337,12 +326,7 @@ vmap <expr> D       DVB_Duplicate()
 " yankring - Maintains a history of previous yanks, changes and deletes {{{2
 " save the yankring in a sensible location
 if isdirectory(expand(s:dir))
-    let g:yankring_history_dir = expand(s:dir) . '/yankring'
-endif
-
-" create the directory if it doesn't exist
-if !isdirectory(expand(g:yankring_history_dir))
-    call mkdir(expand(g:yankring_history_dir), "p")
+    let g:yankring_history_dir = expand(s:dir) . '/yank'
 endif
 " }}}2
 " easy-align - A simple Vim alignment plugin {{{2

@@ -1,7 +1,7 @@
 prefix   := ${HOME}
 vimfiles := $(prefix)/.vim
 
-vimdirs  := backup swap undo
+vimdirs  := backup swap undo yank
 vimdirs  := $(addprefix $(prefix)/.local/share/vim/, $(vimdirs))
 
 all: $(vimdirs) submodules
