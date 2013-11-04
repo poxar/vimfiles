@@ -82,3 +82,12 @@
 [submodule "bundle/vim-unbundle"]
 	path = bundle/vim-unbundle
 	url = https://github.com/sunaku/vim-unbundle.git
+[submodule "bundle/YankRing.vim"]
+	path = bundle/YankRing.vim
+	url = https://github.com/vim-scripts/YankRing.vim.git
+[submodule "bundle/vim-accordion"]
+	path = bundle/vim-accordion
+	url = https://github.com/mattboehm/vim-accordion.git
+[submodule "bundle/vim-easy-align"]
+	path = bundle/vim-easy-align
+	url = https://github.com/mattboehm/vim-accordion.git
