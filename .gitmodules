@@ -90,4 +90,4 @@
 	url = https://github.com/mattboehm/vim-accordion.git
 [submodule "bundle/vim-easy-align"]
 	path = bundle/vim-easy-align
-	url = https://github.com/mattboehm/vim-accordion.git
+	url = https://github.com/junegunn/vim-easy-align.git
