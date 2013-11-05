@@ -70,6 +70,7 @@ set laststatus=2
 set display+=lastline
 set ruler
 set showcmd
+set visualbell
 
 set scrolloff=1
 set sidescrolloff=5
