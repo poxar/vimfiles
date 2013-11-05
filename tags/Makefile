@@ -2,7 +2,7 @@ INC := /usr/include
 
 TAGS := glib.tags
 TAGS += ncurses.tags
-TAGS += notmuch.tags
+# TAGS += notmuch.tags
 TAGS += cpp.tags
 TAGS += sdl.tags
 TAGS += qt4.tags
