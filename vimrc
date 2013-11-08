@@ -47,7 +47,11 @@ set textwidth=80
 set shiftwidth=4
 set expandtab
 set nojoinspaces
-set formatoptions=qcrnlj
+if version >= 704
+    set formatoptions=qcrnlj
+else
+    set formatoptions=qcrnl
+endif
 set autoindent
 set shiftround
 " }}}2
