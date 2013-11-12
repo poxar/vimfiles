@@ -91,3 +91,6 @@
 [submodule "bundle/vim-easy-align"]
 	path = bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "bundle/crunch"]
+	path = bundle/crunch
+	url = https://github.com/arecarn/crunch
