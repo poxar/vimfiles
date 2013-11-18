@@ -44,7 +44,7 @@ runtime! macros/matchit.vim
 " }}}2
 " text formatting {{{2
 set textwidth=80
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 set nojoinspaces
 if version >= 704
