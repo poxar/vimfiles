@@ -24,7 +24,7 @@ set lazyredraw
 set hidden
 set smarttab
 set backspace=indent,eol,start
-set clipboard^=unnamed
+set clipboard=unnamedplus
 set virtualedit+=block
 
 set nrformats-=octal
