@@ -338,6 +338,11 @@ endif
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 let g:easy_align_ignore_groups = ['Comment', 'String']
 " }}}2
+" obsession - Continuously updated session files {{{2
+" sessions
+nnoremap <Leader>ms :Obsession .<cr>
+nnoremap <Leader>ls :source ./Session.vim<cr>
+" }}}2
 " }}}
 
 " mappings {{{
@@ -364,10 +369,6 @@ nnoremap <leader><leader> <C-^>
 " start a new change when deleting lines/words in insert mode
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
-
-" sessions
-nnoremap <Leader>ms :mksession ~/.vim/sessions/
-nnoremap <Leader>ls :source ~/.vim/sessions/
 
 " leave insert mode quickly
 inoremap jk <esc>
