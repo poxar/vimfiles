@@ -438,28 +438,29 @@ cabbrev <expr> %% expand('%:p:h')
 nnoremap z<space> zMzvzz
 " }}}
 " quick edit/cd {{{
+" source
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>sg :source $MYGVIMRC<cr>
 " edit
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>eg :edit $MYGVIMRC<cr>
+nnoremap <leader>esv :vsplit $MYVIMRC<cr>
+nnoremap <leader>esg :vsplit $MYGVIMRC<cr>
+" cd
+nnoremap <leader>ch :cd ~<cr>
+" netrw
+nnoremap <leader>E :Explore<cr>2j
+nnoremap <leader>V :Vexplore<cr>2j
+
 if has('win32')
-  " source
-  nnoremap <leader>sv  :source ~\vimfiles\vimrc<cr>
-
   " edit
-  nnoremap <leader>ev  :edit   ~\vimfiles\vimrc<cr>
-  nnoremap <leader>esv :vsplit ~\vimfiles\vimrc<cr>
-
   nnoremap <leader>ea :edit ~\Documents\AutoHotkey.ahk<cr>
 
   " cd
-  nnoremap <leader>ch :cd ~<cr>
   nnoremap <leader>cv :cd ~\vimfiles<cr>
-else
-  " source
-  nnoremap <leader>sv  :source ~/.vim/vimrc<cr>
 
+else " unix
   " edit
-  nnoremap <leader>ev  :edit   ~/.vim/vimrc<cr>
-  nnoremap <leader>esv :vsplit ~/.vim/vimrc<cr>
-
   nnoremap <leader>eu :edit ~/data/Dropbox/Uni/<cr>9j
   nnoremap <leader>ec :edit ~/.config/<cr>9j
   nnoremap <leader>exc :edit ~/.config/xchainkeys/xchainkeys.conf<cr>
@@ -469,7 +470,6 @@ else
 
   " cd
   nnoremap <leader>cc :cd ~/code/
-  nnoremap <leader>ch :cd ~<cr>
   nnoremap <leader>cv :cd ~/.vim<cr>
 endif
 "}}}
