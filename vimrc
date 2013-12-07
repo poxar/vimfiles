@@ -151,21 +151,6 @@ if exists('+undofile')
   set undofile
 endif
 " }}}2
-" gvim {{{2
-if has("gui_running")
-  " make the gui clean
-  set guioptions=cegi
-  set mousehide
-  " less doesn't work in gvim
-  set kp=man\ -P\ more
-
-  if has("unix")
-    set guifont=DejaVu\ Sans\ Mono\ 11
-  else
-    set guifont=Consolas:h11:cANSI
-  endif
-endif
-" }}}2
 
 let mapleader      = " "
 let maplocalleader = "\\"
