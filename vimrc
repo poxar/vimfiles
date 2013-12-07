@@ -162,7 +162,7 @@ if has("unix")
 endif
 " }}}
 " filetype {{{
-" syntax highlighting {{{2
+" syntax settings {{{2
 " haskell
 let g:hs_highlight_delimiters = 1
 let g:hs_highlight_boolean = 1
@@ -176,6 +176,8 @@ let g:java_highlight_debug=1
 let g:java_highlight_java_lang_ids=1
 let g:java_highlight_functions="style"
 let g:java_minlines = 150
+" xml
+let g:xml_syntax_folding=1
 " }}}2
 
 augroup c_settings "{{{2
@@ -212,6 +214,9 @@ augroup snippets_settings "{{{2
 augroup END "}}}2
 augroup vim_settings "{{{2
     au! Filetype vim setlocal fdm=marker
+augroup END "}}}2
+augroup xml_settings "{{{2
+    au! FileType xml setlocal fdm=syntax
 augroup END "}}}2
 " }}}
 " plugin {{{
