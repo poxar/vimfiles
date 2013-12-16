@@ -8,9 +8,10 @@
 set guioptions=cegi
 set mousehide
 
-" less doesn't work in gvim
-" use more instead
+" use more for man
 set kp=man\ -P\ more
+" but use less as a default
+let $PAGER='less'
 
 if has("unix")
   set guifont=DejaVu\ Sans\ Mono\ 11

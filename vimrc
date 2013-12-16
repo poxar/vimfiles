@@ -157,7 +157,7 @@ let maplocalleader = "\\"
 " read man files in vim with :Man or K {{{2
 if has("unix")
   runtime ftplugin/man.vim
-  nnoremap K :Man <C-r><C-w><cr>
+  nnoremap gK :Man <C-r><C-w><cr>
 endif
 " plugin {{{1
 " slimux - SLIME inspired tmux integration plugin for Vim {{{2
