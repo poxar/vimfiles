@@ -154,10 +154,9 @@ endif
 let mapleader      = " "
 let maplocalleader = "\\"
 
-" read man files in vim with :Man or K {{{2
+" read man files in vim with :Man {{{2
 if has("unix")
   runtime ftplugin/man.vim
-  nnoremap gK :Man <C-r><C-w><cr>
 endif
 " plugin {{{1
 " slimux - SLIME inspired tmux integration plugin for Vim {{{2
@@ -272,6 +271,9 @@ let g:easy_align_ignore_groups = ['Comment', 'String']
 " sessions
 nnoremap <Leader>ms :Obsession .<cr>
 nnoremap <Leader>ls :source ./Session.vim<cr>
+
+" ref - Integrated reference viewer {{{2
+nnoremap gK :Ref man <C-r><C-w><cr>
 
 " mappings {{{1
 " TODO: this needs to be grouped somehow
