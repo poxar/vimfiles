@@ -292,8 +292,8 @@ if maparg('<C-L>', 'n') ==# ''
 endif
 
 " Don't use Ex mode, use Q for formatting {{{2
-vnoremap Q gq
-nnoremap Q gqap
+vnoremap Q gw
+nnoremap Q gwap
 
 " swap ' and ` so 'a goes to line and column marked with ma {{{2
 nnoremap ' `
