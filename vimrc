@@ -185,6 +185,7 @@ nnoremap <A-o> :FSH<cr>
 inoremap <A-o> <esc>:FSH<cr>
 
 " UltiSnips - snippet engine {{{2
+let g:snips_author="Philipp Millar"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 
 let g:UltiSnipsExpandTrigger="<c-j>"
