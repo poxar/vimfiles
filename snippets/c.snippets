@@ -16,3 +16,28 @@ ${VISUAL}${0}
 #endif /* end of include guard: $1 */
 
 endsnippet
+
+# getopt standard bla
+snippet getopt "getopt foo bar" !b
+${1:char c;}
+
+while ((c = getopt (argc, argv, "${2:h}")) != -1)
+	switch(c)
+	{
+		case '${3:h}':
+			${4:usage();}
+			exit(0);
+		case '?':
+			${5:usage();}
+			exit(1);
+		default:
+			exit(1);
+	}
+${0}
+endsnippet
+
+snippet opt "another getopt option"
+case '${1:option}':
+	${2:/*TODO: handle the option*/}
+	${3:break;}
+endsnippet
