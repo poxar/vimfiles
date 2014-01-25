@@ -259,12 +259,6 @@ vmap <expr> <DOWN>  DVB_Drag('down')
 vmap <expr> <UP>    DVB_Drag('up')
 vmap <expr> D       DVB_Duplicate()
 
-" yankring - Maintains a history of previous yanks, changes and deletes {{{2
-" save the yankring in a sensible location
-if isdirectory(expand(s:dir))
-    let g:yankring_history_dir = expand(s:dir) . '/yank'
-endif
-
 " easy-align - A simple Vim alignment plugin {{{2
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 let g:easy_align_ignore_groups = ['Comment', 'String']
