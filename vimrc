@@ -7,6 +7,7 @@
 " init {{{1
 runtime bundle/vim-unbundle/unbundle.vim
 
+set nocompatible
 filetype plugin indent on
 syntax enable
 " settings {{{1
@@ -286,6 +287,8 @@ let g:solarized_underline=0
 inoremap <F1> <F1>
 nnoremap <F1> :help <C-R><C-W><CR>
 
+" Fix Y {{{2
+nnoremap Y y$
 " Use <C-L> to clear the highlighting of :set hlsearch. {{{2
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
@@ -507,4 +510,4 @@ command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://spr
 command! Todo vimgrep /TODO:\|FIXME:/j ** | botright cope
 
 " scratchpad {{{1
-
+nnoremap gV `[v`]
