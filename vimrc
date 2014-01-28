@@ -271,10 +271,6 @@ nnoremap <Leader>ls :source ./Session.vim<cr>
 " ref - Integrated reference viewer {{{2
 nnoremap gK :Ref man <C-r><C-w><cr>
 
-" solarized - precision colorscheme for the vim text editor {{{2
-let g:solarized_diffmode="high"
-let g:solarized_underline=0
-
 " mappings {{{1
 " TODO: this needs to be grouped somehow
 " Make <F1> helpful {{{2
