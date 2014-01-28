@@ -106,6 +106,3 @@
 [submodule "bundle/vim-vinegar"]
 	path = bundle/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
-[submodule "bundle/vim-sneak"]
-	path = bundle/vim-sneak
-	url = https://github.com/justinmk/vim-sneak
