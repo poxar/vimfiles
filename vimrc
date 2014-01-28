@@ -96,6 +96,7 @@ endif
 
 set linebreak
 set cursorline
+set foldlevelstart=100 " unfold everything in new files
 
 if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
   set showbreak=↪
