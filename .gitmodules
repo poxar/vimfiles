@@ -1,9 +1,6 @@
 [submodule "bundle/LaTeX-Box"]
 	path = bundle/LaTeX-Box
 	url = https://github.com/LaTeX-Box-Team/LaTeX-Box
-[submodule "bundle/ack.vim"]
-	path = bundle/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
 [submodule "bundle/clang_complete"]
 	path = bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
