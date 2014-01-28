@@ -233,13 +233,10 @@ endfunction
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
 nnoremap <leader>f :<C-u>Unite file_rec<cr>
-nnoremap <leader>F :<C-u>Unite file<cr>
+nnoremap <leader>F :<C-u>Unite file_mru<cr>
 
 nnoremap <leader>j :<C-u>Unite buffer<cr>
 nnoremap <leader>J :<C-u>Unite jump<cr>
-
-nnoremap <leader>k :<C-u>Unite bookmark<cr>
-nnoremap <leader>K :<C-u>Unite file_mru<cr>
 
 nnoremap <leader>p :<C-u>Unite history/yank register<cr>
 
