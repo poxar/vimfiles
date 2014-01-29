@@ -61,9 +61,6 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/vim-visual-star-search"]
-	path = bundle/vim-visual-star-search
-	url = https://github.com/nelstrom/vim-visual-star-search.git
 [submodule "bundle/vim-unbundle"]
 	path = bundle/vim-unbundle
 	url = https://github.com/sunaku/vim-unbundle.git
