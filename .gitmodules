@@ -7,9 +7,6 @@
 [submodule "bundle/gtk-vim-syntax"]
 	path = bundle/gtk-vim-syntax
 	url = https://github.com/vim-scripts/gtk-vim-syntax.git
-[submodule "bundle/gundo.vim"]
-	path = bundle/gundo.vim
-	url = https://github.com/sjl/gundo.vim.git
 [submodule "bundle/indenthaskell.vim"]
 	path = bundle/indenthaskell.vim
 	url = https://github.com/vim-scripts/indenthaskell.vim.git
@@ -97,3 +94,6 @@
 [submodule "bundle/ag.vim"]
 	path = bundle/ag.vim
 	url = https://github.com/rking/ag.vim
+[submodule "bundle/undotree"]
+	path = bundle/undotree
+	url = https://github.com/mbbill/undotree

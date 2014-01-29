@@ -178,9 +178,8 @@ augroup fugitive-clean
     au! BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
-" gundo - Graph your Vim undo tree in style {{{2
-nnoremap cog :GundoToggle<cr>
-let g:gundo_preview_bottom = 1
+" undotree - Display your undo history in a graph {{{2
+nnoremap cog :UndotreeToggle<cr>
 
 " fswitch - Vim plugin for switching between companion source files {{{2
 nnoremap <A-o> :FSH<cr>
