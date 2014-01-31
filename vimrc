@@ -372,7 +372,7 @@ let @h='yyp0v$r='
 let @u='yyp0v$r-'
 
 " expand %% to the path of the current file {{{2
-cabbrev <expr> %% expand('%:p:h')
+cnoremap <expr> %% expand('%:p:h')
 
 " close all other folds and center this line {{{2
 nnoremap z<space> zMzvzz
