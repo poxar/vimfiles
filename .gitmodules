@@ -94,3 +94,6 @@
 [submodule "bundle/undotree"]
 	path = bundle/undotree
 	url = https://github.com/mbbill/undotree
+[submodule "bundle/vim-ficklefold"]
+	path = bundle/vim-ficklefold
+	url = https://github.com/pydave/vim-ficklefold

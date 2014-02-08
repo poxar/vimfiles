@@ -268,6 +268,9 @@ nnoremap <Leader>ls :source ./Session.vim<cr>
 " ref - Integrated reference viewer {{{2
 nnoremap gK :Ref man <C-r><C-w><cr>
 
+" ficklefold - Facilitates folding {{{2
+nnoremap cof :FoldToggle<cr>
+
 " mappings {{{1
 " TODO: this needs to be grouped somehow
 " Make <F1> helpful {{{2
@@ -427,18 +430,6 @@ function!  SelectLanguage()
 endfunction
 
 nnoremap coS :call SelectLanguage()<CR>
-" toggle between syntax and marker folding {{{2
-function! ToggleFoldmethod()
-  if(&fdm == "marker")
-    set fdm=syntax
-    set fdm?
-  else
-    set fdm=marker
-    set fdm?
-  endif
-endfunc
-
-nnoremap cof :call ToggleFoldmethod()<cr>
 " toggle colorcolumn at 81 {{{2
 function! ToggleColorColumn()
   if(&cc == 0)
