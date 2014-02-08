@@ -278,7 +278,7 @@ inoremap <F1> <F1>
 nnoremap <F1> :help <C-R><C-W><CR>
 
 " Fix Y {{{2
-nnoremap Y y$
+nnoremap Y :normal y$<cr>
 " Use <C-L> to clear the highlighting of :set hlsearch. {{{2
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
