@@ -262,6 +262,7 @@ nnoremap <Leader>ls :source ./Session.vim<cr>
 nnoremap gK :Ref man <C-r><C-w><cr>
 
 " ficklefold - Facilitates folding {{{2
+let g:ficklefold_no_mappings=1
 nnoremap cof :FoldToggle<cr>
 
 " mappings {{{1
