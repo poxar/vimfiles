@@ -3,8 +3,6 @@ normal! zM
 setlocal wrap nolist linebreak
 setlocal formatoptions-=j
 setlocal formatoptions+=t
-setlocal formatoptions+=w
-setlocal formatoptions+=a
 setlocal foldtext=TexFoldText()
 
 setlocal spell
