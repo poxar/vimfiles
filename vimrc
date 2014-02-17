@@ -261,10 +261,6 @@ nnoremap <Leader>ls :source ./Session.vim<cr>
 " ref - Integrated reference viewer {{{2
 nnoremap gK :Ref man <C-r><C-w><cr>
 
-" ficklefold - Facilitates folding {{{2
-let g:ficklefold_no_mappings=1
-nnoremap cof :FoldToggle<cr>
-
 " mappings {{{1
 " TODO: this needs to be grouped somehow
 " Make <F1> helpful {{{2
