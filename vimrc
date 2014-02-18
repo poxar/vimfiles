@@ -273,27 +273,37 @@ nnoremap gK :Ref man <C-r><C-w><cr>
 
 " mappings {{{1
 " TODO: this needs to be grouped somehow
-" Make <F1> helpful {{{2
+" Fixes {{{2
+" Make <F1> helpful
 inoremap <F1> <F1>
 nnoremap <F1> :help <C-R><C-W><CR>
 
-" Fix Y {{{2
+" Fix Y
 nnoremap Y :normal y$<cr>
-" Use <C-L> to clear the highlighting of :set hlsearch. {{{2
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-endif
+
+" swap ' and ` so 'a goes to line and column marked with ma
+nnoremap ' `
+nnoremap ` '
+
+" cli editing
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
+" recall commands from history
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" open last/alternate buffer {{{2
+nnoremap <leader><leader> <C-^>
 
 " Don't use Ex mode, use Q for formatting {{{2
 vnoremap Q gw
 nnoremap Q gwap
 
-" swap ' and ` so 'a goes to line and column marked with ma {{{2
-nnoremap ' `
-nnoremap ` '
-
-" open last/alternate buffer {{{2
-nnoremap <leader><leader> <C-^>
+" Use <C-L> to clear the highlighting of :set hlsearch. {{{2
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
 
 " start a new change when deleting lines/words in insert mode {{{2
 inoremap <c-u> <c-g>u<c-u>
@@ -312,10 +322,6 @@ nnoremap g; g;zz
 nnoremap g, g,zz
 nnoremap <c-o> <c-o>zz
 
-" cli editing {{{2
-cnoremap <c-a> <home>
-cnoremap <c-e> <end>
-
 " strip trailing whitespace {{{2
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 " select what was just pasted {{{2
@@ -332,7 +338,7 @@ nnoremap <leader>co :botright cope<cr>
 " open location list {{{2
 nnoremap <leader>lo :lopen<cr>
 
-" Source {{{2
+" source {{{2
 vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
 nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 
@@ -360,13 +366,6 @@ command! -bang WQ wq<bang>
 if has("unix")
   cnoremap w!! w !sudo tee % >/dev/null
 endif
-
-" indent whole file {{{2
-nnoremap <leader>q gg=G<C-o><C-o>
-
-" recall commands from history {{{2
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
 
 " indent next line to match current word {{{2
 let @j='yiwy0opVr J'
@@ -485,7 +484,9 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 " put files or snippets on sprunge.us {{{2
 command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://sprunge.us|xclip
 " find and show todos {{{2
-command! Todo vimgrep /TODO:\|FIXME:/j ** | botright cope
+command! Todo vimgrep /TODO:\|FIXME:\|XXX:/j ** | botright cope
+" edit current filetypeplugin {{{2
+command! Ftedit exe ':edit ~/.vim/ftplugin/'.&ft.'.vim'
 
 " scratchpad {{{1
 nnoremap gV `[v`]
