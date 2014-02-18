@@ -207,6 +207,13 @@ let g:clang_complete_macros  = 1
 " complete patterns
 let g:clang_complete_patters = 1
 
+" LaTeX-BoX - Lightweight Toolbox for LaTeX {{{2
+let g:LatexBox_autojump=1
+let g:LatexBox_Folding=1
+if has('unix')
+    let g:LatexBox_viewer="zathura"
+endif
+
 " Unite - Unite and create user interfaces {{{2
 let g:unite_enable_start_insert = 1
 let g:unite_source_history_yank_enable = 1
