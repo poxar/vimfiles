@@ -296,6 +296,11 @@ cnoremap <c-e> <end>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
+" vaporize delete without overwriting the default register {{{2
+nnoremap vd "_d
+xnoremap x  "_d
+nnoremap vD "_D
+
 " open last/alternate buffer {{{2
 nnoremap <leader><leader> <C-^>
 
