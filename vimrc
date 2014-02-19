@@ -44,6 +44,9 @@ runtime! macros/matchit.vim
 
 " text formatting {{{2
 set textwidth=80
+if executable("par")
+  set formatprg=par\ -w80
+endif
 set shiftwidth=2
 set expandtab
 set nojoinspaces
