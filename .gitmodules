@@ -16,12 +16,6 @@
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "bundle/unite-outline"]
-	path = bundle/unite-outline
-	url = https://github.com/Shougo/unite-outline.git
-[submodule "bundle/unite.vim"]
-	path = bundle/unite.vim
-	url = https://github.com/Shougo/unite.vim.git
 [submodule "bundle/vim-abolish"]
 	path = bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git

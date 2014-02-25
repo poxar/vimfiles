@@ -220,41 +220,6 @@ if has('unix')
     let g:LatexBox_viewer="zathura"
 endif
 
-" Unite - Unite and create user interfaces {{{2
-let g:unite_enable_start_insert = 1
-let g:unite_source_history_yank_enable = 1
-
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-    " Enable navigation with control-j and control-k in insert mode
-    imap <buffer> <C-j> <Plug>(unite_select_next_line)
-    imap <buffer> <C-k> <Plug>(unite_select_previous_line)
-    " cli style delete
-    imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
-endfunction
-
-" fuzzy matching
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-
-nnoremap <leader>f :<C-u>Unite file_rec<cr>
-nnoremap <leader>F :<C-u>Unite file_mru<cr>
-
-nnoremap <leader>j :<C-u>Unite buffer<cr>
-nnoremap <leader>J :<C-u>Unite jump<cr>
-
-nnoremap <leader>p :<C-u>Unite history/yank register<cr>
-
-command! Map Unite -no-start-insert mapping
-command! Messages Unite -no-start-insert output:message
-
-" notes
-nnoremap <leader>n :<C-u>Unite file:~/.notes<cr>
-nnoremap <leader>N :e ~/.notes/
-
-" unite-outline
-nnoremap <leader>o :<C-u>Unite outline<cr>
-
 " dragvisuals - Vim global plugin for dragging virtual blocks {{{2
 vmap <expr> <LEFT>  DVB_Drag('left')
 vmap <expr> <RIGHT> DVB_Drag('right')
