@@ -170,11 +170,6 @@ vnoremap <leader>R :SlimuxREPLSendSelection<cr>
 nnoremap <leader>sp :SlimuxShellPrompt<cr>
 nnoremap <leader>S :SlimuxShellLast<cr>
 
-" dispatch - asynchronous build and test dispatcher {{{2
-nnoremap <leader>m  :Make<space>
-nnoremap <leader>mm :Make<cr>
-nnoremap <leader>mc :Make clean<cr>
-
 " fugitive - a Git wrapper so awesome, it should be illegal {{{2
 " auto clean fugitive buffers
 augroup fugitive-clean
@@ -196,7 +191,7 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<a-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<a-j>"
-nnoremap <leader>ess :UltiSnipsEdit<cr>
+nnoremap <leader>ese :UltiSnipsEdit<cr>
 
 " clang_complete - Vim plugin that uses clang for completing C/C++ code. {{{2
 " don't auto select anything
@@ -220,13 +215,6 @@ if has('unix')
     let g:LatexBox_viewer="zathura"
 endif
 
-" dragvisuals - Vim global plugin for dragging virtual blocks {{{2
-vmap <expr> <LEFT>  DVB_Drag('left')
-vmap <expr> <RIGHT> DVB_Drag('right')
-vmap <expr> <DOWN>  DVB_Drag('down')
-vmap <expr> <UP>    DVB_Drag('up')
-vmap <expr> D       DVB_Duplicate()
-
 " easy-align - A simple Vim alignment plugin {{{2
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 let g:easy_align_ignore_groups = ['Comment', 'String']
@@ -241,7 +229,8 @@ nnoremap gK :Ref man <C-r><C-w><cr>
 
 " mappings {{{1
 " TODO: this needs to be grouped somehow
-" Fixes {{{2
+" fixes {{{2
+
 " Make <F1> helpful
 inoremap <F1> <F1>
 nnoremap <F1> :help <C-R><C-W><CR>
@@ -261,70 +250,18 @@ cnoremap <c-e> <end>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
-" vaporize delete without overwriting the default register {{{2
-nnoremap vd "_d
-xnoremap x  "_d
-nnoremap vD "_D
-
-" open last/alternate buffer {{{2
-nnoremap <leader><leader> <C-^>
-
-" Don't use Ex mode, use Q for formatting {{{2
-vnoremap Q gw
-nnoremap Q gwap
-
-" Use <C-L> to clear the highlighting of :set hlsearch. {{{2
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-endif
-
-" start a new change when deleting lines/words in insert mode {{{2
+" start a new change when deleting lines/words in insert mode
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
-" leave insert mode quickly {{{2
-inoremap jk <esc>
+" Don't use Ex mode, use Q for formatting
+vnoremap Q gw
+nnoremap Q gwap
 
-" Don't move on * {{{2
-nnoremap * *<c-o>
-" Keep search matches in the middle of the window. {{{2
-nnoremap n nzzzv
-nnoremap N Nzzzv
-" Same when jumping around
-nnoremap g; g;zz
-nnoremap g, g,zz
-nnoremap <c-o> <c-o>zz
+" open last/alternate buffer
+nnoremap <leader><leader> <C-^>
 
-" strip trailing whitespace {{{2
-nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
-" select what was just pasted {{{2
-nnoremap <leader>V V`]
-" select line minus indent {{{2
-nnoremap vv ^vg_
-
-" more visual buffer switching {{{2
-nnoremap <leader>b :buffers<CR>:buffer<Space>
-" kill buffer without closing the window/view {{{2
-nnoremap <leader>db :bp\|bd #<cr>
-" open quickfix list {{{2
-nnoremap <leader>co :botright cope<cr>
-" open location list {{{2
-nnoremap <leader>lo :lopen<cr>
-
-" source {{{2
-vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
-nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
-
-" simpler filename completion {{{2
-inoremap <c-f> <c-x><c-f>
-
-" list navigation {{{2
-nnoremap <left>  :cprev<cr>zvzz
-nnoremap <right> :cnext<cr>zvzz
-nnoremap <up>    :lprev<cr>zvzz
-nnoremap <down>  :lnext<cr>zvzz
-
-" correct typos {{{2
+" correct typos
 command! -bang E e<bang>
 command! -bang Q q<bang>
 command! -bang W w<bang>
@@ -335,22 +272,63 @@ command! -bang WA wa<bang>
 command! -bang Wq wq<bang>
 command! -bang WQ wq<bang>
 
-" write file as root {{{2
+
+" enhancements {{{2
+" leave insert mode quickly
+inoremap jk <esc>
+
+" vaporize: delete without overwriting the default register
+nnoremap vd "_d
+xnoremap x  "_d
+nnoremap vD "_D
+
+" select line minus indent
+nnoremap vv ^vg_
+
+" source
+vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
+nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
+
+" simpler filename completion
+inoremap <c-f> <c-x><c-f>
+
+" list navigation
+nnoremap <left>  :cprev<cr>zvzz
+nnoremap <right> :cnext<cr>zvzz
+nnoremap <up>    :lprev<cr>zvzz
+nnoremap <down>  :lnext<cr>zvzz
+
+" write file as root
 if has("unix")
   cnoremap w!! w !sudo tee % >/dev/null
 endif
 
-" indent next line to match current word {{{2
-let @j='yiwy0opVr J'
-" underline the current line {{{2
-let @h='yyp0v$r='
-let @u='yyp0v$r-'
-
-" expand %% to the path of the current file {{{2
+" expand %% to the path of the current file
 cnoremap <expr> %% expand('%:p:h')
 
-" close all other folds and center this line {{{2
+
+" visual stuff {{{2
+
+" Don't move on *
+nnoremap * *<c-o>
+
+" Keep search matches in the middle of the window
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" Same when jumping around
+nnoremap g; g;zz
+nnoremap g, g,zz
+nnoremap <c-o> <c-o>zz
+
+" more visual buffer switching
+nnoremap <leader>b :buffers<CR>:buffer<Space>
+
+" Use <C-L> to clear the highlighting of :set hlsearch
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+
+" close all other folds and center this line
 nnoremap z<space> zMzvzz
+
 
 " quick edit/cd {{{2
 " source
@@ -387,6 +365,14 @@ else " unix
   nnoremap <leader>cc :cd ~/code/
   nnoremap <leader>cv :cd ~/.vim<cr>
 endif
+
+
+" macros {{{1
+" indent next line to match current word
+let @j='yiwy0opVr J'
+" underline the current line
+let @h='yyp0v$r='
+let @u='yyp0v$r-'
 
 " functions {{{1
 " change the spell-language {{{2
@@ -452,6 +438,10 @@ if !has("win32")
 endif
 
 " commands {{{1
+" kill buffer without closing the window/view {{{2
+command! Bkill bp\|bd #<cr>
+" strip trailing whitespace {{{2
+command! StripWhitespace normal mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 " diff the current buffer and the file it was loaded from {{{2
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 " put files or snippets on sprunge.us {{{2
@@ -459,7 +449,5 @@ command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://spr
 " find and show todos {{{2
 command! Todo vimgrep /TODO:\|FIXME:\|XXX:/j ** | botright cope
 " edit current filetypeplugin {{{2
-command! Ftedit exe ':edit ~/.vim/ftplugin/'.&ft.'.vim'
+command! Ftedit execute ':edit ~/.vim/ftplugin/'.&ft.'.vim'
 
-" scratchpad {{{1
-nnoremap gV `[v`]
