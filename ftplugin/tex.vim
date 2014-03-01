@@ -8,7 +8,3 @@ nnoremap Q gqap
 
 setlocal spell
 set spelllang=de
-
-if exists(g:neocomplete#enable_at_startup)
-  NeoCompleteLock
-endif
