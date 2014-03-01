@@ -224,9 +224,6 @@ let g:easy_align_ignore_groups = ['Comment', 'String']
 nnoremap <Leader>ms :Obsession .<cr>
 nnoremap <Leader>ls :source ./Session.vim<cr>
 
-" ref - Integrated reference viewer {{{2
-nnoremap gK :Ref man <C-r><C-w><cr>
-
 " mappings {{{1
 " TODO: this needs to be grouped somehow
 " fixes {{{2
