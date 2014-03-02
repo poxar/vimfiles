@@ -82,3 +82,6 @@
 [submodule "bundle/vim-exchange"]
 	path = bundle/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange
+[submodule "bundle/SearchParty"]
+	path = bundle/SearchParty
+	url = https://github.com/dahu/SearchParty.git

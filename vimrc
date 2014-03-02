@@ -219,11 +219,6 @@ endif
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 let g:easy_align_ignore_groups = ['Comment', 'String']
 
-" obsession - Continuously updated session files {{{2
-" sessions
-nnoremap <Leader>ms :Obsession .<cr>
-nnoremap <Leader>ls :source ./Session.vim<cr>
-
 " mappings {{{1
 " TODO: this needs to be grouped somehow
 " fixes {{{2
@@ -306,22 +301,12 @@ cnoremap <expr> %% expand('%:p:h')
 
 " visual stuff {{{2
 
-" Don't move on *
-nnoremap * *<c-o>
-
-" Keep search matches in the middle of the window
-nnoremap n nzzzv
-nnoremap N Nzzzv
-" Same when jumping around
-nnoremap g; g;zz
-nnoremap g, g,zz
+" center cursor, when jumping back/forward
 nnoremap <c-o> <c-o>zz
+nnoremap <c-i> <c-i>zz
 
 " more visual buffer switching
 nnoremap <leader>b :buffers<CR>:buffer<Space>
-
-" Use <C-L> to clear the highlighting of :set hlsearch
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " close all other folds and center this line
 nnoremap z<space> zMzvzz
