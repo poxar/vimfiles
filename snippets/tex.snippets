@@ -11,6 +11,11 @@ snippet "b(egin)?" "begin{} / end{}" br!
 
 \end{$1}
 endsnippet
+snippet "m" "math environment" br!
+\begin{${1:equation*}}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
 
 snippet def "Definiton" b!
 \begin{defi}[${1:definition description}]
