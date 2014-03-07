@@ -359,6 +359,11 @@ let @u='yyp0v$r-'
 " functions {{{1
 " change the spell-language {{{2
 set spelllang=en
+if has('win32')
+  set spellfile=~/vimfile/spell/en.utf-8.add
+else
+  set spellfile=~/.vim/spell/en.utf-8.add
+endif
 let spellst = ["en", "de"]
 let langcnt = 0
 
@@ -367,6 +372,11 @@ function!  SelectLanguage()
   let lang = g:spellst[g:langcnt]
   echo "spelllang=" . lang
   exe "set spelllang=" . lang
+  if has('win32')
+    exe "set spellfile=~/vimfiles/spell/" . lang . ".utf-8.add"
+  else
+    exe "set spellfile=~/.vim/spell/" . lang . ".utf-8.add"
+  endif
 endfunction
 
 nnoremap coS :call SelectLanguage()<CR>
