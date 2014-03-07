@@ -4,7 +4,5 @@ setlocal foldmethod=expr
 
 setlocal wrap nolist linebreak
 
-nnoremap Q gqap
-
 setlocal spell
 set spelllang=de
