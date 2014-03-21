@@ -301,10 +301,6 @@ cnoremap <expr> %% expand('%:p:h')
 
 " visual stuff {{{2
 
-" center cursor, when jumping back/forward
-nnoremap <c-o> <c-o>zz
-nnoremap <c-i> <c-i>zz
-
 " more visual buffer switching
 nnoremap <leader>b :buffers<CR>:buffer<Space>
 
