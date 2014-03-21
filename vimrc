@@ -220,7 +220,6 @@ vnoremap <silent> <Enter> :EasyAlign<Enter>
 let g:easy_align_ignore_groups = ['Comment', 'String']
 
 " mappings {{{1
-" TODO: this needs to be grouped somehow
 " fixes {{{2
 
 " Make <F1> helpful
