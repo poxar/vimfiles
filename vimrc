@@ -334,6 +334,9 @@ if has('win32')
   " cd
   nnoremap <leader>cv :cd ~\vimfiles<cr>
 
+  " notes
+  nnoremap <leader>n :e ~/notes/
+
 else " unix
   " edit
   nnoremap <leader>eu :edit ~/data/Dropbox/Uni/<cr>9j
@@ -346,6 +349,9 @@ else " unix
   " cd
   nnoremap <leader>cc :cd ~/code/
   nnoremap <leader>cv :cd ~/.vim<cr>
+
+  " notes
+  nnoremap <leader>n :e ~/.notes/
 endif
 
 
