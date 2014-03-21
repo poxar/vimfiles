@@ -449,3 +449,6 @@ command! Todo vimgrep /TODO:\|FIXME:\|XXX:/j ** | botright cope
 " edit current filetypeplugin {{{2
 command! Ftedit execute ':edit ~/.vim/ftplugin/'.&ft.'.vim'
 
+" substitute double words {{{2
+command! DoubleWords /\(\<\S\+\>\)\(\_\s\+\<\1\>\)\+/
+
