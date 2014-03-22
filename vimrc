@@ -22,7 +22,6 @@ set secure
 
 set lazyredraw
 set hidden
-set smarttab
 set backspace=indent,eol,start
 set virtualedit+=block
 
@@ -46,8 +45,6 @@ set textwidth=80
 if executable("par")
   set formatprg=par\ -w80
 endif
-set shiftwidth=2
-set expandtab
 set nojoinspaces
 if version >= 704
     set formatoptions=qcrnlj
