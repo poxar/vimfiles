@@ -181,6 +181,7 @@ inoremap <A-o> <esc>:FSH<cr>
 
 " UltiSnips - snippet engine {{{2
 let g:snips_author="Philipp Millar"
+let g:snips_author_email="philipp.millar@poxar.de"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snip"]
 let g:UltiSnipsNoPythonWarning = 1
 

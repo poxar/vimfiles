@@ -1,7 +1,9 @@
-# personal c snippets
+# c snippets
+# overwrite only shipped snippets
+priority -20
 
 # remove the random string and allow visual selection
-snippet once "Include header once only guard" !b
+snippet once "Include header once only guard" b
 #ifndef ${1:`!p
 if not snip.c:
 	import random, string
@@ -17,8 +19,8 @@ ${VISUAL}${0}
 
 endsnippet
 
-# getopt standard bla
-snippet getopt "getopt foo bar" !b
+# getopt boilerplate
+snippet getopt "getopt foo bar" b
 ${1:char c;}
 
 while ((c = getopt (argc, argv, "${2:h}")) != -1)

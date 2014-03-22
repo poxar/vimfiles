@@ -1,17 +1,20 @@
 # cpp snippets
+extends c
+# overwrite
+priority -10
 
 # classes
-snippet mfun "member function definition" !b
+snippet mfun "member function definition" b
 ${4:void} ${1:`!p snip.rv = snip.basename or "class"`}::${2:function}(${3}) {
 	${0}
 }
 endsnippet
-snippet Con "constructor definition" !b
+snippet Con "constructor definition" b
 ${1:`!p snip.rv = snip.basename or "class"`}::$1(${2}) {${3}
 }
 ${0}
 endsnippet
-snippet Des "destructor definition" !b
+snippet Des "destructor definition" b
 ${1:`!p snip.rv = snip.basename or "class"`}::~$1(${2}) {${3}
 }
 ${0}
