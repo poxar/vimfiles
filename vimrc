@@ -271,6 +271,9 @@ command! -bang WQ wq<bang>
 " leave insert mode quickly
 inoremap jk <esc>
 
+" simpler to type
+nnoremap <BS> %
+
 " vaporize: delete without overwriting the default register
 nnoremap vd "_d
 xnoremap x  "_d
