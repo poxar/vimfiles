@@ -184,7 +184,14 @@ inoremap <A-o> <esc>:FSH<cr>
 
 " UltiSnips - snippet engine {{{2
 let g:snips_author="Philipp Millar"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snip"]
+let g:UltiSnipsNoPythonWarning = 1
+
+if has("win32")
+  let g:UltiSnipsSnippetsDir="~/vimfiles/snip"
+else
+  let g:UltiSnipsSnippetsDir="~/.vim/snip"
+endif
 
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<a-k>"

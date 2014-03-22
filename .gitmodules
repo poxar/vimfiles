@@ -82,3 +82,6 @@
 [submodule "bundle/vim-polyglot"]
 	path = bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets
