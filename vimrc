@@ -495,6 +495,21 @@ if !has("win32")
   command! FollowSymlink call s:FollowSymlink()
 endif
 
+" scratchbuffer for messages {{{2
+function! MessageWindow()
+  new [Messages]
+  setlocal buftype=nofile
+  setlocal bufhidden=hide
+  setlocal noswapfile
+  setlocal buflisted
+  redir => messages_output
+  silent messages
+  redir END
+  silent put=messages_output
+endfunction
+
+command! Messages call MessageWindow()
+
 " commands {{{1
 " kill buffer without closing the window/view {{{2
 command! Bkill bp\|bd #<cr>
