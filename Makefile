@@ -10,8 +10,7 @@ $(prefix)/.local/share/vim/%:
 	mkdir -p $@
 
 submodules:
-	git submodule init
-	git submodule update
+	git submodule update --init
 
 clean:
 	rm -f $(prefix)/.viminfo
