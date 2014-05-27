@@ -527,3 +527,11 @@ command! Ftedit execute ':edit ~/.vim/ftplugin/'.&ft.'.vim'
 " substitute double words {{{2
 command! DoubleWords /\(\<\S\+\>\)\(\_\s\+\<\1\>\)\+/
 
+" autocommands {{{1
+
+augroup notes
+  au! BufRead ~/.notes/* setlocal autoread
+  au! BufRead ~/.notes/* setlocal autowrite
+  au! BufRead ~/.notes/* setlocal autowriteall
+augroup END
+
