@@ -4,9 +4,6 @@
 [submodule "bundle/clang_complete"]
 	path = bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
-[submodule "bundle/gtk-vim-syntax"]
-	path = bundle/gtk-vim-syntax
-	url = https://github.com/vim-scripts/gtk-vim-syntax.git
 [submodule "bundle/slimux"]
 	path = bundle/slimux
 	url = https://github.com/epeli/slimux.git
