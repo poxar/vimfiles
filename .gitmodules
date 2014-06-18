@@ -70,9 +70,6 @@
 [submodule "bundle/vim-exchange"]
 	path = bundle/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange
-[submodule "bundle/SearchParty"]
-	path = bundle/SearchParty
-	url = https://github.com/dahu/SearchParty.git
 [submodule "bundle/vim-polyglot"]
 	path = bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
