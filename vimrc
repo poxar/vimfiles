@@ -405,6 +405,9 @@ cnoremap <expr> %% expand('%:p:h')
 " more visual buffer switching
 nnoremap <leader>b :buffers<CR>:buffer<Space>
 
+" Use <C-L> to clear the highlighting of :set hlsearch
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+
 " close all other folds and center this line
 nnoremap z<space> zMzvzz
 
@@ -547,6 +550,16 @@ endfunction
 
 command! Messages call MessageWindow()
 
+" make * search a visual selection {{{2
+function! s:VSetSearch()
+  let temp = @@
+  norm! gvy
+  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+  let @@ = temp
+endfunction
+
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 " commands {{{1
 " kill buffer without closing the window/view {{{2
 command! Bkill bp\|bd #<cr>
