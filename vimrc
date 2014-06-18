@@ -111,10 +111,7 @@ set omnifunc=syntaxcomplete#Complete
 set wildmenu
 set wildmode=longest:full,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
-
-if has('wildignorecase')
-  set wildignorecase
-endif
+set wildignorecase
 
 if has('unix')
   set dictionary=/usr/share/dict/words
