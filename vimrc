@@ -4,14 +4,13 @@
 " Maintainer: Philipp Millar <philipp.millar@poxar.de>
 "
 
-" init {{{1
-runtime bundle/vim-unbundle/unbundle.vim
+" settings {{{1
+" basics {{{2
 
 set nocompatible
 filetype plugin indent on
 syntax enable
-" settings {{{1
-" basics {{{2
+
 set viminfo='100,<1000,s200,h
 set history=1000
 set tabpagemax=50
@@ -159,7 +158,45 @@ let maplocalleader = "\\"
 if has("unix")
   runtime ftplugin/man.vim
 endif
-" plugin {{{1
+" plugins {{{1
+
+call plug#begin('~/.vim/bundle')
+
+Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'Rip-Rip/clang_complete'
+Plug 'Shougo/neocomplete.vim'
+Plug 'SirVer/ultisnips'
+Plug 'arecarn/crunch'
+Plug 'derekwyatt/vim-fswitch'
+Plug 'epeli/slimux'
+Plug 'gregsexton/gitv'
+Plug 'honza/vim-snippets'
+Plug 'junegunn/vim-easy-align'
+Plug 'kurkale6ka/vim-pairs'
+Plug 'mbbill/undotree'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'osyo-manga/vim-over'
+Plug 'rking/ag.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'sunaku/vim-unbundle'
+Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-liquid'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-scripts/gtk-vim-syntax'
+
+call plug#end()
+
 " slimux - SLIME inspired tmux integration plugin for Vim {{{2
 nnoremap <leader>R :SlimuxREPLSendLine<cr>
 vnoremap <leader>R :SlimuxREPLSendSelection<cr>
