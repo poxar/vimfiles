@@ -159,29 +159,17 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
-Plug 'LaTeX-Box-Team/LaTeX-Box'
-Plug 'Rip-Rip/clang_complete'
-Plug 'Shougo/neocomplete.vim'
-Plug 'SirVer/ultisnips'
 Plug 'arecarn/crunch'
-Plug 'derekwyatt/vim-fswitch'
-Plug 'epeli/slimux'
-Plug 'gregsexton/gitv'
-Plug 'honza/vim-snippets'
-Plug 'junegunn/vim-easy-align'
+Plug 'godlygeek/tabular'
 Plug 'kurkale6ka/vim-pairs'
-Plug 'mbbill/undotree'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'osyo-manga/vim-over'
 Plug 'rking/ag.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'sunaku/vim-unbundle'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
@@ -192,28 +180,33 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/gtk-vim-syntax'
 
-call plug#end()
-
 " slimux - SLIME inspired tmux integration plugin for Vim {{{2
+Plug 'epeli/slimux'
 nnoremap <leader>R :SlimuxREPLSendLine<cr>
 vnoremap <leader>R :SlimuxREPLSendSelection<cr>
 nnoremap <leader>sp :SlimuxShellPrompt<cr>
 nnoremap <leader>S :SlimuxShellLast<cr>
-
 " fugitive - a Git wrapper so awesome, it should be illegal {{{2
+Plug 'tpope/vim-fugitive'
 " auto clean fugitive buffers
 augroup fugitive-clean
     au! BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
 " undotree - Display your undo history in a graph {{{2
+Plug 'mbbill/undotree'
 nnoremap cog :UndotreeToggle<cr>
 
 " fswitch - Vim plugin for switching between companion source files {{{2
+Plug 'derekwyatt/vim-fswitch'
 nnoremap <A-o> :FSH<cr>
 inoremap <A-o> <esc>:FSH<cr>
 
 " UltiSnips - snippet engine {{{2
+Plug 'SirVer/ultisnips'
+" some default snippets
+Plug 'honza/vim-snippets'
+
 let g:snips_author="Philipp Millar"
 let g:snips_author_email="philipp.millar@poxar.de"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snip"]
@@ -232,18 +225,18 @@ let g:UltiSnipsJumpBackwardTrigger="<a-j>"
 nnoremap <leader>ese :UltiSnipsEdit<cr>
 
 " clang_complete - Vim plugin that uses clang for completing C/C++ code. {{{2
-" don't auto select anything
+Plug 'Rip-Rip/clang_complete'
+
 let g:clang_auto_select      = 0
-" open quickfix window on errors
+let g:clang_complete_auto    = 0
 let g:clang_complete_copen   = 1
-" close preview window automatically
 let g:clang_close_preview    = 1
-" complete macros and constants
 let g:clang_complete_macros  = 1
-" complete patterns
 let g:clang_complete_patters = 1
+let g:clang_use_library      = 1
 
 " LaTeX-BoX - Lightweight Toolbox for LaTeX {{{2
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 let g:LatexBox_autojump=1
 let g:LatexBox_Folding=1
 let g:LatexBox_latexmk_preview_continuously=1
@@ -253,11 +246,9 @@ if has('unix')
     let g:LatexBox_viewer="zathura"
 endif
 
-" easy-align - A simple Vim alignment plugin {{{2
-vnoremap <silent> <Enter> :EasyAlign<Enter>
-let g:easy_align_ignore_groups = ['Comment', 'String']
+" neocomplete - Next generation of auto completion framework {{{2
+Plug 'Shougo/neocomplete.vim'
 
-" neocomplete {{{2
 let g:neocomplete#enable_at_startup       = 1
 let g:neocomplete#enable_smart_case       = 1
 let g:neocomplete#enable_fuzzy_completion = 1
@@ -310,10 +301,9 @@ let g:neocomplete#force_omni_input_patterns.objc =
 let g:neocomplete#force_omni_input_patterns.objcpp =
       \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
-" clang_complete {{{2
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_use_library = 1
+
+" end of plugin list {{{2
+call plug#end()
 
 " mappings {{{1
 " fixes {{{2
