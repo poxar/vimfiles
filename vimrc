@@ -37,6 +37,8 @@ if version >= 703
   set cryptmethod=blowfish
 endif
 
+set diffopt=filler,vertical
+
 runtime! macros/matchit.vim
 
 " text formatting {{{2
