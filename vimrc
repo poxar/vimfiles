@@ -163,7 +163,6 @@ Plug 'arecarn/crunch'
 Plug 'godlygeek/tabular'
 Plug 'kurkale6ka/vim-pairs'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'rking/ag.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
@@ -302,6 +301,16 @@ let g:neocomplete#force_omni_input_patterns.objcpp =
       \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
 
+" ack.vim {{{2
+let s:ackcmd='-H --smart-case --nocolor --nogroup --column'
+let s:agcmd='--smart-case --nocolor --nogroup --column'
+if executable('ag')
+  let g:ackprg='ag '.s:agcmd
+elseif executable('ack-grep')
+  let g:ackprg='ack-grep '.s:ackcmd
+else
+  let g:ackprg='ack '.s:ackcmd
+endif
 " end of plugin list {{{2
 call plug#end()
 
