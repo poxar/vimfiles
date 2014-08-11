@@ -419,11 +419,6 @@ nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>eg :edit $MYGVIMRC<cr>
 nnoremap <leader>esv :vsplit $MYVIMRC<cr>
 nnoremap <leader>esg :vsplit $MYGVIMRC<cr>
-" cd
-nnoremap <leader>ch :cd ~<cr>
-" netrw
-nnoremap <leader>E :Explore<cr>2j
-nnoremap <leader>V :Vexplore<cr>2j
 
 if has('win32')
   " edit
@@ -437,15 +432,13 @@ if has('win32')
 
 else " unix
   " edit
-  nnoremap <leader>eu :edit ~/data/Dropbox/Uni/<cr>9j
-  nnoremap <leader>ec :edit ~/.config/<cr>9j
-  nnoremap <leader>exc :edit ~/.config/xchainkeys/xchainkeys.conf<cr>
+  nnoremap <leader>ec :edit ~/.config/<cr>
   nnoremap <leader>exb :edit ~/.xbindkeysrc<cr>
-  nnoremap <leader>ezz :edit ~/.zsh/<cr>9j
+  nnoremap <leader>ezz :edit ~/.zsh.d/<cr>
   nnoremap <leader>ezc :edit ~/.zshrc<cr>
 
   " cd
-  nnoremap <leader>cc :cd ~/code/
+  nnoremap <leader>cc :cd ~/Developement/
   nnoremap <leader>cv :cd ~/.vim<cr>
 
   " notes
