@@ -391,11 +391,11 @@ nnoremap <down>  :lnext<cr>zvzz
 
 " write file as root
 if has("unix")
-  cnoremap w!! w !sudo tee % >/dev/null
+  cabbrev w!! w !sudo tee % >/dev/null
 endif
 
 " expand %% to the path of the current file
-cnoremap <expr> %% expand('%:p:h')
+cabbrev <expr> %% expand('%:p:h')
 
 
 " visual stuff {{{2
