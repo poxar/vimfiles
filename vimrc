@@ -179,6 +179,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'vim-scripts/fish-syntax'
 Plug 'vim-scripts/gtk-vim-syntax'
 
 " slimux - SLIME inspired tmux integration plugin for Vim {{{2
