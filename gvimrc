@@ -5,7 +5,7 @@
 "
 
 " make the gui clean
-set guioptions=cegi
+set guioptions=cgi
 set mousehide
 
 " use more for man
