@@ -28,9 +28,9 @@ set nrformats-=octal
 set encoding=utf-8
 
 if has("unix")
-    set path=**,.,/usr/include,,
+  set path=**,.,/usr/include,,
 else
-    set path=**,.,,
+  set path=**,.,,
 endif
 
 if version >= 703
@@ -48,9 +48,9 @@ if executable("par")
 endif
 set nojoinspaces
 if version >= 704
-    set formatoptions=qcrnlj
+  set formatoptions=qcrnlj
 else
-    set formatoptions=qcrnl
+  set formatoptions=qcrnl
 endif
 set autoindent
 set shiftround
@@ -192,7 +192,7 @@ nnoremap <leader>S :SlimuxShellLast<cr>
 Plug 'tpope/vim-fugitive'
 " auto clean fugitive buffers
 augroup fugitive-clean
-    au! BufReadPost fugitive://* set bufhidden=delete
+  au! BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
 " undotree - Display your undo history in a graph {{{2
@@ -245,7 +245,7 @@ let g:LatexBox_latexmk_preview_continuously=1
 let g:LatexBox_quickfix=2
 let g:tex_flavor="latex"
 if has('unix')
-    let g:LatexBox_viewer="zathura"
+  let g:LatexBox_viewer="zathura"
 endif
 
 " neocomplete - Next generation of auto completion framework {{{2
