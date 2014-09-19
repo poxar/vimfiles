@@ -95,7 +95,6 @@ if version >= 703
 endif
 
 set linebreak
-set cursorline
 set foldlevelstart=100 " unfold everything in new files
 
 if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
@@ -107,6 +106,45 @@ else
   let &showbreak='+++ '
   set fillchars=fold:\ ,vert:\|
 endif
+
+" colorcolumn and cursorline {{{2
+" This maps coC to toggle the colorcolumn, but shows it only in the current
+" buffer. Furthermore the cursorline is shown in the current buffer.
+" toggle colorcolumn at textwidth + 1 {{{3
+function! ToggleColorColumn()
+  if exists("b:my_cc")
+    setlocal colorcolumn=
+    setlocal colorcolumn?
+    unlet b:my_cc
+  else
+    setlocal colorcolumn=+1
+    setlocal colorcolumn?
+    let b:my_cc = 1
+  endif
+endfunc
+
+nnoremap coC :call ToggleColorColumn()<cr>
+
+augroup cursorlines "{{{3
+  au! cursorlines
+  au WinEnter,TabEnter,BufWinEnter,VimEnter * call SetupCursorLines()
+  au WinLeave,TabLeave,BufWinLeave * call HideCursorLines()
+augroup END
+
+function! SetupCursorLines() "{{{3
+  if &ft != 'help'
+    setlocal cursorline
+
+    if exists("b:my_cc")
+      setlocal colorcolumn=+1
+    endif
+  endif
+endfunction
+
+function! HideCursorLines() "{{{3
+  setlocal colorcolumn=""
+  setlocal nocursorline
+endfunction
 
 " completion {{{2
 set omnifunc=syntaxcomplete#Complete
@@ -479,18 +517,6 @@ function!  SelectLanguage()
 endfunction
 
 nnoremap coS :call SelectLanguage()<CR>
-" toggle colorcolumn at 81 {{{2
-function! ToggleColorColumn()
-  if(&cc == 0)
-    set cc=81
-    set fdm?
-  else
-    set cc=0
-    set cc?
-  endif
-endfunc
-
-nnoremap coC :call ToggleColorColumn()<cr>
 
 " print some basic stats about the current file {{{2
 " I like this way better than having a bloated statusline, packed with
