@@ -602,17 +602,6 @@ function!  SelectLanguage()
 endfunction
 
 nnoremap coS :call SelectLanguage()<CR>
-
-" follow symlinks (for fugitive etc) {{{2
-if !has("win32")
-  function! s:FollowSymlink()
-    let fname = resolve(expand('%:p'))
-    bwipeout
-    exec "edit " . fname
-  endfunction
-  command! FollowSymlink call s:FollowSymlink()
-endif
-
 " scratchbuffer for messages {{{2
 function! MessageWindow()
   new [Messages]
