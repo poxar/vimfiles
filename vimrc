@@ -107,6 +107,91 @@ else
   set fillchars=fold:\ ,vert:\|
 endif
 
+" statusline {{{2
+" command ForceStatusline {{{3
+command! ForceStatusline call SetActiveStatusline()
+
+augroup Statusline "{{{3
+  au! Statusline
+  au WinEnter,TabEnter,BufWinEnter,VimEnter * call SetActiveStatusline()
+  au WinLeave,TabLeave,BufWinLeave * call SetInactiveStatusline()
+augroup END
+
+function! SkipStatusline() "{{{3
+  if &ft == 'help'
+    return 1
+  endif
+endfunction
+
+function! SetActiveStatusline() "{{{3
+  if SkipStatusline()
+    return
+  endif
+
+  setlocal statusline=
+  " TODO: This currently depends on the badwolf colorscheme
+  setlocal statusline+=%#InterestingWord1#\ %-3.3n%*\    " buffer number
+  setlocal statusline+=%{StatusLinePath()}               " file name
+  setlocal statusline+=%h%m%r%w                          " flags
+  setlocal statusline+=%=                                " right align
+  setlocal statusline+=%#normal#\ %{StatusLineStats()}%* " file stats
+  setlocal statusline+=\ \ %l:%v\                        " ruler
+endfunction
+
+function! SetInactiveStatusline() "{{{3
+  if SkipStatusline()
+    return
+  endif
+
+  setlocal statusline=
+  setlocal statusline+=\ %-3.3n\           " buffer number
+  setlocal statusline+=%h%m%r%w            " flags
+  setlocal statusline+=%{StatusLinePath()} " file name
+endfunction
+
+function! StatusLinePath()                        " {{{3
+  let l:path = expand('%:.')
+  let l:path = substitute(l:path,'\','/','g')
+  let l:path = substitute(l:path, '^\V' . $HOME, '~', '')
+  let l:path = simplify(l:path)
+
+  if len(l:path) > 30
+    let l:path = pathshorten(l:path)
+  endif
+
+  if !strlen(l:path)
+    let l:path = '[No Name]'
+  endif
+
+  return l:path
+endfunction
+
+function! StatusLineStats() "{{{3
+  let l:filestats = ''
+
+  if strlen(fugitive#head())
+    let l:filestats .= fugitive#head() . ' '
+  endif
+
+  if strlen(&filetype)
+    let l:filestats .= &ft . ' '
+  else
+    let l:filestats .= 'none '
+  endif
+
+  if strlen(&fenc) && &fenc != 'utf-8'
+    let l:filestats .= &fenc . ' '
+  elseif &enc != 'utf-8'
+    let l:filestats .= &enc . ' '
+  endif
+
+  if strlen(&fileformat) && &fileformat != 'unix'
+    let l:filestats .= &fileformat . ' '
+  endif
+
+  return l:filestats
+endf
+
 " colorcolumn and cursorline {{{2
 " This maps coC to toggle the colorcolumn, but shows it only in the current
 " buffer. Furthermore the cursorline is shown in the current buffer.
@@ -517,32 +602,6 @@ function!  SelectLanguage()
 endfunction
 
 nnoremap coS :call SelectLanguage()<CR>
-
-" print some basic stats about the current file {{{2
-" I like this way better than having a bloated statusline, packed with
-" information I rarely need.
-function! EchoFileInfo()
-  let finfo=""
-
-  let finfo=finfo.bufnr('%')
-  let finfo=finfo."  "
-  let finfo=finfo.(argidx()+1)."/".argc()
-
-  let finfo=finfo."  ".&filetype
-  let finfo=finfo."  ".&fileformat
-  let finfo=finfo."  ".&fileencoding
-
-  if exists('g:loaded_fugitive')
-    let finfo=finfo."  "
-    let finfo=finfo.fugitive#statusline()
-  endif
-
-  echo finfo
-endfunction
-
-command! Info call EchoFileInfo()
-nnoremap <leader>i :Info<cr>
-nnoremap <A-i>     :Info<cr>
 
 " follow symlinks (for fugitive etc) {{{2
 if !has("win32")
