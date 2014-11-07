@@ -360,17 +360,6 @@ let g:clang_complete_macros  = 1
 let g:clang_complete_patters = 1
 let g:clang_use_library      = 1
 
-" LaTeX-BoX - Lightweight Toolbox for LaTeX {{{2
-Plug 'LaTeX-Box-Team/LaTeX-Box'
-let g:LatexBox_autojump=1
-let g:LatexBox_Folding=1
-let g:LatexBox_latexmk_preview_continuously=1
-let g:LatexBox_quickfix=2
-let g:tex_flavor="latex"
-if has('unix')
-  let g:LatexBox_viewer="zathura"
-endif
-
 " neocomplete - Next generation of auto completion framework {{{2
 Plug 'Shougo/neocomplete.vim'
 

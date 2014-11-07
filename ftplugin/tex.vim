@@ -1,6 +1,7 @@
 setlocal foldlevelstart=0
 setlocal foldlevel=0
-setlocal foldmethod=expr
+
+setlocal errorformat=%f:%l:\ %m,%f:%l-%\\d%\\+:\ %m
 
 setlocal wrap nolist linebreak
 
