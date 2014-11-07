@@ -510,12 +510,6 @@ nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 " simpler filename completion
 inoremap <c-f> <c-x><c-f>
 
-" list navigation
-nnoremap <left>  :cprev<cr>zvzz
-nnoremap <right> :cnext<cr>zvzz
-nnoremap <up>    :lprev<cr>zvzz
-nnoremap <down>  :lnext<cr>zvzz
-
 " write file as root
 if has("unix")
   cabbrev w!! w !sudo tee % >/dev/null
