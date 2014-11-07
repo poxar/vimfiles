@@ -258,16 +258,25 @@ endif
 " backup/swap/undo {{{2
 
 let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
-if isdirectory(expand(s:dir))
-  if &directory =~# '^\.,'
-    let &directory = expand(s:dir) . '/swap//,' . &directory
-  endif
-  if &backupdir =~# '^\.,'
-    let &backupdir = expand(s:dir) . '/backup//,' . &backupdir
-  endif
-  if exists('+undodir') && &undodir =~# '^\.\%(,\|$\)'
-    let &undodir = expand(s:dir) . '/undo//,' . &undodir
-  endif
+
+if !isdirectory(expand(s:dir))
+  call mkdir(expand(s:dir))
+endif
+if !isdirectory(expand(s:dir) . '/swap/')
+  call mkdir(expand(s:dir) . '/swap/')
+endif
+if !isdirectory(expand(s:dir) . '/backup/')
+  call mkdir(expand(s:dir) . '/backup/')
+endif
+if !isdirectory(expand(s:dir) . '/undo/')
+  call mkdir(expand(s:dir) . '/undo/')
+endif
+
+let &directory = expand(s:dir) . '/swap//,' . &directory
+let &backupdir = expand(s:dir) . '/backup//,' . &backupdir
+
+if exists('+undodir')
+  let &undodir = expand(s:dir) . '/undo//,' . &undodir
 endif
 
 set backup
