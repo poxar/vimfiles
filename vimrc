@@ -107,6 +107,11 @@ else
   set fillchars=fold:\ ,vert:\|
 endif
 
+if has('linebreak')
+  set breakindent
+  set breakindentopt=sbr
+endif
+
 " statusline {{{2
 " command ForceStatusline {{{3
 command! ForceStatusline call SetActiveStatusline()
