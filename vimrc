@@ -470,9 +470,8 @@ cnoremap <C-n> <Down>
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
-" Don't use Ex mode, use Q for formatting
-vnoremap Q gw
-nnoremap Q gwap
+" Don't use Ex mode, use Q to repeat last :command
+nnoremap Q @:
 
 " open last/alternate buffer
 nnoremap <leader><leader> <C-^>
