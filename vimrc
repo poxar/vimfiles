@@ -522,7 +522,8 @@ cabbrev <expr> %% expand('%:p:h')
 " visual stuff {{{2
 
 " more visual buffer switching
-nnoremap <leader>b :buffers<CR>:buffer<Space>
+nnoremap gb :ls<CR>:buffer<Space>
+nnoremap gB :ls<CR>:sbuffer<Space>
 
 " Use <C-L> to clear the highlighting of :set hlsearch
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
