@@ -319,6 +319,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/fish-syntax'
 Plug 'vim-scripts/gtk-vim-syntax'
+Plug 'wellle/targets.vim'
 
 " incsearch.vim - Improved incremental searching for Vim {{{2
 Plug 'haya14busa/incsearch.vim'
