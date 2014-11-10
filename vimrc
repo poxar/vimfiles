@@ -696,3 +696,8 @@ augroup notes
   au! BufRead ~/.notes/* setlocal autowriteall
 augroup END
 
+" force markdown on everything
+augroup markdown
+  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+augroup END
+
