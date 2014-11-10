@@ -348,6 +348,7 @@ nnoremap <leader>R :SlimuxREPLSendLine<cr>
 vnoremap <leader>R :SlimuxREPLSendSelection<cr>
 nnoremap <leader>sp :SlimuxShellPrompt<cr>
 nnoremap <leader>sl :SlimuxShellLast<cr>
+
 " fugitive - a Git wrapper so awesome, it should be illegal {{{2
 Plug 'tpope/vim-fugitive'
 " auto clean fugitive buffers
