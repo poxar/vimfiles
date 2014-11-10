@@ -322,6 +322,10 @@ Plug 'vim-scripts/fish-syntax'
 Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'wellle/targets.vim'
 
+" ctrlp.vim - Fuzzy file, buffer, mru, tag, etc finder. {{{2
+Plug 'kien/ctrlp.vim'
+nnoremap <leader>b :CtrlPBuffer<cr>
+
 " incsearch.vim - Improved incremental searching for Vim {{{2
 Plug 'haya14busa/incsearch.vim'
 " intelligently hide hlsearch
