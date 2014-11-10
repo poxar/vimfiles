@@ -326,6 +326,10 @@ Plug 'wellle/targets.vim'
 Plug 'kien/ctrlp.vim'
 nnoremap <leader>b :CtrlPBuffer<cr>
 
+" syntastic - Syntax checking hacks for vim {{{2
+Plug 'scrooloose/syntastic'
+let g:syntastic_ruby_checkers = ['mri', 'ruby-lint', 'rubocop']
+
 " incsearch.vim - Improved incremental searching for Vim {{{2
 Plug 'haya14busa/incsearch.vim'
 " intelligently hide hlsearch
