@@ -542,6 +542,12 @@ nnoremap gs :%s/\<<C-r>=expand('<cword>')<CR>\>/
 " select line minus indent
 nnoremap vv ^vg_
 
+" use arrow keys in visual mode to move a visual block around
+vnoremap <down> :m '>+1<cr>gv=gv
+vnoremap <up>   :m '<-2<cr>gv=gv
+vnoremap <left>  <gv
+vnoremap <right> >gv
+
 " source
 vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
 nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
