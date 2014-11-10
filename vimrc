@@ -563,6 +563,8 @@ endif
 " expand %% to the path of the current file
 cabbrev <expr> %% expand('%:p:h')
 
+" open help in new tab by default
+cnoreabbrev h tab help
 
 " visual stuff {{{2
 
