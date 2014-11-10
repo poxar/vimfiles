@@ -319,6 +319,27 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/fish-syntax'
 Plug 'vim-scripts/gtk-vim-syntax'
 
+" incsearch.vim - Improved incremental searching for Vim {{{2
+Plug 'haya14busa/incsearch.vim'
+" intelligently hide hlsearch
+let g:incsearch#auto_nohlsearch = 1
+" n goes down N goes up, no matter what
+let g:incsearch#consistent_n_direction = 1
+" hide search errors in :messages output
+let g:incsearch#do_not_save_error_message_history = 1
+" use verymagic by default
+let g:incsearch#magic = '\v'
+" activate plugin
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n  <Plug>(incsearch-nohl-n)zMzvzz
+map N  <Plug>(incsearch-nohl-N)zMzvzz
+map *  <Plug>(incsearch-nohl-*)zMzvzz
+map #  <Plug>(incsearch-nohl-#)zMzvzz
+map g* <Plug>(incsearch-nohl-g*)zMzvzz
+map g# <Plug>(incsearch-nohl-g#)zMzvzz
+
 " slimux - SLIME inspired tmux integration plugin for Vim {{{2
 Plug 'epeli/slimux'
 nnoremap <leader>R :SlimuxREPLSendLine<cr>
