@@ -536,6 +536,9 @@ nnoremap vd "_d
 xnoremap x  "_d
 nnoremap vD "_D
 
+" quickly substitute word under the curser
+nnoremap gs :%s/\<<C-r>=expand('<cword>')<CR>\>/
+
 " select line minus indent
 nnoremap vv ^vg_
 
