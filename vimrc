@@ -96,6 +96,10 @@ endif
 
 set linebreak
 
+" New Splits default to right, below
+set splitright
+set splitbelow
+
 if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
   set showbreak=↪
   set listchars=tab:⇥\ ,trail:·,extends:⇉,precedes:⇇,nbsp:␣
