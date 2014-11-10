@@ -301,6 +301,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'arecarn/crunch'
 Plug 'godlygeek/tabular'
 Plug 'kurkale6ka/vim-pairs'
+Plug 'marczych/vim-lose'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'sheerun/vim-polyglot'
 Plug 'tommcdo/vim-exchange'
