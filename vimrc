@@ -326,6 +326,10 @@ Plug 'vim-scripts/fish-syntax'
 Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'wellle/targets.vim'
 
+" tagbar - show an outline using ctags {{{2
+Plug 'majutsushi/tagbar'
+nnoremap coT :TagbarToggle<cr>
+
 " ctrlp.vim - Fuzzy file, buffer, mru, tag, etc finder. {{{2
 Plug 'kien/ctrlp.vim'
 nnoremap <leader>b :CtrlPBuffer<cr>
