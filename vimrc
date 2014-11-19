@@ -33,7 +33,7 @@ else
   set path=**,.,,
 endif
 
-if version >= 703
+if version >= 703 && has("cryptv")
   set cryptmethod=blowfish
 endif
 
