@@ -301,30 +301,56 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
-Plug 'arecarn/crunch'
-Plug 'godlygeek/tabular'
-Plug 'kurkale6ka/vim-pairs'
-Plug 'marczych/vim-lose'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'nelstrom/vim-qargs'
-Plug 'sheerun/vim-polyglot'
+" normal commands - plugins that add or enhance normal mode commands {{{2
+" cx{motion} - text exchange operator
 Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-abolish'
+" gc{motion} - comment stuff out
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-liquid'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-obsession'
+" . - enable repeating supported plugin maps with
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sleuth'
+" CTRL-A/CTRL-X - increment dates, times, numbers and more
 Plug 'tpope/vim-speeddating'
+" ys{motion}{surrounding} - quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
+" ]{something} - pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
+" - - hop up to the directory listing and seek to the file you just came from
 Plug 'tpope/vim-vinegar'
+
+" text objects - plugins that add or enhance text objects {{{2
+" Punctuation text objects: ci/ da; vi@ yiq da<space> ...
+Plug 'kurkale6ka/vim-pairs'
+" text object representing lines of code at the same indent level
+Plug 'michaeljsmith/vim-indent-object'
+
+" runtime files - plugins that add language support {{{2
+" sheerun/vim-polyglot
+Plug 'sheerun/vim-polyglot'
+" fish syntax based on sh
 Plug 'vim-scripts/fish-syntax'
+" Syntax highlighting for GLib, Gtk+, Xlib, Gimp, Gnome, and more.
 Plug 'vim-scripts/gtk-vim-syntax'
-Plug 'wellle/targets.vim'
+
+" automation - plugins that automate common tasks {{{2
+" heuristically set shiftwidth, expandtab, etc
+Plug 'tpope/vim-sleuth'
+" (semi-) automatic session file creation
+Plug 'tpope/vim-obsession'
+" automatic endings like if else
+Plug 'tpope/vim-endwise'
+
+" command line - plugins that add new or enhance existing commands {{{2
+" An easier way to perform calculations inside Vim
+Plug 'arecarn/crunch'
+" text filtering and alignment
+Plug 'godlygeek/tabular'
+" populating the argument list from the files in the quickfix list
+Plug 'nelstrom/vim-qargs'
+" easily search for, substitute, and abbreviate multiple variants of a word
+Plug 'tpope/vim-abolish'
+" asynchronous build and test dispatcher
+Plug 'tpope/vim-dispatch'
+"}}}2
 
 " tagbar - show an outline using ctags {{{2
 Plug 'majutsushi/tagbar'
@@ -337,6 +363,24 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 " syntastic - Syntax checking hacks for vim {{{2
 Plug 'scrooloose/syntastic'
 let g:syntastic_ruby_checkers = ['mri', 'ruby-lint', 'rubocop']
+
+" slimux - SLIME inspired tmux integration plugin for Vim {{{2
+Plug 'epeli/slimux'
+nnoremap <leader>R :SlimuxREPLSendLine<cr>
+vnoremap <leader>R :SlimuxREPLSendSelection<cr>
+nnoremap <leader>sp :SlimuxShellPrompt<cr>
+nnoremap <leader>sl :SlimuxShellLast<cr>
+
+" fugitive - a Git wrapper so awesome, it should be illegal {{{2
+Plug 'tpope/vim-fugitive'
+" auto clean fugitive buffers
+augroup fugitive-clean
+  au! BufReadPost fugitive://* set bufhidden=delete
+augroup END
+
+" undotree - Display your undo history in a graph {{{2
+Plug 'mbbill/undotree'
+nnoremap cog :UndotreeToggle<cr>
 
 " incsearch.vim - Improved incremental searching for Vim {{{2
 Plug 'haya14busa/incsearch.vim'
@@ -358,24 +402,6 @@ map *  <Plug>(incsearch-nohl-*)zMzvzz
 map #  <Plug>(incsearch-nohl-#)zMzvzz
 map g* <Plug>(incsearch-nohl-g*)zMzvzz
 map g# <Plug>(incsearch-nohl-g#)zMzvzz
-
-" slimux - SLIME inspired tmux integration plugin for Vim {{{2
-Plug 'epeli/slimux'
-nnoremap <leader>R :SlimuxREPLSendLine<cr>
-vnoremap <leader>R :SlimuxREPLSendSelection<cr>
-nnoremap <leader>sp :SlimuxShellPrompt<cr>
-nnoremap <leader>sl :SlimuxShellLast<cr>
-
-" fugitive - a Git wrapper so awesome, it should be illegal {{{2
-Plug 'tpope/vim-fugitive'
-" auto clean fugitive buffers
-augroup fugitive-clean
-  au! BufReadPost fugitive://* set bufhidden=delete
-augroup END
-
-" undotree - Display your undo history in a graph {{{2
-Plug 'mbbill/undotree'
-nnoremap cog :UndotreeToggle<cr>
 
 " fswitch - Vim plugin for switching between companion source files {{{2
 Plug 'derekwyatt/vim-fswitch'
@@ -482,7 +508,8 @@ elseif executable('ack-grep')
 else
   let g:ackprg='ack '.s:ackcmd
 endif
-" end of plugin list {{{2
+" }}}2
+
 call plug#end()
 
 " mappings {{{1
