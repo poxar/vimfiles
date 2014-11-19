@@ -7,4 +7,4 @@ let g:java_minlines = 150
 
 setlocal textwidth=120
 setlocal makeprg=ant\ -find\ build.xml
-setlocal efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+setlocal errorformat=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
