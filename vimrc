@@ -742,3 +742,6 @@ augroup markdown
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 augroup END
 
+" custom highlights {{{1
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
