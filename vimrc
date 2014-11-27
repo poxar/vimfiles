@@ -340,6 +340,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-obsession'
 " automatic endings like if else
 Plug 'tpope/vim-endwise'
+" project configuration
+Plug 'tpope/vim-projectionist'
 
 " command line - plugins that add new or enhance existing commands {{{2
 " An easier way to perform calculations inside Vim
