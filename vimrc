@@ -72,6 +72,7 @@ colorscheme badwolf
 
 set laststatus=2
 set display+=lastline
+set shortmess=atToOIc
 set ruler
 set showcmd
 set visualbell
