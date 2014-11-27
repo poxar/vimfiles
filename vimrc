@@ -541,6 +541,18 @@ nnoremap Y :normal y$<cr>
 nnoremap ' `
 nnoremap ` '
 
+" swap j/k/0/$ and gj/gk/g0/g$
+" so the g variations work on physikal lines and the default ones on display
+" lines
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+nnoremap g0 0
+nnoremap 0 g0
+nnoremap $ g$
+nnoremap g$ $
+
 " cli editing
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
