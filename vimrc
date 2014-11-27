@@ -356,6 +356,17 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-dispatch'
 "}}}2
 
+" ruby - runtime and tools support for ruby {{{2
+" Lightweight support for Ruby's Bundler
+Plug 'tpope/vim-bundler'
+" it's like rails.vim without the rails
+Plug 'tpope/vim-rake'
+" Minimal rbenv support
+Plug 'tpope/vim-rbenv'
+" Refactoring tool for Ruby in vim
+Plug 'ecomba/vim-ruby-refactoring'
+" }}}2
+
 " tagbar - show an outline using ctags {{{2
 Plug 'majutsushi/tagbar'
 nnoremap coT :TagbarToggle<cr>
