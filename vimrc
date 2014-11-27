@@ -330,6 +330,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/fish-syntax'
 " Syntax highlighting for GLib, Gtk+, Xlib, Gimp, Gnome, and more.
 Plug 'vim-scripts/gtk-vim-syntax'
+" Vim files for editing Salt files
+Plug 'saltstack/salt-vim'
 
 " automation - plugins that automate common tasks {{{2
 " heuristically set shiftwidth, expandtab, etc
