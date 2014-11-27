@@ -242,7 +242,7 @@ endfunction
 " completion {{{2
 set omnifunc=syntaxcomplete#Complete
 set wildmenu
-set wildmode=longest:full,full
+set wildmode=list:longest,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 set wildignorecase
 
