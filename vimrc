@@ -355,6 +355,8 @@ Plug 'nelstrom/vim-qargs'
 Plug 'tpope/vim-abolish'
 " asynchronous build and test dispatcher
 Plug 'tpope/vim-dispatch'
+" a vim plugin for vim plugins
+Plug 'tpope/vim-scriptease'
 "}}}2
 
 " ruby - runtime and tools support for ruby {{{2
