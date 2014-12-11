@@ -370,6 +370,9 @@ Plug 'tpope/vim-rbenv'
 Plug 'ecomba/vim-ruby-refactoring'
 " }}}2
 
+" vimoutliner - Work fast, think well. {{{2
+Plug 'vimoutliner/vimoutliner'
+
 " tagbar - show an outline using ctags {{{2
 Plug 'majutsushi/tagbar'
 nnoremap coT :TagbarToggle<cr>
