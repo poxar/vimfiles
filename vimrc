@@ -357,7 +357,7 @@ Plug 'majutsushi/tagbar'
 nnoremap coT :TagbarToggle<cr>
 
 " ctrlp.vim - Fuzzy file, buffer, mru, tag, etc finder. {{{2
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 nnoremap <leader>b :CtrlPBuffer<cr>
 
 " syntastic - Syntax checking hacks for vim {{{2
