@@ -284,7 +284,7 @@ if exists('+undodir')
 endif
 
 set backup
-set noswapfile
+set swapfile
 
 if exists('+undofile')
   set undofile
