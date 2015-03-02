@@ -359,6 +359,8 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-dispatch'
 " a vim plugin for vim plugins
 Plug 'tpope/vim-scriptease'
+" Quick Google lookup directly from Vim
+Plug 'szw/vim-g'
 "}}}2
 
 " ruby - runtime and tools support for ruby {{{2
