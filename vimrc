@@ -90,9 +90,21 @@ if &t_Co == 8 && $TERM !~# '^linux'
   set t_Co=16
 endif
 
+" Show linenumbers by default (change in ftplugin)
 set number
+" Show relative line numbers in active windows, where number is set
 if version >= 703
-  set relativenumber
+  augroup relativenumber
+    au!
+    au WinEnter,TabEnter,BufWinEnter * call ToggleRelativeNumber()
+    au WinLeave,TabLeave,BufWinLeave * call ToggleRelativeNumber()
+  augroup END
+
+  function! ToggleRelativeNumber()
+    if &number
+      set relativenumber!
+    endif
+  endfunction
 endif
 
 set linebreak
