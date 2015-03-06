@@ -96,13 +96,19 @@ set number
 if version >= 703
   augroup relativenumber
     au!
-    au WinEnter,TabEnter,BufWinEnter * call ToggleRelativeNumber()
-    au WinLeave,TabLeave,BufWinLeave * call ToggleRelativeNumber()
+    au WinEnter,TabEnter,BufWinEnter * call SetRelativeNumber()
+    au WinLeave,TabLeave,BufWinLeave * call UnsetRelativeNumber()
   augroup END
 
-  function! ToggleRelativeNumber()
+  function! SetRelativeNumber()
     if &number
-      set relativenumber!
+      set relativenumber
+    endif
+  endfunction
+
+  function! UnsetRelativeNumber()
+    if &relativenumber
+      set norelativenumber
     endif
   endfunction
 endif
