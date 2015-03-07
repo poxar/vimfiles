@@ -467,10 +467,6 @@ else
   let g:UltiSnipsSnippetsDir="~/.vim/snip"
 endif
 
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsListSnippets="<a-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<a-j>"
 nnoremap <leader>ese :UltiSnipsEdit<cr>
 
 " clang_complete - Vim plugin that uses clang for completing C/C++ code. {{{2
