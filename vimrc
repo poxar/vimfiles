@@ -379,6 +379,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-scriptease'
 " Quick Google lookup directly from Vim
 Plug 'szw/vim-g'
+" tmux basics
+Plug 'tpope/vim-tbone'
 "}}}2
 
 " ruby - runtime and tools support for ruby {{{2
@@ -416,13 +418,6 @@ endif
 " syntastic - Syntax checking hacks for vim {{{2
 Plug 'scrooloose/syntastic'
 let g:syntastic_ruby_checkers = ['mri', 'ruby-lint', 'rubocop']
-
-" slimux - SLIME inspired tmux integration plugin for Vim {{{2
-Plug 'epeli/slimux'
-nnoremap <leader>R :SlimuxREPLSendLine<cr>
-vnoremap <leader>R :SlimuxREPLSendSelection<cr>
-nnoremap <leader>sp :SlimuxShellPrompt<cr>
-nnoremap <leader>sl :SlimuxShellLast<cr>
 
 " fugitive - a Git wrapper so awesome, it should be illegal {{{2
 Plug 'tpope/vim-fugitive'
