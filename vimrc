@@ -417,6 +417,13 @@ endif
 
 " syntastic - Syntax checking hacks for vim {{{2
 Plug 'scrooloose/syntastic'
+
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
+
 let g:syntastic_ruby_checkers = ['mri', 'ruby-lint', 'rubocop']
 
 " fugitive - a Git wrapper so awesome, it should be illegal {{{2
