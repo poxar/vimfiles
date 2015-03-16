@@ -403,6 +403,16 @@ nnoremap coT :TagbarToggle<cr>
 Plug 'ctrlpvim/ctrlp.vim'
 nnoremap <leader>b :CtrlPBuffer<cr>
 
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+        \ --ignore .git
+        \ --ignore .svn
+        \ --ignore .hg
+        \ --ignore .DS_Store
+        \ --ignore "**/*.pyc"
+        \ -g ""'
+endif
+
 " syntastic - Syntax checking hacks for vim {{{2
 Plug 'scrooloose/syntastic'
 let g:syntastic_ruby_checkers = ['mri', 'ruby-lint', 'rubocop']
