@@ -7,6 +7,7 @@
 " make the gui clean
 set guioptions=cgi
 set mousehide
+set mousemodel=popup_setpos
 
 " use more for man
 set kp=man\ -P\ more
