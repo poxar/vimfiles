@@ -594,7 +594,6 @@ endif
 " expand %% to the path of the current file
 cabbrev <expr> %% expand('%:p:h')
 
-
 " visual stuff {{{2
 
 " more visual buffer switching
@@ -617,6 +616,12 @@ nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>eg :edit $MYGVIMRC<cr>
 nnoremap <leader>esv :vsplit $MYVIMRC<cr>
 nnoremap <leader>esg :vsplit $MYGVIMRC<cr>
+
+" open file in directory of current file
+noremap <leader>e.  :edit   <C-R>=expand("%:p:h") . "/" <cr>
+noremap <leader>es. :vsplit <C-R>=expand("%:p:h") . "/" <cr>
+" cd to directory of current file
+nnoremap <leader>c. :lcd %:p:h<cr>
 
 if has('win32')
   " edit
