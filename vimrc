@@ -393,6 +393,19 @@ Plug 'tpope/vim-rbenv'
 " Refactoring tool for Ruby in vim
 Plug 'ecomba/vim-ruby-refactoring'
 " }}}2
+" clojure - runtime and tools support for clojure {{{2
+" Clojure REPL support
+Plug 'tpope/vim-fireplace'
+" static support for Leiningen
+Plug 'tpope/vim-leiningen'
+" Set 'path' from the Java class path
+Plug 'tpope/vim-classpath'
+" Meikel Brandmeyer's excellent Clojure runtime files
+Plug 'guns/vim-clojure-static'
+" Precision Editing for S-expressions
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+" }}}2
 
 " vimoutliner - Work fast, think well. {{{2
 Plug 'vimoutliner/vimoutliner'
