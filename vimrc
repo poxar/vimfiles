@@ -352,7 +352,7 @@ Plug 'vim-scripts/gtk-vim-syntax'
 " Vim files for editing Salt files
 Plug 'saltstack/salt-vim'
 " A rainbow parentheses plugin for Clojure, Common Lisp & Scheme.
-Plug 'amdt/vim-niji'
+Plug 'raymond-w-ko/vim-niji'
 
 " automation - plugins that automate common tasks {{{2
 " heuristically set shiftwidth, expandtab, etc
