@@ -353,6 +353,8 @@ Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'saltstack/salt-vim'
 " A rainbow parentheses plugin for Clojure, Common Lisp & Scheme.
 Plug 'raymond-w-ko/vim-niji'
+" Repository for Jinja support in vim.
+Plug 'mitsuhiko/vim-jinja'
 
 " automation - plugins that automate common tasks {{{2
 " heuristically set shiftwidth, expandtab, etc
