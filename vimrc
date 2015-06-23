@@ -335,6 +335,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 " - - hop up to the directory listing and seek to the file you just came from
 Plug 'tpope/vim-vinegar'
+" characterize.vim: Unicode character metadata
+Plug 'tpope/vim-characterize'
 
 " text objects - plugins that add or enhance text objects {{{2
 " Punctuation text objects: ci/ da; vi@ yiq da<space> ...
