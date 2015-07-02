@@ -406,9 +406,13 @@ Plug 'tpope/vim-leiningen'
 Plug 'tpope/vim-classpath'
 " Meikel Brandmeyer's excellent Clojure runtime files
 Plug 'guns/vim-clojure-static'
+" A Vim plugin for Clojure's Eastwood linter
+Plug 'venantius/vim-eastwood'
 " Precision Editing for S-expressions
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
+" A Vim plugin for cljfmt, the Clojure formatting tool.
+Plug 'venantius/vim-cljfmt'
 " }}}2
 
 " vimoutliner - Work fast, think well. {{{2
