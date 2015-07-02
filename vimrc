@@ -337,6 +337,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 " characterize.vim: Unicode character metadata
 Plug 'tpope/vim-characterize'
+" clipboard mappings the way I like them
+Plug 'poxar/vim-clipbored'
 
 " text objects - plugins that add or enhance text objects {{{2
 " Punctuation text objects: ci/ da; vi@ yiq da<space> ...
