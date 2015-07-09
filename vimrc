@@ -359,6 +359,8 @@ Plug 'saltstack/salt-vim'
 Plug 'raymond-w-ko/vim-niji'
 " Repository for Jinja support in vim.
 Plug 'mitsuhiko/vim-jinja'
+" A set of vim syntax files for highlighting the various Html templating languages in Haskell
+Plug 'pbrisbin/vim-syntax-shakespeare'
 
 " automation - plugins that automate common tasks {{{2
 " heuristically set shiftwidth, expandtab, etc
