@@ -405,7 +405,7 @@ Plug 'ecomba/vim-ruby-refactoring'
 " Clojure REPL support
 Plug 'tpope/vim-fireplace'
 " static support for Leiningen
-Plug 'tpope/vim-leiningen'
+Plug 'tpope/vim-salve'
 " Set 'path' from the Java class path
 Plug 'tpope/vim-classpath'
 " Meikel Brandmeyer's excellent Clojure runtime files
