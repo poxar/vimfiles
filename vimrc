@@ -418,6 +418,12 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 " A Vim plugin for cljfmt, the Clojure formatting tool.
 Plug 'venantius/vim-cljfmt'
 " }}}2
+" python - runtime and tools support for python {{{2
+" Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box.
+Plug 'klen/python-mode'
+" Using the jedi autocompletion library for VIM.
+Plug 'davidhalter/jedi-vim'
+" }}}2
 
 " vimoutliner - Work fast, think well. {{{2
 Plug 'vimoutliner/vimoutliner'
