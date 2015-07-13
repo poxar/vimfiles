@@ -377,6 +377,8 @@ Plug 'tpope/vim-projectionist'
 Plug 'arecarn/crunch'
 " text filtering and alignment
 Plug 'godlygeek/tabular'
+" Vim plugin for the Perl module / CLI script 'ack'
+Plug 'mileszs/ack.vim'
 " populating the argument list from the files in the quickfix list
 Plug 'nelstrom/vim-qargs'
 " easily search for, substitute, and abbreviate multiple variants of a word

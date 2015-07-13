@@ -1,6 +1,6 @@
 " see http://www.vimbits.com/bits/153
-nnoremap <silent> \a :set opfunc=<SID>AckMotion<CR>g@
-xnoremap <silent> \a :<C-U>call <SID>AckMotion(visualmode())<CR>
+nnoremap <silent> <localleader>a :set opfunc=<SID>AckMotion<CR>g@
+xnoremap <silent> <localleader>a :<C-U>call <SID>AckMotion(visualmode())<CR>
 
 function! s:CopyMotionForType(type)
   if a:type ==# 'v'
