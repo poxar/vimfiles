@@ -359,6 +359,8 @@ Plug 'pbrisbin/vim-syntax-shakespeare'
 Plug 'octol/vim-cpp-enhanced-highlight'
 " Haskell indent file
 Plug 'vim-scripts/indenthaskell.vim'
+" Improved Git support
+Plug 'tpope/vim-git'
 
 " automation - plugins that automate common tasks {{{2
 " heuristically set shiftwidth, expandtab, etc
