@@ -349,18 +349,16 @@ Plug 'michaeljsmith/vim-indent-object'
 " runtime files - plugins that add language support {{{2
 " sheerun/vim-polyglot
 Plug 'sheerun/vim-polyglot'
-" fish syntax based on sh
-Plug 'vim-scripts/fish-syntax'
-" Syntax highlighting for GLib, Gtk+, Xlib, Gimp, Gnome, and more.
-Plug 'vim-scripts/gtk-vim-syntax'
 " Vim files for editing Salt files
 Plug 'saltstack/salt-vim'
-" A rainbow parentheses plugin for Clojure, Common Lisp & Scheme.
-Plug 'raymond-w-ko/vim-niji'
 " Repository for Jinja support in vim.
 Plug 'mitsuhiko/vim-jinja'
-" A set of vim syntax files for highlighting the various Html templating languages in Haskell
+" A set of vim syntax files for highlighting various Html templating languages
 Plug 'pbrisbin/vim-syntax-shakespeare'
+" Additional Vim syntax highlighting for C++ (including C++11/14) 
+Plug 'octol/vim-cpp-enhanced-highlight'
+" Haskell indent file
+Plug 'vim-scripts/indenthaskell.vim'
 
 " automation - plugins that automate common tasks {{{2
 " heuristically set shiftwidth, expandtab, etc
@@ -371,6 +369,10 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-endwise'
 " project configuration
 Plug 'tpope/vim-projectionist'
+" A simple way to create, edit and save files and parent directories
+Plug 'duggiefresh/vim-easydir'
+" Plugin for transparent editing of gpg encrypted files.
+Plug 'vim-scripts/gnupg.vim'
 
 " command line - plugins that add new or enhance existing commands {{{2
 " An easier way to perform calculations inside Vim
@@ -391,6 +393,8 @@ Plug 'tpope/vim-scriptease'
 Plug 'szw/vim-g'
 " tmux basics
 Plug 'tpope/vim-tbone'
+" Plugin to create and use a scratch Vim buffer
+Plug 'vim-scripts/scratch.vim'
 "}}}2
 
 " ruby - runtime and tools support for ruby {{{2
@@ -404,6 +408,8 @@ Plug 'tpope/vim-rbenv'
 Plug 'ecomba/vim-ruby-refactoring'
 " }}}2
 " clojure - runtime and tools support for clojure {{{2
+" A rainbow parentheses plugin for Clojure, Common Lisp & Scheme.
+Plug 'raymond-w-ko/vim-niji'
 " Clojure REPL support
 Plug 'tpope/vim-fireplace'
 " static support for Leiningen
