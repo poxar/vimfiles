@@ -375,6 +375,8 @@ Plug 'tpope/vim-projectionist'
 Plug 'duggiefresh/vim-easydir'
 " Plugin for transparent editing of gpg encrypted files.
 Plug 'vim-scripts/gnupg.vim'
+" Make terminal vim and tmux work better together.
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " command line - plugins that add new or enhance existing commands {{{2
 " An easier way to perform calculations inside Vim
