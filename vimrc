@@ -361,6 +361,8 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-scripts/indenthaskell.vim'
 " Improved Git support
 Plug 'tpope/vim-git'
+" Runtime files for tmux
+Plug 'tmux-plugins/vim-tmux'
 
 " automation - plugins that automate common tasks {{{2
 " heuristically set shiftwidth, expandtab, etc
