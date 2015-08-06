@@ -15,7 +15,7 @@ set kp=man\ -P\ more
 let $PAGER='less'
 
 if has("unix")
-  set guifont=DejaVu\ Sans\ Mono\ 11
+  set guifont=Inconsolata\ 13
 else
   set guifont=Consolas:h11:cANSI
 endif
