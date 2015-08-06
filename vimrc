@@ -473,6 +473,8 @@ let g:syntastic_style_warning_symbol = '⚠'
 
 " fugitive - a Git wrapper so awesome, it should be illegal {{{2
 Plug 'tpope/vim-fugitive'
+" rhubarb.vim: GitHub extension for fugitive.vim 
+Plug 'tpope/vim-rhubarb'
 " auto clean fugitive buffers
 augroup fugitive-clean
   au! BufReadPost fugitive://* set bufhidden=delete
