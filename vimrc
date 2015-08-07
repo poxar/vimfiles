@@ -403,6 +403,10 @@ Plug 'tpope/vim-tbone'
 Plug 'vim-scripts/scratch.vim'
 "}}}2
 
+" rust - runtime and tools support for rust {{{2
+" Runtime files for rust
+Plug 'rust-lang/rust.vim'
+" }}}2
 " ruby - runtime and tools support for ruby {{{2
 " Lightweight support for Ruby's Bundler
 Plug 'tpope/vim-bundler'
