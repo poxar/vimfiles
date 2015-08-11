@@ -321,8 +321,6 @@ endif
 call plug#begin('~/.vim/bundle')
 
 " normal commands - plugins that add or enhance normal mode commands {{{2
-" cx{motion} - text exchange operator
-Plug 'tommcdo/vim-exchange'
 " gc{motion} - comment stuff out
 Plug 'tpope/vim-commentary'
 " . - enable repeating supported plugin maps with
@@ -335,8 +333,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 " - - hop up to the directory listing and seek to the file you just came from
 Plug 'tpope/vim-vinegar'
-" characterize.vim: Unicode character metadata
-Plug 'tpope/vim-characterize'
 " clipboard mappings the way I like them
 Plug 'poxar/vim-clipbored'
 
@@ -359,8 +355,6 @@ Plug 'pbrisbin/vim-syntax-shakespeare'
 Plug 'octol/vim-cpp-enhanced-highlight'
 " Haskell indent file
 Plug 'vim-scripts/indenthaskell.vim'
-" Improved Git support
-Plug 'tpope/vim-git'
 " Runtime files for tmux
 Plug 'tmux-plugins/vim-tmux'
 
@@ -381,8 +375,6 @@ Plug 'vim-scripts/gnupg.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " command line - plugins that add new or enhance existing commands {{{2
-" An easier way to perform calculations inside Vim
-Plug 'arecarn/crunch'
 " text filtering and alignment
 Plug 'godlygeek/tabular'
 " Vim plugin for the Perl module / CLI script 'ack'
@@ -395,12 +387,8 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-dispatch'
 " a vim plugin for vim plugins
 Plug 'tpope/vim-scriptease'
-" Quick Google lookup directly from Vim
-Plug 'szw/vim-g'
 " tmux basics
 Plug 'tpope/vim-tbone'
-" Plugin to create and use a scratch Vim buffer
-Plug 'vim-scripts/scratch.vim'
 "}}}2
 
 " rust - runtime and tools support for rust {{{2
@@ -414,8 +402,6 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 " Minimal rbenv support
 Plug 'tpope/vim-rbenv'
-" Refactoring tool for Ruby in vim
-Plug 'ecomba/vim-ruby-refactoring'
 " }}}2
 " clojure - runtime and tools support for clojure {{{2
 " A rainbow parentheses plugin for Clojure, Common Lisp & Scheme.
