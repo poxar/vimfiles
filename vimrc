@@ -375,8 +375,6 @@ Plug 'vim-scripts/gnupg.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " command line - plugins that add new or enhance existing commands {{{2
-" text filtering and alignment
-Plug 'godlygeek/tabular'
 " Vim plugin for the Perl module / CLI script 'ack'
 Plug 'mileszs/ack.vim'
 " populating the argument list from the files in the quickfix list
@@ -431,6 +429,15 @@ Plug 'davidhalter/jedi-vim'
 
 " vimoutliner - Work fast, think well. {{{2
 Plug 'vimoutliner/vimoutliner'
+
+" tabularize - text filtering and alignment {{{2
+Plug 'godlygeek/tabular'
+nnoremap g= :Tabularize /
+vnoremap g= :Tabularize /
+nnoremap ca: :Tabularize /:\zs<cr>
+vnoremap ca: :Tabularize /:\zs<cr>
+nnoremap ca= :Tabularize /=<cr>
+vnoremap ca= :Tabularize /=<cr>
 
 " tagbar - show an outline using ctags {{{2
 Plug 'majutsushi/tagbar'
