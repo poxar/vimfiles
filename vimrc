@@ -351,12 +351,12 @@ Plug 'saltstack/salt-vim'
 Plug 'mitsuhiko/vim-jinja'
 " A set of vim syntax files for highlighting various Html templating languages
 Plug 'pbrisbin/vim-syntax-shakespeare'
-" Additional Vim syntax highlighting for C++ (including C++11/14) 
-Plug 'octol/vim-cpp-enhanced-highlight'
 " Haskell indent file
 Plug 'vim-scripts/indenthaskell.vim'
 " Runtime files for tmux
 Plug 'tmux-plugins/vim-tmux'
+" vimoutliner - Work fast, think well
+Plug 'vimoutliner/vimoutliner'
 
 " automation - plugins that automate common tasks {{{2
 " heuristically set shiftwidth, expandtab, etc
@@ -375,8 +375,6 @@ Plug 'vim-scripts/gnupg.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " command line - plugins that add new or enhance existing commands {{{2
-" Vim plugin for the Perl module / CLI script 'ack'
-Plug 'mileszs/ack.vim'
 " populating the argument list from the files in the quickfix list
 Plug 'nelstrom/vim-qargs'
 " easily search for, substitute, and abbreviate multiple variants of a word
@@ -426,9 +424,21 @@ Plug 'klen/python-mode'
 " Using the jedi autocompletion library for VIM.
 Plug 'davidhalter/jedi-vim'
 " }}}2
+" C/C++ - runtime and tools support for C and C++ {{{2
+" clang_complete - Vim plugin that uses clang for completing C/C++ code.
+Plug 'Rip-Rip/clang_complete'
 
-" vimoutliner - Work fast, think well. {{{2
-Plug 'vimoutliner/vimoutliner'
+let g:clang_auto_select      = 0
+let g:clang_complete_auto    = 0
+let g:clang_complete_copen   = 1
+let g:clang_close_preview    = 1
+let g:clang_complete_macros  = 1
+let g:clang_complete_patters = 1
+let g:clang_use_library      = 1
+
+" Additional Vim syntax highlighting for C++ (including C++11/14) 
+Plug 'octol/vim-cpp-enhanced-highlight'
+" }}}2
 
 " tabularize - text filtering and alignment {{{2
 Plug 'godlygeek/tabular'
@@ -525,18 +535,8 @@ endif
 
 nnoremap <leader>ese :UltiSnipsEdit<cr>
 
-" clang_complete - Vim plugin that uses clang for completing C/C++ code. {{{2
-Plug 'Rip-Rip/clang_complete'
-
-let g:clang_auto_select      = 0
-let g:clang_complete_auto    = 0
-let g:clang_complete_copen   = 1
-let g:clang_close_preview    = 1
-let g:clang_complete_macros  = 1
-let g:clang_complete_patters = 1
-let g:clang_use_library      = 1
-
-" ack.vim {{{2
+" ack.vim - Vim plugin for the Perl module / CLI script 'ack' {{{2
+Plug 'mileszs/ack.vim'
 let s:ackcmd='-H --smart-case --nocolor --nogroup --column'
 let s:agcmd='--smart-case --nocolor --nogroup --column'
 if executable('ag')
