@@ -444,10 +444,10 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'godlygeek/tabular'
 nnoremap g= :Tabularize /
 vnoremap g= :Tabularize /
-nnoremap ca: :Tabularize /:\zs<cr>
-vnoremap ca: :Tabularize /:\zs<cr>
-nnoremap ca= :Tabularize /=<cr>
-vnoremap ca= :Tabularize /=<cr>
+nnoremap g\: :Tabularize /:\zs<cr>
+vnoremap g\: :Tabularize /:\zs<cr>
+nnoremap g\= :Tabularize /=<cr>
+vnoremap g\= :Tabularize /=<cr>
 
 " tagbar - show an outline using ctags {{{2
 Plug 'majutsushi/tagbar'
