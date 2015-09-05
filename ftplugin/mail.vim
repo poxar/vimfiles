@@ -33,11 +33,4 @@ function! Mail_Erase_Sig()
   endif
 endfunction
 
-
-function! Mail_Del_Empty_Quoted()
-  exe "normal :%s/^>[[:space:]\%\|\#>]\\+$//e\<CR>"
-endfunction
-
-
 call Mail_Erase_Sig()
-call Mail_Del_Empty_Quoted()
