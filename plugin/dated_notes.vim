@@ -10,14 +10,14 @@
 if exists('loaded_dated_notes')
   finish
 endif
-let loaded_dated_notes = 1
+let g:loaded_dated_notes = 1
 
 if !exists('g:dated_notes_dir')
   let g:dated_notes_dir = expand('$HOME/.dated_notes')
 endif
 
 function s:edit_new_note()
-  let s:date = strftime("%F")
+  let s:date = strftime('%F')
   let s:note = g:dated_notes_dir . '/' . s:date . '.md'
   exec 'edit ' . s:note
 endfunction

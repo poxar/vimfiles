@@ -51,23 +51,25 @@
 " Supporting code -------------------------------------------------------------
 " Preamble {{{
 
-if !has("gui_running") && &t_Co != 88 && &t_Co != 256
+scriptencoding 'utf-8'
+
+if !has('gui_running') && &t_Co != 88 && &t_Co != 256
     finish
 endif
 
 set background=dark
 
-if exists("syntax_on")
+if exists('syntax_on')
     syntax reset
 endif
 
-let colors_name = "badwolf"
+let g:colors_name = 'badwolf'
 
-if !exists("g:badwolf_html_link_underline") " {{{
+if !exists('g:badwolf_html_link_underline') " {{{
     let g:badwolf_html_link_underline = 1
 endif " }}}
 
-if !exists("g:badwolf_css_props_highlight") " {{{
+if !exists('g:badwolf_css_props_highlight') " {{{
     let g:badwolf_css_props_highlight = 0
 endif " }}}
 
@@ -132,38 +134,38 @@ let s:bwc.darkroast = ['88633f', 95]
 function! s:HL(group, fg, ...)
     " Arguments: group, guifg, guibg, gui, guisp
 
-    let histring = 'hi ' . a:group . ' '
+    let l:histring = 'hi ' . a:group . ' '
 
     if strlen(a:fg)
-        if a:fg == 'fg'
-            let histring .= 'guifg=fg ctermfg=fg '
+        if a:fg ==# 'fg'
+            let l:histring .= 'guifg=fg ctermfg=fg '
         else
-            let c = get(s:bwc, a:fg)
-            let histring .= 'guifg=#' . c[0] . ' ctermfg=' . c[1] . ' '
+            let l:c = get(s:bwc, a:fg)
+            let l:histring .= 'guifg=#' . l:c[0] . ' ctermfg=' . l:c[1] . ' '
         endif
     endif
 
     if a:0 >= 1 && strlen(a:1)
-        if a:1 == 'bg'
-            let histring .= 'guibg=bg ctermbg=bg '
+        if a:1 ==# 'bg'
+            let l:histring .= 'guibg=bg ctermbg=bg '
         else
-            let c = get(s:bwc, a:1)
-            let histring .= 'guibg=#' . c[0] . ' ctermbg=' . c[1] . ' '
+            let l:c = get(s:bwc, a:1)
+            let l:histring .= 'guibg=#' . l:c[0] . ' ctermbg=' . l:c[1] . ' '
         endif
     endif
 
     if a:0 >= 2 && strlen(a:2)
-        let histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
+        let l:histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
     endif
 
     if a:0 >= 3 && strlen(a:3)
-        let c = get(s:bwc, a:3)
-        let histring .= 'guisp=#' . c[0] . ' '
+        let l:c = get(s:bwc, a:3)
+        let l:histring .= 'guisp=#' . l:c[0] . ' '
     endif
 
     " echom histring
 
-    execute histring
+    execute l:histring
 endfunction
 " }}}
 " Configuration Options {{{
@@ -345,7 +347,7 @@ call s:HL('PmenuThumb', 'brightgravel')
 " }}}
 " Spelling {{{
 
-if has("spell")
+if has('spell')
     call s:HL('SpellCap', 'dalespale', 'bg', 'undercurl,bold', 'dalespale')
     call s:HL('SpellBad', '', 'bg', 'undercurl', 'dalespale')
     call s:HL('SpellLocal', '', '', 'undercurl', 'dalespale')

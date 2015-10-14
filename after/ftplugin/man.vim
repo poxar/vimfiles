@@ -1,5 +1,4 @@
-
-if version >= 703
+if v:version >= 703
   setlocal norelativenumber
 endif
 

@@ -18,20 +18,20 @@ endif
 
 if !exists('g:LatexBox_fold_parts')
     let g:LatexBox_fold_parts=[
-                \ "appendix",
-                \ "frontmatter",
-                \ "mainmatter",
-                \ "backmatter"
+                \ 'appendix',
+                \ 'frontmatter',
+                \ 'mainmatter',
+                \ 'backmatter'
                 \ ]
 endif
 
 if !exists('g:LatexBox_fold_sections')
     let g:LatexBox_fold_sections=[
-                \ "part",
-                \ "chapter",
-                \ "section",
-                \ "subsection",
-                \ "subsubsection"
+                \ 'part',
+                \ 'chapter',
+                \ 'section',
+                \ 'subsection',
+                \ 'subsubsection'
                 \ ]
 endif
 
@@ -40,8 +40,8 @@ if !exists('g:LatexBox_fold_envs')
 endif
 if !exists('g:LatexBox_folded_environments')
     let g:LatexBox_folded_environments = [
-                \ "abstract",
-                \ "frame"
+                \ 'abstract',
+                \ 'frame'
                 \ ]
 endif
 
@@ -52,22 +52,22 @@ endif
 " and their levels, and then predefines the patterns for optimized folding.
 function! s:FoldSectionLevels()
     " Initialize
-    let level = 1
-    let foldsections = []
+    let l:level = 1
+    let l:foldsections = []
 
     " If we use two or more of the *matter commands, we need one more foldlevel
-    let nparts = 0
-    for part in g:LatexBox_fold_parts
-        let i = 1
-        while i < line("$")
-            if getline(i) =~ '^\s*\\' . part . '\>'
-                let nparts += 1
+    let l:nparts = 0
+    for l:part in g:LatexBox_fold_parts
+        let l:i = 1
+        while l:i < line('$')
+            if getline(l:i) =~ '^\s*\\' . l:part . '\>'
+                let l:nparts += 1
                 break
             endif
-            let i += 1
+            let l:i += 1
         endwhile
-        if nparts > 1
-            let level = 2
+        if l:nparts > 1
+            let l:level = 2
             break
         endif
     endfor
@@ -76,29 +76,29 @@ function! s:FoldSectionLevels()
     " don't use the part command, then chapter should have the highest
     " level.  If we don't use the chapter command, then section should be the
     " highest level.  And so on.
-    let ignore = 1
-    for part in g:LatexBox_fold_sections
+    let l:ignore = 1
+    for l:part in g:LatexBox_fold_sections
         " For each part, check if it is used in the file.  We start adding the
         " part patterns to the fold sections array whenever we find one.
-        let partpattern = '^\s*\(\\\|% Fake\)' . part . '\>'
-        if ignore
-            let i = 1
-            while i < line("$")
-                if getline(i) =~# partpattern
-                    call insert(foldsections, [partpattern, level])
-                    let level += 1
-                    let ignore = 0
+        let l:partpattern = '^\s*\(\\\|% Fake\)' . l:part . '\>'
+        if l:ignore
+            let l:i = 1
+            while l:i < line('$')
+                if getline(l:i) =~# l:partpattern
+                    call insert(l:foldsections, [l:partpattern, l:level])
+                    let l:level += 1
+                    let l:ignore = 0
                     break
                 endif
-                let i += 1
+                let l:i += 1
             endwhile
         else
-            call insert(foldsections, [partpattern, level])
-            let level += 1
+            call insert(l:foldsections, [l:partpattern, l:level])
+            let l:level += 1
         endif
     endfor
 
-    return foldsections
+    return l:foldsections
 endfunction
 
 " }}}
@@ -120,48 +120,48 @@ let s:envbeginpattern = s:notcomment . s:notbslash .
 let s:envendpattern = s:notcomment . s:notbslash .
             \ '\\end\s*{\('. join(g:LatexBox_folded_environments, '\|') . '\)}'
 
-function! LatexBox_FoldLevel(lnum)
+function! g:LatexBox_FoldLevel(lnum)
     " Check for normal lines first (optimization)
-    let line  = getline(a:lnum)
-    if line !~ s:folded
-        return "="
+    let l:line  = getline(a:lnum)
+    if l:line !~ s:folded
+        return '='
     endif
 
     " Fold preamble
     if g:LatexBox_fold_preamble == 1
-        if line =~# '\s*\\documentclass'
-            return ">1"
-        elseif line =~# '^\s*\\begin\s*{\s*document\s*}'
-            return "0"
+        if l:line =~# '\s*\\documentclass'
+            return '>1'
+        elseif l:line =~# '^\s*\\begin\s*{\s*document\s*}'
+            return '0'
         endif
     endif
 
     " Fold parts (\frontmatter, \mainmatter, \backmatter, and \appendix)
-    if line =~# s:foldparts
-        return ">1"
+    if l:line =~# s:foldparts
+        return '>1'
     endif
 
     " Fold chapters and sections
-    for [part, level] in b:LatexBox_FoldSections
-        if line =~# part
-            return ">" . level
+    for [l:part, l:level] in b:LatexBox_FoldSections
+        if l:line =~# l:part
+            return '>' . l:level
         endif
     endfor
 
     " Fold environments
     if g:LatexBox_fold_envs == 1
-        if line =~# s:envbeginpattern
-            return "a1"
-        elseif line =~# '^\s*\\end{document}'
+        if l:line =~# s:envbeginpattern
+            return 'a1'
+        elseif l:line =~# '^\s*\\end{document}'
             " Never fold \end{document}
             return 0
-        elseif line =~# s:envendpattern
-            return "s1"
+        elseif l:line =~# s:envendpattern
+            return 's1'
         endif
     endif
 
     " Return foldlevel of previous line
-    return "="
+    return '='
 endfunction
 
 " }}}
@@ -169,86 +169,86 @@ endfunction
 
 function! s:CaptionFrame(line)
     " Test simple variants first
-    let caption1 = matchstr(a:line,'\\begin\*\?{.*}{\zs.\+\ze}')
-    let caption2 = matchstr(a:line,'\\begin\*\?{.*}{\zs.\+')
+    let l:caption1 = matchstr(a:line,'\\begin\*\?{.*}{\zs.\+\ze}')
+    let l:caption2 = matchstr(a:line,'\\begin\*\?{.*}{\zs.\+')
 
-    if len(caption1) > 0
-        return caption1
-    elseif len(caption2) > 0
-        return caption2
+    if len(l:caption1) > 0
+        return l:caption1
+    elseif len(l:caption2) > 0
+        return l:caption2
     else
-        let i = v:foldstart
-        while i <= v:foldend
-            if getline(i) =~ '^\s*\\frametitle'
-                return matchstr(getline(i),
+        let l:i = v:foldstart
+        while l:i <= v:foldend
+            if getline(l:i) =~? '^\s*\\frametitle'
+                return matchstr(getline(l:i),
                             \ '^\s*\\frametitle\(\[.*\]\)\?{\zs.\+')
             end
-            let i += 1
+            let l:i += 1
         endwhile
 
-        return ""
+        return ''
     endif
 endfunction
 
 " }}}
 " LatexBox_FoldText {{{
 
-function! LatexBox_FoldText()
+function! g:LatexBox_FoldText()
     " Initialize
-    let line = getline(v:foldstart)
-    let nlines = v:foldend - v:foldstart + 1
-    let level = ''
-    let title = 'Not defined'
+    let l:line = getline(v:foldstart)
+    let l:nlines = v:foldend - v:foldstart + 1
+    let l:level = ''
+    let l:title = 'Not defined'
 
     " Fold level and number of lines
-    let level = '+-' . repeat('-', v:foldlevel-1) . ' '
-    let alignlnr = repeat(' ', 6-(v:foldlevel-1)-len(nlines))
-    let lineinfo = nlines . ' lines: '
+    let l:level = '+-' . repeat('-', v:foldlevel-1) . ' '
+    let l:alignlnr = repeat(' ', 6-(v:foldlevel-1)-len(l:nlines))
+    let l:lineinfo = l:nlines . ' lines: '
 
     " Preamble
-    if line =~ '\s*\\documentclass'
-        let title = "Preamble"
+    if l:line =~? '\s*\\documentclass'
+        let l:title = 'Preamble'
     endif
 
     " Parts, sections and fakesections
-    let sections = '\(\(sub\)*section\|part\|chapter\)'
-    let secpat1 = '^\s*\\' . sections . '\*\?\s*{'
-    let secpat2 = '^\s*\\' . sections . '\*\?\s*\['
-    if line =~ '\\frontmatter'
-        let title = "Frontmatter"
-    elseif line =~ '\\mainmatter'
-        let title = "Mainmatter"
-    elseif line =~ '\\backmatter'
-        let title = "Backmatter"
-    elseif line =~ '\\appendix'
-        let title = "Appendix"
-    elseif line =~ secpat1 . '.*}'
-        let title =  line
-    elseif line =~ secpat1
-        let title = line
-    elseif line =~ secpat2 . '.*\]'
-        let title = line
-    elseif line =~ secpat2
-        let title = line
-    elseif line =~ 'Fake' . sections . ':'
-        let title =  matchstr(line,'Fake' . sections . ':\s*\zs.*')
-    elseif line =~ 'Fake' . sections
-        let title =  matchstr(line, 'Fake' . sections)
+    let l:sections = '\(\(sub\)*section\|part\|chapter\)'
+    let l:secpat1 = '^\s*\\' . l:sections . '\*\?\s*{'
+    let l:secpat2 = '^\s*\\' . l:sections . '\*\?\s*\['
+    if l:line =~? '\\frontmatter'
+        let l:title = 'Frontmatter'
+    elseif l:line =~? '\\mainmatter'
+        let l:title = 'Mainmatter'
+    elseif l:line =~? '\\backmatter'
+        let l:title = 'Backmatter'
+    elseif l:line =~? '\\appendix'
+        let l:title = 'Appendix'
+    elseif l:line =~? l:secpat1 . '.*}'
+        let l:title =  l:line
+    elseif l:line =~? l:secpat1
+        let l:title = l:line
+    elseif l:line =~? l:secpat2 . '.*\]'
+        let l:title = l:line
+    elseif l:line =~? l:secpat2
+        let l:title = l:line
+    elseif l:line =~? 'Fake' . l:sections . ':'
+        let l:title =  matchstr(l:line,'Fake' . l:sections . ':\s*\zs.*')
+    elseif l:line =~? 'Fake' . l:sections
+        let l:title =  matchstr(l:line, 'Fake' . l:sections)
     endif
 
     " Environments
-    if line =~ '\\begin'
+    if l:line =~? '\\begin'
         " Capture environment name
-        let env = matchstr(line,'\\begin\*\?{\zs\w*\*\?\ze}')
-        if env == 'abstract'
-            let title = 'Abstract'
-        elseif env == 'frame'
-            let caption = s:CaptionFrame(line)
-            let title = 'Frame - ' . substitute(caption, '}\s*$', '','')
+        let l:env = matchstr(l:line,'\\begin\*\?{\zs\w*\*\?\ze}')
+        if l:env ==? 'abstract'
+            let l:title = 'Abstract'
+        elseif l:env ==? 'frame'
+            let l:caption = s:CaptionFrame(l:line)
+            let l:title = 'Frame - ' . substitute(l:caption, '}\s*$', '','')
         endif
     endif
 
-    return level . alignlnr . lineinfo . title . ' '
+    return l:level . l:alignlnr . l:lineinfo . l:title . ' '
 endfunction
 
 " }}}

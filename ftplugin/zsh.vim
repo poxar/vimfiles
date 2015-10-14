@@ -1,11 +1,11 @@
-function! ZSHFolds()
-  let thisline = getline(v:lnum)
-  if match(thisline, '() {$') >= 0
-    return ">1"
-  elseif match(thisline, '^}$') >= 0
-    return "<1"
+function! g:ZSHFolds()
+  let l:thisline = getline(v:lnum)
+  if match(l:thisline, '() {$') >= 0
+    return '>1'
+  elseif match(l:thisline, '^}$') >= 0
+    return '<1'
   else
-    return "="
+    return '='
   endif
 endfunction
 

@@ -18,7 +18,7 @@
 " You can switch between these styles by using the :Colo command, like
 " :Colo dark or :Colo light (many thanks to Pan Shizhu).
 
-if exists("g:sienna_style")
+if exists('g:sienna_style')
     let s:sienna_style = g:sienna_style
 else
     let s:sienna_style = 'light'
@@ -26,22 +26,22 @@ endif
 
 execute "command! -nargs=1 Colo let g:sienna_style = \"<args>\" | colo sienna"
 
-if s:sienna_style == 'dark'
+if s:sienna_style ==? 'dark'
     set background=dark
-elseif s:sienna_style == 'light'
+elseif s:sienna_style ==? 'light'
     set background=light
 else
     finish
 endif
 
 hi clear
-if exists("syntax_on")
+if exists('syntax_on')
   syntax reset
 endif
 
 let g:colors_name = 'sienna'
 
-if s:sienna_style == 'dark'
+if s:sienna_style ==? 'dark'
     hi Normal gui=none guifg=Grey85 guibg=Grey15
 
     hi Cursor guifg=Black guibg=Grey85
@@ -94,7 +94,7 @@ if s:sienna_style == 'dark'
     hi htmlBoldUnderline gui=bold,underline
     hi htmlBoldUnderlineItalic gui=bold,underline,italic
     hi htmlUnderlineItalic gui=underline,italic
-elseif s:sienna_style == 'light'
+elseif s:sienna_style ==? 'light'
     hi Normal gui=none guifg=Black guibg=White
 
     hi Cursor guifg=White guibg=Black

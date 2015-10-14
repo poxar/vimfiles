@@ -7,7 +7,6 @@
 " settings {{{1
 " basics {{{2
 
-set nocompatible
 filetype plugin indent on
 syntax enable
 
@@ -26,14 +25,15 @@ set virtualedit+=block
 
 set nrformats-=octal
 set encoding=utf-8
+scriptencoding 'utf-8'
 
-if has("unix")
+if has('unix')
   set path=**,.,/usr/include,,
 else
   set path=**,.,,
 endif
 
-if version >= 703 && has("cryptv")
+if v:version >= 703 && has('cryptv')
   set cryptmethod=blowfish
 endif
 
@@ -43,11 +43,11 @@ runtime! macros/matchit.vim
 
 " text formatting {{{2
 set textwidth=80
-if executable("par")
+if executable('par')
   set formatprg=par\ -w80
 endif
 set nojoinspaces
-if version >= 704
+if v:version >= 704
   set formatoptions=qcrnlj
 else
   set formatoptions=qcrnl
@@ -93,20 +93,20 @@ endif
 " Show linenumbers by default (change in ftplugin)
 set number
 " Show relative line numbers in active windows, where number is set
-if version >= 703
+if v:version >= 703
   augroup relativenumber
     au!
     au WinEnter,TabEnter,BufWinEnter * call SetRelativeNumber()
     au WinLeave,TabLeave,BufWinLeave * call UnsetRelativeNumber()
   augroup END
 
-  function! SetRelativeNumber()
+  function! g:SetRelativeNumber()
     if &number
       set relativenumber
     endif
   endfunction
 
-  function! UnsetRelativeNumber()
+  function! g:UnsetRelativeNumber()
     if &relativenumber
       set norelativenumber
     endif
@@ -144,14 +144,14 @@ augroup Statusline "{{{3
   au WinLeave,TabLeave,BufWinLeave * call SetInactiveStatusline()
 augroup END
 
-function! SkipStatusline() "{{{3
-  if &ft == 'help'
+function! g:SkipStatusline() "{{{3
+  if &ft ==? 'help'
     return 1
   endif
 endfunction
 
-function! SetActiveStatusline() "{{{3
-  if SkipStatusline()
+function! g:SetActiveStatusline() "{{{3
+  if g:SkipStatusline()
     return
   endif
 
@@ -165,8 +165,8 @@ function! SetActiveStatusline() "{{{3
   setlocal statusline+=\ \ %l:%v\                        " ruler
 endfunction
 
-function! SetInactiveStatusline() "{{{3
-  if SkipStatusline()
+function! g:SetInactiveStatusline() "{{{3
+  if g:SkipStatusline()
     return
   endif
 
@@ -176,7 +176,7 @@ function! SetInactiveStatusline() "{{{3
   setlocal statusline+=%{StatusLinePath()} " file name
 endfunction
 
-function! StatusLinePath()                        " {{{3
+function! g:StatusLinePath() " {{{3
   let l:path = expand('%:.')
   let l:path = substitute(l:path,'\','/','g')
   let l:path = substitute(l:path, '^\V' . $HOME, '~', '')
@@ -193,11 +193,11 @@ function! StatusLinePath()                        " {{{3
   return l:path
 endfunction
 
-function! StatusLineStats() "{{{3
+function! g:StatusLineStats() "{{{3
   let l:filestats = ''
 
-  if strlen(fugitive#head())
-    let l:filestats .= fugitive#head() . ' '
+  if strlen(g:fugitive#head())
+    let l:filestats .= g:fugitive#head() . ' '
   endif
 
   if strlen(&filetype)
@@ -206,13 +206,13 @@ function! StatusLineStats() "{{{3
     let l:filestats .= 'none '
   endif
 
-  if strlen(&fenc) && &fenc != 'utf-8'
+  if strlen(&fenc) && &fenc !=# 'utf-8'
     let l:filestats .= &fenc . ' '
-  elseif &enc != 'utf-8'
+  elseif &enc !=# 'utf-8'
     let l:filestats .= &enc . ' '
   endif
 
-  if strlen(&fileformat) && &fileformat != 'unix'
+  if strlen(&fileformat) && &fileformat !=# 'unix'
     let l:filestats .= &fileformat . ' '
   endif
 
@@ -223,8 +223,8 @@ endf
 " This maps coC to toggle the colorcolumn, but shows it only in the current
 " buffer. Furthermore the cursorline is shown in the current buffer.
 " toggle colorcolumn at textwidth + 1 {{{3
-function! ToggleColorColumn()
-  if exists("b:my_cc")
+function! g:ToggleColorColumn()
+  if exists('b:my_cc')
     setlocal colorcolumn=
     setlocal colorcolumn?
     unlet b:my_cc
@@ -243,17 +243,17 @@ augroup cursorlines "{{{3
   au WinLeave,TabLeave,BufWinLeave * call HideCursorLines()
 augroup END
 
-function! SetupCursorLines() "{{{3
-  if &ft != 'help'
+function! g:SetupCursorLines() "{{{3
+  if &ft !=# 'help'
     setlocal cursorline
 
-    if exists("b:my_cc")
+    if exists('b:my_cc')
       setlocal colorcolumn=+1
     endif
   endif
 endfunction
 
-function! HideCursorLines() "{{{3
+function! g:HideCursorLines() "{{{3
   setlocal colorcolumn=""
   setlocal nocursorline
 endfunction
@@ -279,7 +279,7 @@ endif
 
 " backup/swap/undo {{{2
 
-let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
+let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), 'Darwin') > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
 
 if !isdirectory(expand(s:dir))
   call mkdir(expand(s:dir))
@@ -309,16 +309,16 @@ if exists('+undofile')
 endif
 
 " leader {{{2
-let mapleader      = " "
-let maplocalleader = "\\"
+let g:mapleader      = ' '
+let g:maplocalleader = '\\'
 
 " read man files in vim with :Man {{{2
-if has("unix")
+if has('unix')
   runtime ftplugin/man.vim
 endif
 " plugins {{{1
 
-call plug#begin('~/.vim/bundle')
+call g:plug#begin('~/.vim/bundle')
 
 " normal commands - plugins that add or enhance normal mode commands {{{2
 " gc{motion} - comment stuff out
@@ -523,15 +523,15 @@ Plug 'SirVer/ultisnips'
 " some default snippets
 Plug 'honza/vim-snippets'
 
-let g:snips_author="Philipp Millar"
-let g:snips_author_email="philipp.millar@poxar.de"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snip"]
+let g:snips_author='Philipp Millar'
+let g:snips_author_email='philipp.millar@poxar.de'
+let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snip']
 let g:UltiSnipsNoPythonWarning = 1
 
-if has("win32")
-  let g:UltiSnipsSnippetsDir="~/vimfiles/snip"
+if has('win32')
+  let g:UltiSnipsSnippetsDir='~/vimfiles/snip'
 else
-  let g:UltiSnipsSnippetsDir="~/.vim/snip"
+  let g:UltiSnipsSnippetsDir='~/.vim/snip'
 endif
 
 nnoremap <leader>ese :UltiSnipsEdit<cr>
@@ -550,7 +550,7 @@ endif
 
 " }}}2
 
-call plug#end()
+call g:plug#end()
 
 " mappings {{{1
 " fixes {{{2
@@ -634,7 +634,7 @@ nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 inoremap <c-f> <c-x><c-f>
 
 " write file as root
-if has("unix")
+if has('unix')
   cabbrev w!! w !sudo tee % >/dev/null
 endif
 
@@ -711,43 +711,43 @@ if has('win32')
 else
   set spellfile=~/.vim/spell/en.utf-8.add
 endif
-let spellst = ["en", "de"]
-let langcnt = 0
+let g:spellst = ['en', 'de']
+let g:langcnt = 0
 
-function!  SelectLanguage()
+function!  g:SelectLanguage()
   let g:langcnt = (g:langcnt+1) % len(g:spellst)
-  let lang = g:spellst[g:langcnt]
-  echo "spelllang=" . lang
-  exe "set spelllang=" . lang
+  let l:lang = g:spellst[g:langcnt]
+  echo 'spelllang=' . l:lang
+  exe 'set spelllang=' . l:lang
   if has('win32')
-    exe "set spellfile=~/vimfiles/spell/" . lang . ".utf-8.add"
+    exe 'set spellfile=~/vimfiles/spell/' . l:lang . '.utf-8.add'
   else
-    exe "set spellfile=~/.vim/spell/" . lang . ".utf-8.add"
+    exe 'set spellfile=~/.vim/spell/' . l:lang . '.utf-8.add'
   endif
 endfunction
 
 nnoremap coS :call SelectLanguage()<CR>
 " scratchbuffer for messages {{{2
-function! MessageWindow()
+function! g:MessageWindow()
   new [Messages]
   setlocal buftype=nofile
   setlocal bufhidden=hide
   setlocal noswapfile
   setlocal buflisted
-  redir => messages_output
+  redir => l:messages_output
   silent messages
   redir END
-  silent put=messages_output
+  silent put=l:messages_output
 endfunction
 
 command! Messages call MessageWindow()
 
 " make * search a visual selection {{{2
 function! s:VSetSearch()
-  let temp = @@
+  let l:temp = @@
   norm! gvy
   let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-  let @@ = temp
+  let @@ = l:temp
 endfunction
 
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
