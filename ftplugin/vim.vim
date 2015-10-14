@@ -21,3 +21,6 @@ command! AutosourceStop call s:stop_autosource()
 function! s:autosource(fname)
     exec 'source '. a:fname
 endf
+
+" linting
+let g:syntastic_vim_checkers = ['vint']

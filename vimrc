@@ -469,6 +469,7 @@ endif
 
 " syntastic - Syntax checking hacks for vim {{{2
 Plug 'scrooloose/syntastic'
+Plug 'todesking/vint-syntastic'
 
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
