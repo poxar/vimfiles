@@ -12,3 +12,4 @@ let g:rust_fold = 2
 let g:rust_bang_comment_leader = 1
 
 command! Todo vimgrep /TODO:\|FIXME:\|XXX:/j src/** | botright cope
+command! Fixme vimgrep /FIXME:\|XXX:/j src/** | botright cope

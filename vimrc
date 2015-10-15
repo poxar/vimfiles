@@ -763,6 +763,7 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://sprunge.us|xclip
 " find and show todos {{{2
 command! Todo vimgrep /TODO:\|FIXME:\|XXX:/j ** | botright cope
+command! Fixme vimgrep /FIXME:\|XXX:/j ** | botright cope
 " edit current filetypeplugin {{{2
 command! Ftedit execute ':edit ~/.vim/ftplugin/'.&ft.'.vim'
 
