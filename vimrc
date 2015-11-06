@@ -446,6 +446,8 @@ nnoremap g= :Tabularize /
 vnoremap g= :Tabularize /
 nnoremap g\: :Tabularize /:\zs<cr>
 vnoremap g\: :Tabularize /:\zs<cr>
+nnoremap g\, :Tabularize /,\zs<cr>
+vnoremap g\, :Tabularize /,\zs<cr>
 nnoremap g\= :Tabularize /=<cr>
 vnoremap g\= :Tabularize /=<cr>
 
