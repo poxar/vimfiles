@@ -425,17 +425,6 @@ Plug 'klen/python-mode'
 Plug 'davidhalter/jedi-vim'
 " }}}2
 " C/C++ - runtime and tools support for C and C++ {{{2
-" clang_complete - Vim plugin that uses clang for completing C/C++ code.
-Plug 'Rip-Rip/clang_complete'
-
-let g:clang_auto_select      = 0
-let g:clang_complete_auto    = 0
-let g:clang_complete_copen   = 1
-let g:clang_close_preview    = 1
-let g:clang_complete_macros  = 1
-let g:clang_complete_patters = 1
-let g:clang_use_library      = 1
-
 " Additional Vim syntax highlighting for C++ (including C++11/14) 
 Plug 'octol/vim-cpp-enhanced-highlight'
 " }}}2
