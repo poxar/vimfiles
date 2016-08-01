@@ -10,3 +10,6 @@ setlocal tabstop=4
 setlocal expandtab
 setlocal makeprg=ant\ -find\ build.xml
 setlocal errorformat=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+
+" linting
+let g:syntastic_java_checkers = []
