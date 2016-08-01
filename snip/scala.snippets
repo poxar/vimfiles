@@ -1,0 +1,21 @@
+snippet ** "ScalaDoc" b
+/**
+ * ${1}
+ */
+endsnippet
+
+snippet @au
+@author `grep $(id -un) /etc/passwd | cut -d ":" -f5 | cut -d "," -f1`
+endsnippet
+snippet @br
+@brief ${0:Description}
+endsnippet
+snippet @fi
+@file ${0:`vim_snippets#Filename("$1")`}.java
+endsnippet
+snippet @pa
+@param ${0:param}
+endsnippet
+snippet @re
+@return ${0:param}
+endsnippet
