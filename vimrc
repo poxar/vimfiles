@@ -764,6 +764,19 @@ endfunction
 
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
+
+" toggle the last search pattern register between the last two search patterns {{{2
+
+function! s:ToggleSearchPattern()
+    let next_search_pattern_index = -1
+    if @/ ==# histget('search', -1)
+        let next_search_pattern_index = -2
+    endif
+    let @/ = histget('search', next_search_pattern_index)
+endfunction
+
+nnoremap <silent> <Leader>/ :<C-u>call <SID>ToggleSearchPattern()<CR>
+
 " commands {{{1
 " kill buffer without closing the window/view {{{2
 command! Bkill bp\|bd #<cr>
