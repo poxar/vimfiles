@@ -433,6 +433,21 @@ Plug 'gre/play2vim'
 " }}}2
 
 
+" dirvish - Directory viewer for Vim {{{2
+Plug 'justinmk/vim-dirvish'
+
+augroup dirvish_events
+  autocmd!
+
+  " Enable fugitive in dirvish
+  autocmd FileType dirvish call fugitive#detect(@%)
+
+  " Map `gh` to hide dot-prefixed files.
+  " To "toggle" this, just press `R` to reload.
+  autocmd FileType dirvish nnoremap <buffer>
+    \ gh :keeppatterns g@\v/\.[^\/]+/?$@d<cr>
+augroup END
+
 " tabularize - text filtering and alignment {{{2
 Plug 'godlygeek/tabular'
 nnoremap g= :Tabularize /
