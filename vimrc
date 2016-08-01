@@ -428,6 +428,10 @@ Plug 'davidhalter/jedi-vim'
 " Additional Vim syntax highlighting for C++ (including C++11/14) 
 Plug 'octol/vim-cpp-enhanced-highlight'
 " }}}2
+" Scala - runtime and tools support for Scala {{{2
+Plug 'gre/play2vim'
+" }}}2
+
 
 " tabularize - text filtering and alignment {{{2
 Plug 'godlygeek/tabular'
