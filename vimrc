@@ -375,8 +375,6 @@ Plug 'vim-scripts/gnupg.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " command line - plugins that add new or enhance existing commands {{{2
-" populating the argument list from the files in the quickfix list
-Plug 'nelstrom/vim-qargs'
 " easily search for, substitute, and abbreviate multiple variants of a word
 Plug 'tpope/vim-abolish'
 " asynchronous build and test dispatcher
