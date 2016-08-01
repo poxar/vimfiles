@@ -361,6 +361,8 @@ Plug 'vimoutliner/vimoutliner'
 " automation - plugins that automate common tasks {{{2
 " heuristically set shiftwidth, expandtab, etc
 Plug 'tpope/vim-sleuth'
+" maintain consistent coding styles between different editors and IDEs
+Plug 'editorconfig/editorconfig-vim'
 " (semi-) automatic session file creation
 Plug 'tpope/vim-obsession'
 " automatic endings like if else
