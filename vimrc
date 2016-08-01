@@ -558,6 +558,8 @@ else
   let g:ackprg='ack '.s:ackcmd
 endif
 
+" rsi.vim: Readline style insertion "{{{2
+Plug 'tpope/vim-rsi'
 " }}}2
 
 call g:plug#end()
