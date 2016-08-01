@@ -723,7 +723,7 @@ if has('win32')
 else
   set spellfile=~/.vim/spell/en.utf-8.add
 endif
-let g:spellst = ['en', 'de']
+let g:spellst = ['en', 'de_20']
 let g:langcnt = 0
 
 function!  g:SelectLanguage()
