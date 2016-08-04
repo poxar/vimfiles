@@ -331,8 +331,6 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 " ]{something} - pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
-" - - hop up to the directory listing and seek to the file you just came from
-Plug 'tpope/vim-vinegar'
 " clipboard mappings the way I like them
 Plug 'poxar/vim-clipbored'
 
