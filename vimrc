@@ -385,6 +385,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-scriptease'
 " tmux basics
 Plug 'tpope/vim-tbone'
+" Enhanced Quickfix
+Plug 'romainl/vim-qf'
+let g:qf_mapping_ack_style = 1
 "}}}2
 
 " rust - runtime and tools support for rust {{{2
