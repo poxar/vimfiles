@@ -68,6 +68,9 @@ set incsearch
 set gdefault
 
 " display {{{2
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+set termguicolors
 colorscheme badwolf
 
 set laststatus=2
