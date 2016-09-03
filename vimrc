@@ -319,6 +319,29 @@ let g:maplocalleader = '\\'
 if has('unix')
   runtime ftplugin/man.vim
 endif
+
+" use improved search tools if available {{{2
+
+let s:agcmd='--smart-case --nocolor --nogroup --column'
+let s:ackcmd='-H --smart-case --nocolor --nogroup --column'
+
+if executable('sift')
+  set grepprg=sift
+  set grepformat=%f:%l:%c:%m,%f:%l:%m,%f:%l%m,%f\ \ %l%m
+  let g:ackprg='sift'
+elseif executable('ag')
+  let &grepprg='ag '.s:agcmd
+  let g:ackprg='ag '.s:agcmd
+elseif executable('ack-grep')
+  let &grepprg='ack-grep '.s:ackcmd
+  let g:ackprg='ack-grep '.s:ackcmd
+else
+  let &grepprg='ack '.s:ackcmd
+  let g:ackprg='ack '.s:ackcmd
+endif
+
+command! -nargs=+ -complete=file G grep! <args>
+
 " plugins {{{1
 
 call g:plug#begin('~/.vim/bundle')
@@ -550,18 +573,6 @@ endif
 
 nnoremap <leader>ese :UltiSnipsEdit<cr>
 
-" ack.vim - Vim plugin for the Perl module / CLI script 'ack' {{{2
-Plug 'mileszs/ack.vim'
-let s:ackcmd='-H --smart-case --nocolor --nogroup --column'
-let s:agcmd='--smart-case --nocolor --nogroup --column'
-if executable('ag')
-  let g:ackprg='ag '.s:agcmd
-elseif executable('ack-grep')
-  let g:ackprg='ack-grep '.s:ackcmd
-else
-  let g:ackprg='ack '.s:ackcmd
-endif
-
 " rsi.vim: Readline style insertion "{{{2
 Plug 'tpope/vim-rsi'
 " }}}2
@@ -791,8 +802,8 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 " put files or snippets on sprunge.us {{{2
 command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://sprunge.us|xclip
 " find and show todos {{{2
-command! Todo vimgrep /TODO:\|FIXME:\|XXX:/j ** | botright cope
-command! Fixme vimgrep /FIXME:\|XXX:/j ** | botright cope
+command! Todo grep TODO:\\|FIXME:\\|XXX: | botright cope
+command! Fixme grep FIXME:\\|XXX: | botright cope
 " edit current filetypeplugin {{{2
 command! Ftedit execute ':edit ~/.vim/ftplugin/'.&ft.'.vim'
 
