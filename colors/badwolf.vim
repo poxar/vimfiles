@@ -258,6 +258,7 @@ call s:HL('FoldColumn', 'mediumgravel', s:gutter)
 call s:HL('Cursor',  'coal', 'tardis', 'bold')
 call s:HL('vCursor', 'coal', 'tardis', 'bold')
 call s:HL('iCursor', 'coal', 'tardis', 'none')
+call s:HL('oCursor', 'orange', 'tardis', 'bold')
 
 " }}}
 " Syntax highlighting {{{
