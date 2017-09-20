@@ -474,6 +474,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 " }}}2
 " Scala - runtime and tools support for Scala {{{2
+Plug 'derekwyatt/vim-scala'
 Plug 'gre/play2vim'
 " }}}2
 
@@ -504,9 +505,9 @@ vnoremap g\, :Tabularize /,\zs<cr>
 nnoremap g\= :Tabularize /=<cr>
 vnoremap g\= :Tabularize /=<cr>
 
-" tagbar - show an outline using ctags {{{2
-Plug 'majutsushi/tagbar'
-nnoremap coT :TagbarToggle<cr>
+" taglist - show an outline using ctags {{{2
+Plug 'vim-scripts/taglist.vim'
+nnoremap coT :TlistToggle<cr>
 
 " ctrlp.vim - Fuzzy file, buffer, mru, tag, etc finder. {{{2
 Plug 'ctrlpvim/ctrlp.vim'
