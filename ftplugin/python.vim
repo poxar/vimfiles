@@ -12,7 +12,7 @@ setlocal autoindent    " align the new line indent with the previous line
 setlocal omnifunc=pythoncomplete#Complete
 
 " linting
-let g:syntastic_python_checkers = ['python', 'pylint', 'pep8']
+let g:syntastic_python_checkers = ['python', 'pylint']
 
 " Python Mode
 " Deactivate rope (use jedi)
