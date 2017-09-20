@@ -675,6 +675,9 @@ endif
 " expand %% to the path of the current file
 cabbrev <expr> %% expand('%:p:h')
 
+" simple math
+noremap <leader>mm yypkA =<Esc>jOscale=2<Esc>:.,+1!bc -ql<CR>kJ
+
 " visual stuff {{{2
 
 " more visual buffer switching
