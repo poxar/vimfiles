@@ -1,36 +1,18 @@
 setlocal textwidth=72
-setlocal fo+=aw
+
+" a - automatic formatting
+" w - format=flowed formatting
+" n - recognize numbered lists
+" setlocal formatoptions+=awn
+
+" n - recognize numbered lists
+" 1 - don't break after one-letter words
+" 2 - allow hanging indents for paragraphs
+setlocal formatoptions+=n12
+setlocal autoindent
 
 set comments+=n:\|
 set comments+=n:%
 
 setlocal spell
-setlocal spelllang=de
-
-function! s:Mail_Erase_Sig()
-  " search for the signature pattern (takes into account signature delimiters
-  " from broken mailers that forget the space after the two dashes)
-  let l:i = 0
-  while ((l:i <= line('$')) && (getline(l:i) !~# '^> *-- \=$'))
-    let l:i = l:i + 1
-  endwhile
-
-  " if found, then
-  if (l:i != line('$') + 1)
-    " first, look for our own signature, to avoid deleting it
-    let l:j = l:i
-    while (l:j < line('$') && (getline(l:j + 1) !~# '^-- $'))
-      let l:j = l:j + 1
-    endwhile
-
-    " second, search for the last non empty (non sig) line
-    while ((l:i > 0) && (getline(l:i - 1) =~# '^\(>\s*\)*$'))
-      let l:i = l:i - 1
-    endwhile
-
-    " third, delete those lines plus the signature
-    exe ':'.l:i.','.l:j.'d'
-  endif
-endfunction
-
-call s:Mail_Erase_Sig()
+setlocal spelllang=de_20
