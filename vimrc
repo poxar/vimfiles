@@ -381,6 +381,8 @@ Plug 'vim-scripts/indenthaskell.vim'
 Plug 'tmux-plugins/vim-tmux'
 " vimoutliner - Work fast, think well
 Plug 'vimoutliner/vimoutliner'
+" typescript
+Plug 'HerringtonDarkholme/yats.vim'
 
 " automation - plugins that automate common tasks {{{2
 " heuristically set shiftwidth, expandtab, etc
