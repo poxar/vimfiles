@@ -10,7 +10,7 @@
 filetype plugin indent on
 syntax enable
 
-set viminfo='100,<1000,s200,h
+set viminfo='200,s200,r/tmp
 set history=1000
 set tabpagemax=50
 
@@ -33,13 +33,21 @@ else
   set path=**,.,,
 endif
 
-if v:version >= 703 && has('cryptv')
-  set cryptmethod=blowfish
+if has('cryptv')
+  if has('patch-7.4.401')
+    set cryptmethod=blowfish2
+  elseif v:version >= 703
+    set cryptmethod=blowfish
+  endif
 endif
 
 set diffopt=filler,vertical
 
-runtime! macros/matchit.vim
+if has('patch-7.4.1649') && !has('nvim')
+  packadd! matchit
+else
+  runtime! macros/matchit.vim
+endif
 
 " text formatting {{{2
 set textwidth=80
@@ -67,10 +75,16 @@ set hlsearch
 set incsearch
 set gdefault
 
+if has('patch-7.4.941')
+  set tagcase=followscs
+endif
+
 " display {{{2
-set t_8f=[38;2;%lu;%lu;%lum
-set t_8b=[48;2;%lu;%lu;%lum
-set termguicolors
+if has('termguicolors')
+  set t_8f=[38;2;%lu;%lu;%lum
+  set t_8b=[48;2;%lu;%lu;%lum
+  set termguicolors
+endif
 colorscheme badwolf
 
 set laststatus=2
@@ -565,7 +579,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 let g:snips_author='Philipp Millar'
-let g:snips_author_email='philipp.millar@poxar.de'
+let g:snips_author_email='philipp.millar@poxar.net'
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snip']
 let g:UltiSnipsNoPythonWarning = 1
 
