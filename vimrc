@@ -386,7 +386,7 @@ Plug 'kurkale6ka/vim-pairs'
 Plug 'michaeljsmith/vim-indent-object'
 
 " runtime files - plugins that add language support {{{2
-" sheerun/vim-polyglot
+" various languages
 Plug 'sheerun/vim-polyglot'
 " Vim files for editing Salt files
 Plug 'saltstack/salt-vim'
@@ -408,10 +408,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'tpope/vim-sleuth'
 " maintain consistent coding styles between different editors and IDEs
 Plug 'editorconfig/editorconfig-vim'
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " (semi-) automatic session file creation
 Plug 'tpope/vim-obsession'
-" automatic endings like if else
-Plug 'tpope/vim-endwise'
 " project configuration
 Plug 'tpope/vim-projectionist'
 " A simple way to create, edit and save files and parent directories
@@ -420,19 +419,22 @@ Plug 'duggiefresh/vim-easydir'
 Plug 'vim-scripts/gnupg.vim'
 " Make terminal vim and tmux work better together.
 Plug 'tmux-plugins/vim-tmux-focus-events'
+" helpers for UNIX
+Plug 'tpope/vim-eunuch'
+" `:set paste!` on bracketed paste mode
+Plug 'ConradIrwin/vim-bracketed-paste'
 
 " command line - plugins that add new or enhance existing commands {{{2
 " easily search for, substitute, and abbreviate multiple variants of a word
 Plug 'tpope/vim-abolish'
 " asynchronous build and test dispatcher
 Plug 'tpope/vim-dispatch'
-" a vim plugin for vim plugins
-Plug 'tpope/vim-scriptease'
-" tmux basics
-Plug 'tpope/vim-tbone'
 " Enhanced Quickfix
 Plug 'romainl/vim-qf'
 let g:qf_mapping_ack_style = 1
+nnoremap coq <Plug>QfCtoggle
+nnoremap coL <Plug>QfLtoggle
+nnoremap <leader>l <Plug>QfSwitch
 "}}}2
 
 " rust - runtime and tools support for rust {{{2
@@ -440,14 +442,6 @@ let g:qf_mapping_ack_style = 1
 Plug 'rust-lang/rust.vim'
 Plug 'mckinnsb/rust.vim' " fork to use cargo instead of rustc
 Plug 'racer-rust/vim-racer'
-" }}}2
-" ruby - runtime and tools support for ruby {{{2
-" Lightweight support for Ruby's Bundler
-Plug 'tpope/vim-bundler'
-" it's like rails.vim without the rails
-Plug 'tpope/vim-rake'
-" Minimal rbenv support
-Plug 'tpope/vim-rbenv'
 " }}}2
 " clojure - runtime and tools support for clojure {{{2
 " A rainbow parentheses plugin for Clojure, Common Lisp & Scheme.
@@ -468,15 +462,6 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 " A Vim plugin for cljfmt, the Clojure formatting tool.
 Plug 'venantius/vim-cljfmt'
 " }}}2
-" python - runtime and tools support for python {{{2
-" Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box.
-Plug 'klen/python-mode'
-" Using the jedi autocompletion library for VIM.
-Plug 'davidhalter/jedi-vim'
-" }}}2
-" C/C++ - runtime and tools support for C and C++ {{{2
-" Additional Vim syntax highlighting for C++ (including C++11/14) 
-Plug 'octol/vim-cpp-enhanced-highlight'
 " }}}2
 " Scala - runtime and tools support for Scala {{{2
 Plug 'derekwyatt/vim-scala'
@@ -567,17 +552,12 @@ let g:incsearch#magic = '\v'
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-map n  <Plug>(incsearch-nohl-n)zMzvzz
-map N  <Plug>(incsearch-nohl-N)zMzvzz
-map *  <Plug>(incsearch-nohl-*)zMzvzz
-map #  <Plug>(incsearch-nohl-#)zMzvzz
-map g* <Plug>(incsearch-nohl-g*)zMzvzz
-map g# <Plug>(incsearch-nohl-g#)zMzvzz
-
-" fswitch - Vim plugin for switching between companion source files {{{2
-Plug 'derekwyatt/vim-fswitch'
-nnoremap <A-o> :FSH<cr>
-inoremap <A-o> <esc>:FSH<cr>
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
 " UltiSnips - snippet engine {{{2
 Plug 'SirVer/ultisnips'
@@ -588,6 +568,9 @@ let g:snips_author='Philipp Millar'
 let g:snips_author_email='philipp.millar@poxar.net'
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snip']
 let g:UltiSnipsNoPythonWarning = 1
+
+let g:UltiSnipsJumpForwardTrigger = '<C-m>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 if has('win32')
   let g:UltiSnipsSnippetsDir='~/vimfiles/snip'
