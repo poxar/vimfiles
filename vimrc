@@ -336,10 +336,15 @@ endif
 
 " use improved search tools if available {{{2
 
+let s:rgcmd='--smart-case --vimgrep'
 let s:agcmd='--smart-case --nocolor --nogroup --column'
 let s:ackcmd='-H --smart-case --nocolor --nogroup --column'
 
-if executable('sift')
+if executable('rg')
+  let &grepprg='rg '.s:rgcmd
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+  let g:ackprg='rg '.s:rgcmd
+elseif executable('sift')
   set grepprg=sift
   set grepformat=%f:%l:%c:%m,%f:%l:%m,%f:%l%m,%f\ \ %l%m
   let g:ackprg='sift'
