@@ -419,6 +419,8 @@ let g:qf_mapping_ack_style = 1
 " rust - runtime and tools support for rust {{{2
 " Runtime files for rust
 Plug 'rust-lang/rust.vim'
+Plug 'mckinnsb/rust.vim' " fork to use cargo instead of rustc
+Plug 'racer-rust/vim-racer'
 " }}}2
 " ruby - runtime and tools support for ruby {{{2
 " Lightweight support for Ruby's Bundler
