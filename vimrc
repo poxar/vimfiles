@@ -821,6 +821,9 @@ command! Ftedit execute ':edit ~/.vim/ftplugin/'.&ft.'.vim'
 " substitute double words {{{2
 command! DoubleWords /\(\<\S\+\>\)\(\_\s\+\<\1\>\)\+/
 
+" pretty print json {{{2
+command! JsonPP execute ':%!python -m json.tool'
+
 " autocommands {{{1
 
 augroup notes
