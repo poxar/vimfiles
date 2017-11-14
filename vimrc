@@ -75,6 +75,10 @@ set hlsearch
 set incsearch
 set gdefault
 
+if has('nvim-0.2.0')
+  set inccommand=split
+endif
+
 if has('patch-7.4.941')
   set tagcase=followscs
 endif
