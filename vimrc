@@ -367,115 +367,16 @@ command! -nargs=+ -complete=file G grep! <args>
 
 " plugins {{{1
 
-call g:plug#begin('~/.vim/bundle')
-
-" normal commands - plugins that add or enhance normal mode commands {{{2
-" gc{motion} - comment stuff out
-Plug 'tpope/vim-commentary'
-" . - enable repeating supported plugin maps with
-Plug 'tpope/vim-repeat'
-" CTRL-A/CTRL-X - increment dates, times, numbers and more
-Plug 'tpope/vim-speeddating'
-" ys{motion}{surrounding} - quoting/parenthesizing made simple
-Plug 'tpope/vim-surround'
-" ]{something} - pairs of handy bracket mappings
-Plug 'tpope/vim-unimpaired'
-" clipboard mappings the way I like them
-Plug 'poxar/vim-clipbored'
-
-" text objects - plugins that add or enhance text objects {{{2
-" Punctuation text objects: ci/ da; vi@ yiq da<space> ...
-Plug 'kurkale6ka/vim-pairs'
-" text object representing lines of code at the same indent level
-Plug 'michaeljsmith/vim-indent-object'
-
-" runtime files - plugins that add language support {{{2
-" various languages
-Plug 'sheerun/vim-polyglot'
-" Vim files for editing Salt files
-Plug 'saltstack/salt-vim'
-" Repository for Jinja support in vim.
-Plug 'mitsuhiko/vim-jinja'
-" A set of vim syntax files for highlighting various Html templating languages
-Plug 'pbrisbin/vim-syntax-shakespeare'
-" Haskell indent file
-Plug 'vim-scripts/indenthaskell.vim'
-" Runtime files for tmux
-Plug 'tmux-plugins/vim-tmux'
-" vimoutliner - Work fast, think well
-Plug 'vimoutliner/vimoutliner'
-" typescript
-Plug 'HerringtonDarkholme/yats.vim'
-
-" automation - plugins that automate common tasks {{{2
-" heuristically set shiftwidth, expandtab, etc
-Plug 'tpope/vim-sleuth'
-" maintain consistent coding styles between different editors and IDEs
-Plug 'editorconfig/editorconfig-vim'
+" editorconfig/editorconfig-vim {{{2
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-" (semi-) automatic session file creation
-Plug 'tpope/vim-obsession'
-" project configuration
-Plug 'tpope/vim-projectionist'
-" A simple way to create, edit and save files and parent directories
-Plug 'duggiefresh/vim-easydir'
-" Plugin for transparent editing of gpg encrypted files.
-Plug 'vim-scripts/gnupg.vim'
-" Make terminal vim and tmux work better together.
-Plug 'tmux-plugins/vim-tmux-focus-events'
-" helpers for UNIX
-Plug 'tpope/vim-eunuch'
-" `:set paste!` on bracketed paste mode
-Plug 'ConradIrwin/vim-bracketed-paste'
 
-" command line - plugins that add new or enhance existing commands {{{2
-" easily search for, substitute, and abbreviate multiple variants of a word
-Plug 'tpope/vim-abolish'
-" asynchronous build and test dispatcher
-Plug 'tpope/vim-dispatch'
-" Enhanced Quickfix
-Plug 'romainl/vim-qf'
+" romainl/vim-qf {{{2
 let g:qf_mapping_ack_style = 1
 nnoremap coq <Plug>QfCtoggle
 nnoremap coL <Plug>QfLtoggle
 nnoremap <leader>l <Plug>QfSwitch
-"}}}2
 
-" rust - runtime and tools support for rust {{{2
-" Runtime files for rust
-Plug 'rust-lang/rust.vim'
-Plug 'mckinnsb/rust.vim' " fork to use cargo instead of rustc
-Plug 'racer-rust/vim-racer'
-" }}}2
-" clojure - runtime and tools support for clojure {{{2
-" A rainbow parentheses plugin for Clojure, Common Lisp & Scheme.
-Plug 'raymond-w-ko/vim-niji'
-" Clojure REPL support
-Plug 'tpope/vim-fireplace'
-" static support for Leiningen
-Plug 'tpope/vim-salve'
-" Set 'path' from the Java class path
-Plug 'tpope/vim-classpath'
-" Meikel Brandmeyer's excellent Clojure runtime files
-Plug 'guns/vim-clojure-static'
-" A Vim plugin for Clojure's Eastwood linter
-Plug 'venantius/vim-eastwood'
-" Precision Editing for S-expressions
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-" A Vim plugin for cljfmt, the Clojure formatting tool.
-Plug 'venantius/vim-cljfmt'
-" }}}2
-" }}}2
-" Scala - runtime and tools support for Scala {{{2
-Plug 'derekwyatt/vim-scala'
-Plug 'gre/play2vim'
-" }}}2
-
-
-" dirvish - Directory viewer for Vim {{{2
-Plug 'justinmk/vim-dirvish'
-
+" justinmk/vim-dirvish {{{2
 augroup dirvish_events
   autocmd!
 
@@ -488,8 +389,7 @@ augroup dirvish_events
     \ gh :keeppatterns g@\v/\.[^\/]+/?$@d<cr>
 augroup END
 
-" tabularize - text filtering and alignment {{{2
-Plug 'godlygeek/tabular'
+" godlygeek/tabular {{{2
 nnoremap g= :Tabularize /
 vnoremap g= :Tabularize /
 nnoremap g\: :Tabularize /:\zs<cr>
@@ -499,28 +399,16 @@ vnoremap g\, :Tabularize /,\zs<cr>
 nnoremap g\= :Tabularize /=<cr>
 vnoremap g\= :Tabularize /=<cr>
 
-" taglist - show an outline using ctags {{{2
-Plug 'vim-scripts/taglist.vim'
-nnoremap coT :TlistToggle<cr>
-
-" ctrlp.vim - Fuzzy file, buffer, mru, tag, etc finder. {{{2
-Plug 'ctrlpvim/ctrlp.vim'
+" ctrlpvim/ctrlp.vim {{{2
 nnoremap <leader>b :CtrlPBuffer<cr>
 
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-        \ --ignore .git
-        \ --ignore .svn
-        \ --ignore .hg
-        \ --ignore .DS_Store
-        \ --ignore "**/*.pyc"
-        \ -g ""'
+let g:ctrlp_extensions = ['tag', 'buffertag']
+
+if executable('rg')
+  let g:ctrlp_user_command = 'rg --files %s'
 endif
 
-" syntastic - Syntax checking hacks for vim {{{2
-Plug 'scrooloose/syntastic'
-Plug 'todesking/vint-syntastic'
-
+" scrooloose/syntastic {{{2
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
@@ -529,21 +417,16 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 
-" fugitive - a Git wrapper so awesome, it should be illegal {{{2
-Plug 'tpope/vim-fugitive'
-" rhubarb.vim: GitHub extension for fugitive.vim 
-Plug 'tpope/vim-rhubarb'
+" tpope/vim-fugitive {{{2
 " auto clean fugitive buffers
-augroup fugitive-clean
+augroup fugitive_clean
   au! BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
-" undotree - Display your undo history in a graph {{{2
-Plug 'mbbill/undotree'
+" mbbill/undotree {{{2
 nnoremap cog :UndotreeToggle<cr>
 
-" incsearch.vim - Improved incremental searching for Vim {{{2
-Plug 'haya14busa/incsearch.vim'
+" haya14busa/incsearch.vim {{{2
 " intelligently hide hlsearch
 let g:incsearch#auto_nohlsearch = 1
 " n goes down N goes up, no matter what
@@ -552,6 +435,7 @@ let g:incsearch#consistent_n_direction = 1
 let g:incsearch#do_not_save_error_message_history = 1
 " use verymagic by default
 let g:incsearch#magic = '\v'
+
 " activate plugin
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -563,11 +447,7 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-" UltiSnips - snippet engine {{{2
-Plug 'SirVer/ultisnips'
-" some default snippets
-Plug 'honza/vim-snippets'
-
+" SirVer/ultisnips {{{2
 let g:snips_author='Philipp Millar'
 let g:snips_author_email='philipp.millar@poxar.net'
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snip']
@@ -578,17 +458,15 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 if has('win32')
   let g:UltiSnipsSnippetsDir='~/vimfiles/snip'
+elseif has('neovim')
+  let g:UltiSnipsSnippetsDir='~/.config/nvim/snip'
 else
   let g:UltiSnipsSnippetsDir='~/.vim/snip'
 endif
 
 nnoremap <leader>ese :UltiSnipsEdit<cr>
 
-" rsi.vim: Readline style insertion "{{{2
-Plug 'tpope/vim-rsi'
 " }}}2
-
-call g:plug#end()
 
 " mappings {{{1
 " fixes {{{2
@@ -841,6 +719,6 @@ augroup markdown
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 augroup END
 
-" custom highlights {{{1
+" highlighting {{{1
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
