@@ -25,7 +25,7 @@ help_tags() {
 }
 
 pack_conf() {
-  grep -v '^#' packages.conf | grep -v '^$' | sed 's,\t,:::,'
+  grep -v '^#' packages.conf | grep -v '^$' | sed 's,	,:::,'
 }
 
 pack_inst() {
@@ -41,7 +41,7 @@ install() {
   if ! test -d "$path"; then
     echo "Installing $name"
     mkdir -p "$(dirname "$path")"
-    git clone "$repo" "$path" >/dev/null 2>&1 || echo "Error in $name"
+    git clone --quiet --depth=1 "$repo" "$path" >/dev/null 2>&1 || echo "Error in $name"
   fi
 }
 
