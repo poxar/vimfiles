@@ -401,6 +401,8 @@ vnoremap g\= :Tabularize /=<cr>
 
 " ctrlpvim/ctrlp.vim {{{2
 nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>t :CtrlPBufTag<cr>
+nnoremap <leader>T :CtrlPTag<cr>
 
 let g:ctrlp_extensions = ['tag', 'buffertag']
 
