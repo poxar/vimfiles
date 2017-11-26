@@ -358,7 +358,7 @@ elseif executable('ag')
 elseif executable('ack-grep')
   let &grepprg='ack-grep '.s:ackcmd
   let g:ackprg='ack-grep '.s:ackcmd
-else
+elseif executable('ack')
   let &grepprg='ack '.s:ackcmd
   let g:ackprg='ack '.s:ackcmd
 endif
