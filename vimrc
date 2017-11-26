@@ -696,9 +696,9 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 " put files or snippets on sprunge.us {{{2
 command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://sprunge.us|xclip
 " find and show todos {{{2
-command! Note grep! \[Nn\]\[Oo\]\[Tt\]\[Ee\]: | botright cope
-command! Todo grep! TODO:\\|FIXME:\\|XXX: | botright cope
-command! Fixme grep! FIXME:\\|XXX: | botright cope
+command! -nargs=? Note grep! \[Nn\]\[Oo\]\[Tt\]\[Ee\]: <args> | botright cope
+command! -nargs=? Todo grep! TODO:\\|FIXME:\\|XXX: <args> | botright cope
+command! -nargs=? Fixme grep! FIXME:\\|XXX: <args> | botright cope
 " edit current filetypeplugin {{{2
 command! Ftedit execute ':edit ~/.vim/ftplugin/'.&ft.'.vim'
 
