@@ -410,14 +410,17 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg --files %s'
 endif
 
-" scrooloose/syntastic {{{2
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_loc_list_height=5
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
+" w0rp/ale {{{2
+let g:ale_open_list=1
+let g:ale_list_window_size=5
+
+let g:ale_sign_error='✗'
+let g:ale_sign_warning='⇉'
+let g:ale_sign_info='ℹ'
+let g:ale_sign_style_error='●'
+let g:ale_sign_style_warning='→'
+
+let g:ale_linters = {'scala': []}
 
 " tpope/vim-fugitive {{{2
 " auto clean fugitive buffers
