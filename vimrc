@@ -5,6 +5,16 @@
 "
 
 " settings {{{1
+" vim configuration directory {{{2
+
+if has('win32')
+  let g:vim_path='~/vimfiles'
+elseif has('nvim')
+  let g:vim_path='~/.config/nvim'
+else
+  let g:vim_path='~/.vim'
+endif
+
 " basics {{{2
 
 filetype plugin indent on
@@ -461,14 +471,7 @@ let g:UltiSnipsNoPythonWarning = 1
 let g:UltiSnipsJumpForwardTrigger = '<C-m>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
-if has('win32')
-  let g:UltiSnipsSnippetsDir='~/vimfiles/snip'
-elseif has('neovim')
-  let g:UltiSnipsSnippetsDir='~/.config/nvim/snip'
-else
-  let g:UltiSnipsSnippetsDir='~/.vim/snip'
-endif
-
+let g:UltiSnipsSnippetsDir=g:vim_path.'/snip'
 nnoremap <leader>ese :UltiSnipsEdit<cr>
 
 " }}}2
@@ -594,26 +597,18 @@ noremap <leader>es. :vsplit <C-R>=expand("%:p:h") . "/" <cr>
 " cd to directory of current file
 nnoremap <leader>c. :lcd %:p:h<cr>
 
+exec 'nnoremap <leader>cv :cd '.g:vim_path
+
 if has('win32')
-  " edit
-  nnoremap <leader>ea :edit ~\Documents\AutoHotkey.ahk<cr>
-
-  " cd
-  nnoremap <leader>cv :cd ~\vimfiles<cr>
-
   " notes
-  nnoremap <leader>n :e ~/notes/
+  nnoremap <leader>n :e ~/Notes/
 
 else " unix
   " edit
   nnoremap <leader>ec :edit ~/.config/<cr>
-  nnoremap <leader>exb :edit ~/.xbindkeysrc<cr>
-  nnoremap <leader>ezz :edit ~/.zsh.d/<cr>
-  nnoremap <leader>ezc :edit ~/.zshrc<cr>
 
   " cd
   nnoremap <leader>cc :cd ~/Developement/
-  nnoremap <leader>cv :cd ~/.vim<cr>
 
   " notes
   nnoremap <leader>n :e ~/.notes/
@@ -630,11 +625,7 @@ let @u='yyp0v$r-'
 " functions {{{1
 " change the spell-language {{{2
 set spelllang=en
-if has('win32')
-  set spellfile=~/vimfile/spell/en.utf-8.add
-else
-  set spellfile=~/.vim/spell/en.utf-8.add
-endif
+exec 'set spellfile=' . g:vim_path . '/spell/en.utf-8.add'
 let g:spellst = ['en', 'de_20']
 let g:langcnt = 0
 
@@ -643,11 +634,7 @@ function!  g:SelectLanguage()
   let l:lang = g:spellst[g:langcnt]
   echo 'spelllang=' . l:lang
   exe 'set spelllang=' . l:lang
-  if has('win32')
-    exe 'set spellfile=~/vimfiles/spell/' . l:lang . '.utf-8.add'
-  else
-    exe 'set spellfile=~/.vim/spell/' . l:lang . '.utf-8.add'
-  endif
+  exe 'set spellfile=' . g:vim_path . '/spell/' . l:lang . '.utf-8.add'
 endfunction
 
 nnoremap coS :call SelectLanguage()<CR>
@@ -703,7 +690,7 @@ command! -nargs=? Note grep! \[Nn\]\[Oo\]\[Tt\]\[Ee\]: <args> | botright cope
 command! -nargs=? Todo grep! TODO:\\|FIXME:\\|XXX: <args> | botright cope
 command! -nargs=? Fixme grep! FIXME:\\|XXX: <args> | botright cope
 " edit current filetypeplugin {{{2
-command! Ftedit execute ':edit ~/.vim/ftplugin/'.&ft.'.vim'
+command! Ftedit execute ":edit ". g:vim_path ."/ftplugin/".&ft.".vim"
 
 " substitute double words {{{2
 command! DoubleWords /\(\<\S\+\>\)\(\_\s\+\<\1\>\)\+/
