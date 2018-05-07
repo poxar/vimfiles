@@ -20,7 +20,7 @@ endif
 filetype plugin indent on
 syntax enable
 
-set viminfo='200,s200,r/tmp
+set viminfo=!,'200,s200,r/tmp
 set history=1000
 set tabpagemax=50
 
@@ -327,6 +327,7 @@ endif
 
 let &directory = expand(s:dir) . '/swap//,' . &directory
 let &backupdir = expand(s:dir) . '/backup//,' . &backupdir
+let &viminfofile = expand(s:dir) . '/viminfo'
 
 if exists('+undodir')
   let &undodir = expand(s:dir) . '/undo//,' . &undodir
