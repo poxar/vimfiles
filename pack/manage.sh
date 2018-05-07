@@ -1,5 +1,5 @@
 #!/bin/sh
-set -eu
+set -eum
 
 GH_URL="https://github.com/"
 PARALLEL=5
