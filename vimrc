@@ -619,11 +619,7 @@ nnoremap <leader>c. :lcd %:p:h<cr>
 
 exec 'nnoremap <leader>cv :cd '.g:vim_path
 
-if has('win32')
-  " notes
-  nnoremap <leader>n :e ~/Notes/
-
-else " unix
+if !has('win32')
   " edit
   nnoremap <leader>ec :edit ~/.config/<cr>
 
@@ -631,7 +627,8 @@ else " unix
   nnoremap <leader>cc :cd ~/Developement/
 
   " notes
-  nnoremap <leader>n :e ~/.notes/
+  " nnoremap <leader>n :edit <C-R>=expand("$NOTEDIR") . "/" <cr>
+  nnoremap <leader>n :CtrlP $NOTEDIR<cr>
 endif
 
 
