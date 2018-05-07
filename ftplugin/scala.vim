@@ -1,3 +1,5 @@
+setlocal textwidth=100
+
 let g:tlist_scala_settings = 'scala;' .
   \ 'c:class;' .
   \ 'o:object;' .
