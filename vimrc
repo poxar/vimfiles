@@ -421,7 +421,7 @@ if executable('rg')
 endif
 
 " w0rp/ale {{{2
-let g:ale_open_list=1
+let g:ale_open_list=0
 let g:ale_list_window_size=5
 
 let g:ale_sign_error='✗'
@@ -430,7 +430,7 @@ let g:ale_sign_info='ℹ'
 let g:ale_sign_style_error='●'
 let g:ale_sign_style_warning='→'
 
-let g:ale_linters = {'scala': []}
+let g:ale_linters = {'scala': ['scalac']}
 
 " tpope/vim-fugitive {{{2
 " auto clean fugitive buffers
