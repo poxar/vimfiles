@@ -9,6 +9,15 @@ set guioptions=cgi
 set mousehide
 set mousemodel=popup_setpos
 
+" cursor shape
+set guicursor=
+  \n-v:block,
+  \i-c-ci-ve:ver25,
+  \r-cr:hor20,
+  \o:hor50-oCursor,
+  \sm:block,
+  \a:Cursor/lCursor-blinkon0
+
 " use more for man
 set kp=man\ -P\ more
 " but use less as a default
