@@ -631,7 +631,7 @@ command! Ftedit execute ":edit ". g:vim_path ."/ftplugin/".&ft.".vim"
 command! DoubleWords /\(\<\S\+\>\)\(\_\s\+\<\1\>\)\+/
 
 " pretty print json {{{2
-command! JsonPP execute ':%!python -m json.tool'
+command! -range=% JsonPP :<line1>,<line2>!python -m json.tool
 
 " autocommands {{{1
 
