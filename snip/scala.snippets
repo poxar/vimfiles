@@ -19,3 +19,10 @@ endsnippet
 snippet @re
 @return ${0:param}
 endsnippet
+
+snippet _w "JSON write"
+(__ \ "${1}").write${2:Nullable}[${3}]${4: and}
+endsnippet
+snippet _r "JSON read"
+(__ \ "${1}").read${2:Nullable}[${3}]${4: and}
+endsnippet

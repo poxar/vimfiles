@@ -1,10 +1,7 @@
 setlocal textwidth=100
+setlocal colorcolumn=+1
 
-let g:tlist_scala_settings = 'scala;' .
-  \ 'c:class;' .
-  \ 'o:object;' .
-  \ 't:trait;' .
-  \ 'T:type;' .
-  \ 'm:method;' .
-  \ 'v:variable;' .
-  \ 'p:package'
+if filereadable('api/tags')
+  setlocal tags=api/tags
+  setlocal tagrelative
+endif
