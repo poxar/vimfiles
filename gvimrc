@@ -23,7 +23,9 @@ set kp=man\ -P\ more
 " but use less as a default
 let $PAGER='less'
 
-if has("unix")
+if has("gui_mac") || has("mac")
+  set guifont=Inconsolata-Regular:h18
+elseif has("unix")
   set guifont=Inconsolata\ 13
 else
   set guifont=Consolas:h11:cANSI
