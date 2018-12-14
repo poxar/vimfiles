@@ -327,7 +327,9 @@ endif
 
 let &directory = expand(s:dir) . '/swap//,' . &directory
 let &backupdir = expand(s:dir) . '/backup//,' . &backupdir
-let &viminfofile = expand(s:dir) . '/viminfo'
+if !has('nvim')
+  let &viminfofile = expand(s:dir) . '/viminfo'
+endif
 
 if exists('+undodir')
   let &undodir = expand(s:dir) . '/undo//,' . &undodir
