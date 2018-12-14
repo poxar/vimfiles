@@ -16,7 +16,7 @@ set cpo-=C
 CompilerSet errorformat=
       \%E\ %#[E]\ %f:%l:%c:\ %m,%C\ %#[E]\ %p^,%-C%.%#,%Z,
       \%W\ %#[W]\ %f:%l:%c:\ %m,%C\ %#[W]\ %p^,%-C%.%#,%Z,
-      \%I\ %#[I]\ %f:%l:%c:\ %m,%C\ %#[I]\ %p^,%-C%.%#,%Z,
+      \%I\ %#%f:%l:%c:\ %m,%C\ %#[I]\ %p^,%-C%.%#,%Z,
       \%-G%.%#
 
 CompilerSet makeprg=bloop\ compile\ --reporter\ scalac\ --no-color
