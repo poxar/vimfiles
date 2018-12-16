@@ -217,33 +217,6 @@ if has('unix')
   runtime ftplugin/man.vim
 endif
 
-" use improved search tools if available {{{2
-
-let s:rgcmd='--smart-case --vimgrep'
-let s:agcmd='--smart-case --nocolor --nogroup --column'
-let s:ackcmd='-H --smart-case --nocolor --nogroup --column'
-
-if executable('rg')
-  let &grepprg='rg '.s:rgcmd
-  set grepformat=%f:%l:%c:%m,%f:%l:%m
-  let g:ackprg='rg '.s:rgcmd
-elseif executable('sift')
-  set grepprg=sift
-  set grepformat=%f:%l:%c:%m,%f:%l:%m,%f:%l%m,%f\ \ %l%m
-  let g:ackprg='sift'
-elseif executable('ag')
-  let &grepprg='ag '.s:agcmd
-  let g:ackprg='ag '.s:agcmd
-elseif executable('ack-grep')
-  let &grepprg='ack-grep '.s:ackcmd
-  let g:ackprg='ack-grep '.s:ackcmd
-elseif executable('ack')
-  let &grepprg='ack '.s:ackcmd
-  let g:ackprg='ack '.s:ackcmd
-endif
-
-command! -nargs=+ -complete=file G grep! <args>
-
 " plugins {{{1
 
 " editorconfig/editorconfig-vim {{{2
