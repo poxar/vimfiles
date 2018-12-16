@@ -1,5 +1,6 @@
 .netrwhist
 sessions
+autoload/local
 plugin/local.vim
 plugin/thesaurus.vim
 thesaurus

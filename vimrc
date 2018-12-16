@@ -25,8 +25,6 @@ set history=1000
 set tabpagemax=50
 
 set nomodeline
-set exrc
-set secure
 
 set lazyredraw
 set hidden
@@ -525,6 +523,12 @@ nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>eg :edit $MYGVIMRC<cr>
 nnoremap <leader>esv :vsplit $MYVIMRC<cr>
 nnoremap <leader>esg :vsplit $MYGVIMRC<cr>
+
+" local configuration
+nnoremap <expr> <leader>el  ':edit '.g:vim_path.'/plugin/local.vim<cr>'
+nnoremap <expr> <leader>esl ':edit '.g:vim_path.'/plugin/local.vim<cr>'
+nnoremap <expr> <leader>ea  ':edit '.g:vim_path.'/autoload/local<cr>'
+nnoremap <expr> <leader>esa ':edit '.g:vim_path.'/autoload/local<cr>'
 
 " open file in directory of current file
 noremap <leader>e.  :edit   <C-R>=expand("%:p:h") . "/" <cr>
