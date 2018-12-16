@@ -35,12 +35,6 @@ set nrformats-=octal
 set encoding=utf-8
 scriptencoding 'utf-8'
 
-if has('unix')
-  set path=**,.,/usr/include,,
-else
-  set path=**,.,,
-endif
-
 if has('cryptv')
   if has('patch-7.4.401')
     set cryptmethod=blowfish2
