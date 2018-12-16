@@ -9,18 +9,13 @@ endsnippet
 # extended begin snippet
 snippet "b(egin)?" "begin{} / end{}" br
 \begin{${1:something}}${2:options}
-
 	${0:${VISUAL}}
-
 \end{$1}
 endsnippet
 
 snippet def "Definiton" b
-\begin{defi}[${1:description}]
-\label{def:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-
+\begin{defi}[${1:description}]\label{def:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 ${0}
-
 \end{defi}
 endsnippet
 
