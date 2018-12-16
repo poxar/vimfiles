@@ -211,10 +211,6 @@ set wildmode=list:longest,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 set wildignorecase
 
-if has('unix')
-  set dictionary=/usr/share/dict/words
-endif
-
 " cscope {{{2
 if has('cscope')
   set cscopeverbose
