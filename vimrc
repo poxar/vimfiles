@@ -135,24 +135,6 @@ if has('linebreak')
   set breakindentopt=sbr
 endif
 
-" colorcolumn and cursorline {{{2
-" This maps coC to toggle the colorcolumn, but shows it only in the current
-" buffer. Furthermore the cursorline is shown in the current buffer.
-" toggle colorcolumn at textwidth + 1 {{{3
-function! g:ToggleColorColumn()
-  if exists('b:my_cc')
-    setlocal colorcolumn=
-    setlocal colorcolumn?
-    unlet b:my_cc
-  else
-    setlocal colorcolumn=+1
-    setlocal colorcolumn?
-    let b:my_cc = 1
-  endif
-endfunc
-
-nnoremap yoC :call ToggleColorColumn()<cr>
-
 augroup cursorlines "{{{3
   au! cursorlines
   au WinEnter,TabEnter,BufWinEnter,VimEnter * call SetupCursorLines()
@@ -499,21 +481,6 @@ noremap <leader>es. :vsplit <C-R>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>c. :lcd %:p:h<cr>
 
 " functions {{{1
-" change the spell-language {{{2
-set spelllang=en
-exec 'set spellfile=' . g:vim_path . '/spell/en.utf-8.add'
-let g:spellst = ['en', 'de_20']
-let g:langcnt = 0
-
-function!  g:SelectLanguage()
-  let g:langcnt = (g:langcnt+1) % len(g:spellst)
-  let l:lang = g:spellst[g:langcnt]
-  echo 'spelllang=' . l:lang
-  exe 'set spelllang=' . l:lang
-  exe 'set spellfile=' . g:vim_path . '/spell/' . l:lang . '.utf-8.add'
-endfunction
-
-nnoremap yoS :call SelectLanguage()<CR>
 " scratchbuffer for messages {{{2
 function! g:MessageWindow()
   new [Messages]
@@ -541,16 +508,6 @@ vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
 " toggle the last search pattern register between the last two search patterns {{{2
-
-function! s:ToggleSearchPattern()
-    let next_search_pattern_index = -1
-    if @/ ==# histget('search', -1)
-        let next_search_pattern_index = -2
-    endif
-    let @/ = histget('search', next_search_pattern_index)
-endfunction
-
-nnoremap <silent> <Leader>/ :<C-u>call <SID>ToggleSearchPattern()<CR>
 
 " commands {{{1
 " kill buffer without closing the window/view {{{2
