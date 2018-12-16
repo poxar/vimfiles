@@ -135,27 +135,6 @@ if has('linebreak')
   set breakindentopt=sbr
 endif
 
-augroup cursorlines "{{{3
-  au! cursorlines
-  au WinEnter,TabEnter,BufWinEnter,VimEnter * call SetupCursorLines()
-  au WinLeave,TabLeave,BufWinLeave * call HideCursorLines()
-augroup END
-
-function! g:SetupCursorLines() "{{{3
-  if &ft !=# 'help'
-    setlocal cursorline
-
-    if exists('b:my_cc')
-      setlocal colorcolumn=+1
-    endif
-  endif
-endfunction
-
-function! g:HideCursorLines() "{{{3
-  setlocal colorcolumn=""
-  setlocal nocursorline
-endfunction
-
 " completion {{{2
 set omnifunc=syntaxcomplete#Complete
 set wildmenu
