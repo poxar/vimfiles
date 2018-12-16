@@ -454,21 +454,6 @@ noremap <leader>es. :vsplit <C-R>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>c. :lcd %:p:h<cr>
 
 " functions {{{1
-" scratchbuffer for messages {{{2
-function! g:MessageWindow()
-  new [Messages]
-  setlocal buftype=nofile
-  setlocal bufhidden=hide
-  setlocal noswapfile
-  setlocal buflisted
-  redir => l:messages_output
-  silent messages
-  redir END
-  silent put=l:messages_output
-endfunction
-
-command! Messages call MessageWindow()
-
 " make * search a visual selection {{{2
 function! s:VSetSearch()
   let l:temp = @@
