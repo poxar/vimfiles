@@ -181,7 +181,7 @@ function! g:ToggleColorColumn()
   endif
 endfunc
 
-nnoremap coC :call ToggleColorColumn()<cr>
+nnoremap yoC :call ToggleColorColumn()<cr>
 
 augroup cursorlines "{{{3
   au! cursorlines
@@ -296,8 +296,8 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " romainl/vim-qf {{{2
 let g:qf_mapping_ack_style = 1
-nnoremap coq <Plug>QfCtoggle
-nnoremap coL <Plug>QfLtoggle
+nnoremap yoq <Plug>QfCtoggle
+nnoremap yoL <Plug>QfLtoggle
 nnoremap <leader>l <Plug>QfSwitch
 
 " justinmk/vim-dirvish {{{2
@@ -354,7 +354,7 @@ augroup fugitive_clean
 augroup END
 
 " mbbill/undotree {{{2
-nnoremap cog :UndotreeToggle<cr>
+nnoremap yog :UndotreeToggle<cr>
 
 " haya14busa/incsearch.vim {{{2
 " intelligently hide hlsearch
@@ -569,7 +569,7 @@ function!  g:SelectLanguage()
   exe 'set spellfile=' . g:vim_path . '/spell/' . l:lang . '.utf-8.add'
 endfunction
 
-nnoremap coS :call SelectLanguage()<CR>
+nnoremap yoS :call SelectLanguage()<CR>
 " scratchbuffer for messages {{{2
 function! g:MessageWindow()
   new [Messages]

@@ -26,5 +26,4 @@ endfunction
 command! FoldToggle call <SID>ToggleFold()
 command! FoldParagraphs call <SID>FoldParagraphs()
 
-nnoremap cof :FoldToggle<cr>
-
+nnoremap yof :FoldToggle<cr>
