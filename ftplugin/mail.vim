@@ -1,18 +1,16 @@
 setlocal textwidth=72
 
-" a - automatic formatting
-" w - format=flowed formatting
-" n - recognize numbered lists
-" setlocal formatoptions+=awn
-
-" n - recognize numbered lists
 " 1 - don't break after one-letter words
 " 2 - allow hanging indents for paragraphs
-setlocal formatoptions+=n12
+" a - automatic formatting
+" n - recognize numbered lists
+" t - Auto-wrap using textwidth
+" w - trailing whitespace for paragraphs
+setlocal formatoptions=12antw
 setlocal autoindent
 
-set comments+=n:\|
-set comments+=n:%
+setlocal comments+=n:\|
+setlocal comments+=n:%
 
 setlocal spell
 setlocal spelllang=de_20

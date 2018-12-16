@@ -66,9 +66,9 @@ if executable('par')
 endif
 set nojoinspaces
 if v:version >= 704
-  set formatoptions=qcrnlj
+  set formatoptions=qcrn2j
 else
-  set formatoptions=qcrnl
+  set formatoptions=qcrn2
 endif
 set autoindent
 set shiftround
@@ -348,7 +348,8 @@ let g:ale_sign_info='ℹ'
 let g:ale_sign_style_error='●'
 let g:ale_sign_style_warning='→'
 
-let g:ale_linters = {'scala': ['scalac']}
+let g:ale_haskell_ghc_options = '-dynamic'
+let g:ale_linters = { 'scala': [], 'java': [] }
 
 " tpope/vim-fugitive {{{2
 " auto clean fugitive buffers

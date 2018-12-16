@@ -1,6 +1,7 @@
 setlocal omnifunc=htmlcomplete#CompleteTags
-setlocal complete+=kspell
+
+setlocal complete+=kspell " Complete from current spell checking
+setlocal complete+=s " Complete from thesaurus
+
 setlocal spell
 setlocal spelllang=en
-
-let g:markdown_fenced_languages = ['python', 'lua', 'sh', 'vim', 'scala', 'rust', 'ruby']

@@ -1,2 +1,2 @@
-set spell
-set spelllang=en
+setlocal spell
+setlocal spelllang=en
