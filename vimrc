@@ -22,7 +22,6 @@ syntax enable
 
 set viminfo=!,'200,s200,r/tmp
 set history=1000
-set tabpagemax=50
 
 set nomodeline
 
@@ -32,6 +31,7 @@ set backspace=indent,eol,start
 set virtualedit+=block
 
 set nrformats-=octal
+
 set encoding=utf-8
 scriptencoding 'utf-8'
 
@@ -43,7 +43,7 @@ if has('cryptv')
   endif
 endif
 
-set diffopt=filler,vertical
+set diffopt+=vertical
 
 if has('patch-7.4.1649') && !has('nvim')
   packadd! matchit
@@ -213,7 +213,10 @@ endif
 
 " backup/swap/undo {{{2
 
-let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), 'Darwin') > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
+let s:dir =
+      \ has('win32') ? '$APPDATA/Vim' :
+      \ match(system('uname'), 'Darwin') > -1 ? '~/Library/Vim' :
+      \ empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
 
 if !isdirectory(expand(s:dir))
   call mkdir(expand(s:dir))
@@ -319,6 +322,7 @@ vnoremap g\= :Tabularize /=<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>t :CtrlPBufTag<cr>
 nnoremap <leader>T :CtrlPTag<cr>
+nnoremap <leader>n :CtrlP $NOTEDIR<cr>
 
 let g:ctrlp_extensions = ['tag', 'buffertag']
 
@@ -418,7 +422,7 @@ nnoremap ' `
 nnoremap ` '
 
 " swap j/k/0/$ and gj/gk/g0/g$
-" so the g variations work on physikal lines and the default ones on display
+" so the g variations work on physical lines and the default ones on display
 " lines
 nnoremap j gj
 nnoremap k gk
@@ -447,24 +451,10 @@ nnoremap Q @:
 " open last/alternate buffer
 nnoremap <leader><leader> <C-^>
 
-" correct typos
-command! -bang E e<bang>
-command! -bang Q q<bang>
-command! -bang W w<bang>
-command! -bang QA qa<bang>
-command! -bang Qa qa<bang>
-command! -bang Wa wa<bang>
-command! -bang WA wa<bang>
-command! -bang Wq wq<bang>
-command! -bang WQ wq<bang>
-
 
 " enhancements {{{2
 " leave insert mode quickly
 inoremap jk <esc>
-
-" simpler to type
-nnoremap <BS> %
 
 " vaporize: delete without overwriting the default register
 nnoremap vd "_d
@@ -525,32 +515,10 @@ nnoremap <expr> <leader>ea  ':edit '.g:vim_path.'/autoload/local<cr>'
 nnoremap <expr> <leader>esa ':edit '.g:vim_path.'/autoload/local<cr>'
 
 " open file in directory of current file
-noremap <leader>e.  :edit   <C-R>=expand("%:p:h") . "/" <cr>
+noremap <leader>e.  :edit <C-R>=expand("%:p:h") . "/" <cr>
 noremap <leader>es. :vsplit <C-R>=expand("%:p:h") . "/" <cr>
 " cd to directory of current file
 nnoremap <leader>c. :lcd %:p:h<cr>
-
-exec 'nnoremap <leader>cv :cd '.g:vim_path
-
-if !has('win32')
-  " edit
-  nnoremap <leader>ec :edit ~/.config/<cr>
-
-  " cd
-  nnoremap <leader>cc :cd ~/Developement/
-
-  " notes
-  " nnoremap <leader>n :edit <C-R>=expand("$NOTEDIR") . "/" <cr>
-  nnoremap <leader>n :CtrlP $NOTEDIR<cr>
-endif
-
-
-" macros {{{1
-" indent next line to match current word
-let @j='yiwy0opVr J'
-" underline the current line
-let @h='yyp0v$r='
-let @u='yyp0v$r-'
 
 " functions {{{1
 " change the spell-language {{{2
@@ -613,8 +581,6 @@ command! Bkill bp\|bd #<cr>
 command! StripWhitespace normal mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 " diff the current buffer and the file it was loaded from {{{2
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
-" put files or snippets on sprunge.us {{{2
-command! -range=% Sprunge :<line1>,<line2>write !curl -F "sprunge=<-" http://sprunge.us|xclip
 " find and show todos {{{2
 command! -nargs=? Note grep! \[Nn\]\[Oo\]\[Tt\]\[Ee\]: <args> | botright cope
 command! -nargs=? Todo grep! TODO:\\|FIXME:\\|XXX: <args> | botright cope
@@ -622,25 +588,12 @@ command! -nargs=? Fixme grep! FIXME:\\|XXX: <args> | botright cope
 " edit current filetypeplugin {{{2
 command! Ftedit execute ":edit ". g:vim_path ."/ftplugin/".&ft.".vim"
 
-" substitute double words {{{2
+" find double words {{{2
 command! DoubleWords /\(\<\S\+\>\)\(\_\s\+\<\1\>\)\+/
 
 " pretty print {{{2
 command! -range=% JsonPP :<line1>,<line2>!python -m json.tool
 command! -range=% SqlPP :<line1>,<line2>!pg_format -
-
-" autocommands {{{1
-
-augroup notes
-  au! BufRead ~/.notes/* setlocal autoread
-  au! BufRead ~/.notes/* setlocal autowrite
-  au! BufRead ~/.notes/* setlocal autowriteall
-augroup END
-
-" force markdown on everything
-augroup markdown
-  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-augroup END
 
 " highlighting {{{1
 " Highlight VCS conflict markers
