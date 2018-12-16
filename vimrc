@@ -453,20 +453,6 @@ noremap <leader>es. :vsplit <C-R>=expand("%:p:h") . "/" <cr>
 " cd to directory of current file
 nnoremap <leader>c. :lcd %:p:h<cr>
 
-" functions {{{1
-" make * search a visual selection {{{2
-function! s:VSetSearch()
-  let l:temp = @@
-  norm! gvy
-  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-  let @@ = l:temp
-endfunction
-
-vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
-vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
-
-" toggle the last search pattern register between the last two search patterns {{{2
-
 " commands {{{1
 " kill buffer without closing the window/view {{{2
 command! Bkill bp\|bd #<cr>
