@@ -51,25 +51,23 @@
 " Supporting code -------------------------------------------------------------
 " Preamble {{{
 
-scriptencoding 'utf-8'
-
-if !has('gui_running') && &t_Co != 88 && &t_Co != 256
+if !has("gui_running") && &t_Co != 88 && &t_Co != 256
     finish
 endif
 
 set background=dark
 
-if exists('syntax_on')
+if exists("syntax_on")
     syntax reset
 endif
 
-let g:colors_name = 'badwolf'
+let g:colors_name = "badwolf"
 
-if !exists('g:badwolf_html_link_underline') " {{{
+if !exists("g:badwolf_html_link_underline") " {{{
     let g:badwolf_html_link_underline = 1
 endif " }}}
 
-if !exists('g:badwolf_css_props_highlight') " {{{
+if !exists("g:badwolf_css_props_highlight") " {{{
     let g:badwolf_css_props_highlight = 0
 endif " }}}
 
@@ -111,6 +109,12 @@ let s:bwc.taffy = ['ff2c4b', 196]
 let s:bwc.saltwatertaffy = ['8cffba', 121]
 
 " The star of the show comes straight from Made of Code.
+"
+" You should almost never use this.  It should be used for things that denote
+" 'where the user is', which basically consists of:
+"
+" * The cursor
+" * A REPL prompt
 let s:bwc.tardis = ['0a9dff', 39]
 
 " This one's from Mustang, not Florida!
@@ -134,38 +138,38 @@ let s:bwc.darkroast = ['88633f', 95]
 function! s:HL(group, fg, ...)
     " Arguments: group, guifg, guibg, gui, guisp
 
-    let l:histring = 'hi ' . a:group . ' '
+    let histring = 'hi ' . a:group . ' '
 
     if strlen(a:fg)
-        if a:fg ==# 'fg'
-            let l:histring .= 'guifg=fg ctermfg=fg '
+        if a:fg == 'fg'
+            let histring .= 'guifg=fg ctermfg=fg '
         else
-            let l:c = get(s:bwc, a:fg)
-            let l:histring .= 'guifg=#' . l:c[0] . ' ctermfg=' . l:c[1] . ' '
+            let c = get(s:bwc, a:fg)
+            let histring .= 'guifg=#' . c[0] . ' ctermfg=' . c[1] . ' '
         endif
     endif
 
     if a:0 >= 1 && strlen(a:1)
-        if a:1 ==# 'bg'
-            let l:histring .= 'guibg=bg ctermbg=bg '
+        if a:1 == 'bg'
+            let histring .= 'guibg=bg ctermbg=bg '
         else
-            let l:c = get(s:bwc, a:1)
-            let l:histring .= 'guibg=#' . l:c[0] . ' ctermbg=' . l:c[1] . ' '
+            let c = get(s:bwc, a:1)
+            let histring .= 'guibg=#' . c[0] . ' ctermbg=' . c[1] . ' '
         endif
     endif
 
     if a:0 >= 2 && strlen(a:2)
-        let l:histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
+        let histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
     endif
 
     if a:0 >= 3 && strlen(a:3)
-        let l:c = get(s:bwc, a:3)
-        let l:histring .= 'guisp=#' . l:c[0] . ' '
+        let c = get(s:bwc, a:3)
+        let histring .= 'guisp=#' . c[0] . ' '
     endif
 
     " echom histring
 
-    execute l:histring
+    execute histring
 endfunction
 " }}}
 " Configuration Options {{{
@@ -258,7 +262,6 @@ call s:HL('FoldColumn', 'mediumgravel', s:gutter)
 call s:HL('Cursor',  'coal', 'tardis', 'bold')
 call s:HL('vCursor', 'coal', 'tardis', 'bold')
 call s:HL('iCursor', 'coal', 'tardis', 'none')
-call s:HL('oCursor', 'orange', 'tardis', 'bold')
 
 " }}}
 " Syntax highlighting {{{
@@ -348,7 +351,7 @@ call s:HL('PmenuThumb', 'brightgravel')
 " }}}
 " Spelling {{{
 
-if has('spell')
+if has("spell")
     call s:HL('SpellCap', 'dalespale', 'bg', 'undercurl,bold', 'dalespale')
     call s:HL('SpellBad', '', 'bg', 'undercurl', 'dalespale')
     call s:HL('SpellLocal', '', '', 'undercurl', 'dalespale')
@@ -422,6 +425,26 @@ call s:HL('InterestingWord6', 'coal', 'taffy')
 " hi RedBar   term=reverse ctermfg=white ctermbg=red guifg=white guibg=#C50048
 
 " }}}
+" Rainbow Parentheses {{{
+
+call s:HL('level16c', 'mediumgravel',   '', 'bold')
+call s:HL('level15c', 'dalespale',      '', '')
+call s:HL('level14c', 'dress',          '', '')
+call s:HL('level13c', 'orange',         '', '')
+call s:HL('level12c', 'tardis',         '', '')
+call s:HL('level11c', 'lime',           '', '')
+call s:HL('level10c', 'toffee',         '', '')
+call s:HL('level9c',  'saltwatertaffy', '', '')
+call s:HL('level8c',  'coffee',         '', '')
+call s:HL('level7c',  'dalespale',      '', '')
+call s:HL('level6c',  'dress',          '', '')
+call s:HL('level5c',  'orange',         '', '')
+call s:HL('level4c',  'tardis',         '', '')
+call s:HL('level3c',  'lime',           '', '')
+call s:HL('level2c',  'toffee',         '', '')
+call s:HL('level1c',  'saltwatertaffy', '', '')
+
+" }}}
 " ShowMarks {{{
 
 call s:HL('ShowMarksHLl', 'tardis', 'blackgravel')
@@ -453,14 +476,21 @@ call s:HL('clojureParen0', 'lightgravel', '', 'none')
 call s:HL('clojureAnonArg', 'snow', '', 'bold')
 
 " }}}
+" Common Lisp {{{
+
+call s:HL('lispFunc',           'lime', '', 'none')
+call s:HL('lispVar',            'orange', '', 'bold')
+call s:HL('lispEscapeSpecial',  'orange', '', 'none')
+
+" }}}
 " CSS {{{
 
 if g:badwolf_css_props_highlight
-    call s:HL('cssColorProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssBoxProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssTextProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssRenderProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssGeneratedContentProp', 'dirtyblonde', '', 'none')
+    call s:HL('cssColorProp', 'taffy', '', 'none')
+    call s:HL('cssBoxProp', 'taffy', '', 'none')
+    call s:HL('cssTextProp', 'taffy', '', 'none')
+    call s:HL('cssRenderProp', 'taffy', '', 'none')
+    call s:HL('cssGeneratedContentProp', 'taffy', '', 'none')
 else
     call s:HL('cssColorProp', 'fg', '', 'none')
     call s:HL('cssBoxProp', 'fg', '', 'none')
@@ -566,6 +596,13 @@ call s:HL('lessVariable', 'lime', '', 'none')
 
 call s:HL('lispyscriptDefMacro', 'lime', '', '')
 call s:HL('lispyscriptRepeat', 'dress', '', 'none')
+
+" }}}
+" REPLs {{{
+" This isn't a specific plugin, but just useful highlight classes for anything
+" that might want to use them.
+
+call s:HL('replPrompt', 'tardis', '', 'bold')
 
 " }}}
 " Mail {{{
