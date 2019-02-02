@@ -14,6 +14,10 @@ if executable('rusty-tags') && filereadable('Cargo.toml')
   augroup autotags
     au! BufWrite *.rs exec "Start! rusty-tags vi"
   augroup END
+elseif executable('uctags') && filereadable('tags')
+  augroup autotags
+    au! BufWrite *.rs exec "Start! uctags src"
+  augroup END
 elseif executable('ctags') && filereadable('tags')
   augroup autotags
     au! BufWrite *.rs exec "Start! ctags src"
