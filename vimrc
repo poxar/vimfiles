@@ -261,8 +261,12 @@ augroup fugitive_clean
   au! BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
-" mbbill/undotree {{{2
-nnoremap yog :UndotreeToggle<cr>
+" sjl/gundo.vim {{{2
+nnoremap yog :GundoToggle<cr>
+
+let g:gundo_preview_bottom = 1
+let g:gundo_right = 1
+let g:gundo_prefer_python3 = 1
 
 " haya14busa/incsearch.vim {{{2
 " intelligently hide hlsearch
