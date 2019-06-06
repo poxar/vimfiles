@@ -191,6 +191,7 @@ let g:maplocalleader = '\\'
 
 " read man files in vim with :Man {{{2
 if has('unix')
+  let g:ft_man_open_mode = 'vert'
   runtime ftplugin/man.vim
 endif
 
