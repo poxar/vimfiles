@@ -336,17 +336,10 @@ call s:HL('PmenuThumb', 'brightgravel')
 " }}}
 " Diffs {{{
 
-" if exists('g:badwolf_hidiff') && g:badwolf_hidiff
-  call s:HL('DiffDelete', 'coal', 'taffy')
-  call s:HL('DiffAdd',    'coal', 'lime')
-  call s:HL('DiffChange', 'coal', 'dirtyblonde')
-  call s:HL('DiffText',   'coal', 'orange')
-" else
-"   call s:HL('DiffDelete', 'coal', 'coal')
-"   call s:HL('DiffAdd',    '',     'deepergravel')
-"   call s:HL('DiffChange', '',     'darkgravel')
-"   call s:HL('DiffText',   'snow', 'deepergravel', 'bold')
-" endif
+call s:HL('DiffDelete', 'coal', 'taffy')
+call s:HL('DiffAdd',    'coal', 'lime')
+call s:HL('DiffChange', 'coal', 'dirtyblonde')
+call s:HL('DiffText',   'coal', 'orange')
 
 " }}}
 " Spelling {{{
