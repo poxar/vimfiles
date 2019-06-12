@@ -1,4 +1,5 @@
 let s:real_vimrc=$HOME."/.config/nvim/vimrc"
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 exec "source ".s:real_vimrc
 
