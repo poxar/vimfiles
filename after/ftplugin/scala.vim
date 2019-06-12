@@ -12,4 +12,5 @@ if isdirectory('.bloop')
   nnoremap <expr><buffer> mt<cr> ':compiler bloop<cr>:Make '.g:bloop_project.'-test<cr>'
   nnoremap <expr><buffer> mtt    ':Start bloop test '.g:bloop_project
   nnoremap <expr><buffer> mr<cr> ':Start bloop run '.g:bloop_project.'<cr>'
+  nnoremap <expr><buffer> mc<cr> ':Start bloop clean '.g:bloop_project.'<cr>'
 endif
