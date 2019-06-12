@@ -3,7 +3,7 @@ if filereadable('Cargo.toml')
 
   nnoremap <buffer> m<cr>  :Dispatch cargo check<cr>
   nnoremap <buffer> mb<cr> :Dispatch cargo build<cr>
-  nnoremap <buffer> mr<cr> :Dispatch cargo run<cr>
+  nnoremap <buffer> mr<cr> :Dispatch cargo run<cr>:Copen<cr>
   nnoremap <buffer> mt<cr> :Dispatch! cargo test<cr>
 endif
 
