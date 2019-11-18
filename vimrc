@@ -66,6 +66,8 @@ else
 endif
 set autoindent
 set shiftround
+set expandtab
+set shiftwidth=2
 
 " don't timeout on mappings {{{2
 set notimeout
