@@ -205,12 +205,6 @@ endif
 " editorconfig/editorconfig-vim {{{2
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-" romainl/vim-qf {{{2
-let g:qf_mapping_ack_style = 1
-nnoremap yoq <Plug>QfCtoggle
-nnoremap yoL <Plug>QfLtoggle
-nnoremap <leader>l <Plug>QfSwitch
-
 " justinmk/vim-dirvish {{{2
 augroup dirvish_events
   autocmd!
