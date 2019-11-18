@@ -3,15 +3,25 @@ setlocal keywordprg=devdocs\ rust
 if filereadable('Cargo.toml')
   compiler cargo
 
-  nnoremap <buffer> m<cr>  :Dispatch cargo check<cr>
-  nnoremap <buffer> mb<cr> :Dispatch cargo build<cr>
-  nnoremap <buffer> mr<cr> :Dispatch cargo run<cr>:Copen<cr>
-  nnoremap <buffer> mt<cr> :Dispatch! cargo test<cr>
+  nnoremap <buffer> m<cr> :Make! check<cr>
+  nnoremap <buffer> mc<cr> :Make! clean<cr>
+  nnoremap <buffer> mb<cr> :Make! build<cr>
+  nnoremap <buffer> mr<cr> :Make! run<cr>:Copen<cr>
+  nnoremap <buffer> mt<cr> :Make! test<cr>
+  nnoremap <buffer> md<cr> :Make! doc<cr>
 
   let b:altdoc = '!doc-rust'
   augroup autodoc
     au! BufWrite *.rs exec 'Start! cargo doc'
   augroup END
+endif
+
+if executable('racer')
+  let g:racer_insert_paren = 1
+  let g:racer_experimental_completer = 1
+  nmap <buffer> gd <Plug>(rust-def)
+  nmap <buffer> gs <Plug>(rust-def-split)
+  nmap <buffer> gv <Plug>(rust-def-vertical)
 endif
 
 if executable('rusty-tags') && filereadable('Cargo.toml')
