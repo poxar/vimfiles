@@ -8,6 +8,7 @@
 set guioptions=cgi
 set mousehide
 set mousemodel=popup_setpos
+set mouse=""
 
 " cursor shape
 set guicursor=
