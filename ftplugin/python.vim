@@ -9,3 +9,6 @@ setlocal autoindent    " align the new line indent with the previous line
 
 " completion
 setlocal omnifunc=pythoncomplete#Complete
+
+" documentation
+setlocal keywordprg=devdocs\ python

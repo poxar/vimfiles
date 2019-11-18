@@ -1,3 +1,5 @@
+setlocal keywordprg=devdocs\ rust
+
 if filereadable('Cargo.toml')
   compiler cargo
 
@@ -5,6 +7,11 @@ if filereadable('Cargo.toml')
   nnoremap <buffer> mb<cr> :Dispatch cargo build<cr>
   nnoremap <buffer> mr<cr> :Dispatch cargo run<cr>:Copen<cr>
   nnoremap <buffer> mt<cr> :Dispatch! cargo test<cr>
+
+  let b:altdoc = '!doc-rust'
+  augroup autodoc
+    au! BufWrite *.rs exec 'Start! cargo doc'
+  augroup END
 endif
 
 if executable('rusty-tags') && filereadable('Cargo.toml')

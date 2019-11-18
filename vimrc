@@ -15,6 +15,8 @@ else
   let g:vim_path='~/.vim'
 endif
 
+let $PATH .= ':' . expand(g:vim_path . '/bin')
+
 " basics {{{2
 
 filetype plugin indent on
@@ -193,6 +195,7 @@ let g:maplocalleader = '\\'
 if has('unix')
   let g:ft_man_open_mode = 'vert'
   runtime ftplugin/man.vim
+  set keywordprg=:Man
 endif
 
 " plugins {{{1
@@ -300,27 +303,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 let g:UltiSnipsSnippetsDir=g:vim_path.'/snip'
 nnoremap <leader>ese :UltiSnipsEdit<cr>
 
-" keith/investigate.vim {{{2
-
-if executable('zeal')
-  let g:investigate_command_for_rust = '^i!zeal "rust: ^s"'
-  let g:investigate_command_for_haskell = '^i!zeal "haskell: ^s"'
-  let g:investigate_command_for_python = '^i!zeal "python3: ^s"'
-  let g:investigate_command_for_java = '^i!zeal "java: ^s"'
-  let g:investigate_command_for_scala = '^i!zeal "scala: ^s"'
-
-  let g:investigate_command_for_tex = '^i!zeal "latex: ^s"'
-  let g:investigate_command_for_html = '^i!zeal "html: ^s"'
-  let g:investigate_command_for_css = '^i!zeal "css: ^s"'
-  let g:investigate_command_for_javascript = '^i!zeal "javascript: ^s"'
-  let g:investigate_command_for_typescript = '^i!zeal "typescript: ^s"'
-
-  let g:investigate_command_for_sql = '^i!zeal "psql: ^s"'
-  let g:investigate_command_for_yamlansible = '^i!zeal "ansible: ^s"'
-  let g:investigate_command_for_nginx = '^i!zeal "nginx: ^s"'
-endif
-
-" }}}2
 
 " mappings {{{1
 " fixes {{{2

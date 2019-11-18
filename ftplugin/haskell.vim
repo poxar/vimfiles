@@ -6,3 +6,4 @@ let g:hs_highlight_debug = 1
 
 setlocal shiftwidth=2
 setlocal expandtab
+setlocal keywordprg=devdocs\ haskell

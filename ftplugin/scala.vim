@@ -5,3 +5,5 @@ if filereadable('api/tags')
   setlocal tags+=api/tags
   setlocal tagrelative
 endif
+
+setlocal keywordprg=devdocs\ scala
