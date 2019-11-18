@@ -279,6 +279,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 let g:UltiSnipsSnippetsDir=g:vim_path.'/snip'
 nnoremap <leader>ese :UltiSnipsEdit<cr>
+command SnipEdit UltiSnipsEdit
 
 " vim-textobj-quote {{{2
 augroup textobj_quote
