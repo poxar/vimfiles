@@ -22,7 +22,7 @@ let $PATH .= ':' . expand(g:vim_path . '/bin')
 filetype plugin indent on
 syntax enable
 
-set viminfo=!,'200,s200,r/tmp
+set viminfo=!,'200,s200,r/tmp,r/mnt
 set history=1000
 
 set nomodeline
@@ -36,14 +36,6 @@ set nrformats-=octal
 
 set encoding=utf-8
 scriptencoding 'utf-8'
-
-if has('cryptv')
-  if has('patch-7.4.401')
-    set cryptmethod=blowfish2
-  elseif v:version >= 703
-    set cryptmethod=blowfish
-  endif
-endif
 
 set diffopt+=vertical
 
@@ -144,14 +136,6 @@ set wildmode=list:longest,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 set wildignorecase
 
-" cscope {{{2
-if has('cscope')
-  set cscopeverbose
-  if has('quickfix')
-    set cscopequickfix=s-,c-,d-,i-,t-,e-
-  endif
-endif
-
 " backup/swap/undo {{{2
 
 let s:dir =
@@ -208,9 +192,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " justinmk/vim-dirvish {{{2
 augroup dirvish_events
   autocmd!
-
-  " Enable fugitive in dirvish
-  autocmd FileType dirvish call fugitive#detect(@%)
 
   " Map `gh` to hide dot-prefixed files.
   " To "toggle" this, just press `R` to reload.
