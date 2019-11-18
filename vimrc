@@ -401,23 +401,27 @@ noremap <leader>es. :vsplit <C-R>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>c. :lcd %:p:h<cr>
 
 " commands {{{1
-" kill buffer without closing the window/view {{{2
+" kill buffer without closing the window/view
 command! Bkill bp\|bd #<cr>
-" strip trailing whitespace {{{2
+
+" strip trailing whitespace
 command! StripWhitespace normal mz:%s/\s\+$//<cr>:let @/=''<cr>`z
-" diff the current buffer and the file it was loaded from {{{2
+
+" diff the current buffer and the file it was loaded from
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
-" find and show todos {{{2
+
+" find and show todos
 command! -nargs=? Note grep! \[Nn\]\[Oo\]\[Tt\]\[Ee\]: <args> | botright cope
 command! -nargs=? Todo grep! TODO:\\|FIXME:\\|XXX: <args> | botright cope
 command! -nargs=? Fixme grep! FIXME:\\|XXX: <args> | botright cope
-" edit current filetypeplugin {{{2
+
+" edit current filetypeplugin
 command! Ftedit execute ":edit ". g:vim_path ."/ftplugin/".&ft.".vim"
 
-" find double words {{{2
+" find double words
 command! DoubleWords /\(\<\S\+\>\)\(\_\s\+\<\1\>\)\+/
 
-" pretty print {{{2
+" pretty print
 command! -range=% JsonPP :<line1>,<line2>!python -m json.tool
 command! -range=% SqlPP :<line1>,<line2>!pg_format -
 
