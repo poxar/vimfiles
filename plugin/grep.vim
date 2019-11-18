@@ -18,4 +18,5 @@ elseif executable('ack')
   let &grepprg='ack '.s:ackcmd
 endif
 
-command! -nargs=+ -complete=file G grep! <args>
+command! -nargs=+ -complete=file Grep silent grep! <args> | cw
+nnoremap <leader>g :Grep<space>
