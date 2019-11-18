@@ -5,3 +5,7 @@ setlocal complete+=s " Complete from thesaurus
 
 setlocal spell
 setlocal spelllang=en
+
+iabbrev <buffer> ... …
+
+setlocal textwidth=72

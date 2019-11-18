@@ -303,6 +303,12 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 let g:UltiSnipsSnippetsDir=g:vim_path.'/snip'
 nnoremap <leader>ese :UltiSnipsEdit<cr>
 
+" vim-textobj-quote {{{2
+augroup textobj_quote
+  autocmd!
+  autocmd FileType markdown call textobj#quote#init()
+  autocmd FileType text call textobj#quote#init({'educate': 0})
+augroup END
 
 " mappings {{{1
 " fixes {{{2
