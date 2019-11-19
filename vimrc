@@ -270,8 +270,9 @@ map g# <Plug>(incsearch-nohl-g#)
 
 " SirVer/ultisnips {{{2
 let g:snips_author='Philipp Millar'
+let g:snips_author_short='Philipp'
 let g:snips_author_email='philipp.millar@poxar.net'
-let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snip']
+let g:UltiSnipsSnippetDirectories=['snip']
 let g:UltiSnipsNoPythonWarning = 1
 
 let g:UltiSnipsJumpForwardTrigger = '<C-m>'

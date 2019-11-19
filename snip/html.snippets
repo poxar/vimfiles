@@ -1,0 +1,60 @@
+extends xml
+
+# document strucutre
+snippet doc "HTML - 5.0 (doctype)" b
+<!DOCTYPE html>
+
+endsnippet
+snippet viewport "Responsive viewport meta" w
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+endsnippet
+snippet head "HTML <head>"
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>${1:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
+	${2}
+</head>
+endsnippet
+snippet style "style sheet link"
+<link rel="stylesheet" type="text/css" href="${1:/style.css}"/>
+endsnippet
+snippet rss "rss link"
+<link rel="alternate" type="application/rss+xml" title="${1:RSS}" href="${2:/rss.xml}">
+endsnippet
+snippet fav "Insert favicon links"
+${1:<link rel="apple-touch-icon" sizes="180x180" href="${2:/apple-touch-icon.png}">
+}${3:<link rel="icon" type="image/png" sizes="32x32" href="${4:/$6-32x32.png}">
+}<link rel="icon" type="image/png" sizes="16x16" href="${5:/${6:favicon}-16x16.png}">
+endsnippet
+snippet html "HTML basic structure" b
+<!DOCTYPE html>
+<html lang="${1:en}">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>${2:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
+
+		<link rel="stylesheet" type="text/css" href="${3:/style.css}"/>
+	</head>
+	<body>
+		${0:body}
+	</body>
+</html>
+endsnippet
+
+# tags
+snippet ta "inline tag with attributes"
+<${1:tag}${2:${3: id="${4:id}"}${5: class="${6:class}"}}>${7:${VISUAL}}</${1/([\w:._-]+).*/$1/}>
+endsnippet
+snippet tta "simple tag with attributes"
+<${1:tag}${2:${3: id="${4:id}"}${5: class="${6:class}"}}>
+	${7:${VISUAL}}
+</${1/([\w:._-]+).*/$1/}>
+endsnippet
+snippet a "Link" w
+<a href="${1:http://www.${2:url.com}}"${3: target="_blank"}>${4:Anchor Text}</a>
+endsnippet
+snippet q "blockquote"
+<blockquote${1: cite="https://example.com/"}>$2</blockquote>$0
+endsnippet

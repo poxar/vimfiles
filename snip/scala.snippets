@@ -1,3 +1,15 @@
+snippet for "for comprehension"
+for {
+	${1:item} <- ${2:obj}
+} yield ${0}
+endsnippet
+snippet match
+match {
+	case ${1:e} => $2
+	case _ => $3
+}$0
+endsnippet
+
 snippet ** "ScalaDoc" b
 /**
  * ${1}

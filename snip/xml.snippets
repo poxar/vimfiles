@@ -1,0 +1,12 @@
+snippet xml "XML declaration" b
+<?xml version="1.0"?>
+
+endsnippet
+snippet t "Inline tag" b
+<${1:tag}>${2:${VISUAL}}</${1/([\w:._-]+).*/$1/}>
+endsnippet
+snippet tt "Simple tag" b
+<${1:tag}>
+	${2:${VISUAL}}
+</${1/([\w:._-]+).*/$1/}>
+endsnippet

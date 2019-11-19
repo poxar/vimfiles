@@ -1,4 +1,37 @@
-snippet ssh "safe sh options"
+snippet #! "safe sh options"
 #!/bin/sh
-set -eu
+${1:set -eu}
+
+$0
+endsnippet
+snippet case "case .. esac (case)"
+case ${1:$word} in
+	${2:pattern}) $0;;
+esac
+endsnippet
+snippet main
+#!/bin/sh
+${1:set -eu}
+
+main() {
+	$0
+}
+
+main "$@"
+endsnippet
+snippet usage
+usage() {
+	echo "Usage: $(basename "$${1:0}")${2: [OPTIONS]}${3: ARGS}"
+	echo ''
+	echo 'Options:'
+	echo '  -h		Display this message'$0
+}
+endsnippet
+snippet opts
+while getopts '${1:h}' ${2:opts}; do
+	case $$2 in
+	${3:h) usage; exit 0 ;;}$0
+	${4:*) echo "No such option" >&2; usage >&2; exit 1 ;;}
+	esac
+done
 endsnippet
