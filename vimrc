@@ -247,27 +247,6 @@ let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
 let g:gundo_prefer_python3 = 1
 
-" haya14busa/incsearch.vim {{{2
-" intelligently hide hlsearch
-let g:incsearch#auto_nohlsearch = 1
-" n goes down N goes up, no matter what
-let g:incsearch#consistent_n_direction = 1
-" hide search errors in :messages output
-let g:incsearch#do_not_save_error_message_history = 1
-" use verymagic by default
-let g:incsearch#magic = '\v'
-
-" activate plugin
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-
 " SirVer/ultisnips {{{2
 let g:snips_author='Philipp Millar'
 let g:snips_author_short='Philipp'
