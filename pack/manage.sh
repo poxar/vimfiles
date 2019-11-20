@@ -4,9 +4,9 @@ set -eum
 GH_URL="https://github.com/"
 PARALLEL=5
 
-SED_REPO="s,.*:::,$GH_URL,"
-SED_PATH="s,:::.*/,/,"
-SED_NAME="s,.*:::,,"
+SED_REPO="s,.*:,$GH_URL,"
+SED_PATH="s,.*:.*/,,"
+SED_NAME="s,.*:,,"
 
 vim_cmd() {
   dir="$1"
@@ -25,7 +25,7 @@ help_tags() {
 }
 
 pack_conf() {
-  grep -v '^#' packages.conf | grep -v '^$' | sed 's,	,:::,'
+  grep -v '^#' packages.conf | grep -v '^$'
 }
 
 pack_inst() {
@@ -37,6 +37,11 @@ install() {
   name=$(echo "$package" | sed "$SED_NAME")
   repo=$(echo "$package" | sed "$SED_REPO")
   path=$(echo "$package" | sed "$SED_PATH")
+  if echo "$package" | grep '^start:' >/dev/null 2>&1; then
+    path="world/start/$path"
+  elif echo "$package" | grep '^opt:' >/dev/null 2>&1; then
+    path="world/opt/$path"
+  fi
 
   if ! test -d "$path"; then
     echo "Installing $name"
@@ -50,6 +55,11 @@ update() {
   name=$(echo "$package" | sed "$SED_NAME")
   repo=$(echo "$package" | sed "$SED_REPO")
   path=$(echo "$package" | sed "$SED_PATH")
+  if echo "$package" | grep '^start:' >/dev/null 2>&1; then
+    path="world/start/$path"
+  elif echo "$package" | grep '^opt:' >/dev/null 2>&1; then
+    path="world/opt/$path"
+  fi
 
   if test -d "$path"; then
     echo "Updating $name"
@@ -62,7 +72,18 @@ not_configured() {
   installed=$(mktemp)
 
   pack_inst | sort >> "$installed"
-  pack_conf | sed "$SED_PATH" | sort >> "$configured"
+
+  for package in $(pack_conf); do
+    path=$(echo "$package" | sed "$SED_PATH")
+
+    if echo "$package" | grep '^start:' >/dev/null 2>&1; then
+      path="world/start/$path"
+    elif echo "$package" | grep '^opt:' >/dev/null 2>&1; then
+      path="world/opt/$path"
+    fi
+
+    echo "$path"
+  done | sort >> "$configured"
 
   comm -23 "$installed" "$configured"
 
@@ -99,14 +120,21 @@ usage() {
   echo '  update  - update installed packages'
   echo '  install - install missing packages'
   echo ''
-  echo 'Packages are configured in pack/packages.conf like this:'
+  echo 'Traditional packages are configured in pack/packages.conf like this:'
   echo ''
-  echo '    default/start:::tpope/vim-commentary'
+  echo '    start:tpope/vim-commentary'
   echo ''
   echo 'This would clone https://github.com/tpope/vim-commentary'
-  echo 'and install it to "pack/default/start/vim-commentary"'
+  echo 'and install it to "pack/world/start/vim-commentary".'
+  echo 'Replacing "start" with "opt" would install to'
+  echo '"pack/world/opt/vim-commentary".'
   echo ''
-  echo 'You may use a tab character instead of ":::".'
+  echo 'Vim 8 conforming packages are configured like this:'
+  echo ''
+  echo '    :tpope/vim-commentary'
+  echo ''
+  echo 'This would install to pack/vim-commentary'
+  echo ''
   echo 'Lines starting with # and empty lines are ignored.'
   echo ''
   echo 'Packages installed in "pack/local" will never be cleaned.'
