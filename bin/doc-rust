@@ -1,4 +1,12 @@
 #!/bin/sh
 set -eu
 
-exec firefox "file://$PWD/target/doc/settings.html?search=$*"
+URL="file://$PWD/target/doc/settings.html?search=$*"
+
+if test -x "$(command -v open)"; then
+  exec open "$URL"
+elif test -x "$(command -v xdg-open)"; then
+  exec xdg-open "$URL"
+else
+  exec firefox "$URL"
+fi
