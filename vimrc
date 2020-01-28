@@ -190,6 +190,7 @@ endif
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " justinmk/vim-dirvish {{{2
+let g:loaded_netrw = 1
 augroup dirvish_events
   autocmd!
 
