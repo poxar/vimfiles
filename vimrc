@@ -398,7 +398,6 @@ command! DoubleWords /\(\<\S\+\>\)\(\_\s\+\<\1\>\)\+/
 
 " pretty print
 command! -range=% JsonPP :<line1>,<line2>!python -m json.tool
-command! -range=% SqlPP :<line1>,<line2>!pg_format -
 command! -range=% HtmlPP :<line1>,<line2>!pandoc --from=html --to=markdown | pandoc --from=markdown --to=html
 
 " highlighting {{{1
