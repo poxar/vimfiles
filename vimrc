@@ -379,6 +379,9 @@ nnoremap <leader>c. :lcd %:p:h<cr>
 " kill buffer without closing the window/view
 command! Bkill bp\|bd #<cr>
 
+" close all buffers except the current one
+command! Bonly w | %bd | e# | bd#
+
 " strip trailing whitespace
 command! StripWhitespace normal mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
