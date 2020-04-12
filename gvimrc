@@ -27,7 +27,7 @@ let $PAGER='less'
 if has("gui_mac") || has("mac")
   set guifont=Inconsolata-Regular:h18
 elseif has("unix")
-  set guifont=Inconsolata\ 14
+  set guifont=Fira\ Code\ Light\ 11
 else
   set guifont=Consolas:h11:cANSI
 endif
