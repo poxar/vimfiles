@@ -10,7 +10,10 @@
 if has('win32')
   let g:vim_path='~/vimfiles'
 elseif has('nvim')
-  let g:vim_path='~/.config/nvim'
+  let g:vim_path=
+        \ empty($XDG_CONFIG_HOME) ?
+        \ '~/.config/nvim' :
+        \ '$XDG_CONFIG_HOME/nvim'
 else
   let g:vim_path='~/.vim'
 endif
