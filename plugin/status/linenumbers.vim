@@ -1,5 +1,5 @@
-" Show linenumbers by default (change in ftplugin)
-set number
+" Dont' show linenumbers by default (change in ftplugin)
+set nonumber
 
 " Show relative line numbers in active windows, where number is set
 if v:version >= 703
