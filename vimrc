@@ -232,7 +232,12 @@ let g:ale_sign_style_error='●'
 let g:ale_sign_style_warning='→'
 
 let g:ale_haskell_ghc_options = '-dynamic'
-let g:ale_linters = { 'scala': [], 'java': [] }
+let g:ale_linters = { 
+\   'scala': [],
+\   'java': [],
+\   'c': ['cppcheck', 'flawfinder'],
+\   'cpp': ['cppcheck', 'flawfinder'],
+\}
 
 " tpope/vim-fugitive {{{2
 " auto clean fugitive buffers
@@ -260,6 +265,10 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 let g:UltiSnipsSnippetsDir=g:vim_path.'/snip'
 nnoremap <leader>ese :UltiSnipsEdit<cr>
 command SnipEdit UltiSnipsEdit
+
+" clang_complete {{{2
+let g:clang_snippets=1
+let g:clang_auto_user_options=".clang_complete, compile_commands.json, path"
 
 " mappings {{{1
 " fixes {{{2
