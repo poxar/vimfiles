@@ -288,7 +288,8 @@ inoremap <c-w> <c-g>u<c-w>
 nnoremap Q @:
 
 " open last/alternate buffer
-nnoremap <leader><leader> <C-^>
+nnoremap <leader><leader> :echo "Use \<C-W\>\<leader\> instead"<cr>
+nnoremap <C-W><leader> <C-^>
 
 
 " enhancements {{{2
