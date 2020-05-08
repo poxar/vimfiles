@@ -4,8 +4,8 @@
 " Maintainer: Philipp Millar <philipp.millar@poxar.de>
 "
 
-" make the gui clean
-set guioptions=cgi
+" make the gui clean, see 'guioptions'
+set guioptions=cgiA
 set mousehide
 set mousemodel=popup_setpos
 set mouse=""
