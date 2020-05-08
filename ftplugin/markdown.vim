@@ -7,6 +7,9 @@ setlocal spelllang=en
 
 iabbrev <buffer> ... …
 
+setlocal tabstop=4
+setlocal noexpandtab
+
 setlocal textwidth=72
 setlocal formatoptions=qrn2jo
 
