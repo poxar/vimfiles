@@ -5,8 +5,8 @@ set number
 if v:version >= 703
   augroup relativenumber
     au!
-    au WinEnter,TabEnter,BufWinEnter * call SetRelativeNumber()
-    au WinLeave,TabLeave,BufWinLeave * call UnsetRelativeNumber()
+    au WinEnter,TabEnter,BufWinEnter,BufEnter,BufDelete,BufWipeout * call SetRelativeNumber()
+    au WinLeave,TabLeave,BufWinLeave,BufLeave * call UnsetRelativeNumber()
   augroup END
 
   function! g:SetRelativeNumber()

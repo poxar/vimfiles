@@ -2,8 +2,8 @@
 
 augroup cursorlines
   au! cursorlines
-  au WinEnter,TabEnter,BufWinEnter,VimEnter * call SetupCursorLines()
-  au WinLeave,TabLeave,BufWinLeave * call HideCursorLines()
+  au WinEnter,TabEnter,BufWinEnter,BufEnter,BufDelete,BufWipeout * call SetupCursorLines()
+  au WinLeave,TabLeave,BufWinLeave,BufLeave * call HideCursorLines()
 augroup END
 
 function! g:SetupCursorLines()
