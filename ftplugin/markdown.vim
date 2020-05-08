@@ -8,6 +8,7 @@ setlocal spelllang=en
 iabbrev <buffer> ... …
 
 setlocal textwidth=72
+setlocal formatoptions=qrn2jo
 
 " swap j/k/0/$ and gj/gk/g0/g$
 " so the g variations work on physical lines and the default ones on display

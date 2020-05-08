@@ -51,11 +51,7 @@ if executable('par')
   set formatprg=par\ -w80
 endif
 set nojoinspaces
-if v:version >= 704
-  set formatoptions=qcrn2j
-else
-  set formatoptions=qcrn2
-endif
+set formatoptions=qcrn2j
 set autoindent
 set shiftround
 set expandtab
