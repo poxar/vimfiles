@@ -253,20 +253,6 @@ let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
 let g:gundo_prefer_python3 = 1
 
-" SirVer/ultisnips {{{2
-let g:snips_author='Philipp Millar'
-let g:snips_author_short='Philipp'
-let g:snips_author_email='philipp.millar@poxar.net'
-let g:UltiSnipsSnippetDirectories=['snip']
-let g:UltiSnipsNoPythonWarning = 1
-
-let g:UltiSnipsJumpForwardTrigger = '<C-m>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-
-let g:UltiSnipsSnippetsDir=g:vim_path.'/snip'
-nnoremap <leader>ese :UltiSnipsEdit<cr>
-command SnipEdit UltiSnipsEdit
-
 " clang_complete {{{2
 let g:clang_snippets=1
 let g:clang_auto_user_options=".clang_complete, compile_commands.json, path"

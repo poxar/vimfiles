@@ -14,3 +14,16 @@ setlocal comments+=n:%
 
 setlocal spell
 setlocal spelllang=de_20
+
+iabbrev <buffer> p Philipp
+iabbrev <buffer> pm Philipp Millar
+
+iabbrev <buffer> cheers Cheers,
+iabbrev <buffer> regards Kind regards,
+iabbrev <buffer> ty, Thank you in advance,
+
+iabbrev <buffer> sgdh Sehr geehrte Damen und Herren,
+
+iabbrev <buffer> mfg Mit freundlichen Grüßen,
+iabbrev <buffer> lg Liebe Grüße,
+iabbrev <buffer> bg Beste Grüße,

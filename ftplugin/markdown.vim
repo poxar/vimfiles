@@ -5,8 +5,6 @@ setlocal complete+=s " Complete from thesaurus
 
 setlocal spelllang=en
 
-iabbrev <buffer> ... …
-
 setlocal tabstop=4
 setlocal noexpandtab
 
@@ -24,3 +22,10 @@ nnoremap g0 0
 nnoremap 0 g0
 nnoremap $ g$
 nnoremap g$ $
+
+iabbrev <buffer> ... …
+iabbrev <buffer> +++ +++
+      \<CR>title = "My new post"
+      \<CR>lang = "en"
+      \<CR>date = <C-r>=strftime("%Y-%m-%d")<cr>
+      \<CR>+++<esc>
