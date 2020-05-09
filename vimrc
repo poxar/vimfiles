@@ -191,14 +191,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " justinmk/vim-dirvish {{{2
 let g:loaded_netrw = 1
-augroup dirvish_events
-  autocmd!
-
-  " Map `gh` to hide dot-prefixed files.
-  " To "toggle" this, just press `R` to reload.
-  autocmd FileType dirvish nnoremap <buffer>
-    \ gh :keeppatterns g@\v/\.[^\/]+/?$@d<cr>
-augroup END
 
 " godlygeek/tabular {{{2
 nnoremap g= :Tabularize /
