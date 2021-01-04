@@ -190,6 +190,8 @@ endif
 
 " plugins {{{1
 
+let g:termdebug_wide=161
+packadd! termdebug
 " editorconfig/editorconfig-vim {{{2
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 

@@ -10,6 +10,7 @@ if filereadable('Cargo.toml')
   nnoremap <buffer> mr<cr> :Make run<cr>
   nnoremap <buffer> mt<cr> :Make test<cr>
   nnoremap <buffer> md<cr> :Make doc<cr>
+  nnoremap <buffer> mD<cr> :Termdebug target/debug/
 endif
 
 if executable('racer')
