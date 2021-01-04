@@ -249,6 +249,10 @@ augroup fugitive_clean
   au! BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
+" diff mappings
+nnoremap <buffer> <leader>df :diffget //2<cr>
+nnoremap <buffer> <leader>dj :diffget //3<cr>
+
 " sjl/gundo.vim {{{2
 nnoremap yog :GundoToggle<cr>
 
