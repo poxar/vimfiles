@@ -141,6 +141,11 @@ set wildmode=list:longest,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 set wildignorecase
 
+augroup close_preview
+  au! CompleteDone * if pumvisible() == 0 | pclose | endif
+  au! InsertEnter,InsertLeave * pclose
+augroup END
+
 " backup/swap/undo {{{2
 
 let s:dir =
@@ -251,9 +256,59 @@ let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
 let g:gundo_prefer_python3 = 1
 
-" clang_complete {{{2
-let g:clang_snippets=1
-let g:clang_auto_user_options=".clang_complete, compile_commands.json, path"
+" lsp {{{2
+let g:lsp_fold_enabled = 0
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_preview_float = 0
+let g:lsp_preview_doubletap = 0
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+
+    nmap <buffer> <C-]> <Plug>(lsp-definition)
+
+    nmap <buffer> gd <plug>(lsp-peek-declaration)
+    nmap <buffer> gD <plug>(lsp-peek-definition)
+    nmap <buffer> gr <plug>(lsp-references)
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+" See https://langserver.org/ for lsp implementations
+
+if executable('clangd')
+  augroup lsp_setup_clangd
+    au! User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'whitelist': ['c', 'cpp'],
+        \ })
+  augroup END
+endif
+
+if executable('rls')
+  augroup lsp_setup_rls
+    au! User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rls']},
+        \ 'whitelist': ['rust', 'rustdoc'],
+        \ })
+  augroup END
+endif
+
+if executable('pyls')
+  augroup lsp_setup_pyls
+    au! User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+  augroup END
+endif
 
 " mappings {{{1
 " fixes {{{2
@@ -321,6 +376,11 @@ cabbrev <expr> %% expand('%:p:h')
 
 " simple math
 noremap <leader>mm yypkA =<Esc>jOscale=2<Esc>:.,+1!bc -ql<CR>kJ
+
+" omni completion
+inoremap <C-X>o <C-X><C-O>
+inoremap <C-X>n <C-X><C-O>
+inoremap <C-X><C-N> <C-X><C-O>
 
 " visual stuff {{{2
 

@@ -16,11 +16,6 @@ endif
 if executable('racer')
   command! -buffer -nargs=* -count=0 RustDoc call racer#ShowDocumentation()
   setlocal keywordprg=:RustDoc
-
-  let g:racer_insert_paren = 1
-  let g:racer_experimental_completer = 1
-
-  nmap <buffer> <C-]> <Plug>(rust-def)
 endif
 
 let g:rust_fold = 0
