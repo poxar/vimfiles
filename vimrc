@@ -236,11 +236,13 @@ let g:ale_sign_style_error='●'
 let g:ale_sign_style_warning='→'
 
 let g:ale_haskell_ghc_options = '-dynamic'
+" I only want actual linters, compilation is done with :Make
 let g:ale_linters = { 
 \   'scala': [],
 \   'java': [],
-\   'c': ['cppcheck', 'flawfinder'],
-\   'cpp': ['cppcheck', 'flawfinder'],
+\   'c': ['flawfinder'],
+\   'cpp': ['flawfinder'],
+\   'rust': [''],
 \}
 
 " tpope/vim-fugitive {{{2

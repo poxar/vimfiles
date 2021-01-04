@@ -4,6 +4,7 @@ if filereadable('Cargo.toml')
   compiler cargo
 
   nnoremap <buffer> m<cr> :Make check<cr>
+  nnoremap <buffer> ml<cr> :Make clippy<cr>
   nnoremap <buffer> mc<cr> :Make clean<cr>
   nnoremap <buffer> mb<cr> :Make build<cr>
   nnoremap <buffer> mf<cr> :Make fmt<cr>
