@@ -343,6 +343,8 @@ nnoremap <leader>eg :edit $MYGVIMRC<cr>
 nnoremap <leader>esv :vsplit $MYVIMRC<cr>
 nnoremap <leader>esg :vsplit $MYGVIMRC<cr>
 
+nnoremap <leader>ej :edit ~/var/notes/journal<cr>
+
 " local configuration
 nnoremap <expr> <leader>el  ':edit '.g:vim_path.'/plugin/local.vim<cr>'
 nnoremap <expr> <leader>esl ':edit '.g:vim_path.'/plugin/local.vim<cr>'
