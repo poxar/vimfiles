@@ -11,6 +11,8 @@ if filereadable('Cargo.toml')
   nnoremap <buffer> mt<cr> :Make test<cr>
   nnoremap <buffer> md<cr> :Make doc<cr>
   nnoremap <buffer> mD<cr> :Termdebug target/debug/
+
+  setlocal path+=./src
 endif
 
 if executable('racer')

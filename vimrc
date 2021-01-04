@@ -135,9 +135,9 @@ endif
 
 " completion {{{2
 set omnifunc=syntaxcomplete#Complete
-set completeopt=menuone
+set completeopt=menu,preview
 set wildmenu
-set wildmode=list:longest,full
+set wildmode=longest:full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 set wildignorecase
 
