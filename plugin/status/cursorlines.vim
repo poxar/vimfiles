@@ -4,19 +4,24 @@ augroup cursorlines
   au! cursorlines
   au WinEnter,TabEnter,BufWinEnter,BufEnter,BufDelete,BufWipeout * call SetupCursorLines()
   au WinLeave,TabLeave,BufWinLeave,BufLeave * call HideCursorLines()
+  au OptionSet diff call SetupCursorLines()
+  au DiffUpdated * call SetupCursorLines()
 augroup END
 
 function! g:SetupCursorLines()
-  if &ft !=# 'help'
+  if &ft !=# 'help' && !&diff
     setlocal cursorline
 
     if exists('b:my_cc')
       setlocal colorcolumn=+1
     endif
+  else
+    set colorcolumn=""
+    set nocursorline
   endif
 endfunction
 
 function! g:HideCursorLines()
-  setlocal colorcolumn=""
-  setlocal nocursorline
+  set colorcolumn=""
+  set nocursorline
 endfunction

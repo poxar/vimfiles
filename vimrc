@@ -81,6 +81,10 @@ if has('patch-7.4.941')
 endif
 
 " display {{{2
+" this is sadly still needed for tmux
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 if has('termguicolors')
   set termguicolors
 endif
@@ -92,6 +96,7 @@ set shortmess=atToOIc
 set ruler
 set showcmd
 set visualbell
+set t_vb=
 
 set scrolloff=1
 set sidescrolloff=5
@@ -179,7 +184,6 @@ let g:maplocalleader = '\\'
 
 " read man files in vim with :Man {{{2
 if has('unix')
-  let g:ft_man_open_mode = 'vert'
   runtime ftplugin/man.vim
   set keywordprg=:Man
 endif

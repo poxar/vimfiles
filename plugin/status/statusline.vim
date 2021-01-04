@@ -16,7 +16,7 @@ augroup Statusline
   au! Statusline
   au! WinEnter,TabEnter,BufWinEnter,BufEnter,BufDelete,BufWipeout * call <SID>setActive()
   au! WinLeave,TabLeave,BufWinLeave,BufLeave * call <SID>setInactive()
-  au! QuickFixCmdPost cgetfile call <SID>setActive()
+  au! QuickFixCmdPost * call <SID>setActive()
 augroup END
 
 

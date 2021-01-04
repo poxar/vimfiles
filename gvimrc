@@ -13,11 +13,11 @@ set mouse=""
 " cursor shape
 set guicursor=
   \n-v:block,
-  \i-c-ci-ve:ver25,
+  \i-c-ci-ve:ver15,
   \r-cr:hor20,
   \o:hor50-oCursor,
   \sm:block,
-  \a:Cursor/lCursor-blinkon0
+  \a:Cursor/lCursor-blinkwait700-blinkon500-blinkoff350
 
 " use more for man
 set kp=man\ -P\ more
@@ -27,7 +27,7 @@ let $PAGER='less'
 if has("gui_mac") || has("mac")
   set guifont=Inconsolata-Regular:h18
 elseif has("unix")
-  set guifont=Fira\ Code\ Light\ 11
+  set guifont=Fira\ Code\ 11
 else
   set guifont=Consolas:h11:cANSI
 endif
