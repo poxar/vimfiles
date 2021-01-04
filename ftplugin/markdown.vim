@@ -11,6 +11,8 @@ setlocal noexpandtab
 setlocal textwidth=72
 setlocal formatoptions=qrn2jo
 
+let g:vim_markdown_strikethrough = 1
+
 " swap j/k/0/$ and gj/gk/g0/g$
 " so the g variations work on physical lines and the default ones on display
 " lines unless a count is given, then act normally
