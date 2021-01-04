@@ -342,7 +342,7 @@ nnoremap Q @:
 " open last/alternate buffer
 nnoremap <leader><leader> :echo "Use \<C-W\>\<leader\> instead"<cr>
 nnoremap <C-W><leader> <C-^>
-
+tnoremap <C-W><leader> <C-W>:e #<cr>
 
 " enhancements {{{2
 " leave insert mode quickly
