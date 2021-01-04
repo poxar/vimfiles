@@ -402,6 +402,8 @@ nnoremap z<space> zMzvzz
 
 
 " quick edit/cd {{{2
+" find
+nnoremap <leader>f :find 
 " source
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>sg :source $MYGVIMRC<cr>
