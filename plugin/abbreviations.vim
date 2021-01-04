@@ -3,7 +3,7 @@ iabbrev ldis ಠ_ಠ
 iabbrev shrg ¯\_(ツ)_/¯
 
 iabbrev datenow <C-R>=strftime("%Y-%m-%d")<cr>
-iabbrev datetimenow <C-R>=strftime("%Y-%m-%d %H:%M")
+iabbrev datetimenow <C-R>=strftime("%Y-%m-%d %H:%M")<cr>
 
 iabbrev lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
       \<CR>lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam
