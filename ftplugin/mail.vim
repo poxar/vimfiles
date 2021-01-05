@@ -12,6 +12,9 @@ setlocal autoindent
 setlocal comments+=n:\|
 setlocal comments+=n:%
 
+compiler proselint
+nnoremap <buffer> ml<cr> :Dispatch -compiler=proselint<cr>
+
 setlocal spell
 setlocal spelllang=de_20
 

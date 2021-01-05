@@ -1,3 +1,5 @@
+nnoremap <buffer> ml<cr> :Dispatch -compiler=proselint<cr>
+
 setlocal omnifunc=htmlcomplete#CompleteTags
 
 setlocal complete+=kspell " Complete from current spell checking

@@ -1,4 +1,5 @@
 setlocal cindent
+nnoremap <buffer> ml<cr> :Dispatch -compiler=flawfinder<cr>
 
 if executable('uctags') && filereadable('tags')
   augroup autotags

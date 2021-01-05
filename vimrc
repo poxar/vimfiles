@@ -225,26 +225,6 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg --files %s'
 endif
 
-" w0rp/ale {{{2
-let g:ale_open_list=0
-let g:ale_list_window_size=5
-
-let g:ale_sign_error='✗'
-let g:ale_sign_warning='⇉'
-let g:ale_sign_info='ℹ'
-let g:ale_sign_style_error='●'
-let g:ale_sign_style_warning='→'
-
-let g:ale_haskell_ghc_options = '-dynamic'
-" I only want actual linters, compilation is done with :Make
-let g:ale_linters = { 
-\   'scala': [],
-\   'java': [],
-\   'c': ['flawfinder'],
-\   'cpp': ['flawfinder'],
-\   'rust': [''],
-\}
-
 " tpope/vim-fugitive {{{2
 " auto clean fugitive buffers
 augroup fugitive_clean
