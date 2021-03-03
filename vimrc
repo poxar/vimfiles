@@ -189,11 +189,6 @@ endif
 let g:mapleader      = ' '
 let g:maplocalleader = '\\'
 
-" read man files in vim with :Man {{{2
-if has('unix')
-  runtime ftplugin/man.vim
-  set keywordprg=:Man
-endif
 
 " plugins {{{1
 
@@ -298,6 +293,11 @@ if executable('pyls')
   augroup END
 endif
 
+" vim-utils/vim-man {{{2
+" Alternative to the built-in man viewer
+if has('unix')
+  set keywordprg=:Man
+endif
 " mappings {{{1
 " fixes {{{2
 
