@@ -11,8 +11,3 @@ nnoremap <buffer> ml<cr> :Dispatch -compiler=flake8<cr>
 
 " documentation
 setlocal keywordprg=devdocs\ python
-
-iabbrev <buffer> #! #!/usr/bin/env python3
-iabbrev <buffer> init_ def __init__(self):
-iabbrev <buffer> main_ if __name__ == "__main__":
-      \<CR>main()

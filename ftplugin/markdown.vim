@@ -13,6 +13,8 @@ setlocal noexpandtab
 setlocal textwidth=72
 setlocal formatoptions=qrn2jo
 
+setlocal nonumber
+
 let g:vim_markdown_strikethrough = 1
 
 " swap j/k/0/$ and gj/gk/g0/g$
@@ -28,8 +30,3 @@ nnoremap $ g$
 nnoremap g$ $
 
 iabbrev <buffer> ... …
-iabbrev <buffer> +++ +++
-      \<CR>title = "My new post"
-      \<CR>lang = "en"
-      \<CR>date = <C-r>=strftime("%Y-%m-%d")<cr>
-      \<CR>+++<esc>

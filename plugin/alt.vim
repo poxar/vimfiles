@@ -6,6 +6,10 @@ if exists('loaded_alt')
 endif
 let loaded_alt = 1
 
+if ! executable('alt')
+  finish
+endif
+
 function! s:Extensions(root, exts)
   for l:ext in a:exts
     let l:path = a:root . '.' . l:ext

@@ -1,5 +1,2 @@
-if v:version >= 703
-  setlocal norelativenumber
-endif
-
+setlocal norelativenumber
 setlocal nonumber
