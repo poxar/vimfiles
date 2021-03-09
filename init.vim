@@ -228,6 +228,9 @@ nnoremap <leader>es. :vsplit <C-R>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>c.  :lcd %:p:h<cr>
 cabbrev <expr> %% expand('%:p:h')
 
+" Close quickfix and location list windows
+nnoremap <leader>q :cclose<cr>:lclose<cr>
+
 " Commands {{{1
 
 " Strip trailing whitespace
