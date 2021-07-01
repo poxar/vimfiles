@@ -262,9 +262,7 @@ call s:HL('CursorLineNr', 'dalespale', s:gutter, 'bold')
 " }}}
 " Cursor {{{
 
-call s:HL('Cursor',  'coal', 'tardis', 'none')
-call s:HL('vCursor', 'coal', 'tardis', 'none')
-call s:HL('iCursor', 'coal', 'tardis', 'none')
+call s:HL('Cursor', 'coal', 'tardis', 'none')
 
 " }}}
 " Syntax highlighting {{{

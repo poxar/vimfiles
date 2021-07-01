@@ -56,6 +56,7 @@ set shortmess=atToOIc
 set notimeout
 set lazyredraw
 set termguicolors
+set guicursor+=a:Cursor
 colorscheme badwolf
 
 " Highlight git conflict markers
