@@ -1,3 +1,4 @@
 setlocal keywordprg=:Man
-nnoremap <buffer> ml<cr> :Dispatch shellcheck -f gcc %<cr>
-nnoremap <buffer> ml<space> :Dispatch shellcheck -f gcc %<space>
+compiler shellcheck
+nnoremap <buffer> ml<cr> :Make<cr>
+nnoremap <buffer> ml<space> :Make<space>
