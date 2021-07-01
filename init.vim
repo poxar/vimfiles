@@ -242,7 +242,7 @@ command! -nargs=? Todo grep! TODO:\\|FIXME:\\|XXX: <args> | botright cope
 command! -nargs=? Fixme grep! FIXME:\\|XXX: <args> | botright cope
 
 " edit current filetypeplugin
-command! Ftedit execute ":edit ". g:vim_path ."/ftplugin/".&ft.".vim"
+command! Ftedit execute ":edit ". stdpath('config') ."/ftplugin/".&ft.".vim"
 
 " pretty print
 command! -range=% JsonPP :<line1>,<line2>!python -m json.tool
