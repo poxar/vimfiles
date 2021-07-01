@@ -180,6 +180,16 @@ if executable('vala-language-server')
   augroup END
 endif
 
+if executable('elm-language-server')
+  augroup lsp_setup_elm
+    au! User lsp_setup call lsp#register_server({
+          \ 'name': 'elm-language-server',
+          \ 'cmd': {server_info->['elm-language-server']},
+          \ 'whitelist': ['elm'],
+          \ })
+  augroup END
+endif
+
 " Mappings {{{1
 
 inoremap jk <esc>
