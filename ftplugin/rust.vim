@@ -1,4 +1,4 @@
-setlocal keywordprg=devdocs\ rust
+setlocal keywordprg=open\ dash://rust:\
 
 if filereadable('Cargo.toml')
   compiler cargo

@@ -1,5 +1,4 @@
 setlocal noexpandtab
-setlocal keywordprg=merriam-webster
 nnoremap <buffer> ml<cr> :Dispatch -compiler=proselint<cr>
 
 " swap j/k/0/$ and gj/gk/g0/g$

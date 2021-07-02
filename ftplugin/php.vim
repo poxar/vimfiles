@@ -1,4 +1,4 @@
-setlocal keywordprg=devdocs\ php
+setlocal keywordprg=open\ dash://php:\
 nnoremap <buffer> ml<cr> :Dispatch php -l %<cr>
 
 if executable('uctags') && filereadable('tags')

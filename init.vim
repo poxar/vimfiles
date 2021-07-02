@@ -5,7 +5,6 @@
 "
 
 " Settings {{{1
-let $PATH .= ':' . expand(stdpath('config') . '/bin')
 set shada=!,'200,s20,h
 set undofile
 set nomodeline

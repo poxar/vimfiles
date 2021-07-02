@@ -10,4 +10,4 @@ setlocal autoindent    " align the new line indent with the previous line
 nnoremap <buffer> ml<cr> :Dispatch -compiler=flake8<cr>
 
 " documentation
-setlocal keywordprg=devdocs\ python
+setlocal keywordprg=open\ dash://python:\
