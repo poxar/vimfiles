@@ -114,11 +114,12 @@ let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
 let g:gundo_prefer_python3 = 1
 
-" ultisnips {{{2
+" snipmate {{{2
 
-command! Snipedit UltiSnipsEdit
-let g:UltiSnipsJumpForwardTrigger = "<c-n>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
+command! Snipedit SnipMateOpenSnippetFiles
+let g:snips_author = 'Philipp Millar'
+let g:snips_email = 'philipp.millar@poxar.net'
+let g:snipMate = { 'snippet_version' : 1 }
 
 " lsp {{{2
 
