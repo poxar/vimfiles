@@ -118,76 +118,55 @@ let g:UltiSnipsJumpForwardTrigger = "<c-n>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
 
 " lsp {{{2
-let g:lsp_diagnostics_enabled = 0
-let g:lsp_fold_enabled = 0
 
-function! s:on_lsp_buffer_enabled() abort
-  setlocal omnifunc=lsp#complete
+lua << EOF
+local nvim_lsp = require('lspconfig')
 
-  nmap <buffer> <C-]> <Plug>(lsp-definition)
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  nmap <buffer> gd <plug>(lsp-peek-declaration)
-  nmap <buffer> gD <plug>(lsp-peek-definition)
-  nmap <buffer> gr <plug>(lsp-references)
-endfunction
+  --Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-augroup lsp_install
-  au!
-  " call s:on_lsp_buffer_enabled only for languages that have the server registered.
-  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
 
-" See https://langserver.org/ for lsp implementations
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<space>m', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>l', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap("n", "mf<cr>", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+end
 
-if executable('clangd')
-  augroup lsp_setup_clangd
-    au! User lsp_setup call lsp#register_server({
-          \ 'name': 'clangd',
-          \ 'cmd': {server_info->['clangd']},
-          \ 'whitelist': ['c', 'cpp'],
-          \ })
-  augroup END
-endif
+local servers =
+    { "clangd"
+    , "rust_analyzer"
+    , "pyright"
+    , "hls"
+    , "elmls"
+    , "tsserver"
+    , "phpactor"
+    , "vala_ls"
+    }
 
-if executable('rls')
-  augroup lsp_setup_rls
-    au! User lsp_setup call lsp#register_server({
-          \ 'name': 'rls',
-          \ 'cmd': {server_info->['rls']},
-          \ 'whitelist': ['rust', 'rustdoc'],
-          \ })
-  augroup END
-endif
-
-if executable('pyls')
-  augroup lsp_setup_pyls
-    au! User lsp_setup call lsp#register_server({
-          \ 'name': 'pyls',
-          \ 'cmd': {server_info->['pyls']},
-          \ 'whitelist': ['python'],
-          \ })
-  augroup END
-endif
-
-if executable('vala-language-server')
-  augroup lsp_setup_vala
-    au! User lsp_setup call lsp#register_server({
-          \ 'name': 'vala-language-server',
-          \ 'cmd': {server_info->['vala-language-server']},
-          \ 'whitelist': ['vala'],
-          \ })
-  augroup END
-endif
-
-if executable('elm-language-server')
-  augroup lsp_setup_elm
-    au! User lsp_setup call lsp#register_server({
-          \ 'name': 'elm-language-server',
-          \ 'cmd': {server_info->['elm-language-server']},
-          \ 'whitelist': ['elm'],
-          \ })
-  augroup END
-endif
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup { on_attach = on_attach }
+end
+EOF
 
 " Mappings {{{1
 
@@ -238,8 +217,8 @@ nnoremap <leader>es. :vsplit <C-R>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>c.  :lcd %:p:h<cr>
 cabbrev <expr> %% expand('%:p:h')
 
-" Close quickfix and location list windows
-nnoremap <leader>q :cclose<cr>:lclose<cr>
+" Close all temporary windows (quickfix, locationlist, preview)
+nnoremap <leader>q :pclose\|cclose\|lclose<cr>
 
 " Commands {{{1
 

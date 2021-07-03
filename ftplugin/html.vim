@@ -1,3 +1,3 @@
 setlocal omnifunc=htmlcomplete#CompleteTags
-setlocal keywordprg=open\ dash://html:\
+nnoremap gK :silent !open dash://html:<cword><cr>
 nnoremap <buffer> ml<cr> :Dispatch -compiler=proselint<cr>

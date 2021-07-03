@@ -1,3 +1,3 @@
 setlocal omnifunc=csscomplete#CompleteCSS
-setlocal keywordprg=open\ dash://css:\
+nnoremap gK :silent !open dash://css:<cword><cr>
 nnoremap <buffer> ml<cr> :Dispatch -compiler=csslint<cr>

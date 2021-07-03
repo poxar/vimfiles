@@ -1,4 +1,4 @@
-nnoremap <buffer> K :LspHover<cr>
+nnoremap gK :silent !open dash://elm:<cword><cr>
 nnoremap <buffer> mf<cr> :LspDocumentFormat<cr>
 
 "setlocal errorformat=%E%.%#--\ %m\ -%#\ %f,%C%l\|,%C%.%#

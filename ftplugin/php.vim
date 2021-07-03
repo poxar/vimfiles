@@ -1,4 +1,4 @@
-setlocal keywordprg=open\ dash://php:\
+nnoremap gK :silent !open dash://php:<cword><cr>
 nnoremap <buffer> ml<cr> :Dispatch php -l %<cr>
 
 if executable('uctags') && filereadable('tags')

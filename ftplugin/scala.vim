@@ -1,4 +1,4 @@
 setlocal textwidth=100
 setlocal colorcolumn=+1
-setlocal keywordprg=open\ dash://scala:\
+nnoremap gK :silent !open dash://scala:<cword><cr>
 compiler bloop

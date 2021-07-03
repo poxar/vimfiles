@@ -1,5 +1,3 @@
-setlocal keywordprg=open\ dash://rust:\
-
 if filereadable('Cargo.toml')
   compiler cargo
 
@@ -14,11 +12,6 @@ if filereadable('Cargo.toml')
   nnoremap <buffer> mD<cr> :Termdebug target/debug/
 
   setlocal path+=./src
-endif
-
-if executable('racer')
-  command! -buffer -nargs=* -count=0 RustDoc call racer#ShowDocumentation()
-  setlocal keywordprg=:RustDoc
 endif
 
 let g:rust_fold = 0

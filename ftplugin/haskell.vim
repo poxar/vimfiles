@@ -4,4 +4,4 @@ let g:hs_highlight_types = 1
 let g:hs_highlight_more_types = 1
 let g:hs_highlight_debug = 1
 
-setlocal keywordprg=open\ dash://haskell:\
+nnoremap gK :silent !open dash://haskell:<cword><cr>
