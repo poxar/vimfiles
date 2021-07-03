@@ -61,6 +61,9 @@ colorscheme badwolf
 " Highlight git conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
+" Highlight yanked area
+au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=250, on_visual=true}
+
 " Completion
 set omnifunc=syntaxcomplete#Complete
 set wildmode=longest:full
