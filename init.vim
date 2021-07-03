@@ -70,6 +70,41 @@ set wildmode=longest:full
 set wildignorecase
 
 " Plugins {{{1
+" Installed plugins {{{2
+call plug#begin(stdpath('data') . '/plug')
+
+Plug 'arp242/xdg_open.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
+Plug 'hauleth/vim-backscratch', { 'on': ['Scratchify', 'Scratch'] }
+Plug 'justinmk/vim-dirvish'
+Plug 'poxar/vim-clipbored'
+Plug 'sheerun/vim-polyglot'
+Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+
+" The new kid on the block
+Plug 'neovim/nvim-lspconfig'
+
+" Tim Pope masterclass
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+
+" Snipmate & dependencies
+Plug 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+
+call plug#end()
 
 " man.vim {{{2
 let $MANWIDTH = 80
