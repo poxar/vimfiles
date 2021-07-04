@@ -75,6 +75,7 @@ call plug#begin(stdpath('data') . '/plug')
 
 Plug 'arp242/xdg_open.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'direnv/direnv.vim'
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
