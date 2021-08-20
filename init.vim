@@ -213,6 +213,7 @@ EOF
 inoremap jk <esc>
 inoremap <c-f> <c-x><c-f>
 
+nnoremap gg gg0
 nnoremap Y :normal y$<cr>
 
 nnoremap ' `
