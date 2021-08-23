@@ -1,3 +1,5 @@
+nnoremap gK :silent !open dash://rust:<cword><cr>
+
 if filereadable('Cargo.toml')
   compiler cargo
 
