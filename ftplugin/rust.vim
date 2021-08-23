@@ -8,9 +8,9 @@ if filereadable('Cargo.toml')
   nnoremap <buffer> mc<cr> :Make clean<cr>
   nnoremap <buffer> mb<cr> :Make build<cr>
   nnoremap <buffer> mf<cr> :Make fmt<cr>
-  nnoremap <buffer> mr<cr> :Make run<cr>
   nnoremap <buffer> mt<cr> :Make test<cr>
   nnoremap <buffer> md<cr> :Make doc<cr>
+  nnoremap <buffer> mr<cr> :Terminal cargo run<cr>
   nnoremap <buffer> mD<cr> :Termdebug target/debug/
 
   setlocal path+=./src
