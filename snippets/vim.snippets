@@ -6,3 +6,7 @@ snippet letg
 	let g:${1:name} = $2
 snippet nn
 	nnoremap ${1} ${2}<CR>
+snippet fun
+	function! ${1:name}(${2:...})
+		${0}
+	endfunction
