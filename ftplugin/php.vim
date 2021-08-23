@@ -1,5 +1,6 @@
-nnoremap gK :silent !open dash://php:<cword><cr>
+nnoremap <buffer> mt<cr> :Dispatch make test<cr>
 nnoremap <buffer> ml<cr> :Dispatch php -l %<cr>
+nnoremap <buffer> mc<cr> :Dispatch php -l %<cr>
 
 if executable('uctags') && filereadable('tags')
   augroup autotags
