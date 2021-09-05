@@ -99,7 +99,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
@@ -116,10 +115,6 @@ let g:man_hardwrap = 1
 
 " termdebug {{{2
 let g:termdebug_wide=161
-
-" vim-fugitive {{{2
-nnoremap <buffer> <leader>df :diffget //2<cr>
-nnoremap <buffer> <leader>dj :diffget //3<cr>
 
 " ctrlp.vim {{{2
 let g:ctrlp_extensions = ['tag', 'buffertag']
