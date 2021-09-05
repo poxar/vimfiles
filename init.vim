@@ -80,7 +80,10 @@ Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'hauleth/vim-backscratch', { 'on': ['Scratchify', 'Scratch'] }
 Plug 'poxar/vim-clipbored'
 Plug 'sheerun/vim-polyglot'
-Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+let g:undotree_ShortIndicators = 1
+nnoremap yot :UndotreeToggle<cr>
 
 " The new kid on the block
 Plug 'neovim/nvim-lspconfig'
@@ -124,13 +127,6 @@ nnoremap g\, :Tabularize /,\zs<cr>
 vnoremap g\, :Tabularize /,\zs<cr>
 nnoremap g\= :Tabularize /=<cr>
 vnoremap g\= :Tabularize /=<cr>
-
-" gundo.vim {{{2
-nnoremap yog :GundoToggle<cr>
-
-let g:gundo_preview_bottom = 1
-let g:gundo_right = 1
-let g:gundo_prefer_python3 = 1
 
 " snipmate {{{2
 
