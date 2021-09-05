@@ -1,27 +1,20 @@
 " only diplay cursorlines in active window
+if exists('g:loaded_cursorlines')
+  finish
+endif
+let g:loaded_cursorlines = 1
 
 augroup cursorlines
   au! cursorlines
-  au WinEnter,TabEnter,BufWinEnter,BufEnter,BufDelete,BufWipeout * call SetupCursorLines()
-  au WinLeave,TabLeave,BufWinLeave,BufLeave * call HideCursorLines()
-  au OptionSet diff call SetupCursorLines()
-  au DiffUpdated * call SetupCursorLines()
+  au! WinEnter,VimEnter,BufWinEnter * call cursorlines#refresh()
 augroup END
 
-function! g:SetupCursorLines()
-  if &ft !=# 'help' && !&diff
-    setlocal cursorline
-
-    if exists('b:my_cc')
-      setlocal colorcolumn=+1
+function! cursorlines#refresh()
+  for nr in range(1, winnr('$'))
+    if l:nr == winnr()
+      call setwinvar(l:nr, '&cursorline', 1)
+    else
+      call setwinvar(l:nr, '&cursorline', 0)
     endif
-  else
-    set colorcolumn=""
-    set nocursorline
-  endif
-endfunction
-
-function! g:HideCursorLines()
-  set colorcolumn=""
-  set nocursorline
+  endfor
 endfunction

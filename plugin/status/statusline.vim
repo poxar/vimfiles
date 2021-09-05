@@ -9,51 +9,59 @@ if exists('g:loaded_statusline')
 endif
 let g:loaded_statusline = 1
 
-command! ForceStatusline call s:setActive()
-
-" Automatically sets the statusline according to whether the buffer is selected
-augroup Statusline
-  au! Statusline
-  au! WinEnter,TabEnter,BufWinEnter,BufEnter,BufDelete,BufWipeout * call <SID>setActive()
-  au! WinLeave,TabLeave,BufWinLeave,BufLeave * call <SID>setInactive()
-  au! QuickFixCmdPost * call <SID>setActive()
+augroup statusline
+  au! statusline
+  au! WinEnter,VimEnter,BufWinEnter * call statusline#refresh()
 augroup END
 
 
-" We'll use the default status line when this returns 1
-function! s:skip()
-  if &ft ==? 'help'
-    return 1
-  endif
+function! statusline#refresh()
+  for nr in range(1, winnr('$'))
+    call setwinvar(l:nr, '&statusline', '%!statusline#status(' . l:nr . ')')
+  endfor
 endfunction
 
 
-" This is the definition of the status line for the active buffer
-function! s:setActive()
-  if s:skip()
-    return
+function! statusline#status(nr)
+  let l:active = a:nr == winnr()
+  let l:bufnum = winbufnr(a:nr)
+  let l:ftype = getbufvar(l:bufnum, '&filetype')
+  let l:btype = getbufvar(l:bufnum, '&buftype')
+  let l:name = bufname(l:bufnum)
+
+  if l:ftype ==# 'help'
+    return ' Help %t%=%P '
+  elseif l:ftype ==# 'man'
+    return ' Man %t%=%P '
+  elseif l:btype ==# 'quickfix'
+    return ' Quickfix %t%=%P '
+  elseif l:btype ==# 'terminal'
+    return ' Terminal %t'
+  elseif getbufvar(l:bufnum, '&previewwindow')
+    return ' Preview %t%=%P '
+  elseif name ==# '__Gundo__'
+    return ' Gundo'
+  elseif name ==# '__Gundo_Preview__'
+    return ' Gundo Preview'
   endif
 
-  setlocal statusline=
-  setlocal statusline+=%#InterestingWord1#\ %-3.3n%*\     " buffer number
-  setlocal statusline+=%{statusline#path()}               " file name
-  setlocal statusline+=%h%m%r%w                           " flags
-  setlocal statusline+=%=                                 " right align
-  setlocal statusline+=%#normal#\ %{statusline#stats()}%* " file stats
-  setlocal statusline+=\ \ %l:%v\                         " ruler
-endfunction
+  let l:modified = getbufvar(bufnum, '&modified')
+  let l:readonly = getbufvar(bufnum, '&readonly')
 
+  let l:status = ''
+  let l:status.=readonly ? '%1* RO %*' : ''
+  let l:status.=' %{statusline#path()}'
+  let l:status.=modified ? ' +' : ''
+  let l:status.='%='
 
-" This is the definition of the status line for all inactive buffers
-function! s:setInactive()
-  if s:skip()
-    return
+  if l:active
+    let l:status.='%2* %{statusline#stats()}%*'
+    let l:status.=' %4l:%-3v'
+  else
+    let l:status.='%p%% '
   endif
 
-  setlocal statusline=
-  setlocal statusline+=\ %-3.3n\           " buffer number
-  setlocal statusline+=%h%m%r%w            " flags
-  setlocal statusline+=%{statusline#path()} " file name
+  return l:status
 endfunction
 
 
@@ -68,7 +76,7 @@ function! statusline#path()
   " Apply all built in simplifications
   let l:path = simplify(l:path)
 
-  if len(l:path) > 20
+  if len(l:path) > 50
     let l:path = pathshorten(l:path)
   endif
 
@@ -85,7 +93,7 @@ endfunction
 function! statusline#stats()
   let l:filestats = ''
 
-  " Git statistics
+  " Git branch
   if exists('g:loaded_fugitive') && strlen(g:fugitive#head())
     let l:filestats .= g:fugitive#head() . ' '
   endif
