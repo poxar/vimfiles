@@ -87,6 +87,8 @@ nnoremap yot :UndotreeToggle<cr>
 
 " The new kid on the block
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 " netrw replacement
 Plug 'arp242/xdg_open.vim'
@@ -184,6 +186,16 @@ local servers =
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
+EOF
+
+" treesitter {{{2
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = { enable = false },
+  context_commentstring = { enable = true }
+}
 EOF
 
 " skim {{{2
