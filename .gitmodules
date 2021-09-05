@@ -1,0 +1,81 @@
+# snippet engine
+[submodule "pack/snippets/start/snipmate"]
+	path = pack/snippets/start/snipmate
+	url = https://github.com/garbas/vim-snipmate
+[submodule "pack/snippets/opt/addon-mw-utils"]
+	path = pack/snippets/start/addon-mw-utils
+	url = https://github.com/marcweber/vim-addon-mw-utils
+[submodule "pack/snippets/opt/tlib"]
+	path = pack/snippets/start/tlib
+	url = https://github.com/tomtom/tlib_vim
+
+# plugins for operating on files
+[submodule "pack/files/start/eunuch"]
+	path = pack/files/start/eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule "pack/files/start/dirvish"]
+	path = pack/files/start/dirvish
+	url = https://github.com/justinmk/vim-dirvish
+[submodule "pack/files/start/xdg_open"]
+	path = pack/files/start/xdg_open
+	url = https://github.com/arp242/xdg_open.vim
+
+# plugins for project specific settings
+[submodule "pack/project/start/direnv"]
+	path = pack/project/start/direnv
+	url = https://github.com/direnv/direnv.vim
+[submodule "pack/project/start/editorconfig"]
+	path = pack/project/start/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "pack/project/start/obsession"]
+	path = pack/project/start/obsession
+	url = https://github.com/tpope/vim-obsession
+
+# plugins that aid in formatting
+[submodule "pack/formatting/start/abolish"]
+	path = pack/formatting/start/abolish
+	url = https://github.com/tpope/vim-abolish
+[submodule "pack/formatting/start/tabular"]
+	path = pack/formatting/start/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "pack/formatting/start/surround"]
+	path = pack/formatting/start/surround
+	url = https://github.com/tpope/vim-surround
+[submodule "pack/formatting/start/repeat"]
+	path = pack/formatting/start/repeat
+	url = https://github.com/tpope/vim-repeat
+
+# plugins that extend syntax definitions or provide filetype specific
+# functionalities
+[submodule "pack/syntax/start/polyglot"]
+	path = pack/syntax/start/polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "pack/syntax/start/lspconfig"]
+	path = pack/syntax/start/lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "pack/syntax/start/treesitter"]
+	path = pack/syntax/start/treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "pack/syntax/start/treesitter-commentstring"]
+	path = pack/syntax/start/treesitter-commentstring
+	url = https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+[submodule "pack/syntax/start/commentary"]
+	path = pack/syntax/start/commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "pack/syntax/start/closetag"]
+	path = pack/syntax/start/closetag
+	url = https://github.com/docunext/closetag.vim
+
+# plugins that extend vims ui
+[submodule "pack/ui/start/backscratch"]
+	path = pack/ui/start/backscratch
+	url = https://github.com/hauleth/vim-backscratch
+[submodule "pack/ui/start/undotree"]
+	path = pack/ui/start/undotree
+	url = https://github.com/mbbill/undotree
+[submodule "pack/ui/start/dispatch"]
+	path = pack/ui/start/dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "pack/ui/start/fugitive"]
+	path = pack/ui/start/fugitive
+	url = https://github.com/tpope/vim-fugitive

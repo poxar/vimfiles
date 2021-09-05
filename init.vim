@@ -11,6 +11,7 @@ set nomodeline
 
 set hidden
 set virtualedit=block
+set clipboard+=unnamedplus
 
 let g:mapleader      = ' '
 let g:maplocalleader = '\\'
@@ -70,48 +71,8 @@ set wildmode=longest:full
 set wildignorecase
 
 " Plugins {{{1
-" Installed plugins {{{2
-call plug#begin(stdpath('data') . '/plug')
-
-Plug 'direnv/direnv.vim'
-Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
-Plug 'editorconfig/editorconfig-vim'
-Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
-Plug 'hauleth/vim-backscratch', { 'on': ['Scratchify', 'Scratch'] }
-Plug 'poxar/vim-clipbored'
-Plug 'sheerun/vim-polyglot'
-
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-let g:undotree_ShortIndicators = 1
-nnoremap yot :UndotreeToggle<cr>
-
-" The new kid on the block
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-
-" netrw replacement
-Plug 'arp242/xdg_open.vim'
-Plug 'justinmk/vim-dirvish'
-Plug 'tpope/vim-eunuch'
+" netrw {{{2
 let g:loaded_netrw = 1
-
-" Tim Pope masterclass
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-
-" Snipmate & dependencies
-Plug 'garbas/vim-snipmate'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-
-call plug#end()
 
 " man.vim {{{2
 let $MANWIDTH = 80
@@ -131,14 +92,16 @@ nnoremap g\= :Tabularize /=<cr>
 vnoremap g\= :Tabularize /=<cr>
 
 " snipmate {{{2
-
 command! Snipedit SnipMateOpenSnippetFiles
 let g:snips_author = 'Philipp Millar'
 let g:snips_email = 'philipp.millar@poxar.net'
 let g:snipMate = { 'snippet_version' : 1 }
 
-" lsp {{{2
+" undotree {{{2
+let g:undotree_ShortIndicators = 1
+nnoremap yot :UndotreeToggle<cr>
 
+" lsp {{{2
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
@@ -189,7 +152,6 @@ end
 EOF
 
 " treesitter {{{2
-
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
@@ -199,7 +161,6 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 " skim {{{2
-
 let $SKIM_DEFAULT_OPTIONS="--preview='head -$LINES {}'"
 nnoremap <c-p> :SK<cr>
 nnoremap <leader>n :SK $NOTEDIR<cr>
