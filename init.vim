@@ -73,14 +73,12 @@ set wildignorecase
 " Installed plugins {{{2
 call plug#begin(stdpath('data') . '/plug')
 
-Plug 'arp242/xdg_open.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'direnv/direnv.vim'
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'hauleth/vim-backscratch', { 'on': ['Scratchify', 'Scratch'] }
-Plug 'justinmk/vim-dirvish'
 Plug 'poxar/vim-clipbored'
 Plug 'sheerun/vim-polyglot'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
@@ -88,11 +86,16 @@ Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 " The new kid on the block
 Plug 'neovim/nvim-lspconfig'
 
+" netrw replacement
+Plug 'arp242/xdg_open.vim'
+Plug 'justinmk/vim-dirvish'
+Plug 'tpope/vim-eunuch'
+let g:loaded_netrw = 1
+
 " Tim Pope masterclass
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
@@ -113,9 +116,6 @@ let g:man_hardwrap = 1
 
 " termdebug {{{2
 let g:termdebug_wide=161
-
-" vim-dirvish {{{2
-let g:loaded_netrw = 1
 
 " vim-fugitive {{{2
 nnoremap <buffer> <leader>df :diffget //2<cr>
