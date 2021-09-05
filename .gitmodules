@@ -79,3 +79,6 @@
 [submodule "pack/ui/start/fugitive"]
 	path = pack/ui/start/fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "pack/ui/start/capslock"]
+	path = pack/ui/start/capslock
+	url = https://github.com/tpope/vim-capslock
