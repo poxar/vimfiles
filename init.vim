@@ -160,10 +160,17 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-" skim {{{2
-let $SKIM_DEFAULT_OPTIONS="--preview='head -$LINES {}'"
-nnoremap <c-p> :SK<cr>
-nnoremap <leader>n :SK $NOTEDIR<cr>
+" ctrlp.vim {{{2
+let g:ctrlp_extensions = ['tag', 'buffertag']
+
+nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>t :CtrlPBufTag<cr>
+nnoremap <leader>T :CtrlPTag<cr>
+nnoremap <leader>n :CtrlP $NOTEDIR<cr>
+
+if executable('rg')
+  let g:ctrlp_user_command = 'rg --files %s'
+endif
 
 " Mappings {{{1
 
