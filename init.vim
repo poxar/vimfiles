@@ -224,6 +224,16 @@ cabbrev <expr> %% expand('%:p:h')
 " Close all temporary windows (quickfix, locationlist, preview)
 nnoremap <leader>q :pclose\|cclose\|lclose<cr>
 
+nnoremap <leader>Q :copen<cr>
+nnoremap <leader>0 :cfirst<cr>
+nnoremap <leader>j :cnext<cr>
+nnoremap <leader>k :cprevious<cr>
+
+nnoremap <leader>L :lopen<cr>
+nnoremap <leader>1 :lfirst<cr>
+nnoremap <leader>l :lnext<cr>
+nnoremap <leader>h :lprevious<cr>
+
 " Terminal mode
 tnoremap <esc> <c-\><c-n>
 tnoremap <c-w> <c-\><c-n><c-w>
