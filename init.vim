@@ -41,6 +41,7 @@ set relativenumber
 
 set showbreak=↪
 set listchars=tab:⇥\ ,trail:·,extends:⇉,precedes:⇇,nbsp:␣
+set list
 set fillchars=fold:\ ,vert:│
 set breakindent
 set breakindentopt=sbr
