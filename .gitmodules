@@ -62,9 +62,6 @@
 [submodule "pack/syntax/start/commentary"]
 	path = pack/syntax/start/commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "pack/syntax/start/closetag"]
-	path = pack/syntax/start/closetag
-	url = https://github.com/docunext/closetag.vim
 
 # plugins that extend vims ui
 [submodule "pack/ui/start/backscratch"]
