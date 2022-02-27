@@ -82,3 +82,6 @@
 [submodule "pack/files/start/ctrlp"]
 	path = pack/files/start/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "pack/syntax/start/treesitter-playground"]
+	path = pack/syntax/start/treesitter-playground
+	url = https://github.com/nvim-treesitter/playground.git
