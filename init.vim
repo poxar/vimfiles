@@ -244,6 +244,10 @@ tnoremap <c-w><c-w> <c-w>
 tnoremap <c-w><esc> <esc>
 tnoremap <c-w><space> <c-\><c-n><c-^>
 
+" Readline mappings for command line mode
+cnoremap <C-A> <Home>
+cnoremap <C-X><C-A> <C-A>
+
 " Commands {{{1
 
 " open split terminals
