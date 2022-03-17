@@ -10,6 +10,9 @@
 	url = https://github.com/tomtom/tlib_vim
 
 # plugins for operating on files
+[submodule "pack/files/start/ctrlp"]
+	path = pack/files/start/ctrlp
+	url = https://github.com/ctrlpvim/ctrlp.vim
 [submodule "pack/files/start/eunuch"]
 	path = pack/files/start/eunuch
 	url = https://github.com/tpope/vim-eunuch
@@ -59,6 +62,9 @@
 [submodule "pack/syntax/start/treesitter-commentstring"]
 	path = pack/syntax/start/treesitter-commentstring
 	url = https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+[submodule "pack/syntax/start/treesitter-playground"]
+	path = pack/syntax/start/treesitter-playground
+	url = https://github.com/nvim-treesitter/playground.git
 [submodule "pack/syntax/start/commentary"]
 	path = pack/syntax/start/commentary
 	url = https://github.com/tpope/vim-commentary
@@ -79,9 +85,3 @@
 [submodule "pack/ui/start/capslock"]
 	path = pack/ui/start/capslock
 	url = https://github.com/tpope/vim-capslock
-[submodule "pack/files/start/ctrlp"]
-	path = pack/files/start/ctrlp
-	url = https://github.com/ctrlpvim/ctrlp.vim
-[submodule "pack/syntax/start/treesitter-playground"]
-	path = pack/syntax/start/treesitter-playground
-	url = https://github.com/nvim-treesitter/playground.git
