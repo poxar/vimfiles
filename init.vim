@@ -6,6 +6,8 @@
 
 " Settings {{{1
 set shada=!,'200,s20,h
+set nobackup
+set nowritebackup
 set undofile
 set nomodeline
 
